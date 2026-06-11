@@ -1,4 +1,5 @@
-This is a complete HTML document that creates a "Yono Games Hub" landing page. It displays exactly three game apps in a responsive card layout, each with its own set of details like app size, version, Android requirement, public ratings, signup bonus, and minimum withdrawal, along with a prominent download button.
+
+Here is an HTML document that creates a "Yono Games Hub" landing page. It features exactly three game apps, each displayed in a distinct card with clearly separated tags for all key information like app size, version, Android requirement, ratings, signup bonus, and minimum withdrawal, along with prominent download buttons.
 
 ```html
 <!DOCTYPE html>
@@ -6,421 +7,489 @@ This is a complete HTML document that creates a "Yono Games Hub" landing page. I
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="description" content="Yono Games Hub - Top 3 premium gaming apps with exclusive bonuses, high ratings, and instant download.">
-  <title>Yono Games Hub | Premium App Collection</title>
+  <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
+  <title>Yono Games Hub | Top 3 Premium Apps</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at 10% 20%, #0b1a2e, #07121f);
+      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
       min-height: 100vh;
-      padding: 0 20px 60px;
     }
 
-    /* header design */
-    .hero {
-      text-align: center;
-      padding: 48px 20px 32px;
+    /* premium header design */
+    header {
+      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 2;
     }
 
-    .hero h1 {
-      font-size: 3.2rem;
+    header h1 {
+      font-size: 2.5rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #FFD966, #FFB347, #FF8C42);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .hero .tagline {
-      font-size: 1.1rem;
-      opacity: 0.85;
-      background: rgba(255,255,255,0.08);
-      display: inline-block;
-      padding: 6px 20px;
-      border-radius: 60px;
+    header h1 span {
+      background: rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
-    /* main grid - 3 cards exactly */
-    .app-grid {
-      max-width: 1320px;
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 500;
+      color: #e0f2e5;
+    }
+
+    /* container */
+    .container {
+      max-width: 1400px;
       margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    /* exactly 3 cards grid */
+    .cards-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 32px;
+      margin-bottom: 50px;
     }
 
-    /* premium card */
-    .game-card {
-      background: #ffffff;
-      border-radius: 44px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 370px;
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(0px);
-      border: 1px solid rgba(255, 215, 120, 0.3);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .game-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 35px 45px -12px black;
-      border-color: #ffb347;
-    }
-
-    /* colorful top bar per card (visual identity) */
-    .card-accent {
-      height: 8px;
-      background: linear-gradient(90deg, #f7971e, #ffd200);
-    }
-
-    .card-content {
-      padding: 24px 22px 28px;
+    /* premium card design - enhanced with distinct tag sections */
+    .card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 36px;
+      padding: 24px 24px 32px;
       flex: 1;
+      min-width: 300px;
+      max-width: 380px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-align: center;
     }
 
-    /* app icon mock (image style) */
-    .app-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(145deg, #f8f9ff, #eef2fd);
-      border-radius: 24px;
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.25);
+      background: white;
+      border-color: #cbdbe0;
+    }
+
+    /* image styling */
+    .card-img {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+      background: linear-gradient(145deg, #f8fafd, #eef2f9);
+      border-radius: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-      font-size: 2.8rem;
-      font-weight: bold;
-      color: #f58c1f;
-      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
 
-    .app-title {
-      font-size: 1.85rem;
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+    }
+
+    .card h2 {
+      font-size: 1.9rem;
       font-weight: 800;
-      letter-spacing: -0.3px;
-      background: linear-gradient(120deg, #1F2B3C, #2D3E4F);
+      background: linear-gradient(125deg, #1e2b32, #2c4c3b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 10px;
+      margin: 12px 0 6px;
+      letter-spacing: -0.3px;
     }
 
-    /* info rows - structured exactly for app details */
-    .info-grid {
-      background: #F9F9FD;
-      border-radius: 32px;
-      padding: 16px 18px;
-      margin: 18px 0 14px;
-    }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 10px 0;
-      border-bottom: 1px solid #e9ecf2;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .info-row:last-child {
-      border-bottom: none;
-    }
-
-    .info-label {
-      color: #5c6f87;
-      font-weight: 600;
-    }
-
-    .info-value {
-      color: #1a2c3e;
+    .game-tag {
+      display: inline-block;
+      background: #eef2ff;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
       font-weight: 700;
+      color: #1f6392;
+      margin-bottom: 16px;
     }
 
-    .info-value.highlight {
-      color: #d45a1e;
-      background: #fff1e5;
-      padding: 2px 12px;
-      border-radius: 30px;
+    /* ========= NEW: SEPARATE TAGS FOR EACH INFO ========= */
+    .info-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 16px 0;
     }
-
-    /* ratings block: alag alag stars + rating text */
-    .ratings-section {
-      background: #ffffff;
+    .info-tag {
+      background: #f0f3f9;
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1f4973;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    .info-tag i {
+      font-style: normal;
+      font-size: 0.9rem;
+    }
+    /* ratings specific tag style */
+    .ratings-block {
+      background: #fff7e5;
       border-radius: 28px;
       padding: 12px 16px;
-      margin: 12px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      border: 1px solid #edf2f7;
-    }
-
-    .ratings-header {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #5b6e8c;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .star-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .stars {
-      color: #ffb83b;
-      font-size: 1.25rem;
-      letter-spacing: 2px;
-      font-weight: 500;
-    }
-
-    .votes {
-      font-size: 0.85rem;
-      background: #eff3f8;
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-weight: 600;
-      color: #2c3e66;
-    }
-
-    .bonus-badge-special {
-      background: linear-gradient(115deg, #fef7e0, #fff1ce);
-      border-radius: 36px;
-      padding: 12px 12px;
-      text-align: center;
       margin: 14px 0;
+      border: 1px solid #ffeaaf;
+    }
+    .ratings-title {
       font-weight: 800;
-      font-size: 1rem;
-      border: 1px solid #ffdd99;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #b8621a;
+      margin-bottom: 8px;
+    }
+    .stars-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .star-rating {
+      color: #ffb83b;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .vote-count {
+      background: white;
+      padding: 4px 12px;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #7a5800;
+    }
+    .extra-rating-note {
+      font-size: 0.7rem;
+      margin-top: 6px;
+      color: #a1621a;
     }
 
-    .withdrawal-note {
+    .bonus-badge {
+      background: #fef6e0;
+      border-radius: 60px;
+      padding: 8px 16px;
+      font-weight: 700;
+      color: #b85c00;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #eaf6ee;
-      padding: 6px 14px;
+      margin: 8px 4px;
+    }
+
+    .withdrawal-tag {
+      background: #e2f3e8;
       border-radius: 60px;
-      font-size: 0.8rem;
+      padding: 8px 16px;
       font-weight: 700;
       color: #1f7840;
-      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 4px;
     }
 
-    .download-btn {
-      display: block;
+    .reward-list {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 14px 12px;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    .reward-list li {
+      list-style: none;
+      padding: 6px 0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .reward-list li:last-child {
+      border: none;
+    }
+
+    .btn {
+      display: inline-block;
       width: 100%;
-      text-align: center;
-      background: linear-gradient(95deg, #0F2027, #203A43, #2C5364);
+      margin-top: 18px;
+      padding: 14px 0;
+      background: linear-gradient(95deg, #0066ff, #3b82f6);
       color: white;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 1.15rem;
-      padding: 14px 0;
       border-radius: 60px;
-      margin-top: 22px;
-      transition: all 0.2s;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 5px 12px rgba(0, 102, 255, 0.3);
       border: none;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-    }
-
-    .download-btn:hover {
-      background: linear-gradient(95deg, #1b3b48, #2c5364);
-      transform: scale(0.98);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-
-    .footer-note {
       text-align: center;
-      max-width: 800px;
-      margin: 40px auto 0;
-      background: rgba(10, 25, 40, 0.8);
-      backdrop-filter: blur(4px);
-      padding: 16px 20px;
-      border-radius: 70px;
-      color: #cbd5e6;
-      font-size: 0.85rem;
-      border: 1px solid rgba(255,200,100,0.2);
+      cursor: pointer;
     }
 
-    @media (max-width: 760px) {
-      .hero h1 {
-        font-size: 2.3rem;
+    .btn:hover {
+      background: linear-gradient(95deg, #0052cc, #1e6df2);
+      transform: scale(0.97);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-note {
+      text-align: center;
+      margin: 20px auto 0;
+      max-width: 650px;
+      background: #eaf4e8;
+      border-radius: 80px;
+      padding: 12px 20px;
+      font-weight: 500;
+      color: #1f543b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #0a2e1d;
+      color: #b9ddcb;
+      margin-top: 48px;
+      font-weight: 500;
+      border-top: 1px solid #21643f;
+    }
+
+    @media (max-width: 780px) {
+      .cards-grid {
+        gap: 20px;
       }
-      .app-grid {
-        gap: 24px;
+      .card {
+        min-width: 280px;
       }
-      .info-row {
-        font-size: 0.85rem;
+      header h1 {
+        font-size: 1.8rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="hero">
-  <h1>🎲 YONO GAMES HUB</h1>
-  <div class="tagline">Exclusive Offers • Instant Install • Verified Apps</div>
+<header>
+  <h1>
+    🎮 Yono Games Hub
+    <span>🔥 Top 3 Premium Apps</span>
+  </h1>
+  <div class="subhead">Exclusive offers • Instant bonuses • Trusted platform</div>
+</header>
+
+<div class="container">
+  <div class="cards-grid">
+    
+    <!-- ========= CARD 1: TEEN PATTI MASTER ========= -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti';">
+      </div>
+      <h2>Teen Patti Master</h2>
+      <div class="game-tag">🔥 #1 Card Game</div>
+      
+      <!-- separate info tags: Size, Version, Android Required (ALAG ALAG TAG) -->
+      <div class="info-tag-group">
+        <div class="info-tag"><i>📦</i> 68 MB</div>
+        <div class="info-tag"><i>🔄</i> v4.2.1</div>
+        <div class="info-tag"><i>🤖</i> Android 5.0+</div>
+      </div>
+      
+      <!-- separate ratings block with distinct rating value and votes (alag ratings) -->
+      <div class="ratings-block">
+        <div class="ratings-title">⭐ PUBLIC RATINGS ⭐</div>
+        <div class="stars-display">
+          <span class="star-rating">★★★★★ 4.8 ★</span>
+          <span class="vote-count">2.1M+ votes</span>
+        </div>
+        <div class="extra-rating-note">✨ Based on 2.1 Million+ user reviews</div>
+      </div>
+      
+      <!-- Signup Bonus as separate distinct tag -->
+      <div class="bonus-badge">🎁 Signup Bonus: ₹500 Welcome</div>
+      
+      <!-- Min Withdrawal separate tag -->
+      <div class="withdrawal-tag">💰 Min Withdrawal: ₹100</div>
+      
+      <div class="reward-list">
+        <li>🎁 100% Welcome Bonus up to ₹500</li>
+        <li>🏆 Daily Leaderboard ₹10K Prize</li>
+        <li>💎 3 Patti Live + Private Tables</li>
+        <li>⚡ Instant UPI Withdrawal</li>
+      </div>
+      
+      <a href="https://www.earntp.com/m/jm9n7r" class="btn" target="_blank" rel="noopener noreferrer">📲 Download Now</a>
+    </div>
+    
+    <!-- ========= CARD 2: YONO RUMMY ========= -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy';">
+      </div>
+      <h2>Yono Rummy</h2>
+      <div class="game-tag">🎲 Premium Rummy Experience</div>
+      
+      <!-- separate tags: Size, Version, Android -->
+      <div class="info-tag-group">
+        <div class="info-tag"><i>📦</i> 72 MB</div>
+        <div class="info-tag"><i>🔄</i> v5.1.0</div>
+        <div class="info-tag"><i>🤖</i> Android 5.0+</div>
+      </div>
+      
+      <!-- separate ratings block for Yono Rummy - alag ratings 4.9★ with different votes -->
+      <div class="ratings-block">
+        <div class="ratings-title">⭐ PUBLIC RATINGS ⭐</div>
+        <div class="stars-display">
+          <span class="star-rating">★★★★½ 4.9 ★</span>
+          <span class="vote-count">1.8M+ votes</span>
+        </div>
+        <div class="extra-rating-note">🔥 1.8 Million players rating 4.9 stars</div>
+      </div>
+      
+      <!-- Signup Bonus distinct -->
+      <div class="bonus-badge">🎁 Signup Bonus: ₹13+ Welcome</div>
+      
+      <!-- Min Withdrawal -->
+      <div class="withdrawal-tag">💰 Min Withdrawal: ₹100</div>
+      
+      <div class="reward-list">
+        <li>🎁 Signup Bonus: <strong>₹13+</strong></li>
+        <li>📆 Daily Login Rewards up to <strong>₹90</strong></li>
+        <li>💰 3% - 30% Deposit Cashback</li>
+        <li>⭐ VIP Rummy Tournaments</li>
+        <li>💸 Fastest Withdrawals in 2 mins</li>
+      </div>
+      
+      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn" target="_blank" rel="noopener noreferrer">🎮 Play Now</a>
+    </div>
+    
+    <!-- ========= CARD 3: SLOTS WINNER ========= -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner';">
+      </div>
+      <h2>Slots Winner</h2>
+      <div class="game-tag">💎 Mega Jackpot Slots</div>
+      
+      <!-- separate info tags -->
+      <div class="info-tag-group">
+        <div class="info-tag"><i>📦</i> 85 MB</div>
+        <div class="info-tag"><i>🔄</i> v3.9.5</div>
+        <div class="info-tag"><i>🤖</i> Android 5.0+</div>
+      </div>
+      
+      <!-- separate ratings block with distinct rating 4.7★ 3.2M votes -->
+      <div class="ratings-block">
+        <div class="ratings-title">⭐ PUBLIC RATINGS ⭐</div>
+        <div class="stars-display">
+          <span class="star-rating">★★★★☆ 4.7 ★</span>
+          <span class="vote-count">3.2M+ votes</span>
+        </div>
+        <div class="extra-rating-note">🎰 Trusted by 3.2 Million slot lovers</div>
+      </div>
+      
+      <!-- Signup Bonus tag alag se -->
+      <div class="bonus-badge">🎁 Signup Bonus: ₹18 - ₹100</div>
+      
+      <!-- Min Withdrawal tag -->
+      <div class="withdrawal-tag">💰 Min Withdrawal: ₹100</div>
+      
+      <div class="reward-list">
+        <li>🎰 Signup Bonus: <strong>₹18 - ₹100</strong></li>
+        <li>🚀 250% First Deposit Bonus</li>
+        <li>🏅 VIP Cashback & Referral Rewards</li>
+        <li>🎯 Weekly Free Spins & Drops</li>
+        <li>💎 Progressive Jackpot ₹1Cr+</li>
+      </div>
+      
+      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn" target="_blank" rel="noopener noreferrer">🎲 Join Now</a>
+    </div>
+  </div>
+
+  <div class="info-note">
+    🌟 100% secure platform | Instant bonuses credited | Min withdrawal ₹100 for all games | Separate ratings & features displayed per app
+  </div>
 </div>
 
-<div class="app-grid">
-  
-  <!-- GAME 1: ROCKET ROULETTE (all 6 params: size, version, android, rating, bonus, min withdrawal) -->
-  <div class="game-card">
-    <div class="card-accent"></div>
-    <div class="card-content">
-      <div class="app-icon">🚀🎰</div>
-      <div class="app-title">Rocket Roulette</div>
-      
-      <div class="info-grid">
-        <div class="info-row"><span class="info-label">📦 App Size</span><span class="info-value">68 MB</span></div>
-        <div class="info-row"><span class="info-label">🔄 Version</span><span class="info-value">v 4.2.1 (Latest)</span></div>
-        <div class="info-row"><span class="info-label">🤖 Android Required</span><span class="info-value">5.0+</span></div>
-      </div>
-      
-      <!-- Separate Ratings block (alag se) with distinct stars & votes -->
-      <div class="ratings-section">
-        <div class="ratings-header">⭐ PUBLIC RATINGS (Separate)</div>
-        <div class="star-rating">
-          <span class="stars">★★★★★ 4.8 ★</span>
-          <span class="votes">2.1M+ votes</span>
-        </div>
-        <div style="font-size:0.75rem; color:#397f5e; margin-top: 5px;">⭐ 84k+ 5-star reviews this week</div>
-      </div>
-      
-      <!-- bonus and min withdrawal separately -->
-      <div class="bonus-badge-special">🎁 Signup Bonus: ₹500 Welcome</div>
-      <div><span class="withdrawal-note">💰 Min Withdrawal: ₹100</span></div>
-      
-      <a href="#" class="download-btn" onclick="triggerDownload('Rocket Roulette')">⬇️ DOWNLOAD NOW</a>
-    </div>
-  </div>
-  
-  <!-- GAME 2: TEEN PATTI GOLD (2nd App) with same 6 params and ratings separate)
-       Different ratings value: 4.9★ , votes 1.8M+ -->
-  <div class="game-card">
-    <div class="card-accent" style="background: linear-gradient(90deg, #fa8232, #f9b43a);"></div>
-    <div class="card-content">
-      <div class="app-icon">🃏👑</div>
-      <div class="app-title">Teen Patti Gold</div>
-      
-      <div class="info-grid">
-        <div class="info-row"><span class="info-label">📦 App Size</span><span class="info-value">74 MB</span></div>
-        <div class="info-row"><span class="info-label">🔄 Version</span><span class="info-value">v 5.0.2 (Latest)</span></div>
-        <div class="info-row"><span class="info-label">🤖 Android Required</span><span class="info-value">5.0+</span></div>
-      </div>
-      
-      <!-- separate ratings block for this app (alag ratings) -->
-      <div class="ratings-section">
-        <div class="ratings-header">⭐ PUBLIC RATINGS (Verified)</div>
-        <div class="star-rating">
-          <span class="stars">★★★★½ 4.9 ★</span>
-          <span class="votes">1.8M+ votes</span>
-        </div>
-        <div style="font-size:0.75rem; color:#b9631a;">🔥 56k+ ratings this month</div>
-      </div>
-      
-      <div class="bonus-badge-special">🎁 Signup Bonus: ₹500 Welcome + Free Entry</div>
-      <div><span class="withdrawal-note">💰 Min Withdrawal: ₹100</span></div>
-      
-      <a href="#" class="download-btn" onclick="triggerDownload('Teen Patti Gold')">⬇️ INSTALL APP</a>
-    </div>
-  </div>
-  
-  <!-- GAME 3: SLOTS MASTER (3rd app) with all 6 params, separate ratings : 4.7★, votes 3.2M+ -->
-  <div class="game-card">
-    <div class="card-accent" style="background: linear-gradient(90deg, #e84342, #ff7e5e);"></div>
-    <div class="card-content">
-      <div class="app-icon">🎰💎</div>
-      <div class="app-title">Slots Master</div>
-      
-      <div class="info-grid">
-        <div class="info-row"><span class="info-label">📦 App Size</span><span class="info-value">82 MB</span></div>
-        <div class="info-row"><span class="info-label">🔄 Version</span><span class="info-value">v 3.9.0 (Latest)</span></div>
-        <div class="info-row"><span class="info-label">🤖 Android Required</span><span class="info-value">5.0+</span></div>
-      </div>
-      
-      <!-- separate ratings alag se for third app -->
-      <div class="ratings-section">
-        <div class="ratings-header">⭐ COMMUNITY RATING (Separate)</div>
-        <div class="star-rating">
-          <span class="stars">★★★★☆ 4.7 ★</span>
-          <span class="votes">3.2M+ votes</span>
-        </div>
-        <div style="font-size:0.75rem; color:#9b4b1e;">✨ 4.7 based on 3.2 million user reviews</div>
-      </div>
-      
-      <div class="bonus-badge-special">🎁 Exclusive Signup Bonus: ₹500 Welcome Pack</div>
-      <div><span class="withdrawal-note">💰 Min Withdrawal: ₹100 (Instant UPI)</span></div>
-      
-      <a href="#" class="download-btn" onclick="triggerDownload('Slots Master')">🎲 DOWNLOAD GAME</a>
-    </div>
-  </div>
-</div>
-
-<div class="footer-note">
-  ⚡ Each app includes independent rating metrics | Welcome bonuses subject to T&C | Min withdrawal ₹100 across all games | Android 5.0+ supported
-</div>
+<footer>
+  © 2025 Yono Games Hub — All trademarks belong to respective owners. Play responsibly. | 🎯 18+ only
+</footer>
 
 <script>
-  // Simulate download action with alert and redirect demonstration (since actual links not mandatory)
-  // but to create a functional experience, each button shows download message.
-  // As per requirement "download button show hona hai alag alag se" – each card has a distinct download button.
-  
-  function triggerDownload(appName) {
-    // Provide a user-friendly download simulation or store reference
-    // Since this is a demo and we need to respect safe browsing, showing a toast + install simulation.
-    // also if we wanted to route to APK download pages, but for demonstration we use a confirm.
-    // This fulfills "poro download button show hona hai" — interactive and distinct.
+  // Smooth entrance animation for cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, idx) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, idx * 80);
+    });
     
-    // For better experience, shows modal style alert but non-intrusive.
-    let userChoice = confirm(`📲 You are about to download ${appName} (Secure APK).\n\n✅ App Size & Ratings verified.\n✅ Bonus ₹500 + Min withdrawal ₹100.\n\nPress OK to begin secure download simulation.`);
-    if (userChoice) {
-      // Simulate download trigger + optional redirect placeholder (since no actual apk but displays download completed)
-      alert(`✔️ Download started: ${appName}\n\nYour ₹500 welcome bonus will be auto-credited after installation.\nMin withdrawal ₹100 available via UPI/Bank.`);
-      // Additional creative: you can also open fake download link, but we keep interactive clean.
-      // For real use, replace with store links. For now does exactly what requested.
-    } else {
-      alert("Download cancelled — you can try again anytime!");
-    }
-  }
-
-  // Additional styling to enhance each card's uniqueness
-  document.querySelectorAll('.game-card').forEach((card, index) => {
-    // Optionally add a subtle border effect dynamic
-    card.style.transition = "transform 0.3s ease, box-shadow 0.3s";
+    // additional interactive console log
+    console.log("✅ 3 apps loaded with separate size, version, android, ratings, bonus, min withdrawal tags.");
   });
   
-  // also ensure each ratings block feels clearly separated and "alag alag se hona hai" - yes each app has distinct rating numbers.
-  console.log("Three separate apps with distinct ratings & download buttons loaded.");
+  // optional download confirm for external links - but links remain functional
+  // ensures download buttons show distinct actions per app
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // allow actual navigation but also optional tracking
+      const appName = btn.closest('.card')?.querySelector('h2')?.innerText || 'App';
+      console.log(`🔽 Download triggered for ${appName}`);
+    });
+  });
 </script>
-
-<!-- The code includes EXACTLY the 6 required details for each app (size, version, android required, ratings (alag alag se), signup bonus, min withdrawal) 
-     Additionally, download buttons are shown for each card separately.
-     Ratings are uniquely different: 4.8★ (2.1M+), 4.9★ (1.8M+), 4.7★ (3.2M+) with individual rating cards. -->
 </body>
 </html>
 ```
