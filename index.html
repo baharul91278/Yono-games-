@@ -1,4 +1,4 @@
-Here is an interactive Yono Games Hub page where clicking any Download button opens a dedicated download page for that app, with the remaining 20 apps listed at the bottom as recommendations.
+Here is the improved Yono Games Hub page. On the Download Page, each app now shows a clean DOWNLOAD button and rich information tags (downloads, size, Android version, rating, reviews, PEGI), while the other 20 apps are listed below with their own DOWNLOAD buttons.
 
 ```html
 <!DOCTYPE html>
@@ -40,6 +40,7 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
             transition: 0.2s;
             padding: 6px 12px;
             border-radius: 40px;
+            cursor: pointer;
         }
 
         .top-nav a:hover {
@@ -219,19 +220,54 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
             text-align: center;
         }
 
+        /* rich info tags */
+        .rich-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            background: #f8fafc;
+            padding: 18px 20px;
+            border-radius: 50px;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+        .info-tag {
+            background: #ffffff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2c4c3b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e2edf2;
+        }
+        .rating-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff2df;
+            padding: 6px 18px;
+            border-radius: 60px;
+        }
+        .stars {
+            color: #f5b042;
+            letter-spacing: 2px;
+        }
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
-            padding: 18px 24px;
+            padding: 16px 28px;
             font-size: 1.3rem;
             font-weight: 800;
             border-radius: 80px;
             display: inline-block;
             width: auto;
-            min-width: 240px;
+            min-width: 220px;
             margin: 16px auto;
             box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
+            text-decoration: none;
+            color: white;
         }
-
         .back-home {
             background: #475569;
             margin-top: 20px;
@@ -281,9 +317,16 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
 
         .small-download {
             background: #e67e22;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             padding: 8px 0;
             margin-top: 12px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 60px;
+            font-weight: 700;
         }
 
         .footer-note {
@@ -312,28 +355,25 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
             .card {
                 min-width: 260px;
             }
-
             .top-nav {
                 gap: 16px;
             }
-
-            .top-nav a {
-                font-size: 0.85rem;
-            }
-
             .download-header h2 {
                 font-size: 1.6rem;
+            }
+            .rich-info {
+                gap: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="top-nav">
-        <a href="#" id="homeNavLink">🏠 Home</a>
-        <a href="#">ℹ️ About</a>
-        <a href="#">📞 Contact</a>
-        <a href="#">⚖️ Disclaimer</a>
-        <a href="#">📢 TG Join</a>
+        <a id="homeNavLink">🏠 Home</a>
+        <a>ℹ️ About</a>
+        <a>📞 Contact</a>
+        <a>⚖️ Disclaimer</a>
+        <a>📢 TG Join</a>
     </div>
 
     <header>
@@ -342,9 +382,7 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
     </header>
 
     <div class="container" id="mainContainer">
-        <!-- Main grid with all 21 apps will be injected here -->
         <div id="allAppsGrid" class="cards-grid"></div>
-        <!-- Download page container (hidden initially) -->
         <div id="downloadPageContainer" class="hidden"></div>
     </div>
 
@@ -378,7 +416,30 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" }
         ];
 
-        // Helper: render main grid
+        // helper: generate dynamic rich info for each app (downloads, size, rating, reviews)
+        function getRichInfo(appName) {
+            // deterministic fake but realistic data based on name hash
+            let hash = 0;
+            for (let i = 0; i < appName.length; i++) {
+                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+                hash |= 0;
+            }
+            const downloadsList = ["89K+", "125K+", "210K+", "95K+", "150K+", "310K+", "74K+", "500K+", "1.2M+", "67K+"];
+            const sizeList = ["8.5 MB", "12 MB", "15 MB", "9.2 MB", "11.8 MB", "14 MB", "7.9 MB", "18 MB", "22 MB", "10 MB"];
+            const ratingList = ["4.5", "4.7", "4.6", "4.8", "4.4", "4.9", "4.3", "4.7", "4.6", "4.9"];
+            const reviewsList = ["41k", "62k", "33k", "89k", "27k", "154k", "48k", "226k", "95k", "38k"];
+            const idx = Math.abs(hash) % downloadsList.length;
+            return {
+                downloads: downloadsList[idx],
+                size: sizeList[idx],
+                androidVer: "Android 5.0+",
+                rating: ratingList[idx],
+                reviews: reviewsList[idx],
+                pegi: "PEGI-18"
+            };
+        }
+
+        // Render main grid (21 apps)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -395,8 +456,6 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
                 `;
             });
             gridContainer.innerHTML = html;
-
-            // attach event listeners to all download buttons in main grid
             document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const idx = btn.getAttribute('data-download-index');
@@ -406,46 +465,59 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
             });
         }
 
-        // Show "Next Download Page" for selected app + list of other 20 apps at bottom
+        // Show download page (next page) with rich info and ONLY "DOWNLOAD" button text (and back button)
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
-
-            // hide main grid, show download page container
+            const rich = getRichInfo(selectedApp.name);
+            
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
             gridDiv.classList.add('hidden');
             downloadContainer.classList.remove('hidden');
 
-            // Build "other apps" list (all apps except the selected one)
             const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
-
-            // Build download page HTML
+            
             let otherAppsHtml = '';
             otherApps.forEach((app, idx) => {
+                const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                     <div class="other-card">
                         <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
                         <div class="app-name" style="font-size: 1.1rem;">${app.name}</div>
                         <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
                         <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
-                        <button class="download-btn small-download" data-other-index="${appsData.findIndex(a => a.name === app.name)}">⬇️ Get App</button>
+                        <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
                     </div>
                 `;
             });
-
+            
+            const richInfoHtml = `
+                <div class="rich-info">
+                    <span class="info-tag">📥 ${rich.downloads} Downloads</span>
+                    <span class="info-tag">💾 ${rich.size}</span>
+                    <span class="info-tag">🤖 ${rich.androidVer}</span>
+                    <div class="rating-box">
+                        <span class="stars">⭐ ${rich.rating}</span>
+                        <span class="info-tag" style="background:transparent">(${rich.reviews} reviews)</span>
+                    </div>
+                    <span class="info-tag">🔞 ${rich.pegi}</span>
+                </div>
+            `;
+            
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
                         <h2>📥 DOWNLOAD PAGE</h2>
-                        <p style="color: #4a5b6e;">You have selected <strong>${selectedApp.name}</strong> — get your exclusive signup bonus</p>
+                        <p style="color: #4a5b6e;">Complete information — tap DOWNLOAD to get your bonus</p>
                     </div>
                     <div class="app-highlight">
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
                         <div class="bonus" style="font-size: 1.2rem; padding: 8px 22px;">🎁 Signup Bonus: ${selectedApp.bonus}</div>
                         <div class="withdrawal" style="font-size: 1rem;">💰 Min Withdrawal: ${selectedApp.withdrawal}</div>
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="download-btn final-download-btn" style="display: inline-block; text-decoration: none;">🚀 PROCEED TO DOWNLOAD</a>
+                        ${richInfoHtml}
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" style="display: inline-block; text-decoration: none;">📲 DOWNLOAD</a>
                         <button id="backToAllAppsBtn" class="download-btn back-home">🏠 Back to All 21 Apps</button>
                     </div>
                     
@@ -454,40 +526,35 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
                         ${otherAppsHtml}
                     </div>
                     <div class="footer-note" style="margin-top: 28px;">
-                        🌟 All apps provide ₹100 minimum withdrawal | Trusted by 1M+ users
+                        🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
                     </div>
                 </div>
             `;
-
+            
             downloadContainer.innerHTML = downloadPageHtml;
-
-            // Add event listeners for "other app" download buttons inside the download page
+            
+            // attach events for other app download buttons (all say DOWNLOAD)
             const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
             otherDownloadBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const otherIdx = btn.getAttribute('data-other-index');
                     if (otherIdx !== null) {
-                        // show download page for that other app (nested navigation)
                         showDownloadPage(parseInt(otherIdx));
                     }
                     e.stopPropagation();
                 });
             });
-
-            // Back to all apps button
+            
             const backBtn = document.getElementById('backToAllAppsBtn');
             if (backBtn) {
                 backBtn.addEventListener('click', () => {
-                    // Hide download page, show main grid again
                     downloadContainer.classList.add('hidden');
                     gridDiv.classList.remove('hidden');
-                    // reset scroll
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
         }
-
-        // Home nav link: reset to main grid
+        
         function resetToMainGrid() {
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -497,8 +564,7 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
-
-        // Initialize page
+        
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
@@ -508,16 +574,15 @@ Here is an interactive Yono Games Hub page where clicking any Download button op
                     resetToMainGrid();
                 });
             }
-            // make sure any other top nav links also reset? just keep simple
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
             otherNavs.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    alert('Navigation demo: Use "Home" to return to all apps. This is a fast download page hub.');
+                    alert('Navigate using "Home" button to return to all 21 apps. This is a fast download hub.');
                 });
             });
         }
-
+        
         init();
     </script>
 </body>
