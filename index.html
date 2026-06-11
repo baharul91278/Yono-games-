@@ -1,13 +1,11 @@
-Here is the complete HTML document with fully functional download buttons. I've fixed the click issue by replacing the onclick alert with proper working links and added JavaScript that triggers real download actions or redirects.
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-  <title>Yono Games Hub | Top 3 Premium Apps | Teen Patti Master | Yono Rummy | Slots Winner</title>
+  <title>Yono Games Hub | Top 3 Premium Apps | Fast Withdrawal | 24/7 Support</title>
   <style>
     * {
       margin: 0;
@@ -19,23 +17,20 @@ Here is the complete HTML document with fully functional download buttons. I've 
     body {
       background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
       min-height: 100vh;
+      padding-bottom: 20px;
     }
 
-    /* premium header design */
     header {
       background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
       padding: 28px 20px;
       text-align: center;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      position: relative;
-      z-index: 2;
     }
 
     header h1 {
       font-size: 2.5rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -57,17 +52,14 @@ Here is the complete HTML document with fully functional download buttons. I've 
       opacity: 0.9;
       margin-top: 8px;
       font-weight: 500;
-      color: #e0f2e5;
     }
 
-    /* container */
     .container {
       max-width: 1450px;
       margin: 40px auto;
       padding: 0 24px;
     }
 
-    /* exactly 3 cards grid */
     .cards-grid {
       display: flex;
       flex-wrap: wrap;
@@ -76,7 +68,6 @@ Here is the complete HTML document with fully functional download buttons. I've 
       margin-bottom: 50px;
     }
 
-    /* premium card design - enhanced with multiple tags */
     .card {
       background: rgba(255, 255, 255, 0.98);
       border-radius: 44px;
@@ -91,18 +82,17 @@ Here is the complete HTML document with fully functional download buttons. I've 
     }
 
     .card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-10px);
       box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.3);
-      background: white;
       border-color: #ffcf8a;
     }
 
     .card-img {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       margin: 0 auto 18px;
       background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-      border-radius: 36px;
+      border-radius: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -114,392 +104,321 @@ Here is the complete HTML document with fully functional download buttons. I've 
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 32px;
-      display: block;
+      border-radius: 28px;
     }
 
     .card h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(125deg, #1e562a, #2c4c3b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin: 12px 0 6px;
-      letter-spacing: -0.3px;
+      margin: 8px 0 6px;
     }
 
     .game-tag {
       display: inline-block;
       background: #eef2ff;
       border-radius: 40px;
-      padding: 6px 18px;
-      font-size: 0.75rem;
+      padding: 5px 16px;
+      font-size: 0.7rem;
       font-weight: 800;
       color: #1f6392;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    /* ===== MULTIPLE INFO TAGS - JADA JADA SE ===== */
-    .multi-tag-container {
+    /* info sections */
+    .info-section {
       background: #f9fbfe;
-      border-radius: 32px;
-      padding: 16px 12px;
-      margin: 16px 0;
+      border-radius: 28px;
+      padding: 14px 12px;
+      margin: 14px 0;
     }
     .tags-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 15px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
     .spec-tag {
       background: #e9eef4;
       border-radius: 60px;
-      padding: 8px 16px;
-      font-size: 0.75rem;
+      padding: 6px 14px;
+      font-size: 0.7rem;
       font-weight: 700;
       color: #1f3b4c;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-      transition: 0.1s;
+      gap: 6px;
     }
-    .spec-tag i {
-      font-style: normal;
-      font-size: 1rem;
-    }
-    .highlight-tag {
+    .highlight {
       background: #ffecb3;
       color: #b45116;
     }
-    
-    /* RATINGS BLOCK - EXTRA RICH */
+    .green-tag {
+      background: #e0f2e9;
+      color: #146b3a;
+    }
+    .blue-tag {
+      background: #e3f0ff;
+      color: #1a5d9c;
+    }
+
+    /* ratings */
     .ratings-premium {
       background: linear-gradient(105deg, #fffaf0, #fff3e0);
-      border-radius: 28px;
-      padding: 16px 14px;
-      margin: 16px 0;
+      border-radius: 24px;
+      padding: 12px;
+      margin: 12px 0;
       border: 1px solid #ffd89a;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
-    .ratings-header {
-      font-weight: 800;
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      color: #c26b1a;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
     }
     .stars-big {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 8px;
+      gap: 10px;
     }
     .stars-number {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: #f5a623;
       background: white;
-      padding: 5px 15px;
+      padding: 4px 12px;
       border-radius: 50px;
-      display: inline-block;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     .votes-detail {
       font-weight: 700;
-      color: #68572e;
       background: #fff2df;
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 60px;
+      font-size: 0.7rem;
     }
-    .rating-stats {
+
+    .bonus-multi, .withdrawal-multi {
+      border-radius: 40px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 4px;
+    }
+    .bonus-multi { background: #fef1cf; color: #b45900; }
+    .withdrawal-multi { background: #e0f2e9; color: #146b3a; }
+
+    /* new tags for win time, support, otp, apk */
+    .feature-grid {
       display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-top: 10px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #966c3a;
       flex-wrap: wrap;
-    }
-    .bonus-multi {
-      background: #fef1cf;
-      border-radius: 44px;
-      padding: 8px 16px;
-      font-weight: 800;
-      color: #b45900;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin: 6px 5px;
-    }
-    .withdrawal-multi {
-      background: #e0f2e9;
-      border-radius: 44px;
-      padding: 8px 16px;
-      font-weight: 800;
-      color: #146b3a;
-      display: inline-flex;
-      align-items: center;
+      justify-content: center;
       gap: 8px;
-      margin: 6px 5px;
+      margin: 12px 0;
     }
-    .feature-badge {
-      background: #eaeef5;
-      border-radius: 28px;
-      padding: 8px 12px;
-      font-size: 0.7rem;
-      font-weight: 600;
+    .feature-chip {
+      background: #f0f3fa;
+      border-radius: 30px;
+      padding: 5px 12px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #2c5282;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
-    .btn-down {
+    .feature-chip i { font-style: normal; font-size: 0.8rem; }
+
+    /* small download button */
+    .small-download-btn {
       display: inline-block;
-      width: 100%;
-      margin-top: 22px;
-      padding: 15px 0;
+      width: auto;
+      margin-top: 18px;
+      padding: 10px 22px;
       background: linear-gradient(95deg, #e67e22, #f39c12);
       color: white;
       text-decoration: none;
-      border-radius: 60px;
+      border-radius: 50px;
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       transition: 0.2s;
-      box-shadow: 0 6px 16px rgba(230,126,34,0.4);
-      border: none;
+      box-shadow: 0 3px 10px rgba(230,126,34,0.3);
       text-align: center;
       cursor: pointer;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
-    .btn-down:hover {
+    .small-download-btn:hover {
       background: linear-gradient(95deg, #d35400, #e67e22);
-      transform: scale(0.97);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .btn-down:active {
       transform: scale(0.96);
     }
+
     .footer-note {
       text-align: center;
-      margin-top: 20px;
       background: #ecf9f0;
       border-radius: 60px;
       padding: 14px;
       font-weight: 500;
+      font-size: 0.85rem;
     }
     footer {
       background: #0a2e1d;
       color: #b9ddcb;
       text-align: center;
-      padding: 28px;
-      margin-top: 48px;
+      padding: 24px;
+      margin-top: 40px;
+      font-size: 0.8rem;
     }
     @media (max-width: 860px) {
       .card { min-width: 280px; }
-      .stars-number { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
 <header>
   <h1>🎮 Yono Games Hub <span>🔥 Top 3 Premium Apps</span></h1>
-  <div class="subhead">Exclusive bonuses • Fast withdrawals • HD graphics</div>
+  <div class="subhead">⚡ Fast Withdrawal • 24/7 Support • Official APK ⚡</div>
 </header>
 
 <div class="container">
   <div class="cards-grid">
     
-    <!-- ==================== CARD 1: TEEN PATTI MASTER ================= -->
+    <!-- ============= APP 1: TEEN PATTI MASTER ============= -->
     <div class="card">
-      <div class="card-img">
-        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti'">
-      </div>
+      <div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti'"></div>
       <h2>🔥 Teen Patti Master</h2>
-      <div class="game-tag">⚡ India's No.1 Card Game ⚡</div>
+      <div class="game-tag">⚡ #1 Card Game ⚡</div>
       
-      <div class="multi-tag-container">
+      <div class="info-section">
         <div class="tags-row">
-          <span class="spec-tag"><i>📦</i> App Size: 68 MB</span>
-          <span class="spec-tag"><i>🔄</i> Version: 4.2.1</span>
-          <span class="spec-tag"><i>🤖</i> Android 5.0+</span>
-        </div>
-        <div class="tags-row">
-          <span class="spec-tag highlight-tag"><i>⚡</i> CPU: Optimized</span>
-          <span class="spec-tag highlight-tag"><i>📱</i> 2GB RAM+</span>
-          <span class="spec-tag"><i>🌐</i> Online Multiplayer</span>
+          <span class="spec-tag">📦 68 MB</span>
+          <span class="spec-tag">🔄 v4.2.1</span>
+          <span class="spec-tag">🤖 Android 5.0+</span>
         </div>
       </div>
       
       <div class="ratings-premium">
-        <div class="ratings-header">⭐✨ PUBLIC RATINGS (Verified) ✨⭐</div>
         <div class="stars-big">
           <span class="stars-number">4.8 ★</span>
-          <span class="votes-detail">🎯 2,150,000+ Votes</span>
+          <span class="votes-detail">2.15M+ votes</span>
         </div>
-        <div class="rating-stats">
-          <span>⭐ 5★ : 1.2M</span>
-          <span>⭐ 4★ : 650K</span>
-          <span>🔥 94% positive</span>
-        </div>
-        <div style="font-size:0.7rem; margin-top: 8px;">🏆 Top rated in Card Games (Play Store)</div>
+        <div style="font-size:0.65rem; margin-top:6px;">⭐ 94% positive | 1.2M 5-star</div>
       </div>
       
-      <div>
-        <span class="bonus-multi">🎁 ₹500 Welcome Bonus</span>
-        <span class="bonus-multi">🎁 100% First Deposit Match</span>
-      </div>
-      <div>
-        <span class="withdrawal-multi">💰 Min Withdrawal: ₹100</span>
-        <span class="withdrawal-multi">⚡ Instant UPI / Bank</span>
+      <!-- ALAG ALAG TAGS: win time, withdrawal time, fast mobile app, OTP login, 24/7 service, official APK -->
+      <div class="feature-grid">
+        <span class="feature-chip">🏆 Win Time: Instant</span>
+        <span class="feature-chip">💸 Withdrawal Time: 2-5 mins</span>
+        <span class="feature-chip">📱 Fast Mobile App</span>
+        <span class="feature-chip">🔐 OTP Login Secure</span>
+        <span class="feature-chip">🛎️ 24/7 Customer Service</span>
+        <span class="feature-chip">✅ Official APK v4.2.1</span>
       </div>
       
-      <div class="feature-badge" style="margin:14px 0 0;">🔥 Daily Jackpot | Private Tables | 24/7 Support</div>
-      <!-- WORKING DOWNLOAD BUTTON - clickable link -->
-      <a href="https://www.earntp.com/m/jm9n7r" class="btn-down" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD APP NOW</a>
+      <div><span class="bonus-multi">🎁 ₹500 Welcome Bonus</span><span class="withdrawal-multi">💰 Min Withdrawal ₹100</span></div>
+      
+      <!-- small download button -->
+      <a href="https://www.earntp.com/m/jm9n7r" class="small-download-btn" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TEEN PATTI MASTER</a>
     </div>
     
-    <!-- ==================== CARD 2: YONO RUMMY ================= -->
+    <!-- ============= APP 2: YONO RUMMY ============= -->
     <div class="card">
-      <div class="card-img">
-        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy'">
-      </div>
+      <div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy'"></div>
       <h2>🃏 Yono Rummy</h2>
-      <div class="game-tag">♠️ Classic Rummy • Real Cash ♥️</div>
+      <div class="game-tag">♠️ Real Cash Rummy ♥️</div>
       
-      <div class="multi-tag-container">
+      <div class="info-section">
         <div class="tags-row">
-          <span class="spec-tag"><i>📦</i> Size: 72 MB</span>
-          <span class="spec-tag"><i>🔄</i> v5.1.0 (Latest)</span>
-          <span class="spec-tag"><i>🤖</i> Android 5.0+</span>
-        </div>
-        <div class="tags-row">
-          <span class="spec-tag highlight-tag"><i>🎮</i> 2M+ Downloads</span>
-          <span class="spec-tag"><i>🔒</i> Secure RNG</span>
-          <span class="spec-tag"><i>⚡</i> 4K HD Tables</span>
+          <span class="spec-tag">📦 72 MB</span>
+          <span class="spec-tag">🔄 v5.1.0</span>
+          <span class="spec-tag">🤖 Android 5.0+</span>
         </div>
       </div>
       
       <div class="ratings-premium">
-        <div class="ratings-header">⭐🎖️ PUBLIC RATINGS (Trusted) 🎖️⭐</div>
         <div class="stars-big">
           <span class="stars-number">4.9 ★</span>
-          <span class="votes-detail">📊 1,820,000+ Reviews</span>
+          <span class="votes-detail">1.82M+ votes</span>
         </div>
-        <div class="rating-stats">
-          <span>🔥 4.9 avg</span>
-          <span>⭐ 5★ : 1.1M</span>
-          <span>🏅 Top Rummy App 2025</span>
-        </div>
-        <div style="font-size:0.7rem;">✅ Verified by Gamers' Choice Award</div>
+        <div style="font-size:0.65rem;">🔥 Top Rummy App 2025 | 1.1M 5-star</div>
       </div>
       
-      <div>
-        <span class="bonus-multi">🎁 ₹13+ Signup Bonus</span>
-        <span class="bonus-multi">📆 Daily ₹90 Login Reward</span>
+      <!-- ALAG TAGS -->
+      <div class="feature-grid">
+        <span class="feature-chip">🏆 Win Time: Real-time</span>
+        <span class="feature-chip">💸 Withdrawal Time: Instant (UPI)</span>
+        <span class="feature-chip">📱 Fast Mobile App</span>
+        <span class="feature-chip">🔐 OTP Login + Biometric</span>
+        <span class="feature-chip">🛎️ 24/7 Live Chat Support</span>
+        <span class="feature-chip">✅ Official APK v5.1.0</span>
       </div>
-      <div>
-        <span class="withdrawal-multi">💰 Min Withdrawal: ₹100</span>
-        <span class="withdrawal-multi">💸 Instant Cashout</span>
-      </div>
-      <div class="feature-badge" style="margin:14px 0 0;">🎯 30% Cashback | VIP Tournaments | Referral Earnings</div>
-      <!-- WORKING DOWNLOAD BUTTON -->
-      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn-down" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY</a>
+      
+      <div><span class="bonus-multi">🎁 ₹13+ Signup Bonus</span><span class="withdrawal-multi">💰 Min Withdrawal ₹100</span></div>
+      
+      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="small-download-btn" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY</a>
     </div>
     
-    <!-- ==================== CARD 3: SLOTS WINNER ================= -->
+    <!-- ============= APP 3: SLOTS WINNER ============= -->
     <div class="card">
-      <div class="card-img">
-        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner'">
-      </div>
+      <div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner'"></div>
       <h2>🎰 Slots Winner</h2>
-      <div class="game-tag">💎 Mega Spin • Jackpot King 💎</div>
+      <div class="game-tag">💎 Mega Jackpot Slots 💎</div>
       
-      <div class="multi-tag-container">
+      <div class="info-section">
         <div class="tags-row">
-          <span class="spec-tag"><i>📦</i> App Size: 85 MB</span>
-          <span class="spec-tag"><i>🔄</i> Version: 3.9.5</span>
-          <span class="spec-tag"><i>🤖</i> Required: 5.0+</span>
-        </div>
-        <div class="tags-row">
-          <span class="spec-tag highlight-tag"><i>🎰</i> 1500+ Slots</span>
-          <span class="spec-tag"><i>🏆</i> Progressive JP</span>
-          <span class="spec-tag"><i>📱</i> 120fps</span>
+          <span class="spec-tag">📦 85 MB</span>
+          <span class="spec-tag">🔄 v3.9.5</span>
+          <span class="spec-tag">🤖 Android 5.0+</span>
         </div>
       </div>
       
       <div class="ratings-premium">
-        <div class="ratings-header">⭐🎲 COMMUNITY RATINGS 🎲⭐</div>
         <div class="stars-big">
           <span class="stars-number">4.7 ★</span>
-          <span class="votes-detail">🎰 3,250,000+ Votes</span>
+          <span class="votes-detail">3.25M+ votes</span>
         </div>
-        <div class="rating-stats">
-          <span>⭐ Top Slot Game</span>
-          <span>🔥 91% Recommend</span>
-          <span>💎 1.2M 5-Star</span>
-        </div>
-        <div style="font-size:0.7rem;">🌟 "Best Slot Experience 2025" – Player's Choice</div>
+        <div style="font-size:0.65rem;">🎰 91% Recommend | 1.2M 5-star</div>
       </div>
       
-      <div>
-        <span class="bonus-multi">🎁 Signup: ₹18 - ₹100 Free</span>
-        <span class="bonus-multi">🚀 250% First Deposit</span>
+      <!-- ALAG ALAG FEATURE TAGS -->
+      <div class="feature-grid">
+        <span class="feature-chip">🏆 Win Time: Instant Payout</span>
+        <span class="feature-chip">💸 Withdrawal Time: 3-10 mins</span>
+        <span class="feature-chip">📱 Fast Mobile App (Optimized)</span>
+        <span class="feature-chip">🔐 OTP Secure Login</span>
+        <span class="feature-chip">🛎️ 24/7 Customer Support</span>
+        <span class="feature-chip">✅ Official APK v3.9.5</span>
       </div>
-      <div>
-        <span class="withdrawal-multi">💰 Min Withdrawal: ₹100</span>
-        <span class="withdrawal-multi">🏦 UPI / Paytm / Bank</span>
-      </div>
-      <div class="feature-badge" style="margin:14px 0 0;">✨ 1000+ Free Spins | Weekly Drops | VIP Rewards</div>
-      <!-- WORKING DOWNLOAD BUTTON -->
-      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn-down" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER</a>
+      
+      <div><span class="bonus-multi">🎁 ₹18-₹100 Free</span><span class="withdrawal-multi">💰 Min Withdrawal ₹100</span></div>
+      
+      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="small-download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER</a>
     </div>
   </div>
   
   <div class="footer-note">
-    🌟 All three apps: Secure & trusted | Separate Ratings per app | Each game has exclusive welcome offers | Min. Withdrawal ₹100 only | Android 5.0+
+    🌟 All apps: Official APK | Fast Withdrawal (₹100 min) | OTP Login | 24/7 Customer Service | Win Time Instant
   </div>
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — Play responsibly. 18+ only. | Terms apply | Teen Patti Master • Yono Rummy • Slots Winner
+  © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK • Fast Support • Secure OTP
 </footer>
 
 <script>
-  // Smooth entrance animation for cards
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, idx) => {
       card.style.opacity = '0';
-      card.style.transform = 'translateY(25px)';
+      card.style.transform = 'translateY(20px)';
       setTimeout(() => {
-        card.style.transition = 'all 0.45s ease-out';
+        card.style.transition = 'all 0.4s ease';
         card.style.opacity = '1';
         card.style.transform = 'translateY(0)';
       }, idx * 100);
     });
-    
-    // Additional safety: Ensure all download buttons have proper href and no onclick conflicts
-    // All buttons are anchor tags with target="_blank" so they will 100% work on click.
-    const allBtns = document.querySelectorAll('.btn-down');
-    console.log(`✅ ${allBtns.length} working download buttons loaded successfully.`);
-    
-    // Add a small visual feedback for click on buttons
-    allBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        // No preventDefault - let the link work naturally
-        // Just add a tiny console message for tracking
-        const appCard = this.closest('.card');
-        const appName = appCard ? appCard.querySelector('h2')?.innerText : 'App';
-        console.log(`🔽 Download button clicked for: ${appName} - redirecting to official download page.`);
-      });
-    });
+    console.log("✅ All 3 apps loaded with win time, withdrawal time, OTP, 24/7 support, official APK tags + small download buttons.");
   });
 </script>
 </body>
