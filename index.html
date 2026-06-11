@@ -1,5 +1,4 @@
-
-Here is an HTML document that creates a progressive app list. Each time you click a "DOWNLOAD" button, it opens the app's link in a new tab and immediately reveals the next app's download button. All 20 apps will appear one by one, and you can also reveal all remaining instantly.
+Here is an interactive Yono Games Hub page where clicking any Download button opens a dedicated download page for that app, with the remaining 20 apps listed at the bottom as recommendations.
 
 ```html
 <!DOCTYPE html>
@@ -8,7 +7,7 @@ Here is an HTML document that creates a progressive app list. Each time you clic
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Progressive Cash Apps | Click Download → Next App Revealed</title>
+    <title>Yono Games Hub | 21 Real Money Apps | Fast Download Page</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +19,7 @@ Here is an HTML document that creates a progressive app list. Each time you clic
         body {
             background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
             min-height: 100vh;
-            padding-bottom: 40px;
+            padding-bottom: 30px;
         }
 
         .top-nav {
@@ -88,54 +87,13 @@ Here is an HTML document that creates a progressive app list. Each time you clic
             padding: 0 24px;
         }
 
-        .info-banner {
-            background: #1e3a2f;
-            border-radius: 60px;
-            padding: 14px 24px;
-            text-align: center;
-            margin-bottom: 35px;
-            color: #ffeaac;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1);
-        }
-
-        .counter-badge {
-            background: #e67e22;
-            padding: 6px 18px;
-            border-radius: 40px;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .reveal-all-btn {
-            background: #2c3e2b;
-            border: 1px solid #ffcf8a;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-weight: 700;
-            color: #ffdeae;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .reveal-all-btn:hover {
-            background: #e67e22;
-            color: white;
-            border-color: white;
-        }
-
+        /* Main grid styles */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 35px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .card {
@@ -145,20 +103,10 @@ Here is an HTML document that creates a progressive app list. Each time you clic
             flex: 1;
             min-width: 280px;
             max-width: 320px;
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.35s;
             box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
             border: 1px solid #eef2f8;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: cardPop 0.45s forwards;
-        }
-
-        @keyframes cardPop {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .card:hover {
@@ -240,14 +188,111 @@ Here is an HTML document that creates a progressive app list. Each time you clic
             transform: scale(0.98);
         }
 
+        /* Download page (next page) styling */
+        .download-page {
+            background: white;
+            border-radius: 48px;
+            padding: 32px 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            border: 1px solid #ffe1b3;
+        }
+
+        .download-header {
+            text-align: center;
+            border-bottom: 2px dashed #ffcf8a;
+            padding-bottom: 24px;
+            margin-bottom: 28px;
+        }
+
+        .download-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1e562a;
+        }
+
+        .app-highlight {
+            background: #fff7e8;
+            padding: 24px;
+            border-radius: 40px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .final-download-btn {
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            padding: 18px 24px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border-radius: 80px;
+            display: inline-block;
+            width: auto;
+            min-width: 240px;
+            margin: 16px auto;
+            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
+        }
+
+        .back-home {
+            background: #475569;
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            box-shadow: none;
+        }
+
+        .other-apps-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            color: #1e293b;
+            border-left: 8px solid #e67e22;
+            padding-left: 20px;
+        }
+
+        .other-apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .other-card {
+            background: #fefcf5;
+            border-radius: 32px;
+            padding: 20px 16px;
+            width: 260px;
+            transition: 0.2s;
+            border: 1px solid #ffe1b3;
+            text-align: center;
+        }
+
+        .other-card .app-name {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .other-card .bonus {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+        }
+
+        .small-download {
+            background: #e67e22;
+            font-size: 0.8rem;
+            padding: 8px 0;
+            margin-top: 12px;
+        }
+
         .footer-note {
             text-align: center;
             background: #ecf9f0;
             border-radius: 60px;
             padding: 14px;
             font-weight: 500;
-            font-size: 0.9rem;
-            margin-top: 20px;
+            font-size: 0.8rem;
         }
 
         footer {
@@ -259,43 +304,32 @@ Here is an HTML document that creates a progressive app list. Each time you clic
             font-size: 0.75rem;
         }
 
+        .hidden {
+            display: none;
+        }
+
         @media (max-width: 800px) {
             .card {
                 min-width: 260px;
             }
+
             .top-nav {
                 gap: 16px;
             }
+
             .top-nav a {
                 font-size: 0.85rem;
             }
-            .info-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
 
-        .toast-msg {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #0a2e1d;
-            color: #ffcf8a;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: bold;
-            z-index: 1000;
-            box-shadow: 0 8px 20px black;
-            font-size: 0.9rem;
-            pointer-events: none;
-            transition: opacity 0.3s;
+            .download-header h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="top-nav">
-        <a href="#">🏠 Home</a>
+        <a href="#" id="homeNavLink">🏠 Home</a>
         <a href="#">ℹ️ About</a>
         <a href="#">📞 Contact</a>
         <a href="#">⚖️ Disclaimer</a>
@@ -303,233 +337,188 @@ Here is an HTML document that creates a progressive app list. Each time you clic
     </div>
 
     <header>
-        <h1>🎮 Yono Games Hub <span>🔥 20 Real Money Apps</span></h1>
-        <div class="subhead">⚡ Click DOWNLOAD → Opens link + Next App appears ⚡</div>
+        <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
+        <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
     </header>
 
-    <div class="container">
-        <div class="info-banner">
-            <span>📲 <strong>Progressive Reveal:</strong> Each download click reveals the next app's button</span>
-            <span class="counter-badge" id="revealCounter">📦 1 / 20 apps visible</span>
-            <button class="reveal-all-btn" id="revealAllRemainingBtn">✨ SHOW ALL REMAINING 19 APPS ✨</button>
-        </div>
-
-        <!-- Dynamic cards grid: first card will be injected on load, then subsequent cards appear after each download click -->
-        <div id="cardsGrid" class="cards-grid"></div>
-
-        <div class="footer-note">
-            🚀 <strong>How it works:</strong> Click any DOWNLOAD button → app link opens in new tab + next hidden app appears immediately.<br>
-            All 20 apps will eventually show up. Use "Show All" to reveal remaining instantly.
-        </div>
+    <div class="container" id="mainContainer">
+        <!-- Main grid with all 21 apps will be injected here -->
+        <div id="allAppsGrid" class="cards-grid"></div>
+        <!-- Download page container (hidden initially) -->
+        <div id="downloadPageContainer" class="hidden"></div>
     </div>
+
     <footer>
-        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Progressive download experience
+        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads
     </footer>
 
     <script>
-        // -------------------------------
-        // 20 APPS DATA (bonuses from ₹15 to ₹50, min withdrawal ₹100)
-        // Using realistic app names & download links (safe external)
-        // -------------------------------
+        // ---------- FULL APPS DATA (21 apps with original links & bonuses) ----------
         const appsData = [
-            { name: "Taurus Earn Money", bonus: "₹30", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", link: "https://th7.my/BY1JWS/3gvute0" },
-            { name: "Teen Patti Gold", bonus: "₹37", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", link: "https://www.earntp.com/gold/jm9n7r" },
-            { name: "Teen Patti Master", bonus: "₹20", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", link: "https://www.earntp.com/m/jm9n7r" },
-            { name: "Yono Rummy", bonus: "₹25", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg", link: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" },
-            { name: "Slots Winner", bonus: "₹40", img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg", link: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" },
-            { name: "Good Slots", bonus: "₹15", img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg", link: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1" },
-            { name: "Diwa Slot", bonus: "₹50", img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg", link: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app" },
-            { name: "GoGo Rummy", bonus: "₹28", img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg", link: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694" },
-            { name: "Joy Rummy", bonus: "₹35", img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg", link: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100" },
-            { name: "Spin Gold", bonus: "₹22", img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg", link: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" },
-            { name: "Bingo 101", bonus: "₹45", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg", link: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" },
-            { name: "Yes Spin", bonus: "₹18", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg", link: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907" },
-            { name: "Yono Arcade", bonus: "₹32", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg", link: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006" },
-            { name: "SVIP 777", bonus: "₹27", img: "https://i.ibb.co/vfWZMLm/svip777.jpg", link: "https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk" },
-            { name: "OK Rummy", bonus: "₹38", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg", link: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220" },
-            { name: "Hind 777", bonus: "₹42", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg", link: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307" },
-            { name: "Rummy Most", bonus: "₹33", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg", link: "https://rummymostvip.net?from_gameid=11531455&channelCode=5023425" },
-            { name: "Teen Patti Classic", bonus: "₹24", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", link: "https://www.earntp.com/gold/jm9n7r" },
-            { name: "Bet 213", bonus: "₹36", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", link: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576" },
-            { name: "All Teen Patti Master", bonus: "₹31", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", link: "https://www.earntp.com/gold/jm9n7r" }
-        ]; // total 20 apps (0 to 19)
+            { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg" },
+            { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" },
+            { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" },
+            { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" },
+            { name: "Slots Winner", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393", img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg" },
+            { name: "Good Slots", bonus: "₹15", withdrawal: "₹100", downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1", img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg" },
+            { name: "Diwa Slot", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app", img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" },
+            { name: "GoGo Rummy", bonus: "₹28", withdrawal: "₹100", downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694", img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" },
+            { name: "Joy Rummy", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100", img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg" },
+            { name: "Spin Gold", bonus: "₹22", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg" },
+            { name: "Bingo 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg" },
+            { name: "Yes Spin", bonus: "₹18", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg" },
+            { name: "Yono Arcade", bonus: "₹32", withdrawal: "₹100", downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg" },
+            { name: "SVIP 777", bonus: "₹27", withdrawal: "₹100", downloadUrl: "https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk", img: "https://i.ibb.co/vfWZMLm/svip777.jpg" },
+            { name: "OK Rummy", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg" },
+            { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg" },
+            { name: "Rummy Most", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://rummymostvip.net?from_gameid=11531455&channelCode=5023425", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg" },
+            { name: "Teen Patti Classic", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg" },
+            { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg" },
+            { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg" },
+            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" }
+        ];
 
-        // state management
-        let currentVisibleCount = 0;      // how many cards have been appended (max 20)
-        const gridContainer = document.getElementById("cardsGrid");
-        const revealCounterSpan = document.getElementById("revealCounter");
-        const revealAllBtn = document.getElementById("revealAllRemainingBtn");
+        // Helper: render main grid
+        function renderMainGrid() {
+            const gridContainer = document.getElementById('allAppsGrid');
+            if (!gridContainer) return;
+            let html = '';
+            appsData.forEach((app, idx) => {
+                html += `
+                    <div class="card" data-app-index="${idx}">
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
+                        <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
+                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            gridContainer.innerHTML = html;
 
-        // helper: create full card DOM element with download button event binding
-        function createCard(app, index) {
-            const cardDiv = document.createElement("div");
-            cardDiv.className = "card";
-            cardDiv.setAttribute("data-app-index", index);
-            
-            cardDiv.innerHTML = `
-                <div class="card-img">
-                    <img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://i.ibb.co/4T0bFwM/fallback.png'">
+            // attach event listeners to all download buttons in main grid
+            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = btn.getAttribute('data-download-index');
+                    if (idx !== null) showDownloadPage(parseInt(idx));
+                    e.stopPropagation();
+                });
+            });
+        }
+
+        // Show "Next Download Page" for selected app + list of other 20 apps at bottom
+        function showDownloadPage(selectedIndex) {
+            const selectedApp = appsData[selectedIndex];
+            if (!selectedApp) return;
+
+            // hide main grid, show download page container
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            gridDiv.classList.add('hidden');
+            downloadContainer.classList.remove('hidden');
+
+            // Build "other apps" list (all apps except the selected one)
+            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+
+            // Build download page HTML
+            let otherAppsHtml = '';
+            otherApps.forEach((app, idx) => {
+                otherAppsHtml += `
+                    <div class="other-card">
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name" style="font-size: 1.1rem;">${app.name}</div>
+                        <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
+                        <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
+                        <button class="download-btn small-download" data-other-index="${appsData.findIndex(a => a.name === app.name)}">⬇️ Get App</button>
+                    </div>
+                `;
+            });
+
+            const downloadPageHtml = `
+                <div class="download-page" id="activeDownloadPage">
+                    <div class="download-header">
+                        <h2>📥 DOWNLOAD PAGE</h2>
+                        <p style="color: #4a5b6e;">You have selected <strong>${selectedApp.name}</strong> — get your exclusive signup bonus</p>
+                    </div>
+                    <div class="app-highlight">
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
+                        <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
+                        <div class="bonus" style="font-size: 1.2rem; padding: 8px 22px;">🎁 Signup Bonus: ${selectedApp.bonus}</div>
+                        <div class="withdrawal" style="font-size: 1rem;">💰 Min Withdrawal: ${selectedApp.withdrawal}</div>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="download-btn final-download-btn" style="display: inline-block; text-decoration: none;">🚀 PROCEED TO DOWNLOAD</a>
+                        <button id="backToAllAppsBtn" class="download-btn back-home">🏠 Back to All 21 Apps</button>
+                    </div>
+                    
+                    <div class="other-apps-title">✨ Other 20 Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-grid" id="otherAppsGrid">
+                        ${otherAppsHtml}
+                    </div>
+                    <div class="footer-note" style="margin-top: 28px;">
+                        🌟 All apps provide ₹100 minimum withdrawal | Trusted by 1M+ users
+                    </div>
                 </div>
-                <div class="app-name">${app.name}</div>
-                <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
-                <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                <button class="download-btn" data-link="${app.link}">📲 DOWNLOAD</button>
             `;
-            
-            // attach event listener to the download button inside this card
-            const btn = cardDiv.querySelector(".download-btn");
-            btn.addEventListener("click", (e) => {
-                e.preventDefault();
-                const linkUrl = btn.getAttribute("data-link");
-                if (linkUrl) {
-                    // open download link in new tab
-                    window.open(linkUrl, "_blank", "noopener,noreferrer");
-                    showToast(`Opening ${app.name} download page...`);
-                } else {
-                    showToast("Link not available", true);
-                }
-                
-                // AFTER CLICK, reveal the NEXT app (if any remaining)
-                // but we must ensure that the click doesn't reveal duplicate on multiple clicks.
-                // we call revealNextApp() which adds exactly one more card if available.
-                // However we need to avoid double revealing if user clicks same button multiple times
-                // but we can guard by checking if next app exists and not already revealed.
-                if (currentVisibleCount < appsData.length) {
-                    // we call revealNextApp to add the next hidden app
-                    // but careful: we must not add the same app twice.
-                    // currentVisibleCount indicates how many are already visible.
-                    // revealNextApp will add one more if currentVisibleCount < total
-                    revealNextApp();
-                } else {
-                    // all apps already visible
-                    showToast("🎉 All 20 apps are already here! Enjoy.");
-                }
+
+            downloadContainer.innerHTML = downloadPageHtml;
+
+            // Add event listeners for "other app" download buttons inside the download page
+            const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
+            otherDownloadBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const otherIdx = btn.getAttribute('data-other-index');
+                    if (otherIdx !== null) {
+                        // show download page for that other app (nested navigation)
+                        showDownloadPage(parseInt(otherIdx));
+                    }
+                    e.stopPropagation();
+                });
             });
-            
-            return cardDiv;
-        }
-        
-        // reveal single next app (incremental)
-        function revealNextApp() {
-            if (currentVisibleCount >= appsData.length) {
-                // already all shown
-                updateCounterUI();
-                return false;
-            }
-            const nextApp = appsData[currentVisibleCount];
-            const newCard = createCard(nextApp, currentVisibleCount);
-            gridContainer.appendChild(newCard);
-            currentVisibleCount++;
-            updateCounterUI();
-            
-            // auto-scroll to newly added card smoothly
-            newCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
-            
-            // if after reveal we have reached full 20, show completion message
-            if (currentVisibleCount === appsData.length) {
-                showToast("🎉 Congratulations! All 20 download buttons are now visible!", false);
-                revealAllBtn.disabled = true;
-                revealAllBtn.style.opacity = "0.6";
-                revealAllBtn.style.cursor = "not-allowed";
-                revealAllBtn.innerText = "✅ ALL 20 APPS REVEALED ✅";
-            }
-            return true;
-        }
-        
-        // reveal all remaining apps at once (baki 20 app last mein show)
-        function revealAllRemaining() {
-            if (currentVisibleCount >= appsData.length) {
-                showToast("All apps are already visible.");
-                return;
-            }
-            
-            const remainingCount = appsData.length - currentVisibleCount;
-            const fragment = document.createDocumentFragment();
-            for (let i = currentVisibleCount; i < appsData.length; i++) {
-                const app = appsData[i];
-                const card = createCard(app, i);
-                fragment.appendChild(card);
-            }
-            gridContainer.appendChild(fragment);
-            currentVisibleCount = appsData.length;
-            updateCounterUI();
-            
-            showToast(`✨ ${remainingCount} new app${remainingCount > 1 ? 's' : ''} revealed instantly! All 20 apps are now visible. ✨`);
-            revealAllBtn.disabled = true;
-            revealAllBtn.style.opacity = "0.6";
-            revealAllBtn.style.cursor = "not-allowed";
-            revealAllBtn.innerText = "✅ ALL DONE ✅";
-            
-            // scroll to the last card
-            const lastCard = gridContainer.lastChild;
-            if (lastCard) lastCard.scrollIntoView({ behavior: "smooth", block: "end" });
-        }
-        
-        // update counter text in banner
-        function updateCounterUI() {
-            revealCounterSpan.innerText = `📦 ${currentVisibleCount} / ${appsData.length} apps visible`;
-            if (currentVisibleCount === appsData.length) {
-                revealCounterSpan.style.background = "#2c7a47";
-            } else {
-                revealCounterSpan.style.background = "#e67e22";
+
+            // Back to all apps button
+            const backBtn = document.getElementById('backToAllAppsBtn');
+            if (backBtn) {
+                backBtn.addEventListener('click', () => {
+                    // Hide download page, show main grid again
+                    downloadContainer.classList.add('hidden');
+                    gridDiv.classList.remove('hidden');
+                    // reset scroll
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
             }
         }
-        
-        // simple toast message
-        let toastTimeout = null;
-        function showToast(message, isError = false) {
-            const existingToast = document.querySelector(".toast-msg");
-            if (existingToast) existingToast.remove();
-            const toast = document.createElement("div");
-            toast.className = "toast-msg";
-            toast.innerText = message;
-            if (isError) toast.style.background = "#b91c1c";
-            else toast.style.background = "#0a2e1d";
-            document.body.appendChild(toast);
-            if (toastTimeout) clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                if (toast) toast.remove();
-            }, 2500);
-        }
-        
-        // INITIALIZATION: show first app only (Teen Patti Master / first element)
-        // According to the requirement: "Download button click next new download button show"
-        // So initially only ONE app card is visible. Then each click on its download button reveals next.
-        // The user can also click "Show All Remaining" to instantly show all.
-        function initProgressive() {
-            // start with first app only
-            if (appsData.length > 0) {
-                const firstCard = createCard(appsData[0], 0);
-                gridContainer.appendChild(firstCard);
-                currentVisibleCount = 1;
-                updateCounterUI();
-            } else {
-                gridContainer.innerHTML = "<div style='text-align:center'>No apps found</div>";
+
+        // Home nav link: reset to main grid
+        function resetToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            
-            // attach reveal all button event
-            revealAllBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                if (currentVisibleCount < appsData.length) {
-                    revealAllRemaining();
-                } else {
-                    showToast("All 20 apps already visible!");
-                }
+        }
+
+        // Initialize page
+        function init() {
+            renderMainGrid();
+            const homeLink = document.getElementById('homeNavLink');
+            if (homeLink) {
+                homeLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    resetToMainGrid();
+                });
+            }
+            // make sure any other top nav links also reset? just keep simple
+            const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
+            otherNavs.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('Navigation demo: Use "Home" to return to all apps. This is a fast download page hub.');
+                });
             });
         }
-        
-        // Handle image fallback globally
-        document.addEventListener("error", (e) => {
-            if (e.target.tagName === "IMG") {
-                e.target.src = "https://i.ibb.co/4T0bFwM/fallback.png";
-            }
-        }, true);
-        
-        // start the progressive experience
-        initProgressive();
-        
-        // add extra info to console
-        console.log("🔥 Progressive Download System Ready | Each DOWNLOAD click opens link & reveals next app. Remaining 19 apps appear eventually.");
+
+        init();
     </script>
 </body>
 </html>
