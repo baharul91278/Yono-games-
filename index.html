@@ -1,456 +1,85 @@
-Here is the complete HTML code that recreates the "photo look" for each app, with detailed information tables, features lists, download steps, user reviews, and all required tags—completely separate for Teen Patti Master, Yono Rummy, and Slots Winner.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-  <title>Yono Games Hub | Teen Patti Master | Yono Rummy | Slots Winner | Best Earning APK</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
-      min-height: 100vh;
-      padding-bottom: 30px;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
-      color: white;
-      padding: 28px 20px;
-      text-align: center;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    header h1 span {
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(4px);
-      padding: 6px 18px;
-      border-radius: 60px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .subhead {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 8px;
-      font-weight: 500;
-    }
-
-    .container {
-      max-width: 1450px;
-      margin: 40px auto;
-      padding: 0 24px;
-    }
-
-    .cards-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 35px;
-      margin-bottom: 50px;
-    }
-
-    /* card style - photo look with white clean design */
-    .card {
-      background: white;
-      border-radius: 44px;
-      padding: 28px 24px 32px;
-      flex: 1;
-      min-width: 340px;
-      max-width: 460px;
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
-      border: 1px solid #eef2f8;
-      text-align: left;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
-      border-color: #ffcf8a;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #f0f2f5;
-      padding-bottom: 15px;
-    }
-
-    .card-img {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .app-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      background: linear-gradient(125deg, #1e562a, #2c4c3b);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .last-updated {
-      font-size: 0.7rem;
-      color: #6c7a8a;
-      margin-top: 4px;
-    }
-
-    /* info table style like photo */
-    .info-table {
-      background: #f9fbfe;
-      border-radius: 28px;
-      padding: 12px 16px;
-      margin: 18px 0;
-      border: 1px solid #eef2f8;
-    }
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid #e9ecf2;
-      font-size: 0.85rem;
-    }
-    .info-row:last-child {
-      border-bottom: none;
-    }
-    .info-label {
-      font-weight: 700;
-      color: #2c3e66;
-    }
-    .info-value {
-      font-weight: 600;
-      color: #1f2f40;
-    }
-
-    /* features list */
-    .features-list {
-      margin: 16px 0;
-      padding-left: 20px;
-    }
-    .features-list li {
-      margin: 8px 0;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #2d3e50;
-    }
-
-    /* download steps */
-    .steps {
-      background: #f8fafd;
-      border-radius: 24px;
-      padding: 12px 16px;
-      margin: 16px 0;
-    }
-    .steps h4 {
-      font-size: 0.9rem;
-      margin-bottom: 8px;
-      color: #0a7f3f;
-    }
-    .steps ol {
-      padding-left: 20px;
-    }
-    .steps li {
-      font-size: 0.7rem;
-      margin: 5px 0;
-      color: #4a5b6e;
-    }
-
-    /* user review */
-    .user-review {
-      background: #fffaf0;
-      border-radius: 20px;
-      padding: 12px;
-      margin: 16px 0;
-      border-left: 4px solid #f39c12;
-    }
-    .user-review p {
-      font-size: 0.75rem;
-      font-style: italic;
-      color: #5a4a2a;
-    }
-
-    /* small tag row for extra info */
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0;
-    }
-    .mini-tag {
-      background: #e9eef4;
-      border-radius: 40px;
-      padding: 4px 12px;
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: #1f3b4c;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .green-bg { background: #e0f2e9; color: #146b3a; }
-    .orange-bg { background: #ffecb3; color: #b45116; }
-    .blue-bg { background: #e3f0ff; color: #1a5d9c; }
-    .gold-bg { background: #fff0cc; color: #c47a00; }
-
-    .download-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-      padding: 12px 0;
-      background: linear-gradient(95deg, #e67e22, #f39c12);
-      color: white;
-      text-decoration: none;
-      border-radius: 60px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      transition: 0.2s;
-      box-shadow: 0 5px 12px rgba(230,126,34,0.3);
-    }
-    .download-btn:hover {
-      background: linear-gradient(95deg, #d35400, #e67e22);
-      transform: scale(0.98);
-    }
-
-    .footer-note {
-      text-align: center;
-      background: #ecf9f0;
-      border-radius: 60px;
-      padding: 14px;
-      font-weight: 500;
-      font-size: 0.8rem;
-    }
-    footer {
-      background: #0a2e1d;
-      color: #b9ddcb;
-      text-align: center;
-      padding: 24px;
-      margin-top: 40px;
-      font-size: 0.75rem;
-    }
-
-    @media (max-width: 800px) {
-      .card { min-width: 300px; }
-    }
-  </style>
-</head>
-<body>
-<header>
-  <h1>🎮 Yono Games Hub <span>🔥 Best Earning Platform APK</span></h1>
-  <div class="subhead">⚡ Real Cash Games • Fast Withdrawal • OTP Login • 30+ Games Each ⚡</div>
-</header>
-
-<div class="container">
-  <div class="cards-grid">
-    
-    <!-- ========== APP 1: TEEN PATTI MASTER (Photo Look) ========= -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=TPM'"></div>
-        <div><div class="app-title">Teen Patti Master</div><div class="last-updated">Last Updated: April 2026</div></div>
-      </div>
-      <div class="info-table">
-        <div class="info-row"><span class="info-label">App Name</span><span class="info-value">Teen Patti Master</span></div>
-        <div class="info-row"><span class="info-label">Category</span><span class="info-value">Online Card & Teen Patti</span></div>
-        <div class="info-row"><span class="info-label">Latest Version</span><span class="info-value">v4.2.1</span></div>
-        <div class="info-row"><span class="info-label">File Size</span><span class="info-value">68 MB</span></div>
-        <div class="info-row"><span class="info-label">Supported Devices</span><span class="info-value">Android 5.0+</span></div>
-        <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹500 Welcome + ₹50 Download</span></div>
-        <div class="info-row"><span class="info-label">Withdrawal Speed</span><span class="info-value">Fast (2-5 min)</span></div>
-      </div>
-      <ul class="features-list">
-        <li>🔥 Real cash teen patti gameplay</li>
-        <li>🎁 Daily login bonus & promotional rewards</li>
-        <li>📱 Smooth and user friendly interface</li>
-        <li>⚡ Quick account registration with OTP</li>
-        <li>💰 Secure transactions & fast withdrawals</li>
-        <li>♠️ Multiple game modes (Classic, Joker, AK47)</li>
-        <li>🏆 30+ Game variants & tournaments</li>
-      </ul>
-      <div class="steps">
-        <h4>📥 How to Download Teen Patti Master APK</h4>
-        <ol>
-          <li>Click the download button below.</li>
-          <li>Download the latest APK file (68 MB).</li>
-          <li>Enable "Install from unknown sources" in settings.</li>
-          <li>Install the application on your device.</li>
-          <li>Open app & create account (OTP verification).</li>
-          <li>Get ₹500 welcome + ₹50 download bonus.</li>
-        </ol>
-      </div>
-      <div class="user-review">
-        <p>⭐ "Best teen patti app! Fast withdrawal and huge bonus. I won ₹5000 in first week. Daily login rewards are amazing." – Ravi K. (Verified User)</p>
-      </div>
-      <div class="tag-row">
-        <span class="mini-tag green-bg">💰 Best Earning Platform APK</span>
-        <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-        <span class="mini-tag gold-bg">🔐 OTP Login</span>
-        <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-        <span class="mini-tag">🎫 Login Offer ₹50 Daily</span>
-        <span class="mini-tag">🎮 30+ Games</span>
-      </div>
-      <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TEEN PATTI MASTER APK</a>
+<!-- ========== APP 4: TAURUS APP ========= -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-img">
+      <img src="https://kommodo.ai/i/ejvPK8kaDCoOE0cpKLWd" alt="Taurus App">
     </div>
-    
-    <!-- ========== APP 2: YONO RUMMY (Photo Look - exact match to image) ========= -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Yono+Rummy'"></div>
-        <div><div class="app-title">Yono Rummy</div><div class="last-updated">Last Updated: April 2026</div></div>
-      </div>
-      <div class="info-table">
-        <div class="info-row"><span class="info-label">App Name</span><span class="info-value">Yono Rummy</span></div>
-        <div class="info-row"><span class="info-label">Category</span><span class="info-value">Online Rummy & Card Game</span></div>
-        <div class="info-row"><span class="info-label">Latest Version</span><span class="info-value">v5.1.0 (2026)</span></div>
-        <div class="info-row"><span class="info-label">File Size</span><span class="info-value">Approx 72 MB</span></div>
-        <div class="info-row"><span class="info-label">Supported Devices</span><span class="info-value">Android Smartphones</span></div>
-        <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹13+ ₹50 Download = ₹63</span></div>
-        <div class="info-row"><span class="info-label">Withdrawal Speed</span><span class="info-value">Fast Processing (1-3 min)</span></div>
-      </div>
-      <ul class="features-list">
-        <li>💰 Real cash rummy gameplay</li>
-        <li>🎁 Daily login bonus and promotional rewards</li>
-        <li>📱 Smooth and user friendly interface</li>
-        <li>⚡ Quick account registration (OTP)</li>
-        <li>🔒 Secure transactions and withdrawals</li>
-        <li>♠️ Multiple rummy game modes (Points, Pool, Deals)</li>
-        <li>🏆 30+ Game tables & tournaments</li>
-      </ul>
-      <div class="steps">
-        <h4>📥 How to Download Yono Rummy APK</h4>
-        <ol>
-          <li>Click the download button provided on this page.</li>
-          <li>Download the latest Yono Rummy APK file.</li>
-          <li>Enable installation from unknown sources.</li>
-          <li>Install the application on your device.</li>
-          <li>Open the app and create your account (OTP).</li>
-          <li>Start playing rummy games & claim ₹63 bonus.</li>
-        </ol>
-      </div>
-      <div class="user-review">
-        <p>⭐ "Many players enjoy Yono Rummy because of its simple design and smooth gaming experience. Fast withdrawals and great daily bonuses!" – Verified User Review</p>
-      </div>
-      <div class="tag-row">
-        <span class="mini-tag green-bg">💰 Best Earning Platform APK</span>
-        <span class="mini-tag blue-bg">💸 Fast Withdrawal (UPI)</span>
-        <span class="mini-tag gold-bg">🔐 OTP + Biometric</span>
-        <span class="mini-tag orange-bg">💰 Deposit Discount 25%</span>
-        <span class="mini-tag">🎫 Login Offer ₹90 Daily</span>
-        <span class="mini-tag">🎮 30+ Rummy Modes</span>
-      </div>
-      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="download-btn" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY APK</a>
-    </div>
-    
-    <!-- ========== APP 3: SLOTS WINNER (Photo Look) ========= -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Slots'"></div>
-        <div><div class="app-title">Slots Winner</div><div class="last-updated">Last Updated: April 2026</div></div>
-      </div>
-      <div class="info-table">
-        <div class="info-row"><span class="info-label">App Name</span><span class="info-value">Slots Winner</span></div>
-        <div class="info-row"><span class="info-label">Category</span><span class="info-value">Online Slots & Casino</span></div>
-        <div class="info-row"><span class="info-label">Latest Version</span><span class="info-value">v3.9.5</span></div>
-        <div class="info-row"><span class="info-label">File Size</span><span class="info-value">85 MB</span></div>
-        <div class="info-row"><span class="info-label">Supported Devices</span><span class="info-value">Android 5.0+</span></div>
-        <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹100 + ₹50 Download = ₹150</span></div>
-        <div class="info-row"><span class="info-label">Withdrawal Speed</span><span class="info-value">Fast (3-10 min)</span></div>
-      </div>
-      <ul class="features-list">
-        <li>🎰 Real cash slots & jackpot games</li>
-        <li>🎁 Daily free spins & login rewards</li>
-        <li>📱 High performance mobile app</li>
-        <li>⚡ One-tap OTP registration</li>
-        <li>💰 UPI / Paytm / Bank withdrawal</li>
-        <li>💎 1500+ slot machines & 30+ game themes</li>
-        <li>🏆 Weekly tournaments & VIP cashback</li>
-      </ul>
-      <div class="steps">
-        <h4>📥 How to Download Slots Winner APK</h4>
-        <ol>
-          <li>Tap the download button below.</li>
-          <li>Download the official APK (85 MB).</li>
-          <li>Allow installation from unknown sources.</li>
-          <li>Install the app on your Android device.</li>
-          <li>Sign up using mobile number (OTP).</li>
-          <li>Claim ₹100 welcome + ₹50 download bonus.</li>
-        </ol>
-      </div>
-      <div class="user-review">
-        <p>⭐ "Slots Winner gives amazing payouts! I withdrew ₹2000 within 10 minutes. The 250% deposit bonus is awesome. 30+ slot games keep me engaged." – Priya S.</p>
-      </div>
-      <div class="tag-row">
-        <span class="mini-tag green-bg">💰 Best Earning Platform APK</span>
-        <span class="mini-tag blue-bg">💸 Instant Withdrawal</span>
-        <span class="mini-tag gold-bg">🔐 OTP Secure Login</span>
-        <span class="mini-tag orange-bg">💰 Deposit Discount 250%</span>
-        <span class="mini-tag">🎫 Login Offer Free Spins</span>
-        <span class="mini-tag">🎮 30+ Slot Games</span>
-      </div>
-      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER APK</a>
+    <div>
+      <div class="app-title">Taurus App</div>
+      <div class="last-updated">Latest Version 2026</div>
     </div>
   </div>
-  
-  <div class="footer-note">
-    🌟 All three apps: Best Earning Platform APK | Real Cash Games | OTP Login | Fast Withdrawal (₹100 min) | 30+ Games Each | Deposit Discount & Login Offer | Download Bonus + Signup Bonus
+
+  <div class="info-table">
+    <div class="info-row"><span class="info-label">App Name</span><span class="info-value">Taurus</span></div>
+    <div class="info-row"><span class="info-label">Category</span><span class="info-value">Earning Platform</span></div>
+    <div class="info-row"><span class="info-label">Platform</span><span class="info-value">Android</span></div>
+    <div class="info-row"><span class="info-label">Registration</span><span class="info-value">Mobile OTP</span></div>
+    <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Fast Processing</span></div>
   </div>
+
+  <ul class="features-list">
+    <li>💰 Daily earning opportunities</li>
+    <li>⚡ Fast account registration</li>
+    <li>📱 User-friendly interface</li>
+    <li>🔐 Secure login system</li>
+    <li>🎁 Promotional rewards</li>
+    <li>💸 Quick withdrawal support</li>
+  </ul>
+
+  <div class="tag-row">
+    <span class="mini-tag green-bg">💰 Earning App</span>
+    <span class="mini-tag blue-bg">⚡ Fast Access</span>
+    <span class="mini-tag gold-bg">🔐 OTP Login</span>
+  </div>
+
+  <a href="https://th7.my/BY1JWS/3gvute0"
+     class="download-btn"
+     target="_blank"
+     rel="noopener noreferrer">
+     📲 DOWNLOAD TAURUS APP
+  </a>
 </div>
 
-<footer>
-  © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads | Secure & Trusted Platform
-</footer>
+<!-- ========== APP 5: TEEN PATTI GOLD ========= -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-img">
+      <img src="https://kommodo.ai/i/axfK2LIWdrHnllmSgvXg" alt="Teen Patti Gold">
+    </div>
+    <div>
+      <div class="app-title">Teen Patti Gold</div>
+      <div class="last-updated">Latest Version 2026</div>
+    </div>
+  </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, idx) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(25px)';
-      setTimeout(() => {
-        card.style.transition = 'all 0.45s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, idx * 100);
-    });
-    console.log("✅ Photo-look cards added: info tables, features, download steps, user reviews, and all tags per app separate.");
-  });
-</script>
-</body>
-</html>
-```
+  <div class="info-table">
+    <div class="info-row"><span class="info-label">App Name</span><span class="info-value">Teen Patti Gold</span></div>
+    <div class="info-row"><span class="info-label">Category</span><span class="info-value">Card Game</span></div>
+    <div class="info-row"><span class="info-label">Platform</span><span class="info-value">Android</span></div>
+    <div class="info-row"><span class="info-label">Registration</span><span class="info-value">Mobile OTP</span></div>
+    <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Fast Processing</span></div>
+  </div>
+
+  <ul class="features-list">
+    <li>♠️ Multiple Teen Patti modes</li>
+    <li>🎁 Daily rewards and bonuses</li>
+    <li>⚡ Quick account setup</li>
+    <li>📱 Smooth gameplay experience</li>
+    <li>🔐 Secure account protection</li>
+    <li>🏆 Regular events and challenges</li>
+  </ul>
+
+  <div class="tag-row">
+    <span class="mini-tag green-bg">♠️ Teen Patti</span>
+    <span class="mini-tag blue-bg">⚡ Fast Access</span>
+    <span class="mini-tag gold-bg">🎁 Bonus Rewards</span>
+  </div>
+
+  <a href="https://www.earntp.com/gold/jm9n7r"
+     class="download-btn"
+     target="_blank"
+     rel="noopener noreferrer">
+     🏆 DOWNLOAD TEEN PATTI GOLD
+  </a>
+</div>
