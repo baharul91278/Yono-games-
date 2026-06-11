@@ -1,542 +1,341 @@
-Here is an HTML document that creates a "Yono Games Hub" landing page with a detailed guide for the Yono 101Z app, plus additional game cards, each with a download button that opens a detailed information page.
+Here is the final HTML code for a "Yono Games Hub" landing page featuring exactly three game apps with a clean card layout and working download buttons.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Yono Games Hub | Yono 101Z & Top Apps</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, Roboto, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
+  <title>Yono Games Hub | Top 3 Premium Apps</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
 
-body {
-  background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
-  min-height: 100vh;
-}
+    body {
+      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
+      min-height: 100vh;
+    }
 
-/* Header premium */
-.header {
-  background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
-  color: white;
-  padding: 32px 20px;
-  text-align: center;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
+    /* premium header design */
+    header {
+      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 2;
+    }
 
-.header h1 {
-  font-size: 2.3rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.header h1 span {
-  background: rgba(255,255,255,0.18);
-  padding: 6px 18px;
-  border-radius: 60px;
-  font-size: 1rem;
-  font-weight: 600;
-}
+    header h1 span {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
 
-.subhead {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-top: 8px;
-}
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 500;
+      color: #e0f2e5;
+    }
 
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 24px;
-}
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
 
-/* Featured Card - Yono 101Z (as per image) */
-.featured-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-  border-radius: 36px;
-  padding: 0;
-  margin-bottom: 50px;
-  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
-  overflow: hidden;
-  border: 1px solid rgba(10,127,63,0.2);
-}
+    /* exactly 3 cards grid */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
 
-.featured-inner {
-  display: flex;
-  flex-wrap: wrap;
-}
+    /* premium card design - photo ka model */
+    .card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 36px;
+      padding: 24px 24px 32px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 360px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-align: center;
+    }
 
-.featured-left {
-  flex: 1.2;
-  padding: 30px;
-  background: linear-gradient(125deg, #0a7f3f10, #ffffff);
-}
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.25);
+      background: white;
+      border-color: #cbdbe0;
+    }
 
-.featured-right {
-  flex: 0.8;
-  background: linear-gradient(145deg, #0a7f3f, #0e703f);
-  padding: 30px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    /* image styling - photo model */
+    .card-img {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+      background: linear-gradient(145deg, #f8fafd, #eef2f9);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
 
-.spec-list {
-  list-style: none;
-  margin-top: 20px;
-}
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+    }
 
-.spec-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e8f0;
-  display: flex;
-  gap: 15px;
-  font-weight: 500;
-}
+    .card h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #1e2b32, #2c4c3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 12px 0 6px;
+      letter-spacing: -0.3px;
+    }
 
-.spec-label {
-  width: 130px;
-  font-weight: 700;
-  color: #0a7f3f;
-}
+    .game-tag {
+      display: inline-block;
+      background: #eef2ff;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1f6392;
+      margin-bottom: 16px;
+    }
 
-.spec-value {
-  color: #1e2a3a;
-}
+    .info p {
+      margin: 12px 0;
+      font-size: 1rem;
+      color: #2c3e44;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-.bonus-big {
-  font-size: 2.2rem;
-  font-weight: 800;
-  background: #ffd966;
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 50px;
-  color: #2c3e2f;
-  margin: 15px 0;
-}
+    .bonus-badge {
+      background: #fef6e0;
+      border-radius: 60px;
+      padding: 8px 16px;
+      font-weight: 700;
+      color: #b85c00;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0;
+    }
 
-.download-featured-btn {
-  display: inline-block;
-  background: #ff5722;
-  color: white;
-  font-weight: 800;
-  font-size: 1.3rem;
-  padding: 14px 32px;
-  border-radius: 60px;
-  text-decoration: none;
-  margin-top: 15px;
-  text-align: center;
-  transition: 0.2s;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(255,87,34,0.3);
-}
+    .reward-list {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 14px 12px;
+      margin: 16px 0;
+      text-align: left;
+    }
 
-.download-featured-btn:hover {
-  background: #e64a19;
-  transform: scale(1.02);
-}
+    .reward-list li {
+      list-style: none;
+      padding: 6px 0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e9edf2;
+    }
 
-.featured-right h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
+    .reward-list li:last-child {
+      border: none;
+    }
 
-.featured-right p {
-  margin: 8px 0;
-  font-size: 1rem;
-}
+    .btn {
+      display: inline-block;
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 0;
+      background: linear-gradient(95deg, #0066ff, #3b82f6);
+      color: white;
+      text-decoration: none;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 5px 12px rgba(0, 102, 255, 0.3);
+      border: none;
+      text-align: center;
+      cursor: pointer;
+    }
 
-/* Section title */
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 40px 0 20px;
-  border-left: 6px solid #0a7f3f;
-  padding-left: 20px;
-  color: #1f3b2c;
-}
+    .btn:hover {
+      background: linear-gradient(95deg, #0052cc, #1e6df2);
+      transform: scale(0.97);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
 
-/* Cards grid for other apps */
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
-}
+    .info-note {
+      text-align: center;
+      margin: 20px auto 0;
+      max-width: 650px;
+      background: #eaf4e8;
+      border-radius: 80px;
+      padding: 12px 20px;
+      font-weight: 500;
+      color: #1f543b;
+    }
 
-.app-card {
-  background: white;
-  border-radius: 28px;
-  padding: 20px;
-  transition: all 0.25s ease;
-  box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  border: 1px solid #e2edf2;
-}
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #0a2e1d;
+      color: #b9ddcb;
+      margin-top: 48px;
+      font-weight: 500;
+      border-top: 1px solid #21643f;
+    }
 
-.app-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
-}
-
-.app-icon {
-  width: 75px;
-  height: 75px;
-  background: linear-gradient(145deg, #eaf4e8, #d4e2dc);
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4rem;
-  font-weight: bold;
-  color: #0a7f3f;
-  flex-shrink: 0;
-}
-
-.app-details {
-  flex: 1;
-}
-
-.app-details h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #1a3b2b;
-  margin-bottom: 6px;
-}
-
-.bonus-tag {
-  background: #ffedd5;
-  border-radius: 30px;
-  padding: 4px 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #b85c00;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-.min-tag {
-  background: #e0f2fe;
-  color: #0369a1;
-}
-
-.app-details p {
-  font-size: 0.85rem;
-  margin: 6px 0;
-  color: #475569;
-}
-
-.small-btn {
-  background: #0066ff;
-  padding: 8px 18px;
-  border-radius: 40px;
-  color: white;
-  font-weight: 700;
-  font-size: 0.8rem;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 8px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.small-btn:hover {
-  background: #0044cc;
-  transform: scale(0.96);
-}
-
-/* Guide section */
-.guide-section {
-  background: white;
-  border-radius: 32px;
-  padding: 30px;
-  margin: 40px 0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.guide-section h3 {
-  font-size: 1.6rem;
-  color: #0a7f3f;
-  margin-bottom: 20px;
-}
-
-.guide-step {
-  display: flex;
-  gap: 15px;
-  margin: 20px 0;
-  padding: 12px;
-  background: #f8fafc;
-  border-radius: 24px;
-}
-
-.step-num {
-  width: 36px;
-  height: 36px;
-  background: #0a7f3f;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  background: #0a2e1d;
-  color: #c5e0cf;
-  margin-top: 40px;
-}
-
-@media (max-width: 780px) {
-  .featured-inner {
-    flex-direction: column;
-  }
-  .featured-left, .featured-right {
-    padding: 25px;
-  }
-  .spec-label {
-    width: 100px;
-  }
-  .app-card {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-</style>
+    @media (max-width: 780px) {
+      .cards-grid {
+        gap: 20px;
+      }
+      .card {
+        min-width: 260px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>🎮 Yono Games Hub <span>🔥 Get Welcome Bonus</span></h1>
-  <div class="subhead">Download APK • Instant Rewards • Safe & Trusted</div>
-</div>
+<header>
+  <h1>
+    🎮 Yono Games Hub
+    <span>🔥 Top 3 Premium Apps</span>
+  </h1>
+  <div class="subhead">Exclusive offers • Instant bonuses • Trusted platform</div>
+</header>
 
 <div class="container">
-  <!-- Yono 101Z Featured Card (as per image content) -->
-  <div class="featured-card">
-    <div class="featured-inner">
-      <div class="featured-left">
-        <h2 style="font-size: 2rem; color: #0a7f3f;">Yono 101Z APK</h2>
-        <p style="margin: 12px 0; color: #2c3e50;">Latest Version 2026 — Play & Get Welcome Rewards</p>
-        <div class="bonus-big">🎁 Welcome Bonus: Up to ₹1200</div>
-        <ul class="spec-list">
-          <li><span class="spec-label">Game Name</span><span class="spec-value">Yono 101Z</span></li>
-          <li><span class="spec-label">File Size</span><span class="spec-value">65 MB</span></li>
-          <li><span class="spec-label">Total Downloads</span><span class="spec-value">4.5M+</span></li>
-          <li><span class="spec-label">Ratings</span><span class="spec-value">⭐ 4.8 / 5</span></li>
-          <li><span class="spec-label">Min. Withdrawal</span><span class="spec-value">₹100</span></li>
-        </ul>
-        <button class="download-featured-btn" id="yono101zDownloadBtn">⬇️ DOWNLOAD YONO 101Z</button>
-        <p style="margin-top: 12px; font-size: 0.75rem; color: #5a6e7c;">🔒 Secure APK • Instant Bonus up to ₹1500</p>
+  <div class="cards-grid">
+    <!-- Card 1: Teen Patti Master - exactly as per photo model -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti';">
       </div>
-      <div class="featured-right">
-        <h3>🎯 Yono 101Z Highlights</h3>
-        <p>✨ Slots • Spin Games • Roulette • Poker • Aviator</p>
-        <p>✨ Mega Fishing • Ludo • Andhar Bahar • Power of Kraken</p>
-        <p>✨ Fast Login & Registration</p>
-        <p>✨ 4.5M+ Downloads</p>
-        <div style="margin-top: 20px;">
-          <span style="background: #ffd966; color:#1f3b2c; padding:6px 14px; border-radius:40px; font-weight:bold;">🎁 Up to ₹1500 Bonus</span>
+      <h2>Teen Patti Master</h2>
+      <div class="game-tag">🔥 #1 Card Game</div>
+      <div class="info">
+        <p>🎴 Popular Teen Patti Card Game</p>
+        <div class="bonus-badge">✨ Mega Jackpot Tables ✨</div>
+        <div class="reward-list">
+          <li>🎁 100% Welcome Bonus up to ₹500</li>
+          <li>🏆 Daily Leaderboard ₹10K Prize</li>
+          <li>💎 3 Patti Live + Private Tables</li>
         </div>
+        <a href="https://www.earntp.com/m/jm9n7r" class="btn" target="_blank" rel="noopener noreferrer">📲 Download Now</a>
+      </div>
+    </div>
+
+    <!-- Card 2: Yono Rummy - exactly as per photo model -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy';">
+      </div>
+      <h2>Yono Rummy</h2>
+      <div class="game-tag">🎲 ₹13+ Signup Bonus</div>
+      <div class="info">
+        <p>♠️ Classic Rummy • Fast Withdrawals</p>
+        <div class="reward-list">
+          <li>🎁 Signup Bonus: <strong>₹13+</strong></li>
+          <li>📆 Daily Login Rewards up to <strong>₹90</strong></li>
+          <li>💰 3% - 30% Deposit Cashback</li>
+          <li>⭐ VIP Rummy Tournaments</li>
+        </div>
+        <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn" target="_blank" rel="noopener noreferrer">🎮 Play Now</a>
+      </div>
+    </div>
+
+    <!-- Card 3: Slots Winner - exactly as per photo model -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner';">
+      </div>
+      <h2>Slots Winner</h2>
+      <div class="game-tag">💎 ₹18 - ₹100 Bonus</div>
+      <div class="info">
+        <p>⚡ 1000+ Slot Machines • Huge Jackpots</p>
+        <div class="reward-list">
+          <li>🎰 Signup Bonus: <strong>₹18 - ₹100</strong></li>
+          <li>🚀 250% First Deposit Bonus</li>
+          <li>🏅 VIP Cashback & Referral Rewards</li>
+          <li>🎯 Weekly Free Spins & Drops</li>
+        </div>
+        <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn" target="_blank" rel="noopener noreferrer">🎲 Join Now</a>
       </div>
     </div>
   </div>
 
-  <!-- Other Top Apps Section (with individual signup bonuses) -->
-  <div class="section-title">🎲 More Exciting Games</div>
-  <div class="apps-grid">
-    <!-- Teen Patti Master -->
-    <div class="app-card">
-      <div class="app-icon">🃏</div>
-      <div class="app-details">
-        <h3>Teen Patti Master</h3>
-        <p><span class="bonus-tag">🎁 Signup: ₹50</span> <span class="min-tag">💰 Min Withdraw: ₹100</span></p>
-        <p>🔥 Popular Teen Patti • Live Tables</p>
-        <button class="small-btn download-other" data-app="Teen Patti Master" data-signup="₹50 Welcome + Daily ₹20" data-withdraw="₹100" data-rewards="Jackpot ₹5K, Leaderboard" data-features="3 Patti, Andar Bahar, Live Dealer">Download Now</button>
-      </div>
-    </div>
-
-    <!-- Yono Rummy -->
-    <div class="app-card">
-      <div class="app-icon">🃟</div>
-      <div class="app-details">
-        <h3>Yono Rummy</h3>
-        <p><span class="bonus-tag">🎁 Signup: ₹13+</span> <span class="min-tag">💰 Min Withdraw: ₹100</span></p>
-        <p>♠️ Classic Rummy • Daily Rewards up to ₹90</p>
-        <button class="small-btn download-other" data-app="Yono Rummy" data-signup="₹13+ Bonus + Daily ₹90" data-withdraw="₹100" data-rewards="3%-30% Cashback, VIP Tournaments" data-features="Fast Withdrawal, Rummy Tourneys">Play Now</button>
-      </div>
-    </div>
-
-    <!-- Slots Winner -->
-    <div class="app-card">
-      <div class="app-icon">🎰</div>
-      <div class="app-details">
-        <h3>Slots Winner</h3>
-        <p><span class="bonus-tag">🎁 Signup: ₹18-₹100</span> <span class="min-tag">💰 Min Withdraw: ₹100</span></p>
-        <p>⚡ 1000+ Slots • 250% First Deposit</p>
-        <button class="small-btn download-other" data-app="Slots Winner" data-signup="₹18-₹100 + 250% Deposit" data-withdraw="₹100" data-rewards="VIP Cashback, Free Spins" data-features="Progressive Jackpots, Daily Drops">Join Now</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Guide Section for Yono 101Z (as per image content) -->
-  <div class="guide-section">
-    <h3>📘 Guide: Yono 101Z APK Download, Tips, Login & Registration (2026)</h3>
-    <p>Yono 101Z is a popular skill-based gaming app offering smooth gameplay, fast login, and easy registration for Indian users. Below is complete step-by-step guide.</p>
-    
-    <div class="guide-step">
-      <div class="step-num">1</div>
-      <div><strong>Download Yono 101Z APK</strong><br>Click the DOWNLOAD button above to get the latest 2026 version (65 MB).</div>
-    </div>
-    <div class="guide-step">
-      <div class="step-num">2</div>
-      <div><strong>Registration - How to Join</strong><br>Open app → Tap Register → Enter mobile number → Verify OTP → Complete.</div>
-    </div>
-    <div class="guide-step">
-      <div class="step-num">3</div>
-      <div><strong>Login (New & Existing Users)</strong><br>Enter registered mobile → OTP verification → Instant access to games.</div>
-    </div>
-    <div class="guide-step">
-      <div class="step-num">4</div>
-      <div><strong>Claim Welcome Bonus</strong><br>After first login, get up to ₹1200 bonus + extra ₹300 on deposit.</div>
-    </div>
-    <p style="margin-top: 20px; background: #e8f3ed; padding: 12px; border-radius: 28px;">✅ Yono 101Z also includes: Slots, Roulette, Poker, Aviator, Mega Fishing, Ludo, Andhar Bahar, Power of The Kraken and many more!</p>
+  <div class="info-note">
+    🌟 100% secure platform | Instant bonuses credited | Min withdrawal ₹100 for most games
   </div>
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — All trademarks belong to respective owners | 18+ only | Play responsibly 🎯
+  © 2025 Yono Games Hub — All trademarks belong to respective owners. Play responsibly. | 🎯 18+ only
 </footer>
 
 <script>
-  // Function to open detailed download page with full app info & photo style
-  function openDownloadPage(appName, bonusInfo, iconEmoji = '🎮') {
-    const downloadPageHtml = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Download ${appName} | Yono Hub</title>
-      <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui;}
-        body{background: linear-gradient(145deg, #0a0f1e 0%, #0c1122 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
-        .detail-card{max-width:600px;width:100%;background:linear-gradient(145deg,#1a2538,#0f172a);border-radius:52px;padding:35px;text-align:center;box-shadow:0 30px 50px rgba(0,0,0,0.5);border:1px solid #ffc857;}
-        .app-photo{width:120px;height:120px;background:#ffc10722;border-radius:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:4rem;border:2px solid #ffc107;}
-        h2{font-size:2rem;color:#FFDFA5;margin-bottom:8px;}
-        .bonus-box{background:#00000055;border-radius:36px;padding:22px;margin:25px 0;text-align:left;}
-        .bonus-box h3{color:#ffc107;margin-bottom:15px;border-left:4px solid #ffc107;padding-left:12px;}
-        .info-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a3a55;color:#e0e8ff;}
-        .info-label{font-weight:700;color:#ffcd94;}
-        .download-btn-page{background:linear-gradient(95deg,#ff9800,#ff5722);width:100%;padding:16px;border-radius:60px;font-weight:800;font-size:1.2rem;color:white;border:none;cursor:pointer;margin-top:10px;}
-        .back-link{color:#88aaff;text-decoration:none;display:inline-block;margin-top:15px;}
-        .secure-badge{margin-top:12px;font-size:0.7rem;color:#88aadd;}
-      </style>
-    </head>
-    <body>
-      <div class="detail-card">
-        <div class="app-photo">${iconEmoji}</div>
-        <h2>${appName}</h2>
-        <p style="color:#bbd4ff;">🔥 Exclusive Download Portal 🔥</p>
-        <div class="bonus-box">
-          <h3>✨ App Information & Bonuses ✨</h3>
-          <div class="info-row"><span class="info-label">🎁 Signup Bonus:</span><span><strong>${bonusInfo.signup}</strong></span></div>
-          <div class="info-row"><span class="info-label">💰 Min Withdrawal:</span><span><strong>${bonusInfo.withdraw}</strong></span></div>
-          <div class="info-row"><span class="info-label">🏆 Rewards:</span><span>${bonusInfo.rewards}</span></div>
-          <div class="info-row"><span class="info-label">⚡ Features:</span><span>${bonusInfo.features}</span></div>
-          <div class="info-row"><span class="info-label">📱 Platform:</span><span>Android APK | Secure</span></div>
-        </div>
-        <button id="finalDLBtn" class="download-btn-page">⬇️ CLICK TO DOWNLOAD APP ⬇️</button>
-        <p style="font-size:0.7rem; margin-top:12px;">✅ Instant bonus on signup | 24/7 Support</p>
-        <a href="#" onclick="window.close();return false;" class="back-link">← Go Back to Yono Hub</a>
-        <div class="secure-badge">🔒 SSL Encrypted • Trusted by 1M+ Users</div>
-      </div>
-      <script>
-        document.getElementById('finalDLBtn').addEventListener('click', function(e){
-          e.preventDefault();
-          alert('✅ Download started for ${appName}!\\n\\n🎁 Your Bonus: ${bonusInfo.signup}\\n💰 Min Withdrawal: ${bonusInfo.withdraw}\\n📲 Install now and start winning.');
-        });
-      <\/script>
-    </body>
-    <\/html>`;
-    const newWin = window.open();
-    newWin.document.write(downloadPageHtml);
-    newWin.document.title = `Download ${appName}`;
-    newWin.document.close();
-  }
-
-  // Yono 101Z Main Download Button
-  const yonoBtn = document.getElementById('yono101zDownloadBtn');
-  if (yonoBtn) {
-    yonoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openDownloadPage('Yono 101Z', {
-        signup: 'Up to ₹1200 Welcome + ₹300 Extra',
-        withdraw: '₹100',
-        rewards: 'Daily Login Bonus, Slots Free Spins, Referral ₹500',
-        features: 'Slots, Roulette, Poker, Aviator, Mega Fishing, Ludo, Andhar Bahar, Power of Kraken'
-      }, '🎰');
-    });
-  }
-
-  // Other apps buttons
-  const otherBtns = document.querySelectorAll('.download-other');
-  otherBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const app = btn.getAttribute('data-app');
-      let info = {};
-      if (app === 'Teen Patti Master') {
-        info = {
-          signup: '₹50 Welcome + Daily ₹20 Free',
-          withdraw: '₹100',
-          rewards: 'Leaderboard ₹5K, Jackpot Tournaments, Daily Chips',
-          features: '3 Patti, Andar Bahar, Live Dealer, Private Tables'
-        };
-      } else if (app === 'Yono Rummy') {
-        info = {
-          signup: '₹13+ Bonus + Daily ₹90 Rewards',
-          withdraw: '₹100',
-          rewards: '3%-30% Deposit Cashback, VIP Tournaments, Referral Bonus',
-          features: 'Fast Withdrawals, Rummy Tourneys, 24/7 Tables'
-        };
-      } else if (app === 'Slots Winner') {
-        info = {
-          signup: '₹18-₹100 + 250% First Deposit',
-          withdraw: '₹100',
-          rewards: 'VIP Cashback, Weekly Free Spins, Referral up to ₹5000',
-          features: '1000+ Slots, Progressive Jackpots, Daily Drops'
-        };
-      } else {
-        info = {
-          signup: 'Special Bonus ₹50',
-          withdraw: '₹100',
-          rewards: 'Daily Login, Cashback',
-          features: 'Premium Games, Fast Payout'
-        };
-      }
-      let icon = '🎮';
-      if (app === 'Teen Patti Master') icon = '🃏';
-      if (app === 'Yono Rummy') icon = '🃟';
-      if (app === 'Slots Winner') icon = '🎰';
-      openDownloadPage(app, info, icon);
+  // Smooth entrance animation for cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, idx) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, idx * 80);
     });
   });
 </script>
