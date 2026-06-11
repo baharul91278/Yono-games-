@@ -1,4 +1,10 @@
-Here is the final HTML code with a fast landing page that has a download button. Clicking it reveals the next page showing all 21 apps, including a detailed Bingo 101 card (with rating, size, votes, bonus, Telegram, description, steps, and its own download button). Each of the other 20 apps also has a download button that opens the respective app link. The download buttons are styled consistently and work with a single click.
+Here is the final HTML code with a fast landing page that has a download button. Clicking it reveals the next page showing:
+
+· A detailed Bingo 101 card (rating, size, votes, bonus, Telegram, description, steps, and its own download button)
+· A heading "🎮 Other Games Available" followed by 20 other app cards (each with app name, different signup bonus, ₹100 withdrawal, and download button)
+· All download buttons work and open the respective app links.
+
+The design is clean, responsive, and matches the image provided.
 
 ```html
 <!DOCTYPE html>
@@ -139,6 +145,22 @@ Here is the final HTML code with a fast landing page that has a download button.
             opacity: 0.9;
             margin-top: 8px;
             font-weight: 500;
+        }
+
+        /* Other Games Heading */
+        .other-games-heading {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a5c2e;
+            border-bottom: 3px solid #ffcf8a;
+            display: inline-block;
+            width: auto;
+            padding-bottom: 10px;
+        }
+        .heading-wrapper {
+            text-align: center;
         }
 
         /* Cards Grid */
@@ -413,42 +435,47 @@ Here is the final HTML code with a fast landing page that has a download button.
         </header>
         
         <div class="container">
-            <div class="cards-grid">
-                <!-- Detailed Bingo 101 Card (as per image) -->
-                <div class="detailed-card">
-                    <div class="detailed-header">
-                        <div class="detailed-img"><img src="https://i.ibb.co/My9tjNgL/bingo101.jpg" alt="Bingo 101" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Bingo101'"></div>
-                        <div><div class="detailed-title">Bingo 101</div></div>
-                    </div>
-                    <div class="info-grid">
-                        <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
-                        <div class="info-item"><span class="info-label">Size</span><span class="info-value">59 MB</span></div>
-                        <div class="info-item"><span class="info-label">Votes</span><span class="info-value">222K+</span></div>
-                        <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹44</span></div>
-                    </div>
-                    <div class="telegram">
-                        📢 JOIN OUR TELEGRAM CHANNEL
-                    </div>
-                    <div class="description">
-                        Download Bingo 101 APK and get ₹50–₹500 signup bonus instantly. Play real bingo games, win money, earn rewards, and withdraw your cash directly via UPI.
-                    </div>
-                    <div class="steps">
-                        <h4>How To Download?</h4>
-                        <ol>
-                            <li>Click the download button below</li>
-                            <li>Download the APK file</li>
-                            <li>Enable "Unknown Sources" in settings</li>
-                            <li>Install and start winning real cash</li>
-                        </ol>
-                    </div>
-                    <div class="description">
-                        <strong>Bingo 101 (Yono) App Download – Play Bingo & Win Cash | ₹200–₹1500 Bonus - Download APK</strong><br><br>
-                        Bingo 101 App is a real cash gaming platform where users can play exciting bingo games and earn money online. New users can claim a signup bonus ranging from ₹50 to ₹500 instantly after registration, making it easy to start playing without high investment. The app offers smooth and engaging gameplay with multiple bingo rooms and reward-based challenges. Players can join games, compete with others, and win real cash prizes daily. Bingo 101 App also provides a fast and secure withdrawal system. Users can easily withdraw their earnings directly via UPI with quick processing. Daily rewards, bonuses, and referral options help increase overall earnings. If you are looking for a fun and easy way to earn money through bingo games, Bingo 101 App is a great option. Download the APK now and start winning real cash.
-                    </div>
-                    <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="detailed-download-btn" target="_blank">🎯 DOWNLOAD BINGO 101 APP</a>
+            <!-- Detailed Bingo 101 Card first -->
+            <div class="detailed-card">
+                <div class="detailed-header">
+                    <div class="detailed-img"><img src="https://i.ibb.co/My9tjNgL/bingo101.jpg" alt="Bingo 101" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Bingo101'"></div>
+                    <div><div class="detailed-title">Bingo 101</div></div>
                 </div>
+                <div class="info-grid">
+                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
+                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">59 MB</span></div>
+                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">222K+</span></div>
+                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹44</span></div>
+                </div>
+                <div class="telegram">
+                    📢 JOIN OUR TELEGRAM CHANNEL
+                </div>
+                <div class="description">
+                    Download Bingo 101 APK and get ₹50–₹500 signup bonus instantly. Play real bingo games, win money, earn rewards, and withdraw your cash directly via UPI.
+                </div>
+                <div class="steps">
+                    <h4>How To Download?</h4>
+                    <ol>
+                        <li>Click the download button below</li>
+                        <li>Download the APK file</li>
+                        <li>Enable "Unknown Sources" in settings</li>
+                        <li>Install and start winning real cash</li>
+                    </ol>
+                </div>
+                <div class="description">
+                    <strong>Bingo 101 (Yono) App Download – Play Bingo & Win Cash | ₹200–₹1500 Bonus - Download APK</strong><br><br>
+                    Bingo 101 App is a real cash gaming platform where users can play exciting bingo games and earn money online. New users can claim a signup bonus ranging from ₹50 to ₹500 instantly after registration, making it easy to start playing without high investment. The app offers smooth and engaging gameplay with multiple bingo rooms and reward-based challenges. Players can join games, compete with others, and win real cash prizes daily. Bingo 101 App also provides a fast and secure withdrawal system. Users can easily withdraw their earnings directly via UPI with quick processing. Daily rewards, bonuses, and referral options help increase overall earnings. If you are looking for a fun and easy way to earn money through bingo games, Bingo 101 App is a great option. Download the APK now and start winning real cash.
+                </div>
+                <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="detailed-download-btn" target="_blank">🎯 DOWNLOAD BINGO 101 APP</a>
+            </div>
 
-                <!-- Other 20 App Cards (Simple) -->
+            <!-- Other Games Available Heading -->
+            <div class="heading-wrapper">
+                <div class="other-games-heading">🎮 Other Games Available</div>
+            </div>
+
+            <!-- 20 other app cards -->
+            <div class="cards-grid">
                 <!-- 1. Taurus -->
                 <div class="card">
                     <div class="card-img"><img src="https://i.ibb.co/twzhYzz7/taurus-app.jpg" alt="Taurus"></div>
