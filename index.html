@@ -1,4 +1,4 @@
-Here is an HTML document that creates a "Yono Games Hub" landing page, focusing on the three main apps from your reference image with a clean, card-based layout.
+Here is an HTML document that creates a "Yono Games Hub" landing page, featuring the three main apps in a clean, card-based layout with working download links.
 
 ```html
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
       min-height: 100vh;
     }
 
-    /* header premium design */
+    /* premium header design */
     header {
       background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
@@ -95,7 +95,7 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
       border-color: #cbdbe0;
     }
 
-    /* image placeholder that matches "photo ka model" */
+    /* image wrapper that matches "photo ka model" */
     .card-img {
       width: 130px;
       height: 130px;
@@ -107,25 +107,17 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
       justify-content: center;
       box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
       transition: 0.2s;
+      overflow: hidden;
     }
 
-    /* each game gets a unique icon/emblem as "photo style" */
-    .icon-emblem {
-      font-size: 4rem;
-      font-weight: 800;
-      background: white;
-      width: 90px;
-      height: 90px;
+    /* actual images from the provided links (working) */
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 3px #0001, 0 8px 16px -6px rgba(0,0,0,0.2);
+      display: block;
     }
-
-    .teenpatti-icon { background: linear-gradient(135deg, #FF7E5F, #FEB47B); color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-    .yonorummy-icon { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; }
-    .slotswinner-icon { background: linear-gradient(135deg, #f7971e, #ffd200); color: #2c2b2b; }
 
     .card h2 {
       font-size: 1.9rem;
@@ -266,13 +258,10 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
 
 <div class="container">
   <div class="featured-grid" id="featuredApps">
-    <!-- 3 cards: Teen Patti Master, Yono Rummy, Slots Winner exactly as per "photo ka model" -->
-    <!-- Card 1: Teen Patti Master -->
+    <!-- Card 1: Teen Patti Master with actual image from working link -->
     <div class="card">
       <div class="card-img">
-        <div class="icon-emblem teenpatti-icon">
-          🃏
-        </div>
+        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e6b3b/white?text=Teen+Patti';">
       </div>
       <h2>Teen Patti Master</h2>
       <div class="game-tag">🔥 #1 Card Game</div>
@@ -284,16 +273,14 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
           <li>🏆 Daily Leaderboard ₹10K Prize</li>
           <li>💎 3 Patti Live + Private Tables</li>
         </div>
-        <a href="#" class="btn" onclick="handleDownload('Teen Patti Master'); return false;">📲 Download Now</a>
+        <a href="https://www.earntp.com/m/jm9n7r" class="btn" target="_blank" rel="noopener noreferrer">📲 Download Now</a>
       </div>
     </div>
 
     <!-- Card 2: Yono Rummy (exact bonus details: ₹13+ Signup, Daily Rewards up to ₹90, 3%-30% Cashback) -->
     <div class="card">
       <div class="card-img">
-        <div class="icon-emblem yonorummy-icon">
-          🃟
-        </div>
+        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e6b3b/white?text=Yono+Rummy';">
       </div>
       <h2>Yono Rummy</h2>
       <div class="game-tag">🎲 ₹13+ Signup Bonus</div>
@@ -305,16 +292,14 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
           <li>💰 3% - 30% Deposit Cashback</li>
           <li>⭐ VIP Rummy Tournaments</li>
         </div>
-        <a href="#" class="btn" onclick="handleDownload('Yono Rummy'); return false;">🎮 Play Now</a>
+        <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn" target="_blank" rel="noopener noreferrer">🎮 Play Now</a>
       </div>
     </div>
 
     <!-- Card 3: Slots Winner (₹18 - ₹100 Signup Bonus, 250% First Deposit Bonus, VIP Cashback & Referral) -->
     <div class="card">
       <div class="card-img">
-        <div class="icon-emblem slotswinner-icon">
-          🎰
-        </div>
+        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e6b3b/white?text=Slots+Winner';">
       </div>
       <h2>Slots Winner</h2>
       <div class="game-tag">💎 ₹18 - ₹100 Bonus</div>
@@ -326,7 +311,7 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
           <li>🏅 VIP Cashback & Referral Rewards</li>
           <li>🎯 Weekly Free Spins & Drops</li>
         </div>
-        <a href="#" class="btn" onclick="handleDownload('Slots Winner'); return false;">🎲 Join Now</a>
+        <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn" target="_blank" rel="noopener noreferrer">🎲 Join Now</a>
       </div>
     </div>
   </div>
@@ -341,18 +326,7 @@ Here is an HTML document that creates a "Yono Games Hub" landing page, focusing 
 </footer>
 
 <script>
-  // Interactive download simulation with premium feel — exactly matches "photo ka model" for 3 apps
-  function handleDownload(appName) {
-    // Create a modern toast-like alert but smoother using custom modal?
-    // For simplicity but elegant user feedback
-    const message = `✅ Redirecting to secure download: ${appName}\n\n🎁 Your exclusive bonus is ready! Get ${appName === 'Teen Patti Master' ? '₹500 Welcome Bonus + Jackpot access' : appName === 'Yono Rummy' ? '₹13+ Bonus + Daily ₹90 Rewards & Cashback' : '₹100 Signup + 250% Deposit Bonus'}.\n\n🚀 Installing demo hub — official app store link will open in real environment.`;
-    alert(message);
-    // You could simulate opening a link in a real production environment
-    // For demonstration, we show the bonus alert as per model
-    console.log(`Download requested for: ${appName}`);
-  }
-
-  // Optional: additional animation on page load to match "photo model" slickness
+  // Smooth entrance animation for cards
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, idx) => {
