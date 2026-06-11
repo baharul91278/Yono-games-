@@ -1,4 +1,4 @@
-Here is the final HTML code for a "Yono Games Hub" landing page featuring exactly three game apps, each with rich information and a "ज्यादा से ज्यादा" tag.
+Here is an HTML document that creates a "Yono Games Hub" landing page with three featured apps, each having a download button that opens a detailed next page with additional app listings.
 
 ```html
 <!DOCTYPE html>
@@ -21,21 +21,17 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       min-height: 100vh;
     }
 
-    /* premium header design */
     header {
       background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
       padding: 28px 20px;
       text-align: center;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      position: relative;
-      z-index: 2;
     }
 
     header h1 {
       font-size: 2.5rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,7 +41,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
 
     header h1 span {
       background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(4px);
       padding: 6px 18px;
       border-radius: 60px;
       font-size: 1rem;
@@ -56,18 +51,14 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       font-size: 1rem;
       opacity: 0.9;
       margin-top: 8px;
-      font-weight: 500;
-      color: #e0f2e5;
     }
 
-    /* container */
     .container {
       max-width: 1280px;
       margin: 40px auto;
       padding: 0 24px;
     }
 
-    /* exactly 3 cards grid */
     .cards-grid {
       display: flex;
       flex-wrap: wrap;
@@ -76,7 +67,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       margin-bottom: 50px;
     }
 
-    /* premium card design - photo ka model */
     .card {
       background: rgba(255, 255, 255, 0.98);
       border-radius: 36px;
@@ -85,7 +75,7 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       min-width: 280px;
       max-width: 360px;
       transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.7);
       text-align: center;
     }
@@ -94,10 +84,8 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       transform: translateY(-10px);
       box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.25);
       background: white;
-      border-color: #cbdbe0;
     }
 
-    /* image styling - photo model */
     .card-img {
       width: 130px;
       height: 130px;
@@ -107,8 +95,8 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
     }
 
     .card-img img {
@@ -116,18 +104,16 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       height: 100%;
       object-fit: cover;
       border-radius: 28px;
-      display: block;
     }
 
     .card h2 {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(125deg, #1e2b32, #2c4c3b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin: 12px 0 6px;
-      letter-spacing: -0.3px;
     }
 
     .game-tag {
@@ -141,7 +127,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       margin-bottom: 16px;
     }
 
-    /* jada se tag - premium badge */
     .jada-tag {
       display: inline-block;
       background: linear-gradient(135deg, #ff5722, #ff784b);
@@ -152,19 +137,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       border-radius: 40px;
       margin-left: 8px;
       vertical-align: middle;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(255,87,34,0.3);
-    }
-
-    .info p {
-      margin: 12px 0;
-      font-size: 1rem;
-      color: #2c3e44;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
     }
 
     .bonus-badge {
@@ -194,20 +166,13 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border-bottom: 1px solid #e9edf2;
     }
 
     .reward-list li:last-child {
       border: none;
     }
-
-    /* different icons for each list */
-    .reward-list li:nth-child(1)::before { content: "🎁"; font-size: 1rem; }
-    .reward-list li:nth-child(2)::before { content: "🏆"; font-size: 1rem; }
-    .reward-list li:nth-child(3)::before { content: "💎"; font-size: 1rem; }
-    .reward-list li:nth-child(4)::before { content: "⭐"; font-size: 1rem; }
-    .reward-list li:nth-child(5)::before { content: "💰"; font-size: 1rem; }
 
     .btn {
       display: inline-block;
@@ -219,7 +184,7 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       text-decoration: none;
       border-radius: 60px;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1rem;
       transition: all 0.2s ease;
       box-shadow: 0 5px 12px rgba(0, 102, 255, 0.3);
       border: none;
@@ -230,7 +195,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
     .btn:hover {
       background: linear-gradient(95deg, #0052cc, #1e6df2);
       transform: scale(0.97);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     }
 
     .info-note {
@@ -250,8 +214,6 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
       background: #0a2e1d;
       color: #b9ddcb;
       margin-top: 48px;
-      font-weight: 500;
-      border-top: 1px solid #21643f;
     }
 
     @media (max-width: 780px) {
@@ -270,77 +232,65 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
 <body>
 
 <header>
-  <h1>
-    🎮 Yono Games Hub
-    <span>🔥 Top 3 Premium Apps</span>
-  </h1>
+  <h1>🎮 Yono Games Hub <span>🔥 Top 3 Premium Apps</span></h1>
   <div class="subhead">Exclusive offers • Instant bonuses • ज्यादा से ज्यादा रिवॉर्ड्स • Trusted platform</div>
 </header>
 
 <div class="container">
   <div class="cards-grid">
     
-    <!-- Card 1: Teen Patti Master - with jada se tag and detailed information -->
+    <!-- Card 1: Teen Patti Master -->
     <div class="card">
       <div class="card-img">
-        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti';">
+        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti'">
       </div>
-      <h2>Teen Patti Master <span class="jada-tag">🔥 ज्यादा से ज्यादा बोनस</span></h2>
+      <h2>Teen Patti Master <span class="jada-tag">🔥 ज्यादा से ज्यादा</span></h2>
       <div class="game-tag">🎴 #1 Card Game in India</div>
-      <div class="info">
-        <p>🎴 Popular Teen Patti Card Game | 10M+ Downloads</p>
-        <div class="bonus-badge">✨ Mega Jackpot Tables • Daily Free Chips ✨</div>
-        <div class="reward-list">
-          <li>100% Welcome Bonus up to ₹500 + Free ₹20 Daily</li>
-          <li>Daily Leaderboard Prize ₹10,000</li>
-          <li>3 Patti Live • Andar Bahar • Private Tables</li>
-          <li>VIP Club • Weekly Cashback up to 15%</li>
-          <li>Refer & Earn up to ₹2000 per friend</li>
-        </div>
-        <a href="https://www.earntp.com/m/jm9n7r" class="btn" target="_blank" rel="noopener noreferrer">📲 Download Now - Get ₹50 Instant</a>
+      <div class="bonus-badge">✨ Mega Jackpot Tables • Daily Free Chips ✨</div>
+      <div class="reward-list">
+        <li>100% Welcome Bonus up to ₹500 + Free ₹20 Daily</li>
+        <li>Daily Leaderboard Prize ₹10,000</li>
+        <li>3 Patti Live • Andar Bahar • Private Tables</li>
+        <li>VIP Club • Weekly Cashback up to 15%</li>
+        <li>Refer & Earn up to ₹2000 per friend</li>
       </div>
+      <button class="btn download-btn" data-app="Teen Patti Master" data-bonus="₹500 Welcome + ₹20 Daily" data-withdraw="₹100" data-features="3 Patti Live, Andar Bahar, Private Tables, VIP Club, Weekly Cashback 15%" data-link="https://www.earntp.com/m/jm9n7r">📲 Download Now - Get ₹50 Instant</button>
     </div>
 
-    <!-- Card 2: Yono Rummy - with jada se tag and detailed information -->
+    <!-- Card 2: Yono Rummy -->
     <div class="card">
       <div class="card-img">
-        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy';">
+        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy'">
       </div>
-      <h2>Yono Rummy <span class="jada-tag">🎲 ज्यादा से ज्यादा कैशबैक</span></h2>
+      <h2>Yono Rummy <span class="jada-tag">🎲 ज्यादा से ज्यादा</span></h2>
       <div class="game-tag">♠️ India's Fastest Rummy App</div>
-      <div class="info">
-        <p>♠️ Classic Rummy • Fast Withdrawals • 24/7 Tables</p>
-        <div class="bonus-badge">✨ ₹13+ Signup + Daily ₹90 Rewards ✨</div>
-        <div class="reward-list">
-          <li>Signup Bonus: ₹13+ (Instant Credit)</li>
-          <li>Daily Login Rewards up to ₹90 Every Day</li>
-          <li>3% - 30% Deposit Cashback on Every Deposit</li>
-          <li>VIP Rummy Tournaments with ₹1 Lac Prize Pool</li>
-          <li>100% Secure UPI Withdrawal • Zero Commission</li>
-        </div>
-        <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn" target="_blank" rel="noopener noreferrer">🎮 Play Now - Claim ₹13+ Bonus</a>
+      <div class="bonus-badge">✨ ₹13+ Signup + Daily ₹90 Rewards ✨</div>
+      <div class="reward-list">
+        <li>Signup Bonus: ₹13+ (Instant Credit)</li>
+        <li>Daily Login Rewards up to ₹90 Every Day</li>
+        <li>3% - 30% Deposit Cashback on Every Deposit</li>
+        <li>VIP Rummy Tournaments with ₹1 Lac Prize Pool</li>
+        <li>100% Secure UPI Withdrawal • Zero Commission</li>
       </div>
+      <button class="btn download-btn" data-app="Yono Rummy" data-bonus="₹13+ Signup + Daily ₹90" data-withdraw="₹100" data-features="Daily Rewards, 3%-30% Cashback, VIP Tournaments, UPI Withdrawal" data-link="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758">🎮 Play Now - Claim ₹13+ Bonus</button>
     </div>
 
-    <!-- Card 3: Slots Winner - with jada se tag and detailed information -->
+    <!-- Card 3: Slots Winner -->
     <div class="card">
       <div class="card-img">
-        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner';">
+        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner'">
       </div>
-      <h2>Slots Winner <span class="jada-tag">🎰 ज्यादा से ज्यादा फ्री स्पिन</span></h2>
+      <h2>Slots Winner <span class="jada-tag">🎰 ज्यादा से ज्यादा</span></h2>
       <div class="game-tag">⚡ 1000+ Slot Machines • Huge Jackpots</div>
-      <div class="info">
-        <p>⚡ Biggest Jackpots • Daily Drops • 24/7 Wins</p>
-        <div class="bonus-badge">✨ ₹18-₹100 Signup + 250% Deposit Bonus ✨</div>
-        <div class="reward-list">
-          <li>Signup Bonus: ₹18 - ₹100 (No Deposit Required)</li>
-          <li>250% First Deposit Bonus up to ₹10,000</li>
-          <li>VIP Cashback up to 15% Every Week</li>
-          <li>Referral Rewards: ₹500 per Friend + 10% of their deposit</li>
-          <li>Weekly Free Spins • Mega Progressive Jackpot</li>
-        </div>
-        <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn" target="_blank" rel="noopener noreferrer">🎲 Join Now - Get ₹100 Free</a>
+      <div class="bonus-badge">✨ ₹18-₹100 Signup + 250% Deposit Bonus ✨</div>
+      <div class="reward-list">
+        <li>Signup Bonus: ₹18 - ₹100 (No Deposit Required)</li>
+        <li>250% First Deposit Bonus up to ₹10,000</li>
+        <li>VIP Cashback up to 15% Every Week</li>
+        <li>Referral Rewards: ₹500 per Friend + 10% of their deposit</li>
+        <li>Weekly Free Spins • Mega Progressive Jackpot</li>
       </div>
+      <button class="btn download-btn" data-app="Slots Winner" data-bonus="₹18-₹100 + 250% Deposit" data-withdraw="₹100" data-features="1000+ Slots, VIP Cashback, Free Spins, Progressive Jackpot" data-link="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393">🎲 Join Now - Get ₹100 Free</button>
     </div>
   </div>
 
@@ -350,29 +300,125 @@ Here is the final HTML code for a "Yono Games Hub" landing page featuring exactl
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — All trademarks belong to respective owners. Play responsibly. | 🎯 18+ only | Terms & Conditions Apply
+  © 2025 Yono Games Hub — All trademarks belong to respective owners. Play responsibly. | 🎯 18+ only
 </footer>
 
 <script>
-  // Smooth entrance animation for cards with enhanced effect
+  // Function to open next page with app details and other apps listing
+  function openDetailPage(appName, bonus, minWithdraw, features, downloadLink, iconEmoji) {
+    const otherAppsList = `
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #2a3a55;">
+        <h4 style="color: #ffc107; margin-bottom: 15px; font-size: 1.2rem;">🎲 अन्य लोकप्रिय ऐप्स (Other Popular Apps)</h4>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: #0f172a; border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div><span style="font-size: 1.5rem;">🃏</span> <strong style="margin-left: 10px;">Teen Patti Master</strong><br><small style="color: #aaa;">₹50 Bonus | Min Withdraw ₹100</small></div>
+            <button onclick="window.location.href='https://www.earntp.com/m/jm9n7r'" style="background:#0066ff; border:none; padding:8px 18px; border-radius:30px; color:white; font-weight:bold; cursor:pointer;">Download</button>
+          </div>
+          <div style="background: #0f172a; border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div><span style="font-size: 1.5rem;">🃟</span> <strong style="margin-left: 10px;">Yono Rummy</strong><br><small style="color: #aaa;">₹13+ Bonus | Daily ₹90</small></div>
+            <button onclick="window.location.href='https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758'" style="background:#0066ff; border:none; padding:8px 18px; border-radius:30px; color:white; font-weight:bold; cursor:pointer;">Play Now</button>
+          </div>
+          <div style="background: #0f172a; border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div><span style="font-size: 1.5rem;">🎰</span> <strong style="margin-left: 10px;">Slots Winner</strong><br><small style="color: #aaa;">₹100 Bonus | 250% Deposit</small></div>
+            <button onclick="window.location.href='https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393'" style="background:#0066ff; border:none; padding:8px 18px; border-radius:30px; color:white; font-weight:bold; cursor:pointer;">Join Now</button>
+          </div>
+          <div style="background: #0f172a; border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div><span style="font-size: 1.5rem;">🎴</span> <strong style="margin-left: 10px;">All Rummy App</strong><br><small style="color: #aaa;">₹551 Bonus | Min Withdraw ₹100</small></div>
+            <button onclick="alert('Redirecting to All Rummy App')" style="background:#0066ff; border:none; padding:8px 18px; border-radius:30px; color:white; font-weight:bold; cursor:pointer;">Get Bonus</button>
+          </div>
+          <div style="background: #0f172a; border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;">
+            <div><span style="font-size: 1.5rem;">💎</span> <strong style="margin-left: 10px;">Jaiho 777 Vip</strong><br><small style="color: #aaa;">₹155 Bonus | VIP Slots</small></div>
+            <button onclick="alert('Redirecting to Jaiho 777 Vip')" style="background:#0066ff; border:none; padding:8px 18px; border-radius:30px; color:white; font-weight:bold; cursor:pointer;">Download</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const detailHtml = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>${appName} | Download & Bonus Info</title>
+      <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui;}
+        body{background:linear-gradient(145deg,#0a0f1e 0%,#0c1122 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
+        .detail-card{max-width:600px;width:100%;background:linear-gradient(145deg,#1a2538,#0f172a);border-radius:52px;padding:35px;text-align:center;box-shadow:0 30px 50px rgba(0,0,0,0.5);border:1px solid #ffc857;}
+        .app-icon-large{font-size:5rem;background:#ffc10722;width:120px;height:120px;border-radius:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:2px solid #ffc107;}
+        h2{font-size:2rem;color:#FFDFA5;margin-bottom:8px;}
+        .info-box{background:#00000055;border-radius:36px;padding:22px;margin:25px 0;text-align:left;}
+        .info-box h3{color:#ffc107;margin-bottom:15px;border-left:4px solid #ffc107;padding-left:12px;}
+        .info-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a3a55;color:#e0e8ff;}
+        .info-label{font-weight:700;color:#ffcd94;}
+        .download-page-btn{background:linear-gradient(95deg,#ff9800,#ff5722);width:100%;padding:16px;border-radius:60px;font-weight:800;font-size:1.2rem;color:white;border:none;cursor:pointer;margin-top:10px;}
+        .back-link{color:#88aaff;text-decoration:none;display:inline-block;margin-top:15px;}
+        .secure-badge{margin-top:12px;font-size:0.7rem;color:#88aadd;}
+      </style>
+    </head>
+    <body>
+      <div class="detail-card">
+        <div class="app-icon-large">${iconEmoji}</div>
+        <h2>${appName}</h2>
+        <p style="color:#bbd4ff;">🔥 Complete App Information 🔥</p>
+        <div class="info-box">
+          <h3>✨ Bonus & App Details ✨</h3>
+          <div class="info-row"><span class="info-label">🎁 Signup Bonus:</span><span><strong>${bonus}</strong></span></div>
+          <div class="info-row"><span class="info-label">💰 Min Withdrawal:</span><span><strong>${minWithdraw}</strong></span></div>
+          <div class="info-row"><span class="info-label">⚡ Key Features:</span><span>${features}</span></div>
+          <div class="info-row"><span class="info-label">📱 Platform:</span><span>Android APK | Secure</span></div>
+        </div>
+        <button id="finalDownloadBtn" class="download-page-btn">⬇️ CLICK TO DOWNLOAD APP ⬇️</button>
+        <p style="font-size:0.7rem; margin-top:12px;">✅ Instant bonus on signup | 24/7 Support</p>
+        ${otherAppsList}
+        <a href="#" onclick="window.close();return false;" class="back-link">← Go Back to Yono Hub</a>
+        <div class="secure-badge">🔒 SSL Encrypted • Trusted by 1M+ Users</div>
+      </div>
+      <script>
+        document.getElementById('finalDownloadBtn').addEventListener('click', function(e){
+          e.preventDefault();
+          window.open('${downloadLink}', '_blank');
+          alert('✅ Redirecting to ${appName} download page!\\n\\n🎁 Your Bonus: ${bonus}\\n💰 Min Withdrawal: ${minWithdraw}');
+        });
+      <\/script>
+    </body>
+    <\/html>`;
+    
+    const newWin = window.open();
+    newWin.document.write(detailHtml);
+    newWin.document.title = `${appName} - Download & Bonus`;
+    newWin.document.close();
+  }
+
+  // Attach click handlers to all download buttons
+  const downloadBtns = document.querySelectorAll('.download-btn');
+  const appsMap = {
+    'Teen Patti Master': { bonus: '₹500 Welcome + ₹20 Daily', withdraw: '₹100', features: '3 Patti Live, Andar Bahar, Private Tables, VIP Club, Weekly Cashback 15%, Refer & Earn ₹2000', icon: '🃏', link: 'https://www.earntp.com/m/jm9n7r' },
+    'Yono Rummy': { bonus: '₹13+ Signup + Daily ₹90 Rewards', withdraw: '₹100', features: 'Daily Login Rewards, 3%-30% Deposit Cashback, VIP Tournaments ₹1 Lac Prize, UPI Withdrawal', icon: '🃟', link: 'https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758' },
+    'Slots Winner': { bonus: '₹18-₹100 + 250% First Deposit', withdraw: '₹100', features: '1000+ Slots, VIP Cashback 15%, Weekly Free Spins, Progressive Jackpot, Referral ₹500', icon: '🎰', link: 'https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393' }
+  };
+
+  downloadBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const appName = btn.getAttribute('data-app');
+      const data = appsMap[appName];
+      if (data) {
+        openDetailPage(appName, data.bonus, data.withdraw, data.features, data.link, data.icon);
+      }
+    });
+  });
+
+  // Smooth entrance animation
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, idx) => {
       card.style.opacity = '0';
-      card.style.transform = 'translateY(25px)';
+      card.style.transform = 'translateY(20px)';
       setTimeout(() => {
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
         card.style.opacity = '1';
         card.style.transform = 'translateY(0)';
-      }, idx * 100);
-    });
-    
-    // Add click tracking for better user experience
-    const allBtns = document.querySelectorAll('.btn');
-    allBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        console.log('Download clicked for: ' + this.innerText);
-      });
+      }, idx * 80);
     });
   });
 </script>
