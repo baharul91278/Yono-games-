@@ -1,5 +1,4 @@
-
-Here is an HTML document that creates a dedicated landing page for "Yono 101Z" with a main download button that opens a detailed info page, plus additional app listings at the bottom.
+Here is the final HTML code for a "Yono Games Hub" landing page featuring exactly three game apps, each with rich information and a "ज्यादा से ज्यादा" tag.
 
 ```html
 <!DOCTYPE html>
@@ -7,7 +6,8 @@ Here is an HTML document that creates a dedicated landing page for "Yono 101Z" w
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Yono 101Z | Download & Get Welcome Bonus</title>
+  <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
+  <title>Yono Games Hub | Top 3 Premium Apps</title>
   <style>
     * {
       margin: 0;
@@ -21,13 +21,15 @@ Here is an HTML document that creates a dedicated landing page for "Yono 101Z" w
       min-height: 100vh;
     }
 
-    /* premium header */
+    /* premium header design */
     header {
       background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
       padding: 28px 20px;
       text-align: center;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      position: relative;
+      z-index: 2;
     }
 
     header h1 {
@@ -43,6 +45,7 @@ Here is an HTML document that creates a dedicated landing page for "Yono 101Z" w
 
     header h1 span {
       background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
       padding: 6px 18px;
       border-radius: 60px;
       font-size: 1rem;
@@ -53,231 +56,213 @@ Here is an HTML document that creates a dedicated landing page for "Yono 101Z" w
       font-size: 1rem;
       opacity: 0.9;
       margin-top: 8px;
+      font-weight: 500;
+      color: #e0f2e5;
     }
 
+    /* container */
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 40px auto;
       padding: 0 24px;
     }
 
-    /* featured card - Yono 101Z */
-    .featured-card {
-      background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-      border-radius: 48px;
-      padding: 35px;
-      margin-bottom: 50px;
-      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(10, 127, 63, 0.25);
+    /* exactly 3 cards grid */
+    .cards-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 35px;
-      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
     }
 
-    .featured-left {
+    /* premium card design - photo ka model */
+    .card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 36px;
+      padding: 24px 24px 32px;
       flex: 1;
+      min-width: 280px;
+      max-width: 360px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
       text-align: center;
     }
 
-    .app-badge {
-      background: linear-gradient(145deg, #0a7f3f, #0a6a35);
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
-      border: 3px solid #ffd966;
-    }
-
-    .app-badge span:first-child {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #ffd966;
-    }
-
-    .app-badge span:last-child {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-    }
-
-    .featured-right {
-      flex: 2;
-    }
-
-    .featured-right h2 {
-      font-size: 2.5rem;
-      color: #0a7f3f;
-      margin-bottom: 12px;
-    }
-
-    .bonus-highlight {
-      background: #ffedd5;
-      display: inline-block;
-      padding: 10px 24px;
-      border-radius: 60px;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: #b85c00;
-      margin: 15px 0;
-    }
-
-    .spec-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .spec-item {
-      background: #f1f5f9;
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    .download-main-btn {
-      display: inline-block;
-      background: linear-gradient(95deg, #ff5722, #e64a19);
-      color: white;
-      font-weight: 800;
-      font-size: 1.4rem;
-      padding: 16px 42px;
-      border-radius: 60px;
-      text-decoration: none;
-      margin-top: 20px;
-      box-shadow: 0 10px 20px rgba(255, 87, 34, 0.4);
-      transition: 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .download-main-btn:hover {
-      transform: scale(1.02);
-      background: linear-gradient(95deg, #ff4510, #d43c10);
-    }
-
-    /* section title for other apps */
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 50px 0 25px;
-      border-left: 6px solid #0a7f3f;
-      padding-left: 20px;
-      color: #1f3b2c;
-    }
-
-    /* other apps grid */
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
-      margin-bottom: 30px;
-    }
-
-    .app-card {
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.25);
       background: white;
-      border-radius: 28px;
-      padding: 20px;
-      transition: all 0.25s ease;
-      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      border: 1px solid #e2edf2;
+      border-color: #cbdbe0;
     }
 
-    .app-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
-    }
-
-    .app-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(145deg, #eaf4e8, #d4e2dc);
-      border-radius: 22px;
+    /* image styling - photo model */
+    .card-img {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+      background: linear-gradient(145deg, #f8fafd, #eef2f9);
+      border-radius: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #0a7f3f;
-      flex-shrink: 0;
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
 
-    .app-details {
-      flex: 1;
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
     }
 
-    .app-details h3 {
-      font-size: 1.4rem;
+    .card h2 {
+      font-size: 1.9rem;
       font-weight: 800;
-      color: #1a3b2b;
-      margin-bottom: 4px;
+      background: linear-gradient(125deg, #1e2b32, #2c4c3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 12px 0 6px;
+      letter-spacing: -0.3px;
     }
 
-    .bonus-tag {
-      background: #ffedd5;
-      border-radius: 30px;
-      padding: 4px 12px;
+    .game-tag {
+      display: inline-block;
+      background: #eef2ff;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1f6392;
+      margin-bottom: 16px;
+    }
+
+    /* jada se tag - premium badge */
+    .jada-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff5722, #ff784b);
+      color: white;
       font-size: 0.7rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 40px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(255,87,34,0.3);
+    }
+
+    .info p {
+      margin: 12px 0;
+      font-size: 1rem;
+      color: #2c3e44;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .bonus-badge {
+      background: #fef6e0;
+      border-radius: 60px;
+      padding: 8px 16px;
       font-weight: 700;
       color: #b85c00;
-      display: inline-block;
-      margin-right: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0;
     }
 
-    .app-details p {
-      font-size: 0.8rem;
-      margin: 6px 0;
-      color: #475569;
+    .reward-list {
+      background: #f8fafc;
+      border-radius: 28px;
+      padding: 14px 12px;
+      margin: 16px 0;
+      text-align: left;
     }
 
-    .small-btn {
-      background: #0066ff;
-      padding: 8px 18px;
-      border-radius: 40px;
-      color: white;
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 8px;
+    .reward-list li {
+      list-style: none;
+      padding: 8px 0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .reward-list li:last-child {
       border: none;
-      cursor: pointer;
-      transition: 0.2s;
     }
 
-    .small-btn:hover {
-      background: #0044cc;
+    /* different icons for each list */
+    .reward-list li:nth-child(1)::before { content: "🎁"; font-size: 1rem; }
+    .reward-list li:nth-child(2)::before { content: "🏆"; font-size: 1rem; }
+    .reward-list li:nth-child(3)::before { content: "💎"; font-size: 1rem; }
+    .reward-list li:nth-child(4)::before { content: "⭐"; font-size: 1rem; }
+    .reward-list li:nth-child(5)::before { content: "💰"; font-size: 1rem; }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 0;
+      background: linear-gradient(95deg, #0066ff, #3b82f6);
+      color: white;
+      text-decoration: none;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 5px 12px rgba(0, 102, 255, 0.3);
+      border: none;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: linear-gradient(95deg, #0052cc, #1e6df2);
+      transform: scale(0.97);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-note {
+      text-align: center;
+      margin: 20px auto 0;
+      max-width: 650px;
+      background: #eaf4e8;
+      border-radius: 80px;
+      padding: 12px 20px;
+      font-weight: 500;
+      color: #1f543b;
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 28px 20px;
       background: #0a2e1d;
-      color: #c5e0cf;
-      margin-top: 50px;
+      color: #b9ddcb;
+      margin-top: 48px;
+      font-weight: 500;
+      border-top: 1px solid #21643f;
     }
 
     @media (max-width: 780px) {
-      .featured-card {
-        flex-direction: column;
-        text-align: center;
+      .cards-grid {
+        gap: 20px;
       }
-      .spec-grid {
-        justify-content: center;
+      .card {
+        min-width: 260px;
       }
-      .app-card {
-        flex-direction: column;
-        text-align: center;
+      header h1 {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -285,219 +270,109 @@ Here is an HTML document that creates a dedicated landing page for "Yono 101Z" w
 <body>
 
 <header>
-  <h1>🎮 Yono 101Z <span>🔥 Welcome Bonus</span></h1>
-  <div class="subhead">Download APK • Instant Rewards • Play & Earn</div>
+  <h1>
+    🎮 Yono Games Hub
+    <span>🔥 Top 3 Premium Apps</span>
+  </h1>
+  <div class="subhead">Exclusive offers • Instant bonuses • ज्यादा से ज्यादा रिवॉर्ड्स • Trusted platform</div>
 </header>
 
 <div class="container">
-  <!-- Yono 101Z Featured Card -->
-  <div class="featured-card">
-    <div class="featured-left">
-      <div class="app-badge">
-        <span>101Z</span>
-        <span>YONO</span>
+  <div class="cards-grid">
+    
+    <!-- Card 1: Teen Patti Master - with jada se tag and detailed information -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti';">
       </div>
-    </div>
-    <div class="featured-right">
-      <h2>Yono 101Z APK</h2>
-      <p style="color: #334155;">Yono 101Z is another exciting game recently released by Yono Game. Download the APK from our secure link and get instant bonus up to ₹1500/-</p>
-      <div class="bonus-highlight">🎁 Welcome Bonus: Up to ₹1500</div>
-      <div class="spec-grid">
-        <span class="spec-item">📦 Size: 65 MB</span>
-        <span class="spec-item">⭐ Rating: 4.8</span>
-        <span class="spec-item">💰 Min Withdraw: ₹100</span>
-        <span class="spec-item">🎰 Slots + Rummy + Fishing</span>
-      </div>
-      <button id="yono101zDownloadBtn" class="download-main-btn">⬇️ DOWNLOAD YONO 101Z</button>
-      <p style="margin-top: 12px; font-size: 0.7rem; color: #5a6e7c;">🔒 Secure APK | 4.5M+ Downloads</p>
-    </div>
-  </div>
-
-  <!-- Other Apps Section - baki app show hona hai -->
-  <div class="section-title">🎲 More Exciting Games</div>
-  <div class="apps-grid" id="otherAppsContainer">
-    <!-- Teen Patti Master -->
-    <div class="app-card">
-      <div class="app-icon">🃏</div>
-      <div class="app-details">
-        <h3>Teen Patti Master</h3>
-        <p><span class="bonus-tag">🎁 ₹50 Signup</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>🔥 3 Patti • Andar Bahar • Live Tables</p>
-        <button class="small-btn other-download" data-app="Teen Patti Master" data-bonus="₹50 Welcome + Daily ₹20" data-withdraw="₹100" data-features="3 Patti, Andar Bahar, Live Dealer, Jackpot ₹5K">📲 Download</button>
+      <h2>Teen Patti Master <span class="jada-tag">🔥 ज्यादा से ज्यादा बोनस</span></h2>
+      <div class="game-tag">🎴 #1 Card Game in India</div>
+      <div class="info">
+        <p>🎴 Popular Teen Patti Card Game | 10M+ Downloads</p>
+        <div class="bonus-badge">✨ Mega Jackpot Tables • Daily Free Chips ✨</div>
+        <div class="reward-list">
+          <li>100% Welcome Bonus up to ₹500 + Free ₹20 Daily</li>
+          <li>Daily Leaderboard Prize ₹10,000</li>
+          <li>3 Patti Live • Andar Bahar • Private Tables</li>
+          <li>VIP Club • Weekly Cashback up to 15%</li>
+          <li>Refer & Earn up to ₹2000 per friend</li>
+        </div>
+        <a href="https://www.earntp.com/m/jm9n7r" class="btn" target="_blank" rel="noopener noreferrer">📲 Download Now - Get ₹50 Instant</a>
       </div>
     </div>
 
-    <!-- Yono Rummy -->
-    <div class="app-card">
-      <div class="app-icon">🃟</div>
-      <div class="app-details">
-        <h3>Yono Rummy</h3>
-        <p><span class="bonus-tag">🎁 ₹13+ Bonus</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>♠️ Classic Rummy • Daily ₹90 Rewards</p>
-        <button class="small-btn other-download" data-app="Yono Rummy" data-bonus="₹13+ Signup + Daily ₹90" data-withdraw="₹100" data-features="3%-30% Cashback, VIP Tournaments, Fast Withdrawal">🎮 Play Now</button>
+    <!-- Card 2: Yono Rummy - with jada se tag and detailed information -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy';">
+      </div>
+      <h2>Yono Rummy <span class="jada-tag">🎲 ज्यादा से ज्यादा कैशबैक</span></h2>
+      <div class="game-tag">♠️ India's Fastest Rummy App</div>
+      <div class="info">
+        <p>♠️ Classic Rummy • Fast Withdrawals • 24/7 Tables</p>
+        <div class="bonus-badge">✨ ₹13+ Signup + Daily ₹90 Rewards ✨</div>
+        <div class="reward-list">
+          <li>Signup Bonus: ₹13+ (Instant Credit)</li>
+          <li>Daily Login Rewards up to ₹90 Every Day</li>
+          <li>3% - 30% Deposit Cashback on Every Deposit</li>
+          <li>VIP Rummy Tournaments with ₹1 Lac Prize Pool</li>
+          <li>100% Secure UPI Withdrawal • Zero Commission</li>
+        </div>
+        <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="btn" target="_blank" rel="noopener noreferrer">🎮 Play Now - Claim ₹13+ Bonus</a>
       </div>
     </div>
 
-    <!-- Slots Winner -->
-    <div class="app-card">
-      <div class="app-icon">🎰</div>
-      <div class="app-details">
-        <h3>Slots Winner</h3>
-        <p><span class="bonus-tag">🎁 ₹18-₹100 Bonus</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>⚡ 1000+ Slots • 250% First Deposit</p>
-        <button class="small-btn other-download" data-app="Slots Winner" data-bonus="₹18-₹100 + 250% Deposit" data-withdraw="₹100" data-features="VIP Cashback, Free Spins, Progressive Jackpots">🎲 Join Now</button>
+    <!-- Card 3: Slots Winner - with jada se tag and detailed information -->
+    <div class="card">
+      <div class="card-img">
+        <img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner';">
       </div>
-    </div>
-
-    <!-- All Rummy App (extra) -->
-    <div class="app-card">
-      <div class="app-icon">🎴</div>
-      <div class="app-details">
-        <h3>All Rummy App</h3>
-        <p><span class="bonus-tag">🎁 ₹551 Bonus</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>⭐ 100% Cashback • Daily Freeroll</p>
-        <button class="small-btn other-download" data-app="All Rummy App" data-bonus="₹551 Welcome" data-withdraw="₹100" data-features="Private Tables, 24/7 Support, Rummy Tournaments">Get Bonus</button>
-      </div>
-    </div>
-
-    <!-- Jaiho 777 Vip -->
-    <div class="app-card">
-      <div class="app-icon">💎</div>
-      <div class="app-details">
-        <h3>Jaiho 777 Vip</h3>
-        <p><span class="bonus-tag">🎁 ₹155 Bonus</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>🎲 VIP Slots • Exclusive Tables</p>
-        <button class="small-btn other-download" data-app="Jaiho 777 Vip" data-bonus="₹155 Signup" data-withdraw="₹100" data-features="VIP Rewards, Weekly Prize Drops, 24/7 Support">Download</button>
-      </div>
-    </div>
-
-    <!-- Diwa Vip -->
-    <div class="app-card">
-      <div class="app-icon">👑</div>
-      <div class="app-details">
-        <h3>Diwa Vip</h3>
-        <p><span class="bonus-tag">🎁 ₹100 Bonus</span> <span class="bonus-tag">💰 Min Withdraw ₹100</span></p>
-        <p>👑 VIP Program • Weekly Cashback</p>
-        <button class="small-btn other-download" data-app="Diwa Vip" data-bonus="₹100 + Weekly Cashback" data-withdraw="₹100" data-features="Instant Rakeback, VIP Ranks, Exclusive Bonuses">Join VIP</button>
+      <h2>Slots Winner <span class="jada-tag">🎰 ज्यादा से ज्यादा फ्री स्पिन</span></h2>
+      <div class="game-tag">⚡ 1000+ Slot Machines • Huge Jackpots</div>
+      <div class="info">
+        <p>⚡ Biggest Jackpots • Daily Drops • 24/7 Wins</p>
+        <div class="bonus-badge">✨ ₹18-₹100 Signup + 250% Deposit Bonus ✨</div>
+        <div class="reward-list">
+          <li>Signup Bonus: ₹18 - ₹100 (No Deposit Required)</li>
+          <li>250% First Deposit Bonus up to ₹10,000</li>
+          <li>VIP Cashback up to 15% Every Week</li>
+          <li>Referral Rewards: ₹500 per Friend + 10% of their deposit</li>
+          <li>Weekly Free Spins • Mega Progressive Jackpot</li>
+        </div>
+        <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="btn" target="_blank" rel="noopener noreferrer">🎲 Join Now - Get ₹100 Free</a>
       </div>
     </div>
   </div>
 
-  <div style="margin-top: 20px; text-align: center; font-size: 0.8rem; background: #eaf4e8; padding: 12px; border-radius: 40px;">
-    ✅ All apps provide instant signup bonus | Min Withdrawal ₹100 | Secure & Trusted
+  <div class="info-note">
+    🌟 100% secure platform | Instant bonuses credited within 30 seconds | Min withdrawal ₹100 for all games | 24/7 Customer Support
   </div>
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — All trademarks belong to respective owners | 18+ only | Play responsibly 🎯
+  © 2025 Yono Games Hub — All trademarks belong to respective owners. Play responsibly. | 🎯 18+ only | Terms & Conditions Apply
 </footer>
 
 <script>
-  // Function to open next page with full app information and download button
-  function openAppDetailPage(appName, bonus, minWithdraw, features, iconEmoji = '🎮') {
-    const detailHtml = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${appName} | Download & Bonus Info</title>
-      <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui;}
-        body{background:linear-gradient(145deg,#0a0f1e 0%,#0c1122 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
-        .detail-card{max-width:600px;width:100%;background:linear-gradient(145deg,#1a2538,#0f172a);border-radius:52px;padding:35px;text-align:center;box-shadow:0 30px 50px rgba(0,0,0,0.5);border:1px solid #ffc857;}
-        .app-icon-large{font-size:5rem;background:#ffc10722;width:120px;height:120px;border-radius:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:2px solid #ffc107;}
-        h2{font-size:2rem;color:#FFDFA5;margin-bottom:8px;}
-        .info-box{background:#00000055;border-radius:36px;padding:22px;margin:25px 0;text-align:left;}
-        .info-box h3{color:#ffc107;margin-bottom:15px;border-left:4px solid #ffc107;padding-left:12px;}
-        .info-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #2a3a55;color:#e0e8ff;}
-        .info-label{font-weight:700;color:#ffcd94;}
-        .download-page-btn{background:linear-gradient(95deg,#ff9800,#ff5722);width:100%;padding:16px;border-radius:60px;font-weight:800;font-size:1.2rem;color:white;border:none;cursor:pointer;margin-top:10px;}
-        .back-link{color:#88aaff;text-decoration:none;display:inline-block;margin-top:15px;}
-        .secure-badge{margin-top:12px;font-size:0.7rem;color:#88aadd;}
-        .other-apps-section{margin-top:30px;padding-top:20px;border-top:1px solid #2a3a55;}
-        .other-apps-section h4{color:#ffc107;margin-bottom:12px;}
-        .mini-app{background:#0f172a;border-radius:28px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;}
-        .mini-app span{color:#e0e8ff;}
-        .mini-btn{background:#0066ff;padding:5px 12px;border-radius:30px;font-size:0.7rem;color:white;text-decoration:none;}
-      </style>
-    </head>
-    <body>
-      <div class="detail-card">
-        <div class="app-icon-large">${iconEmoji}</div>
-        <h2>${appName}</h2>
-        <p style="color:#bbd4ff;">🔥 Complete App Information 🔥</p>
-        <div class="info-box">
-          <h3>✨ Bonus & App Details ✨</h3>
-          <div class="info-row"><span class="info-label">🎁 Signup Bonus:</span><span><strong>${bonus}</strong></span></div>
-          <div class="info-row"><span class="info-label">💰 Min Withdrawal:</span><span><strong>${minWithdraw}</strong></span></div>
-          <div class="info-row"><span class="info-label">⚡ Key Features:</span><span>${features}</span></div>
-          <div class="info-row"><span class="info-label">📱 Platform:</span><span>Android APK | Secure</span></div>
-        </div>
-        <button id="finalDownloadBtn" class="download-page-btn">⬇️ CLICK TO DOWNLOAD APP ⬇️</button>
-        <p style="font-size:0.7rem; margin-top:12px;">✅ Instant bonus on signup | 24/7 Support</p>
-        
-        <div class="other-apps-section">
-          <h4>🎲 Other Popular Games</h4>
-          <div class="mini-app"><span>🃏 Teen Patti Master</span><a href="#" class="mini-btn" onclick="window.close();return false;">Download</a></div>
-          <div class="mini-app"><span>🃟 Yono Rummy</span><a href="#" class="mini-btn" onclick="window.close();return false;">Play Now</a></div>
-          <div class="mini-app"><span>🎰 Slots Winner</span><a href="#" class="mini-btn" onclick="window.close();return false;">Join Now</a></div>
-        </div>
-        
-        <a href="#" onclick="window.close();return false;" class="back-link">← Go Back to Yono Hub</a>
-        <div class="secure-badge">🔒 SSL Encrypted • Trusted by 1M+ Users</div>
-      </div>
-      <script>
-        document.getElementById('finalDownloadBtn').addEventListener('click', function(e){
-          e.preventDefault();
-          alert('✅ Download started for ${appName}!\\n\\n🎁 Your Bonus: ${bonus}\\n💰 Min Withdrawal: ${minWithdraw}\\n📲 Install now and start winning.');
-        });
-      <\/script>
-    </body>
-    <\/html>`;
-    
-    const newWin = window.open();
-    newWin.document.write(detailHtml);
-    newWin.document.title = `${appName} - Download & Bonus`;
-    newWin.document.close();
-  }
-
-  // Yono 101Z main button
-  const yonoBtn = document.getElementById('yono101zDownloadBtn');
-  if (yonoBtn) {
-    yonoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openAppDetailPage(
-        'Yono 101Z',
-        'Up to ₹1500 Welcome Bonus + ₹300 Extra',
-        '₹100',
-        'Slots, Roulette, Poker, Aviator, Mega Fishing, Ludo, Andhar Bahar, Power of Kraken, 4.5M+ Downloads',
-        '🎰'
-      );
+  // Smooth entrance animation for cards with enhanced effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, idx) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(25px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, idx * 100);
     });
-  }
-
-  // Other apps download buttons
-  const otherBtns = document.querySelectorAll('.other-download');
-  const appsMap = {
-    'Teen Patti Master': { bonus: '₹50 Welcome + Daily ₹20 Free', withdraw: '₹100', features: '3 Patti, Andar Bahar, Live Dealer, Private Tables, Jackpot ₹5K', icon: '🃏' },
-    'Yono Rummy': { bonus: '₹13+ Signup + Daily ₹90 Rewards', withdraw: '₹100', features: '3%-30% Deposit Cashback, VIP Tournaments, Fast Withdrawal, 24/7 Tables', icon: '🃟' },
-    'Slots Winner': { bonus: '₹18-₹100 + 250% First Deposit Bonus', withdraw: '₹100', features: '1000+ Slots, VIP Cashback, Weekly Free Spins, Progressive Jackpots', icon: '🎰' },
-    'All Rummy App': { bonus: '₹551 Welcome Bonus', withdraw: '₹100', features: '100% Cashback on First Game, Private Tables, Daily Freeroll', icon: '🎴' },
-    'Jaiho 777 Vip': { bonus: '₹155 Signup Bonus', withdraw: '₹100', features: 'VIP Slots, Weekly Prize Drops, Exclusive Tables', icon: '💎' },
-    'Diwa Vip': { bonus: '₹100 + Weekly Cashback', withdraw: '₹100', features: 'VIP Program, Instant Rakeback, Exclusive Bonuses', icon: '👑' }
-  };
-
-  otherBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const appName = btn.getAttribute('data-app');
-      const data = appsMap[appName] || {
-        bonus: btn.getAttribute('data-bonus') || 'Special Bonus',
-        withdraw: btn.getAttribute('data-withdraw') || '₹100',
-        features: btn.getAttribute('data-features') || 'Premium Games, Fast Payouts',
-        icon: '🎮'
-      };
-      openAppDetailPage(appName, data.bonus, data.withdraw, data.features, data.icon);
+    
+    // Add click tracking for better user experience
+    const allBtns = document.querySelectorAll('.btn');
+    allBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        console.log('Download clicked for: ' + this.innerText);
+      });
     });
   });
 </script>
