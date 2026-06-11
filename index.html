@@ -1,16 +1,91 @@
+Here is the complete HTML code with a fast landing page that has a download button. Clicking it reveals the main page featuring a detailed Bingo 101 card exactly as shown in your image (rating, size, votes, bonus, description, Telegram join, etc.) plus 20 other app cards (total 21 apps) with different signup bonuses and ₹100 minimum withdrawal. Each app has its own download button that opens the respective link.
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 21 Best Real Money Games</title>
+    <title>Fast Page → Yono Games Hub | 21 Real Money Apps</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; }
-        body { background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%); min-height: 100vh; padding-bottom: 30px; }
-        
-        /* navigation bar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        /* Fast Page (Landing) */
+        .fast-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.5s ease;
+        }
+
+        .fast-page h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .fast-page p {
+            font-size: 1.2rem;
+            color: #e0f2e5;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .fast-download-btn {
+            background: #ff8c00;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            padding: 20px 50px;
+            border-radius: 80px;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background 0.2s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .fast-download-btn:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Main Content (hidden initially) */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Navigation */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 24px;
@@ -33,7 +108,8 @@
             background: #ffcf8a;
             color: #0a2e1d;
         }
-        
+
+        /* Header */
         header {
             background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
             color: white;
@@ -64,6 +140,8 @@
             margin-top: 8px;
             font-weight: 500;
         }
+
+        /* Cards Grid */
         .container {
             max-width: 1450px;
             margin: 40px auto;
@@ -76,24 +154,26 @@
             gap: 35px;
             margin-bottom: 50px;
         }
-        .card {
+
+        /* Detailed Bingo 101 Card (as per image) */
+        .detailed-card {
             background: white;
             border-radius: 44px;
             padding: 28px 24px 32px;
             flex: 1;
-            min-width: 320px;
+            min-width: 340px;
             max-width: 460px;
             transition: all 0.35s;
             box-shadow: 0 25px 40px -14px rgba(0,0,0,0.2);
             border: 1px solid #eef2f8;
             text-align: left;
         }
-        .card:hover {
+        .detailed-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 35px 50px -18px rgba(0,0,0,0.25);
             border-color: #ffcf8a;
         }
-        .card-header {
+        .detailed-header {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -101,7 +181,7 @@
             border-bottom: 2px solid #f0f2f5;
             padding-bottom: 15px;
         }
-        .card-img {
+        .detailed-img {
             width: 70px;
             height: 70px;
             background: linear-gradient(145deg, #fff5e6, #ffe6cc);
@@ -111,23 +191,18 @@
             justify-content: center;
             overflow: hidden;
         }
-        .card-img img {
+        .detailed-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .app-title {
+        .detailed-title {
             font-size: 1.6rem;
             font-weight: 800;
             background: linear-gradient(125deg, #1e562a, #2c4c3b);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-        }
-        .last-updated {
-            font-size: 0.7rem;
-            color: #6c7a8a;
-            margin-top: 4px;
         }
         .info-grid {
             background: #f9fbfe;
@@ -152,15 +227,11 @@
             font-weight: 600;
             color: #1f2f40;
         }
-        .features-list {
+        .description {
             margin: 16px 0;
-            padding-left: 20px;
-        }
-        .features-list li {
-            margin: 8px 0;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.85rem;
             color: #2d3e50;
+            line-height: 1.4;
         }
         .steps {
             background: #f8fafd;
@@ -181,42 +252,16 @@
             margin: 5px 0;
             color: #4a5b6e;
         }
-        .user-review {
-            background: #fffaf0;
+        .telegram {
+            background: #e8f0fe;
             border-radius: 20px;
-            padding: 12px;
-            margin: 16px 0;
-            border-left: 4px solid #f39c12;
-        }
-        .user-review p {
-            font-size: 0.75rem;
-            font-style: italic;
-            color: #5a4a2a;
-        }
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            padding: 8px 12px;
+            text-align: center;
             margin: 12px 0;
+            font-weight: 600;
+            color: #1a5d9c;
         }
-        .mini-tag {
-            background: #e9eef4;
-            border-radius: 40px;
-            padding: 4px 12px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: #1f3b4c;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .green-bg { background: #e0f2e9; color: #146b3a; }
-        .orange-bg { background: #ffecb3; color: #b45116; }
-        .blue-bg { background: #e3f0ff; color: #1a5d9c; }
-        .gold-bg { background: #fff0cc; color: #c47a00; }
-        .purple-bg { background: #ede8ff; color: #5e3a9b; }
-        .pink-bg { background: #ffe4f0; color: #b3406c; }
-        .download-btn {
+        .detailed-download-btn {
             display: block;
             width: 100%;
             text-align: center;
@@ -229,12 +274,94 @@
             font-weight: 800;
             font-size: 0.95rem;
             transition: 0.2s;
-            box-shadow: 0 5px 12px rgba(230,126,34,0.3);
         }
-        .download-btn:hover {
+        .detailed-download-btn:hover {
             background: linear-gradient(95deg, #d35400, #e67e22);
             transform: scale(0.98);
         }
+
+        /* Normal app card (simple) */
+        .simple-card {
+            background: white;
+            border-radius: 44px;
+            padding: 28px 24px 32px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            transition: all 0.35s;
+            box-shadow: 0 25px 40px -14px rgba(0,0,0,0.2);
+            border: 1px solid #eef2f8;
+            text-align: center;
+        }
+        .simple-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 50px -18px rgba(0,0,0,0.25);
+            border-color: #ffcf8a;
+        }
+        .simple-card-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .simple-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .simple-app-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
+        .simple-bonus {
+            background: #fef1cf;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #b45900;
+            display: inline-block;
+            margin: 8px 0;
+        }
+        .simple-withdrawal {
+            background: #e0f2e9;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #146b3a;
+            display: inline-block;
+            margin: 8px 0;
+        }
+        .simple-download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px 0;
+            background: linear-gradient(95deg, #e67e22, #f39c12);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .simple-download-btn:hover {
+            background: linear-gradient(95deg, #d35400, #e67e22);
+            transform: scale(0.98);
+        }
+
         .footer-note {
             text-align: center;
             background: #ecf9f0;
@@ -242,651 +369,269 @@
             padding: 14px;
             font-weight: 500;
             font-size: 0.8rem;
+            margin-bottom: 20px;
         }
         footer {
             background: #0a2e1d;
             color: #b9ddcb;
             text-align: center;
             padding: 24px;
-            margin-top: 40px;
             font-size: 0.75rem;
         }
+
         @media (max-width: 800px) {
-            .card { min-width: 300px; }
+            .simple-card, .detailed-card { min-width: 280px; }
             .top-nav { gap: 16px; }
             .top-nav a { font-size: 0.85rem; }
+            .fast-page h1 { font-size: 2rem; }
+            .fast-download-btn { font-size: 1.5rem; padding: 15px 30px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation bar: Home, About, Contact, Disclaimer, TG Join -->
-    <div class="top-nav">
-        <a href="#">🏠 Home</a>
-        <a href="#">ℹ️ About</a>
-        <a href="#">📞 Contact</a>
-        <a href="#">⚖️ Disclaimer</a>
-        <a href="#">📢 TG Join</a>
+    <!-- Fast Page -->
+    <div class="fast-page" id="fastPage">
+        <h1>🚀 YONO GAMES HUB</h1>
+        <p>Click below to unlock <strong>21+ Best Earning Apps</strong><br>with different signup bonuses & fast ₹100 withdrawal</p>
+        <button class="fast-download-btn" id="revealBtn">📲 CLICK TO PROCEED</button>
     </div>
 
-    <header>
-        <h1>🎮 Yono Games Hub <span>🔥 21 Best Real Money Games</span></h1>
-        <div class="subhead">⚡ Fast Withdrawal • OTP Login • Deposit Discount • 24/7 Support ⚡</div>
-    </header>
-    
-    <div class="container">
-        <div class="cards-grid">
-            <!-- All 21 app cards (same as previous, verified working) -->
-            <!-- 1. Taurus Earn Money -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/twzhYzz7/taurus-app.jpg" alt="Taurus"></div><div><div class="app-title">Taurus Earn Money</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.6 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">24.6 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.2M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Min ₹100 | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% First</span></div>
-                </div>
-                <ul class="features-list"><li>💰 Complete tasks & earn real cash</li><li>🎁 Daily login bonus</li><li>⚡ OTP registration</li><li>💸 Real Money Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (24.6 MB)</li><li>Register & get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best earning app! Fast withdrawal." – Rajesh K.</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🎮 30+ Tasks</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Taurus Earn Money</span>
-                    <span class="mini-tag">Taurus Earn Money</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://th7.my/BY1JWS/3gvute0" class="download-btn" target="_blank">📲 DOWNLOAD TAURUS</a>
-            </div>
-    
-            <!-- 2. Teen Patti Gold -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" alt="Teen Patti Gold"></div><div><div class="app-title">Teen Patti Gold</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.5 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">53 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.94M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹2999 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">25% Bonus</span></div>
-                </div>
-                <ul class="features-list"><li>🔥 Real cash teen patti</li><li>🎁 Daily login rewards</li><li>♠️ 30+ game modes</li><li>💸 Earn Real Money</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (53 MB)</li><li>Get ₹3049 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Fast withdrawal, huge bonus!" – Ravi K.</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning teen patti APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 25%</span>
-                    <span class="mini-tag purple-bg">♠️ 30+ Modes</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Teen Patti Gold</span>
-                    <span class="mini-tag">Teen Patti Gold</span>
-                    <span class="mini-tag">🎰 Real Cash Game</span>
-                </div>
-                <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">♠️ DOWNLOAD TEEN PATTI GOLD</a>
-            </div>
-    
-            <!-- 3. Teen Patti Master -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master"></div><div><div class="app-title">Teen Patti Master</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.8 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">68 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">2.1M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">35% Cashback</span></div>
-                </div>
-                <ul class="features-list"><li>🔥 30+ game variants</li><li>🏅 Daily leaderboard</li><li>🔒 OTP secure</li><li>💸 Popular Real Money Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (68 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Amazing app! Won ₹5000." – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 35%</span>
-                    <span class="mini-tag purple-bg">🔥 30+ Variants</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Teen Patti Master</span>
-                    <span class="mini-tag">Teen Patti Master</span>
-                    <span class="mini-tag">🏆 Real Cash Game</span>
-                </div>
-                <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD TEEN PATTI MASTER</a>
-            </div>
-    
-            <!-- 4. Yono Rummy -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy"></div><div><div class="app-title">Yono Rummy</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.9 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">72 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.82M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹13 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">1-3 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">25% Cashback</span></div>
-                </div>
-                <ul class="features-list"><li>💰 Real cash rummy</li><li>🎁 Daily ₹90 login</li><li>♠️ 30+ tables</li><li>💸 Earn Real Money</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (72 MB)</li><li>Get ₹63 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Smooth gameplay, fast withdrawal!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP+Bio</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 25%</span>
-                    <span class="mini-tag purple-bg">♠️ 30+ Tables</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Yono Rummy</span>
-                    <span class="mini-tag">Yono Rummy</span>
-                    <span class="mini-tag">🃏 Real Cash Game</span>
-                </div>
-                <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="download-btn" target="_blank">♠️ DOWNLOAD YONO RUMMY</a>
-            </div>
-    
-            <!-- 5. Slots Winner -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner"></div><div><div class="app-title">Slots Winner</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.7 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">85 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">3.25M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹100 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">3-10 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">250% Match</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 1500+ slots</li><li>🎁 Daily free spins</li><li>⚡ OTP registration</li><li>💸 Real Money Slots</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Tap download</li><li>Install APK (85 MB)</li><li>Claim ₹150 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Amazing payouts! Withdrew ₹2000." – Priya S.</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 250%</span>
-                    <span class="mini-tag purple-bg">🎰 1500+ Slots</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Slots Winner</span>
-                    <span class="mini-tag">Slots Winner</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="download-btn" target="_blank">🎰 DOWNLOAD SLOTS WINNER</a>
-            </div>
-    
-            <!-- 6. Good Slots -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/nq9kMKHZ/good-slots.jpg" alt="Good Slots"></div><div><div class="app-title">Good Slots</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.3 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">48 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">800K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">15% First</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 1000+ slot games</li><li>🎁 Daily jackpot</li><li>⚡ OTP login</li><li>💸 Real Money Slots</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (48 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best slots app! Quick payouts." – Ankit S.</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Secure</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 15%</span>
-                    <span class="mini-tag purple-bg">🎰 1000+ Games</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Good Slots</span>
-                    <span class="mini-tag">Good Slots</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1" class="download-btn" target="_blank">🎰 DOWNLOAD GOOD SLOTS</a>
-            </div>
-    
-            <!-- 7. Diwa Slot -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" alt="Diwa Slot"></div><div><div class="app-title">Diwa Slot</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.4 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">52 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">650K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹888 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Instant | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% Cashback</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 Mega jackpot slots</li><li>🎁 Daily free spins</li><li>⚡ OTP + Fingerprint</li><li>💸 Earn Real Money</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (52 MB)</li><li>Get ₹938 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Huge wins! Withdrawal in 2 minutes." – Neha M.</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP+FP</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🎰 Mega Jackpot</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Diwa Slot</span>
-                    <span class="mini-tag">Diwa Slot</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app" class="download-btn" target="_blank">🎰 DOWNLOAD DIWA SLOT</a>
-            </div>
-    
-            <!-- 8. GoGo Rummy -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" alt="GoGo Rummy"></div><div><div class="app-title">GoGo Rummy</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.7 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">58 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.2M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹11 + ₹153 + 100% CB</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">1-3 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">100% Cashback</span></div>
-                </div>
-                <ul class="features-list"><li>💰 India's #1 skilled gaming app</li><li>🎁 7-day login bonus ₹153</li><li>🎮 30+ games</li><li>💸 Real Money Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (58 MB)</li><li>Get ₹11 + ₹153 + cashback</li></ol></div>
-                <div class="user-review"><p>⭐ "Best rummy app! Great bonuses." – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 100%</span>
-                    <span class="mini-tag purple-bg">🎮 30+ Games</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ GoGo Rummy</span>
-                    <span class="mini-tag">GoGo Rummy</span>
-                    <span class="mini-tag">🃏 Real Cash Game</span>
-                </div>
-                <a href="https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694" class="download-btn" target="_blank">🃏 DOWNLOAD GOGO RUMMY</a>
-            </div>
-    
-            <!-- 9. Joy Rummy -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/nqD8CD8W/joy-rummy.jpg" alt="Joy Rummy"></div><div><div class="app-title">Joy Rummy</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.5 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">45 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">950K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Fast | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% First</span></div>
-                </div>
-                <ul class="features-list"><li>🃏 Online rummy game</li><li>🎁 Daily bonuses</li><li>⚡ OTP secure</li><li>💸 Real Money Rummy</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (45 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Smooth rummy experience!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🃏 30+ Tables</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Joy Rummy</span>
-                    <span class="mini-tag">Joy Rummy</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100" class="download-btn" target="_blank">🃏 DOWNLOAD JOY RUMMY</a>
-            </div>
-    
-            <!-- 10. Spin Gold -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/G3QnY0vY/spin-gold.jpg" alt="Spin Gold"></div><div><div class="app-title">Spin Gold</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.4 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">50 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">780K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹888 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Instant | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">30% Bonus</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 Slot games</li><li>🎁 Daily free spins</li><li>⚡ OTP login</li><li>💸 Real Money Slots</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (50 MB)</li><li>Get ₹938 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Great slots and fast payout!" – Amit</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 30%</span>
-                    <span class="mini-tag purple-bg">🎰 Free Spins</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Spin Gold</span>
-                    <span class="mini-tag">Spin Gold</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="download-btn" target="_blank">🎰 DOWNLOAD SPIN GOLD</a>
-            </div>
-    
-            <!-- 11. Bingo 101 (with extra tags) -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/My9tjNgL/bingo101.jpg" alt="Bingo 101"></div><div><div class="app-title">Bingo 101</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">59 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">222K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹44 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Min ₹100 | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">10% First</span></div>
-                </div>
-                <ul class="features-list"><li>🎯 Play real bingo games & win cash</li><li>🎁 ₹44 signup + ₹50 download</li><li>⚡ OTP login & secure payments</li><li>💸 Real Money Bingo</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (59 MB)</li><li>Get ₹94 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best bingo app! Withdrawal in 2 minutes." – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 10%</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag purple-bg">🎮 30+ Games</span>
-                    <span class="mini-tag">⭐ Bingo 101</span>
-                    <span class="mini-tag">Bingo 101</span>
-                    <span class="mini-tag">Bingo101 Games Download</span>
-                    <span class="mini-tag">Bingo101 App</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="download-btn" target="_blank">🎯 DOWNLOAD BINGO 101</a>
-            </div>
-    
-            <!-- 12. Yes Spin -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/m5qzq7W4/yes-spin.jpg" alt="Yes Spin"></div><div><div class="app-title">Yes Spin</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.3 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">47 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">500K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹1000 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">25% Match</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 Spin & win</li><li>🎁 Daily jackpot</li><li>⚡ OTP login</li><li>💸 Real Money Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (47 MB)</li><li>Get ₹1050 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Amazing spins!" – Rahul</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 25%</span>
-                    <span class="mini-tag purple-bg">🎰 Daily Jackpot</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Yes Spin</span>
-                    <span class="mini-tag">Yes Spin</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907" class="download-btn" target="_blank">🎰 DOWNLOAD YES SPIN</a>
-            </div>
-    
-            <!-- 13. Yono Arcade -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/mCzSG1L7/yono-arcade.jpg" alt="Yono Arcade"></div><div><div class="app-title">Yono Arcade</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.6 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">60 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.1M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Fast | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">15% Bonus</span></div>
-                </div>
-                <ul class="features-list"><li>🎮 Arcade games</li><li>🎁 Daily rewards</li><li>⚡ OTP secure</li><li>💸 Earn Real Money</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (60 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best arcade app!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 15%</span>
-                    <span class="mini-tag purple-bg">🎮 Arcade Games</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Yono Arcade</span>
-                    <span class="mini-tag">Yono Arcade</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006" class="download-btn" target="_blank">🎮 DOWNLOAD YONO ARCADE</a>
-            </div>
-    
-            <!-- 14. SVIP 777 -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/vfWZMLm/svip777.jpg" alt="SVIP 777"></div><div><div class="app-title">SVIP 777</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.5 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">55 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">720K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹777 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Instant | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">30% VIP</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 777 slots</li><li>🎁 VIP rewards</li><li>⚡ OTP + Fingerprint</li><li>💸 Real Money VIP Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (55 MB)</li><li>Get ₹827 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "VIP experience!" – Raj</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP+Bio</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 30%</span>
-                    <span class="mini-tag purple-bg">🎰 777 Slots</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ SVIP 777</span>
-                    <span class="mini-tag">SVIP 777</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk" class="download-btn" target="_blank">🎰 DOWNLOAD SVIP 777</a>
-            </div>
-    
-            <!-- 15. OK Rummy -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/99fCMbNC/ok-rummy.jpg" alt="OK Rummy"></div><div><div class="app-title">OK Rummy</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.4 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">48 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">890K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Fast | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">18% First</span></div>
-                </div>
-                <ul class="features-list"><li>🃏 Online rummy</li><li>🎁 Daily login bonus</li><li>⚡ OTP secure</li><li>💸 Real Money Rummy</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (48 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "OK Rummy is awesome!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 18%</span>
-                    <span class="mini-tag purple-bg">🃏 30+ Tables</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ OK Rummy</span>
-                    <span class="mini-tag">OK Rummy</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220" class="download-btn" target="_blank">🃏 DOWNLOAD OK RUMMY</a>
-            </div>
-    
-            <!-- 16. Hind 777 -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/5gf3q0Sh/hind777.jpg" alt="Hind 777"></div><div><div class="app-title">Hind 777</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.3 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">52 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">600K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹888 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Instant | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% Chips</span></div>
-                </div>
-                <ul class="features-list"><li>🎰 Hindi slots</li><li>🎁 Daily free chips</li><li>⚡ OTP login</li><li>💸 Real Money Hindi Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (52 MB)</li><li>Get ₹938 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best Hindi slot app!" – Anjali</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Instant UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🎰 Hindi Slots</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Hind 777</span>
-                    <span class="mini-tag">Hind 777</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307" class="download-btn" target="_blank">🎰 DOWNLOAD HIND 777</a>
-            </div>
-    
-            <!-- 17. Rummy Most -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/hRrzszPJ/rummy-most.jpg" alt="Rummy Most"></div><div><div class="app-title">Rummy Most</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.6 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">55 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.3M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹1000 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Fast | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">25% Extra</span></div>
-                </div>
-                <ul class="features-list"><li>🃏 Most popular rummy</li><li>🎁 Daily tournaments</li><li>⚡ OTP secure</li><li>💸 Real Money Rummy</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (55 MB)</li><li>Get ₹1050 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Most trusted rummy app!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 25%</span>
-                    <span class="mini-tag purple-bg">🃏 Most Popular</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Rummy Most</span>
-                    <span class="mini-tag">Rummy Most</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://rummymostvip.net?from_gameid=11531455&channelCode=5023425" class="download-btn" target="_blank">🃏 DOWNLOAD RUMMY MOST</a>
-            </div>
-    
-            <!-- 18. Teen Patti Classic -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg" alt="Teen Patti Classic"></div><div><div class="app-title">Teen Patti Classic</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.5 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">53 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.2M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹1999 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% Classic</span></div>
-                </div>
-                <ul class="features-list"><li>🔥 Classic teen patti gameplay</li><li>🎁 Old-style bonuses</li><li>⚡ OTP login</li><li>💸 Real Money Classic Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (53 MB)</li><li>Get ₹2049 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Classic game, great rewards!" – Ravi</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast UPI</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🔥 Classic Version</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Teen Patti Classic</span>
-                    <span class="mini-tag">Teen Patti Classic</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">♠️ DOWNLOAD TEEN PATTI CLASSIC</a>
-            </div>
-    
-            <!-- 19. Bet 213 -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/YTqq2C4F/bet213.jpg" alt="Bet 213"></div><div><div class="app-title">Bet 213</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">44 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">480K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">Fast | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">12% First</span></div>
-                </div>
-                <ul class="features-list"><li>🎲 Betting & casino</li><li>🎁 Daily odds</li><li>⚡ OTP secure</li><li>💸 Real Money Betting</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (44 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Best betting app!" – Vikram</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 12%</span>
-                    <span class="mini-tag purple-bg">🎲 Betting</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Bet 213</span>
-                    <span class="mini-tag">Bet 213</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576" class="download-btn" target="_blank">🎲 DOWNLOAD BET 213</a>
-            </div>
-    
-            <!-- 20. Teen Patti -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/7t3jmgqn/teen-patti.jpg" alt="Teen Patti"></div><div><div class="app-title">Teen Patti</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.8 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">68 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">2.1M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">20% Daily</span></div>
-                </div>
-                <ul class="features-list"><li>🔥 Popular teen patti</li><li>🎁 Daily leaderboard</li><li>⚡ OTP login</li><li>💸 Real Money Classic Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (68 MB)</li><li>Get ₹550 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Great game!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 20%</span>
-                    <span class="mini-tag purple-bg">🔥 Popular</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ Teen Patti</span>
-                    <span class="mini-tag">Teen Patti</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank">♠️ DOWNLOAD TEEN PATTI</a>
-            </div>
-    
-            <!-- 21. All Teen Patti Master -->
-            <div class="card">
-                <div class="card-header"><div class="card-img"><img src="https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" alt="All Teen Patti Master"></div><div><div class="app-title">All Teen Patti Master</div><div class="last-updated">Updated: Today</div></div></div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.7 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">70 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">1.8M+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹2999 + ₹50</span></div>
-                    <div class="info-item"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min | UPI</span></div>
-                    <div class="info-item"><span class="info-label">Deposit Discount</span><span class="info-value">30% Mega</span></div>
-                </div>
-                <ul class="features-list"><li>🔥 All variants of teen patti</li><li>🎁 Mega bonus</li><li>⚡ OTP secure</li><li>💸 Ultimate Real Money Game</li></ul>
-                <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK (70 MB)</li><li>Get ₹3049 bonus</li></ol></div>
-                <div class="user-review"><p>⭐ "Ultimate teen patti app!" – Verified</p></div>
-                <div class="tag-row">
-                    <span class="mini-tag green-bg">💰 Best Earning APK</span>
-                    <span class="mini-tag blue-bg">💸 Fast Withdrawal</span>
-                    <span class="mini-tag gold-bg">🔐 OTP Login</span>
-                    <span class="mini-tag orange-bg">🎁 Deposit Discount 30%</span>
-                    <span class="mini-tag purple-bg">🔥 All Variants</span>
-                    <span class="mini-tag pink-bg">🛎️ 24/7 Service</span>
-                    <span class="mini-tag">⭐ All Teen Patti Master</span>
-                    <span class="mini-tag">All Teen Patti Master</span>
-                    <span class="mini-tag">💰 Real Cash Game</span>
-                </div>
-                <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">♠️ DOWNLOAD ALL TEEN PATTI MASTER</a>
-            </div>
-    
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <div class="top-nav">
+            <a href="#">🏠 Home</a>
+            <a href="#">ℹ️ About</a>
+            <a href="#">📞 Contact</a>
+            <a href="#">⚖️ Disclaimer</a>
+            <a href="#">📢 TG Join</a>
         </div>
-        <div class="footer-note">
-            🌟 All 21 apps: Best Earning Platform APK | Real Cash Games | OTP Login | Fast Withdrawal (₹100 min) | Deposit Discounts | 24/7 Customer Service | Download Bonus + Signup Bonus
+
+        <header>
+            <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
+            <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
+        </header>
+        
+        <div class="container">
+            <div class="cards-grid">
+                <!-- Detailed Bingo 101 Card (as per image) -->
+                <div class="detailed-card">
+                    <div class="detailed-header">
+                        <div class="detailed-img"><img src="https://i.ibb.co/My9tjNgL/bingo101.jpg" alt="Bingo 101" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Bingo101'"></div>
+                        <div><div class="detailed-title">Bingo 101</div></div>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
+                        <div class="info-item"><span class="info-label">Size</span><span class="info-value">59 MB</span></div>
+                        <div class="info-item"><span class="info-label">Votes</span><span class="info-value">222K+</span></div>
+                        <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹44</span></div>
+                    </div>
+                    <div class="telegram">
+                        📢 JOIN OUR TELEGRAM CHANNEL
+                    </div>
+                    <div class="description">
+                        Download Bingo 101 APK and get ₹50–₹500 signup bonus instantly. Play real bingo games, win money, earn rewards, and withdraw your cash directly via UPI.
+                    </div>
+                    <div class="steps">
+                        <h4>How To Download?</h4>
+                        <ol>
+                            <li>Click the download button below</li>
+                            <li>Download the APK file</li>
+                            <li>Enable "Unknown Sources" in settings</li>
+                            <li>Install and start winning real cash</li>
+                        </ol>
+                    </div>
+                    <div class="description">
+                        <strong>Bingo 101 (Yono) App Download – Play Bingo & Win Cash | ₹200–₹1500 Bonus - Download APK</strong><br><br>
+                        Bingo 101 App is a real cash gaming platform where users can play exciting bingo games and earn money online. New users can claim a signup bonus ranging from ₹50 to ₹500 instantly after registration, making it easy to start playing without high investment. The app offers smooth and engaging gameplay with multiple bingo rooms and reward-based challenges. Players can join games, compete with others, and win real cash prizes daily. Bingo 101 App also provides a fast and secure withdrawal system. Users can easily withdraw their earnings directly via UPI with quick processing. Daily rewards, bonuses, and referral options help increase overall earnings. If you are looking for a fun and easy way to earn money through bingo games, Bingo 101 App is a great option. Download the APK now and start winning real cash.
+                    </div>
+                    <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="detailed-download-btn" target="_blank">🎯 DOWNLOAD BINGO 101 APP</a>
+                </div>
+
+                <!-- 20 other simple app cards -->
+                <!-- 1. Taurus -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/twzhYzz7/taurus-app.jpg" alt="Taurus"></div>
+                    <div class="simple-app-name">Taurus Earn Money</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹30</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://th7.my/BY1JWS/3gvute0" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 2. Teen Patti Gold -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" alt="Teen Patti Gold"></div>
+                    <div class="simple-app-name">Teen Patti Gold</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹37</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.earntp.com/gold/jm9n7r" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 3. Teen Patti Master -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master"></div>
+                    <div class="simple-app-name">Teen Patti Master</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹20</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.earntp.com/m/jm9n7r" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 4. Yono Rummy -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy"></div>
+                    <div class="simple-app-name">Yono Rummy</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹25</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 5. Slots Winner -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner"></div>
+                    <div class="simple-app-name">Slots Winner</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹40</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 6. Good Slots -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/nq9kMKHZ/good-slots.jpg" alt="Good Slots"></div>
+                    <div class="simple-app-name">Good Slots</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹15</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 7. Diwa Slot -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" alt="Diwa Slot"></div>
+                    <div class="simple-app-name">Diwa Slot</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹50</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 8. GoGo Rummy -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" alt="GoGo Rummy"></div>
+                    <div class="simple-app-name">GoGo Rummy</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹28</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 9. Joy Rummy -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/nqD8CD8W/joy-rummy.jpg" alt="Joy Rummy"></div>
+                    <div class="simple-app-name">Joy Rummy</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹35</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 10. Spin Gold -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/G3QnY0vY/spin-gold.jpg" alt="Spin Gold"></div>
+                    <div class="simple-app-name">Spin Gold</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹22</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 11. Yes Spin -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/m5qzq7W4/yes-spin.jpg" alt="Yes Spin"></div>
+                    <div class="simple-app-name">Yes Spin</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹18</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 12. Yono Arcade -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/mCzSG1L7/yono-arcade.jpg" alt="Yono Arcade"></div>
+                    <div class="simple-app-name">Yono Arcade</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹32</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 13. SVIP 777 -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/vfWZMLm/svip777.jpg" alt="SVIP 777"></div>
+                    <div class="simple-app-name">SVIP 777</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹27</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 14. OK Rummy -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/99fCMbNC/ok-rummy.jpg" alt="OK Rummy"></div>
+                    <div class="simple-app-name">OK Rummy</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹38</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 15. Hind 777 -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/5gf3q0Sh/hind777.jpg" alt="Hind 777"></div>
+                    <div class="simple-app-name">Hind 777</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹42</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 16. Rummy Most -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/hRrzszPJ/rummy-most.jpg" alt="Rummy Most"></div>
+                    <div class="simple-app-name">Rummy Most</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹33</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://rummymostvip.net?from_gameid=11531455&channelCode=5023425" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 17. Teen Patti Classic -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg" alt="Teen Patti Classic"></div>
+                    <div class="simple-app-name">Teen Patti Classic</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹24</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.earntp.com/gold/jm9n7r" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 18. Bet 213 -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/YTqq2C4F/bet213.jpg" alt="Bet 213"></div>
+                    <div class="simple-app-name">Bet 213</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹36</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 19. Teen Patti -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/7t3jmgqn/teen-patti.jpg" alt="Teen Patti"></div>
+                    <div class="simple-app-name">Teen Patti</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹29</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.earntp.com/m/jm9n7r" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+                <!-- 20. All Teen Patti Master -->
+                <div class="simple-card">
+                    <div class="simple-card-img"><img src="https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" alt="All Teen Patti Master"></div>
+                    <div class="simple-app-name">All Teen Patti Master</div>
+                    <div class="simple-bonus">🎁 Signup Bonus: ₹31</div>
+                    <div class="simple-withdrawal">💰 Min Withdrawal: ₹100</div>
+                    <a href="https://www.earntp.com/gold/jm9n7r" class="simple-download-btn" target="_blank">📲 DOWNLOAD</a>
+                </div>
+            </div>
+            <div class="footer-note">
+                🌟 All 21 apps: Different Signup Bonuses (₹15 to ₹50) | Min Withdrawal ₹100 | Fast & Secure
+            </div>
         </div>
+        <footer>
+            © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads
+        </footer>
     </div>
-    <footer>
-        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads | Secure & Trusted Platform
-    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, idx) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(25px)';
+        const fastPage = document.getElementById('fastPage');
+        const mainContent = document.getElementById('mainContent');
+        const revealBtn = document.getElementById('revealBtn');
+
+        revealBtn.addEventListener('click', () => {
+            fastPage.style.opacity = '0';
+            setTimeout(() => {
+                fastPage.style.display = 'none';
+                mainContent.style.display = 'block';
                 setTimeout(() => {
-                    card.style.transition = 'all 0.45s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, idx * 50);
-            });
-            console.log("✅ 21 apps loaded with top navigation bar (Home, About, Contact, Disclaimer, TG Join).");
+                    mainContent.style.opacity = '1';
+                }, 20);
+            }, 500);
         });
     </script>
 </body>
