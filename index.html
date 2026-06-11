@@ -1,13 +1,11 @@
-Here is the final HTML code with maximum detailed tags added separately for each app, including extensive download information, features, and benefits, while keeping the existing successful structure intact.
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-  <title>Yono Games Hub | Top 3 Premium Apps | Max Features | Fast Download</title>
+  <title>Yono Games Hub | Top 3 Earning Apps | Fast Withdrawal | OTP Login</title>
   <style>
     * {
       margin: 0;
@@ -74,8 +72,8 @@ Here is the final HTML code with maximum detailed tags added separately for each
       border-radius: 48px;
       padding: 28px 22px 32px;
       flex: 1;
-      min-width: 320px;
-      max-width: 420px;
+      min-width: 330px;
+      max-width: 430px;
       transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.7);
@@ -128,100 +126,55 @@ Here is the final HTML code with maximum detailed tags added separately for each
       margin-bottom: 12px;
     }
 
-    /* tag groups - maximum tags */
-    .tag-group {
+    /* Grouped info container - ek sat hona chahiye */
+    .info-group {
       background: #f9fbfe;
-      border-radius: 28px;
-      padding: 12px 10px;
-      margin: 12px 0;
+      border-radius: 32px;
+      padding: 15px 12px;
+      margin: 15px 0;
+      border: 1px solid #eef2f8;
     }
-    .flex-tags {
+
+    .tags-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .mini-tag {
+
+    .small-tag {
       background: #e9eef4;
       border-radius: 40px;
-      padding: 4px 10px;
-      font-size: 0.6rem;
+      padding: 5px 12px;
+      font-size: 0.65rem;
       font-weight: 700;
       color: #1f3b4c;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
     }
-    .mini-tag i { font-style: normal; font-size: 0.7rem; }
-    .orange-tag { background: #ffecb3; color: #b45116; }
+
+    .small-tag i { font-style: normal; font-size: 0.7rem; }
     .green-tag { background: #e0f2e9; color: #146b3a; }
+    .orange-tag { background: #ffecb3; color: #b45116; }
     .blue-tag { background: #e3f0ff; color: #1a5d9c; }
     .purple-tag { background: #ede8ff; color: #5e3a9b; }
     .pink-tag { background: #ffe4f0; color: #b3406c; }
+    .gold-tag { background: #fff0cc; color: #c47a00; }
 
-    /* ratings */
     .rating-block {
       background: linear-gradient(105deg, #fffaf0, #fff3e0);
       border-radius: 24px;
       padding: 10px;
       margin: 12px 0;
     }
-    .stars-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .star-big {
-      font-size: 1.3rem;
-      font-weight: 800;
-      background: white;
-      padding: 3px 12px;
-      border-radius: 40px;
-      color: #f5a623;
-    }
 
-    .bonus-chip, .withdraw-chip {
-      border-radius: 40px;
-      padding: 5px 12px;
-      font-weight: 700;
-      font-size: 0.65rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin: 3px 3px;
-    }
-    .bonus-chip { background: #fef1cf; color: #b45900; }
-    .withdraw-chip { background: #e0f2e9; color: #146b3a; }
-
-    /* download info tags - jada se jada */
-    .download-info {
-      background: #f0f5fe;
-      border-radius: 24px;
-      padding: 12px 8px;
-      margin: 12px 0;
-    }
-    .download-tag {
-      background: white;
-      border-radius: 30px;
-      padding: 4px 10px;
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: #0066cc;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin: 4px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .small-download-btn {
+    .download-btn-small {
       display: inline-block;
       width: auto;
-      margin-top: 16px;
-      padding: 10px 22px;
+      margin-top: 18px;
+      padding: 10px 24px;
       background: linear-gradient(95deg, #e67e22, #f39c12);
       color: white;
       text-decoration: none;
@@ -230,10 +183,10 @@ Here is the final HTML code with maximum detailed tags added separately for each
       font-size: 0.85rem;
       transition: 0.2s;
       box-shadow: 0 3px 10px rgba(230,126,34,0.3);
-      text-align: center;
       cursor: pointer;
     }
-    .small-download-btn:hover {
+
+    .download-btn-small:hover {
       background: linear-gradient(95deg, #d35400, #e67e22);
       transform: scale(0.96);
     }
@@ -246,6 +199,7 @@ Here is the final HTML code with maximum detailed tags added separately for each
       font-weight: 500;
       font-size: 0.8rem;
     }
+
     footer {
       background: #0a2e1d;
       color: #b9ddcb;
@@ -254,6 +208,7 @@ Here is the final HTML code with maximum detailed tags added separately for each
       margin-top: 40px;
       font-size: 0.75rem;
     }
+
     @media (max-width: 860px) {
       .card { min-width: 290px; }
     }
@@ -261,193 +216,182 @@ Here is the final HTML code with maximum detailed tags added separately for each
 </head>
 <body>
 <header>
-  <h1>🎮 Yono Games Hub <span>🔥 Max Feature Tags</span></h1>
-  <div class="subhead">⚡ 50+ Tags Per App • Fast Download • Official APK ⚡</div>
+  <h1>🎮 Yono Games Hub <span>🔥 Best Earning APPs</span></h1>
+  <div class="subhead">⚡ Fast Withdrawal • OTP Login • ₹50 Bonus • Google Ranked ⚡</div>
 </header>
 
 <div class="container">
   <div class="cards-grid">
     
-    <!-- ========== APP 1: TEEN PATTI MASTER - MAX TAGS ========= -->
+    <!-- ========= APP 1: TEEN PATTI MASTER (All tags ek sat) ========= -->
     <div class="card">
       <div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Teen+Patti'"></div>
       <h2>🔥 Teen Patti Master</h2>
       <div class="game-tag">⚡ #1 Card Game ⚡</div>
       
-      <div class="tag-group">
-        <div class="flex-tags">
-          <span class="mini-tag">📦 68 MB</span><span class="mini-tag">🔄 v4.2.1</span><span class="mini-tag">🤖 5.0+</span>
-          <span class="mini-tag orange-tag">📱 2GB RAM</span><span class="mini-tag">🌐 Online MP</span>
+      <!-- Grouped information tags - ek sat -->
+      <div class="info-group">
+        <div class="tags-row">
+          <span class="small-tag">📦 68 MB</span>
+          <span class="small-tag">🔄 v4.2.1</span>
+          <span class="small-tag">🤖 Android 5.0+</span>
+          <span class="small-tag green-tag">💰 Best Earning Money APK</span>
+          <span class="small-tag blue-tag">💸 Withdrawal: Fast (2-5 min)</span>
+          <span class="small-tag purple-tag">🔐 OTP Login Secure</span>
+          <span class="small-tag gold-tag">🎁 Bonus ₹50 Extra</span>
+          <span class="small-tag orange-tag">🏆 Google Rank: 4.8 ★</span>
+        </div>
+        <div class="tags-row">
+          <span class="small-tag">📱 Fast Mobile App</span>
+          <span class="small-tag">🛎️ 24/7 Support</span>
+          <span class="small-tag">✅ Official APK Name: teenpatti_master.apk</span>
+          <span class="small-tag">💎 Daily Bonus ₹500</span>
+          <span class="small-tag">⚡ Instant Withdrawal UPI</span>
         </div>
       </div>
       
+      <!-- Ratings block -->
       <div class="rating-block">
-        <div class="stars-row">
-          <span class="star-big">4.8 ★</span><span class="mini-tag">2.15M+ votes</span><span class="mini-tag">94% positive</span>
-        </div>
-        <div class="flex-tags"><span class="mini-tag">⭐ 1.2M 5-star</span><span class="mini-tag">🏆 Editor's Choice</span></div>
-      </div>
-      
-      <!-- EXTRA MAX TAGS: win time, withdrawal, support, OTP, APK, etc -->
-      <div class="flex-tags">
-        <span class="mini-tag green-tag">🏆 Win: Instant</span>
-        <span class="mini-tag green-tag">💸 Withdrawal: 2-5 min</span>
-        <span class="mini-tag blue-tag">📱 Fast Mobile App</span>
-        <span class="mini-tag purple-tag">🔐 OTP Login</span>
-        <span class="mini-tag orange-tag">🛎️ 24/7 Service</span>
-        <span class="mini-tag blue-tag">✅ Official APK</span>
-        <span class="mini-tag pink-tag">🚀 No Lag</span>
-        <span class="mini-tag">🎮 100+ Tables</span>
-        <span class="mini-tag">💎 Daily Bonus</span>
-        <span class="mini-tag">🏅 VIP Club</span>
-        <span class="mini-tag">📞 Call Support</span>
-        <span class="mini-tag">🔒 SSL Secure</span>
-      </div>
-      
-      <!-- DOWNLOAD INFORMATION - JADA TAGS -->
-      <div class="download-info">
-        <div class="flex-tags">
-          <span class="download-tag">📥 Download Type: APK</span>
-          <span class="download-tag">⚡ Speed: High Speed CDN</span>
-          <span class="download-tag">🔓 Free Install</span>
-          <span class="download-tag">🛡️ Virus Scan: Safe</span>
-          <span class="download-tag">📱 Compatible: All Android</span>
-          <span class="download-tag">💾 Storage: 150MB free</span>
-          <span class="download-tag">🌍 Server: India Optimized</span>
-          <span class="download-tag">🔄 Auto Update: Yes</span>
-          <span class="download-tag">🎁 Download Bonus: ₹50 extra</span>
+        <div class="tags-row">
+          <span class="small-tag gold-tag">⭐ Google Rating: 4.8/5</span>
+          <span class="small-tag">2.15M+ votes</span>
+          <span class="small-tag">94% positive</span>
+          <span class="small-tag">🏆 Top 10 Card Games</span>
         </div>
       </div>
       
-      <div><span class="bonus-chip">🎁 ₹500 Welcome + ₹50 Download</span><span class="withdraw-chip">💰 Min Withdrawal ₹100</span></div>
-      <div class="flex-tags"><span class="mini-tag">💳 UPI/Paytm/Bank</span><span class="mini-tag">⚡ Instant Cashout</span></div>
+      <!-- More tags: earning, withdrawal fast, OTP, bonus 50 alag se -->
+      <div class="tags-row">
+        <span class="small-tag green-tag">🎯 Best Earning App 2025</span>
+        <span class="small-tag blue-tag">⚡ Withdrawal Speed: 2 Minutes</span>
+        <span class="small-tag purple-tag">🔐 OTP + Fingerprint Login</span>
+        <span class="small-tag gold-tag">🎁 ₹50 Signup Bonus (Extra)</span>
+        <span class="small-tag orange-tag">📊 Google Play Rank: #12</span>
+      </div>
       
-      <a href="https://www.earntp.com/m/jm9n7r" class="small-download-btn" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TEEN PATTI MASTER</a>
+      <div class="tags-row">
+        <span class="small-tag">🎲 APK Name: teen_patti_master_v4.2.1.apk</span>
+        <span class="small-tag">💸 Min Withdrawal: ₹100</span>
+        <span class="small-tag">🎁 Welcome Bonus: ₹500 + ₹50</span>
+      </div>
+      
+      <a href="https://www.earntp.com/m/jm9n7r" class="download-btn-small" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TEEN PATTI MASTER</a>
     </div>
     
-    <!-- ========== APP 2: YONO RUMMY - MAX TAGS ========= -->
+    <!-- ========= APP 2: YONO RUMMY ========= -->
     <div class="card">
       <div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Yono+Rummy'"></div>
       <h2>🃏 Yono Rummy</h2>
       <div class="game-tag">♠️ Real Cash Rummy ♥️</div>
       
-      <div class="tag-group">
-        <div class="flex-tags">
-          <span class="mini-tag">📦 72 MB</span><span class="mini-tag">🔄 v5.1.0</span><span class="mini-tag">🤖 5.0+</span>
-          <span class="mini-tag orange-tag">🎮 2M+ DL</span><span class="mini-tag">🔒 RNG Certified</span>
+      <!-- Grouped info - ek sat -->
+      <div class="info-group">
+        <div class="tags-row">
+          <span class="small-tag">📦 72 MB</span>
+          <span class="small-tag">🔄 v5.1.0</span>
+          <span class="small-tag">🤖 Android 5.0+</span>
+          <span class="small-tag green-tag">💰 Best Earning Money APK</span>
+          <span class="small-tag blue-tag">💸 Withdrawal: Instant (UPI)</span>
+          <span class="small-tag purple-tag">🔐 OTP + Biometric Login</span>
+          <span class="small-tag gold-tag">🎁 Bonus ₹50 Free</span>
+          <span class="small-tag orange-tag">🏆 Google Rank: 4.9 ★</span>
+        </div>
+        <div class="tags-row">
+          <span class="small-tag">📱 Fast Mobile App</span>
+          <span class="small-tag">🛎️ 24/7 Live Chat</span>
+          <span class="small-tag">✅ APK Name: yono_rummy_v5.1.apk</span>
+          <span class="small-tag">💎 Daily Login ₹90</span>
+          <span class="small-tag">⚡ Fastest Cashout</span>
         </div>
       </div>
       
       <div class="rating-block">
-        <div class="stars-row">
-          <span class="star-big">4.9 ★</span><span class="mini-tag">1.82M+ votes</span><span class="mini-tag">Top Rummy 2025</span>
-        </div>
-        <div class="flex-tags"><span class="mini-tag">⭐ 1.1M 5-star</span><span class="mini-tag">🏆 Gamers' Choice</span></div>
-      </div>
-      
-      <!-- MAX TAGS FOR YONO RUMMY -->
-      <div class="flex-tags">
-        <span class="mini-tag green-tag">🏆 Win: Real-time</span>
-        <span class="mini-tag green-tag">💸 Withdrawal: Instant UPI</span>
-        <span class="mini-tag blue-tag">📱 Fast Mobile App</span>
-        <span class="mini-tag purple-tag">🔐 OTP + Biometric</span>
-        <span class="mini-tag orange-tag">🛎️ 24/7 Live Chat</span>
-        <span class="mini-tag blue-tag">✅ Official APK v5.1</span>
-        <span class="mini-tag pink-tag">🎯 30% Cashback</span>
-        <span class="mini-tag">👑 VIP Tables</span>
-        <span class="mini-tag">🎁 Refer Earn ₹200</span>
-        <span class="mini-tag">📆 Daily ₹90 Login</span>
-        <span class="mini-tag">🔔 Push Notify</span>
-        <span class="mini-tag">💎 Multi-language</span>
-      </div>
-      
-      <!-- DOWNLOAD INFO TAGS -->
-      <div class="download-info">
-        <div class="flex-tags">
-          <span class="download-tag">📥 Direct APK Download</span>
-          <span class="download-tag">⚡ 10x Faster Server</span>
-          <span class="download-tag">🔓 100% Free</span>
-          <span class="download-tag">🛡️ Kaspersky Safe</span>
-          <span class="download-tag">📱 Android 5-14</span>
-          <span class="download-tag">💾 Needs 200MB</span>
-          <span class="download-tag">🌍 India Servers</span>
-          <span class="download-tag">🔄 Auto Update Enabled</span>
-          <span class="download-tag">🎁 Download Bonus ₹30</span>
+        <div class="tags-row">
+          <span class="small-tag gold-tag">⭐ Google Rating: 4.9/5</span>
+          <span class="small-tag">1.82M+ votes</span>
+          <span class="small-tag">🔥 Top Rummy App</span>
+          <span class="small-tag">🏆 Editor's Choice</span>
         </div>
       </div>
       
-      <div><span class="bonus-chip">🎁 ₹13+ Bonus + ₹30 DL</span><span class="withdraw-chip">💰 Min Withdrawal ₹100</span></div>
-      <div class="flex-tags"><span class="mini-tag">💸 Fastest Payout</span><span class="mini-tag">🏦 All Banks</span></div>
+      <div class="tags-row">
+        <span class="small-tag green-tag">🎯 High Earning Potential</span>
+        <span class="small-tag blue-tag">⚡ Withdrawal: 1-3 Minutes</span>
+        <span class="small-tag purple-tag">🔐 OTP Secure Access</span>
+        <span class="small-tag gold-tag">🎁 Extra ₹50 on Signup</span>
+        <span class="small-tag orange-tag">📊 Google Rank: #8 in Rummy</span>
+      </div>
       
-      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="small-download-btn" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY</a>
+      <div class="tags-row">
+        <span class="small-tag">🎲 APK Name: yono_rummy_official.apk</span>
+        <span class="small-tag">💸 Min Withdrawal: ₹100</span>
+        <span class="small-tag">🎁 Bonus: ₹13+ ₹50 = ₹63</span>
+      </div>
+      
+      <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="download-btn-small" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY</a>
     </div>
     
-    <!-- ========== APP 3: SLOTS WINNER - MAX TAGS ========= -->
+    <!-- ========= APP 3: SLOTS WINNER ========= -->
     <div class="card">
       <div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/400x400/0a7f3f/white?text=Slots+Winner'"></div>
       <h2>🎰 Slots Winner</h2>
       <div class="game-tag">💎 Mega Jackpot Slots 💎</div>
       
-      <div class="tag-group">
-        <div class="flex-tags">
-          <span class="mini-tag">📦 85 MB</span><span class="mini-tag">🔄 v3.9.5</span><span class="mini-tag">🤖 5.0+</span>
-          <span class="mini-tag orange-tag">🎰 1500+ Slots</span><span class="mini-tag">🏆 Progressive JP</span>
+      <!-- Grouped info -->
+      <div class="info-group">
+        <div class="tags-row">
+          <span class="small-tag">📦 85 MB</span>
+          <span class="small-tag">🔄 v3.9.5</span>
+          <span class="small-tag">🤖 Android 5.0+</span>
+          <span class="small-tag green-tag">💰 Best Earning Money APK</span>
+          <span class="small-tag blue-tag">💸 Withdrawal: Fast (3-10 min)</span>
+          <span class="small-tag purple-tag">🔐 OTP Login Enabled</span>
+          <span class="small-tag gold-tag">🎁 Bonus ₹50 Extra</span>
+          <span class="small-tag orange-tag">🏆 Google Rank: 4.7 ★</span>
+        </div>
+        <div class="tags-row">
+          <span class="small-tag">📱 Optimized Fast App</span>
+          <span class="small-tag">🛎️ 24/7 Customer Care</span>
+          <span class="small-tag">✅ APK Name: slots_winner_v3.9.5.apk</span>
+          <span class="small-tag">🎰 1500+ Slots</span>
+          <span class="small-tag">⚡ Instant Payout</span>
         </div>
       </div>
       
       <div class="rating-block">
-        <div class="stars-row">
-          <span class="star-big">4.7 ★</span><span class="mini-tag">3.25M+ votes</span><span class="mini-tag">91% Recommend</span>
-        </div>
-        <div class="flex-tags"><span class="mini-tag">⭐ 1.2M 5-star</span><span class="mini-tag">🎖️ Best Slot 2025</span></div>
-      </div>
-      
-      <!-- MAX TAGS FOR SLOTS WINNER -->
-      <div class="flex-tags">
-        <span class="mini-tag green-tag">🏆 Win: Instant Payout</span>
-        <span class="mini-tag green-tag">💸 Withdrawal: 3-10 min</span>
-        <span class="mini-tag blue-tag">📱 Fast Optimized App</span>
-        <span class="mini-tag purple-tag">🔐 OTP Secure Login</span>
-        <span class="mini-tag orange-tag">🛎️ 24/7 Support Team</span>
-        <span class="mini-tag blue-tag">✅ Official APK v3.9.5</span>
-        <span class="mini-tag pink-tag">✨ 1000+ Free Spins</span>
-        <span class="mini-tag">💎 Weekly Drops</span>
-        <span class="mini-tag">🎁 VIP Rewards</span>
-        <span class="mini-tag">🔥 250% Deposit Bonus</span>
-        <span class="mini-tag">📱 HD Graphics</span>
-        <span class="mini-tag">🎯 Low Bet High Win</span>
-      </div>
-      
-      <!-- DOWNLOAD INFO MAX TAGS -->
-      <div class="download-info">
-        <div class="flex-tags">
-          <span class="download-tag">📥 APK Download Link</span>
-          <span class="download-tag">⚡ Turbo Speed CDN</span>
-          <span class="download-tag">🔓 100% Free Install</span>
-          <span class="download-tag">🛡️ McAfee Verified</span>
-          <span class="download-tag">📱 Android 5 to 14</span>
-          <span class="download-tag">💾 Free Space: 200MB</span>
-          <span class="download-tag">🌍 Mumbai Server</span>
-          <span class="download-tag">🔄 OTA Updates</span>
-          <span class="download-tag">🎁 Download Gift ₹40</span>
-          <span class="download-tag">🔐 No Root Required</span>
+        <div class="tags-row">
+          <span class="small-tag gold-tag">⭐ Google Rating: 4.7/5</span>
+          <span class="small-tag">3.25M+ votes</span>
+          <span class="small-tag">91% Recommend</span>
+          <span class="small-tag">🎖️ Best Slot Game</span>
         </div>
       </div>
       
-      <div><span class="bonus-chip">🎁 ₹18-₹100 Free + ₹40 DL</span><span class="withdraw-chip">💰 Min Withdrawal ₹100</span></div>
-      <div class="flex-tags"><span class="mini-tag">🏦 UPI/Paytm/PhonePe</span><span class="mini-tag">⚡ Instant Withdrawal</span></div>
+      <div class="tags-row">
+        <span class="small-tag green-tag">🎯 Top Earning Slot App</span>
+        <span class="small-tag blue-tag">⚡ Withdrawal: 3 Minutes avg</span>
+        <span class="small-tag purple-tag">🔐 OTP + PIN Security</span>
+        <span class="small-tag gold-tag">🎁 ₹50 Welcome Bonus Extra</span>
+        <span class="small-tag orange-tag">📊 Google Rank: #15 Casino</span>
+      </div>
       
-      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="small-download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER</a>
+      <div class="tags-row">
+        <span class="small-tag">🎲 APK Name: slots_winner_official.apk</span>
+        <span class="small-tag">💸 Min Withdrawal: ₹100</span>
+        <span class="small-tag">🎁 Bonus: ₹18-₹100 + ₹50</span>
+      </div>
+      
+      <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="download-btn-small" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER</a>
     </div>
   </div>
   
   <div class="footer-note">
-    🏆 50+ Feature Tags Per App | ⚡ Fast Withdrawal (₹100 min) | 🔐 OTP Secure Login | 🛎️ 24/7 Customer Care | ✅ Official APK | 📱 Fast Mobile App | 💸 Win Time Instant
+    🎯 All Apps: Best Earning Money APK | Fast Withdrawal (₹100 min) | OTP Login Secure | ₹50 Extra Bonus | Google Ranked 4.7+ ★
   </div>
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — Play responsibly. 18+ only. | Maximum Tags Added • Official APK • Fast Support • Secure Downloads
+  © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads | Fast Support | OTP Protected
 </footer>
 
 <script>
@@ -462,7 +406,7 @@ Here is the final HTML code with maximum detailed tags added separately for each
         card.style.transform = 'translateY(0)';
       }, idx * 100);
     });
-    console.log("✅ MAX TAGS ADDED: Win time, Withdrawal time, Fast Mobile App, OTP Login, 24/7 Support, Official APK, Download Info + Bonus Tags");
+    console.log("✅ Final: All tags grouped together per app, Best Earning APK, Fast Withdrawal, OTP Login, ₹50 Bonus, Google Rank, APK names added.");
   });
 </script>
 </body>
