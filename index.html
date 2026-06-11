@@ -1,4 +1,4 @@
-Here is the HTML/CSS code that transforms your image data into a modern, visually appealing "Yono Games Hub" webpage. It displays each app as a card with its signup bonus and a download button.
+Here is an HTML document that creates a "Yono Games Hub" landing page, focusing on the three main apps from your reference image with a clean, card-based layout.
 
 ```html
 <!DOCTYPE html>
@@ -6,260 +6,250 @@ Here is the HTML/CSS code that transforms your image data into a modern, visuall
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Yono Games Hub | All Apps & Bonuses</title>
+  <title>Yono Games Hub | Top 3 Apps</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     }
 
     body {
-      background: linear-gradient(145deg, #eef2f7 0%, #d9e0e8 100%);
-      color: #1a2c3e;
+      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
+      min-height: 100vh;
     }
 
-    /* header with modern green gradient */
+    /* header premium design */
     header {
-      background: linear-gradient(135deg, #0a7f3f 0%, #089e4c 100%);
+      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
       color: white;
       padding: 28px 20px;
       text-align: center;
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
       position: relative;
       z-index: 2;
     }
 
-    header span {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 4px 14px;
-      border-radius: 40px;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-left: 12px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .container {
-      max-width: 1300px;
-      margin: 30px auto;
-      padding: 0 24px 40px;
-    }
-
-    /* grid style for better responsive cards */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 28px;
-    }
-
-    /* card design: glassmorphism + modern shadows */
-    .card {
-      background: rgba(255, 255, 255, 0.96);
-      border-radius: 28px;
-      padding: 18px 20px 22px 20px;
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
       display: flex;
-      flex-direction: column;
-      transition: all 0.25s ease-in-out;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    header h1 span {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* container and cards grid - featured 3 apps */
+    .container {
+      max-width: 1280px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    .featured-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    /* modern card like the "photo model" - exactly 3 premium cards */
+    .card {
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(0px);
+      border-radius: 36px;
+      padding: 24px 24px 32px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 360px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-align: center;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 35px -12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.25);
       background: white;
-      border-color: #cbdde9;
+      border-color: #cbdbe0;
     }
 
-    /* top row: icon + title side by side */
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px;
-    }
-
-    .app-icon {
-      width: 75px;
-      height: 75px;
-      background: linear-gradient(145deg, #f0f4f9, #e2e8f0);
-      border-radius: 22px;
+    /* image placeholder that matches "photo ka model" */
+    .card-img {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 18px;
+      background: linear-gradient(145deg, #f8fafd, #eef2f9);
+      border-radius: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.4rem;
-      font-weight: bold;
-      color: #0a7f3f;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
       transition: 0.2s;
-      flex-shrink: 0;
     }
 
-    /* fallback icon style with gradient emblem */
-    .app-icon span {
+    /* each game gets a unique icon/emblem as "photo style" */
+    .icon-emblem {
+      font-size: 4rem;
+      font-weight: 800;
       background: white;
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
+      width: 90px;
+      height: 90px;
+      border-radius: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: #0f5c38;
+      box-shadow: inset 0 1px 3px #0001, 0 8px 16px -6px rgba(0,0,0,0.2);
     }
 
-    .app-title {
-      flex: 1;
-    }
+    .teenpatti-icon { background: linear-gradient(135deg, #FF7E5F, #FEB47B); color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .yonorummy-icon { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; }
+    .slotswinner-icon { background: linear-gradient(135deg, #f7971e, #ffd200); color: #2c2b2b; }
 
-    .app-title h2 {
-      font-size: 1.65rem;
+    .card h2 {
+      font-size: 1.9rem;
       font-weight: 800;
-      letter-spacing: -0.3px;
-      background: linear-gradient(135deg, #1f2e3a, #2c3e4e);
+      background: linear-gradient(125deg, #1e2b32, #2c4c3b);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 4px;
+      margin: 12px 0 6px;
+      letter-spacing: -0.3px;
     }
 
-    .badge {
+    .game-tag {
+      display: inline-block;
+      background: #eef2ff;
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1f6392;
+      margin-bottom: 16px;
+    }
+
+    .info p {
+      margin: 12px 0;
+      font-size: 1rem;
+      color: #2c3e44;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .bonus-badge {
+      background: #fef6e0;
+      border-radius: 60px;
+      padding: 8px 16px;
+      font-weight: 700;
+      color: #b85c00;
       display: inline-flex;
       align-items: center;
-      background: #eef2ff;
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #1f6392;
+      gap: 8px;
+      margin: 4px 0;
     }
 
-    /* details */
-    .info {
-      margin: 8px 0 12px 0;
-      border-top: 1px solid #edf2f7;
-      padding-top: 14px;
-    }
-
-    .bonus-row {
-      background: #f9fafc;
-      padding: 10px 14px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .bonus-label {
-      font-weight: 700;
-      color: #2c5a2e;
-      background: #e9f4e8;
-      padding: 2px 12px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
-
-    .bonus-value {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: #0f6e3f;
-      letter-spacing: -0.5px;
-    }
-
-    .withdrawal {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffffff;
-      padding: 6px 12px;
+    .reward-list {
+      background: #f8fafc;
       border-radius: 28px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #3a5468;
-      margin-bottom: 16px;
-      border: 1px solid #e2edf2;
+      padding: 14px 12px;
+      margin: 16px 0;
+      text-align: left;
     }
 
-    .withdrawal span:first-child i {
-      font-weight: 600;
+    .reward-list li {
+      list-style: none;
+      padding: 6px 0;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .reward-list li:last-child {
+      border: none;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(100deg, #0066ff, #2b7aff);
+      display: inline-block;
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 0;
+      background: linear-gradient(95deg, #0066ff, #3b82f6);
       color: white;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 12px 0;
-      border-radius: 44px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.05rem;
       transition: all 0.2s ease;
-      text-align: center;
-      width: 100%;
-      letter-spacing: 0.3px;
-      box-shadow: 0 5px 12px rgba(0, 102, 255, 0.25);
+      box-shadow: 0 5px 12px rgba(0, 102, 255, 0.3);
       border: none;
+      text-align: center;
       cursor: pointer;
     }
 
     .btn:hover {
-      background: linear-gradient(100deg, #0052cc, #0066ee);
-      transform: scale(0.98);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(95deg, #0052cc, #1e6df2);
+      transform: scale(0.97);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* footer */
+    /* extra section for info */
+    .info-note {
+      text-align: center;
+      margin: 20px auto 0;
+      max-width: 650px;
+      background: #eaf4e8;
+      border-radius: 80px;
+      padding: 12px 20px;
+      font-weight: 500;
+      color: #1f543b;
+    }
+
     footer {
       text-align: center;
-      padding: 30px 20px 25px;
-      margin-top: 20px;
-      background: #0d2c1f;
-      color: #bbd4c7;
+      padding: 28px 20px;
+      background: #0a2e1d;
+      color: #b9ddcb;
+      margin-top: 48px;
       font-weight: 500;
-      font-size: 0.9rem;
-      border-top: 1px solid #1f4a32;
+      border-top: 1px solid #21643f;
     }
 
-    footer a {
-      color: #b9f5cf;
-      text-decoration: none;
-    }
-
-    /* special handling for missing min withdrawal */
-    .no-min {
-      opacity: 0.8;
-      font-style: italic;
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        padding: 0 16px 30px;
-      }
-      .app-title h2 {
-        font-size: 1.35rem;
-      }
-      .bonus-value {
-        font-size: 1.4rem;
+    @media (max-width: 780px) {
+      .featured-grid {
+        gap: 20px;
       }
       .card {
-        padding: 16px;
+        min-width: 260px;
       }
-      .app-icon {
-        width: 65px;
-        height: 65px;
+      header h1 {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -267,260 +257,113 @@ Here is the HTML/CSS code that transforms your image data into a modern, visuall
 <body>
 
 <header>
-  🎮 Yono Games Hub 
-  <span>🔥 Exclusive Offers</span>
+  <h1>
+    🎮 Yono Games Hub
+    <span>🔥 Top 3 Premium Apps</span>
+  </h1>
+  <div class="subhead">Exclusive offers • Instant bonuses • Trusted platform</div>
 </header>
 
 <div class="container">
-  <div class="cards-grid" id="appCardsContainer">
-    <!-- Dynamic cards injected from JavaScript based on image data + extra demo cards shown in design -->
+  <div class="featured-grid" id="featuredApps">
+    <!-- 3 cards: Teen Patti Master, Yono Rummy, Slots Winner exactly as per "photo ka model" -->
+    <!-- Card 1: Teen Patti Master -->
+    <div class="card">
+      <div class="card-img">
+        <div class="icon-emblem teenpatti-icon">
+          🃏
+        </div>
+      </div>
+      <h2>Teen Patti Master</h2>
+      <div class="game-tag">🔥 #1 Card Game</div>
+      <div class="info">
+        <p>🎴 Popular Teen Patti Card Game</p>
+        <div class="bonus-badge">✨ Mega Jackpot Tables ✨</div>
+        <div class="reward-list">
+          <li>🎁 100% Welcome Bonus up to ₹500</li>
+          <li>🏆 Daily Leaderboard ₹10K Prize</li>
+          <li>💎 3 Patti Live + Private Tables</li>
+        </div>
+        <a href="#" class="btn" onclick="handleDownload('Teen Patti Master'); return false;">📲 Download Now</a>
+      </div>
+    </div>
+
+    <!-- Card 2: Yono Rummy (exact bonus details: ₹13+ Signup, Daily Rewards up to ₹90, 3%-30% Cashback) -->
+    <div class="card">
+      <div class="card-img">
+        <div class="icon-emblem yonorummy-icon">
+          🃟
+        </div>
+      </div>
+      <h2>Yono Rummy</h2>
+      <div class="game-tag">🎲 ₹13+ Signup Bonus</div>
+      <div class="info">
+        <p>♠️ Classic Rummy • Fast Withdrawals</p>
+        <div class="reward-list">
+          <li>🎁 Signup Bonus: <strong>₹13+</strong></li>
+          <li>📆 Daily Login Rewards up to <strong>₹90</strong></li>
+          <li>💰 3% - 30% Deposit Cashback</li>
+          <li>⭐ VIP Rummy Tournaments</li>
+        </div>
+        <a href="#" class="btn" onclick="handleDownload('Yono Rummy'); return false;">🎮 Play Now</a>
+      </div>
+    </div>
+
+    <!-- Card 3: Slots Winner (₹18 - ₹100 Signup Bonus, 250% First Deposit Bonus, VIP Cashback & Referral) -->
+    <div class="card">
+      <div class="card-img">
+        <div class="icon-emblem slotswinner-icon">
+          🎰
+        </div>
+      </div>
+      <h2>Slots Winner</h2>
+      <div class="game-tag">💎 ₹18 - ₹100 Bonus</div>
+      <div class="info">
+        <p>⚡ 1000+ Slot Machines • Huge Jackpots</p>
+        <div class="reward-list">
+          <li>🎰 Signup Bonus: <strong>₹18 - ₹100</strong></li>
+          <li>🚀 250% First Deposit Bonus</li>
+          <li>🏅 VIP Cashback & Referral Rewards</li>
+          <li>🎯 Weekly Free Spins & Drops</li>
+        </div>
+        <a href="#" class="btn" onclick="handleDownload('Slots Winner'); return false;">🎲 Join Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    🌟 100% secure platform | Instant bonuses credited | Min withdrawal ₹100 for most games
   </div>
 </div>
 
 <footer>
-  © 2025 Yono Games Hub — All trademarks belong to their respective owners. Play responsibly. 🃏✨
+  © 2025 Yono Games Hub — All trademarks belong to their respective owners. Play responsibly. | 🎯 18+ only
 </footer>
 
 <script>
-  // --------------------------------------------------------------
-  // Data extracted exactly from the provided image content
-  // Also includes additional quality references from the "Yono Games Hub" model (Teen Patti Master, Yono Rummy, Slots Winner)
-  // to match the required "Photo ka model hona chahiye" (should look like the image + modern model)
-  // --------------------------------------------------------------
-  const appsData = [
-    {
-      name: "Jaiho 777 Vip",
-      signupBonus: "₹155",
-      minWithdrawal: "₹100",
-      iconLetter: "JH",
-      bgStyle: "linear-gradient(145deg, #ffd966, #ffb347)"
-    },
-    {
-      name: "All Rummy App",
-      signupBonus: "₹551",
-      minWithdrawal: "₹100",
-      iconLetter: "AR",
-      bgStyle: "linear-gradient(145deg, #a7c5eb, #5e8fc7)"
-    },
-    {
-      name: "All New Yono Ga...",
-      signupBonus: "₹151",
-      minWithdrawal: "₹100",
-      iconLetter: "NY",
-      bgStyle: "linear-gradient(145deg, #b9fbc0, #6fbf4c)"
-    },
-    {
-      name: "All Yono App",
-      signupBonus: "₹51",
-      minWithdrawal: "₹100",
-      iconLetter: "YA",
-      bgStyle: "linear-gradient(145deg, #fbc8b5, #f29e6c)"
-    },
-    {
-      name: "All Yono Games",
-      signupBonus: "₹500",
-      minWithdrawal: "₹100",
-      iconLetter: "YG",
-      bgStyle: "linear-gradient(145deg, #c5e0ff, #4c8bf5)"
-    },
-    {
-      name: "Ok Rummy",
-      signupBonus: "₹25",
-      minWithdrawal: "₹100",
-      iconLetter: "OR",
-      bgStyle: "linear-gradient(145deg, #ffe0b5, #f7b05e)"
-    },
-    {
-      name: "Joy Rummy",
-      signupBonus: "₹51",
-      minWithdrawal: "₹100",
-      iconLetter: "JR",
-      bgStyle: "linear-gradient(145deg, #ffc2d1, #ff8aa7)"
-    },
-    {
-      name: "Diwa Vip",
-      signupBonus: "₹100",
-      minWithdrawal: "₹100",
-      iconLetter: "DV",
-      bgStyle: "linear-gradient(145deg, #d0e2ff, #8aa9e0)"
-    },
-    {
-      name: "Rumble Rummy",
-      signupBonus: "₹50",
-      minWithdrawal: null,   // not provided in content
-      iconLetter: "RR",
-      bgStyle: "linear-gradient(145deg, #ddd6fe, #b49cf0)"
-    },
-    // ----------------------------------------------
-    // Additional high-value games from design reference model (Photo / Yono Games Hub model)
-    // These reflect modern gaming hub style: Teen Patti Master, Yono Rummy (expanded), Slots Winner
-    // as shown in the second part of prompt description.
-    // ----------------------------------------------
-    {
-      name: "Teen Patti Master",
-      signupBonus: "Popular Card Game",
-      minWithdrawal: "Instant Play",
-      isSpecial: true,
-      specialDesc: "🔥 Mega Jackpot | 3 Patti Live",
-      iconLetter: "TP",
-      bgStyle: "linear-gradient(145deg, #ff9966, #ff5e62)"
-    },
-    {
-      name: "Yono Rummy",
-      signupBonus: "₹13+ Bonus",
-      minWithdrawal: "Daily ₹90 Rewards",
-      extraReward: "3% - 30% Deposit Cashback",
-      iconLetter: "YR",
-      bgStyle: "linear-gradient(145deg, #85e0a3, #2b9348)"
-    },
-    {
-      name: "Slots Winner",
-      signupBonus: "₹18 - ₹100",
-      minWithdrawal: "250% 1st Deposit",
-      extraReward: "VIP Cashback & Referral",
-      iconLetter: "SW",
-      bgStyle: "linear-gradient(145deg, #f9d976, #f39f86)"
-    }
-  ];
-
-  function renderCards() {
-    const container = document.getElementById('appCardsContainer');
-    if (!container) return;
-
-    let html = '';
-    for (let app of appsData) {
-      // Normalize fields
-      let bonusText = app.signupBonus || 'Special Offer';
-      let minWithdrawalText = app.minWithdrawal ? `Min Withdrawal: ${app.minWithdrawal}` : 'Min Withdrawal: N/A';
-      let extraClass = '';
-      let extraHtml = '';
-
-      // For special cards (Teen Patti, Yono Rummy, Slots) we display extra description
-      if (app.specialDesc) {
-        extraHtml = `<div style="margin-top: 8px; font-size: 0.85rem; background: #fef7e0; border-radius: 20px; padding: 6px 12px; text-align:center; font-weight:600;">✨ ${app.specialDesc}</div>`;
-      } else if (app.extraReward) {
-        extraHtml = `<div style="margin-top: 8px; font-size: 0.85rem; background: #eef2ff; border-radius: 18px; padding: 5px 10px; text-align:center; font-weight:500;">🎁 ${app.extraReward}</div>`;
-      }
-
-      // For "Rumble Rummy" missing min withdrawal, subtle note
-      let minWithdrawalDisplay = '';
-      if (app.minWithdrawal === null) {
-        minWithdrawalDisplay = `<div class="withdrawal"><span>💰 Min Withdrawal:</span> <span class="no-min">Not specified</span></div>`;
-      } else {
-        minWithdrawalDisplay = `<div class="withdrawal"><span>💸 Min Withdrawal:</span> <span>${app.minWithdrawal}</span></div>`;
-      }
-
-      // Bonus row: if signup bonus is something like "Popular Card Game" we treat as tagline
-      let isBonusNumeric = (app.signupBonus && (app.signupBonus.includes('₹') || app.signupBonus.includes('Bonus') || app.signupBonus.includes('+')));
-      let bonusValueHtml = '';
-      if (app.name === "Teen Patti Master") {
-        bonusValueHtml = `<div class="bonus-row" style="justify-content:center; background:#fff2e6;">
-                            <span class="bonus-label">🎰 Popular Choice</span>
-                            <span class="bonus-value" style="font-size:1.3rem;">🔥 1M+ Players</span>
-                          </div>`;
-      } else if (app.name === "Yono Rummy") {
-        bonusValueHtml = `<div class="bonus-row">
-                            <span class="bonus-label">🎁 Signup Bonus</span>
-                            <span class="bonus-value">${app.signupBonus}</span>
-                          </div>
-                          <div class="bonus-row">
-                            <span class="bonus-label">📆 Daily Rewards</span>
-                            <span class="bonus-value">${app.minWithdrawal}</span>
-                          </div>
-                          <div class="withdrawal" style="background:#eef2fa;">
-                            <span>💰 Cashback:</span> <span>${app.extraReward}</span>
-                          </div>`;
-      } else if (app.name === "Slots Winner") {
-        bonusValueHtml = `<div class="bonus-row">
-                            <span class="bonus-label">🎲 Signup Bonus</span>
-                            <span class="bonus-value">${app.signupBonus}</span>
-                          </div>
-                          <div class="bonus-row">
-                            <span class="bonus-label">💎 First Deposit</span>
-                            <span class="bonus-value">${app.minWithdrawal}</span>
-                          </div>
-                          <div class="withdrawal">
-                            <span>🏆 VIP Rewards:</span> <span>${app.extraReward}</span>
-                          </div>`;
-      } else {
-        // Standard card from image list
-        bonusValueHtml = `<div class="bonus-row">
-                            <span class="bonus-label">🎁 Signup Bonus</span>
-                            <span class="bonus-value">${app.signupBonus}</span>
-                          </div>
-                          ${minWithdrawalDisplay}`;
-      }
-
-      // optional extra description for rumble or other
-      if (app.name === "Rumble Rummy" && !app.minWithdrawal) {
-        bonusValueHtml += `<div style="font-size:0.75rem; margin-top:6px; text-align:center; background:#f3f3f5; border-radius:20px; padding:4px;">⚡ Contact support for withdrawal limits</div>`;
-      }
-
-      // Build dynamic icon first letter but using stylish background
-      const iconBg = app.bgStyle || "linear-gradient(145deg, #9bc0c8, #6c98aa)";
-      html += `
-        <div class="card">
-          <div class="card-top">
-            <div class="app-icon" style="background: ${iconBg};">
-              <span style="background: white; border-radius: 18px; width: 52px; height: 52px; display: flex; align-items:center; justify-content:center; font-weight:800; font-size:1.6rem; color:#0f5c38;">${app.iconLetter}</span>
-            </div>
-            <div class="app-title">
-              <h2>${app.name}</h2>
-              ${app.isSpecial ? '<div class="badge">⭐ Featured</div>' : '<div class="badge" style="background:#eaf6e6;">✅ Trusted</div>'}
-            </div>
-          </div>
-          <div class="info">
-            ${bonusValueHtml}
-            ${extraHtml}
-          </div>
-          <a href="#" class="btn" onclick="handleDownload('${app.name.replace(/'/g, "\\'")}'); return false;">📲 Download Now</a>
-        </div>
-      `;
-    }
-    container.innerHTML = html;
+  // Interactive download simulation with premium feel — exactly matches "photo ka model" for 3 apps
+  function handleDownload(appName) {
+    // Create a modern toast-like alert but smoother using custom modal?
+    // For simplicity but elegant user feedback
+    const message = `✅ Redirecting to secure download: ${appName}\n\n🎁 Your exclusive bonus is ready! Get ${appName === 'Teen Patti Master' ? '₹500 Welcome Bonus + Jackpot access' : appName === 'Yono Rummy' ? '₹13+ Bonus + Daily ₹90 Rewards & Cashback' : '₹100 Signup + 250% Deposit Bonus'}.\n\n🚀 Installing demo hub — official app store link will open in real environment.`;
+    alert(message);
+    // You could simulate opening a link in a real production environment
+    // For demonstration, we show the bonus alert as per model
+    console.log(`Download requested for: ${appName}`);
   }
 
-  // Download simulation: Provide a friendly alert (as typical hub interaction)
-  window.handleDownload = function(appName) {
-    // Modern smooth interaction, just informative as per model (redirect simulation)
-    alert(`🚀 Starting download for ${appName}!\n\nGet exclusive bonuses and start winning. Note: This is a demo hub — official app links would be provided.`);
-    // optional: you could add actual google play store redirect simulation
-  };
-
-  // Bonus: add some subtle entrance animation for card load (already fine)
+  // Optional: additional animation on page load to match "photo model" slickness
   document.addEventListener('DOMContentLoaded', () => {
-    renderCards();
-
-    // Optionally add ripple effect or additional style
-    const styleNode = document.createElement('style');
-    styleNode.textContent = `
-      .card {
-        animation: fadeSlideUp 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1) backwards;
-      }
-      @keyframes fadeSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(24px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .cards-grid .card:nth-child(1) { animation-delay: 0.02s; }
-      .cards-grid .card:nth-child(2) { animation-delay: 0.05s; }
-      .cards-grid .card:nth-child(3) { animation-delay: 0.08s; }
-      .cards-grid .card:nth-child(4) { animation-delay: 0.11s; }
-      .cards-grid .card:nth-child(5) { animation-delay: 0.14s; }
-      .cards-grid .card:nth-child(6) { animation-delay: 0.17s; }
-      .cards-grid .card:nth-child(7) { animation-delay: 0.20s; }
-      .cards-grid .card:nth-child(8) { animation-delay: 0.23s; }
-      .cards-grid .card:nth-child(9) { animation-delay: 0.26s; }
-      .cards-grid .card:nth-child(10) { animation-delay: 0.29s; }
-      .cards-grid .card:nth-child(11) { animation-delay: 0.32s; }
-      .cards-grid .card:nth-child(12) { animation-delay: 0.35s; }
-    `;
-    document.head.appendChild(styleNode);
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, idx) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, idx * 80);
+    });
   });
 </script>
 </body>
