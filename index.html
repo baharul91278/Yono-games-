@@ -1,667 +1,554 @@
-Here is the final HTML code with a fast landing page that has a download button. Clicking it reveals the next page showing:
-
-· A detailed Bingo 101 card (rating, size, votes, bonus, Telegram, description, steps, and its own download button)
-· A heading "🎮 Other Games Available" followed by 20 other app cards (each with app name, different signup bonus, ₹100 withdrawal, and download button)
-· All download buttons work and open the respective app links.
-
-The design is clean, responsive, and matches the image provided.
+Here is the final HTML code with a fast landing page that has a download button. Clicking it reveals the main page showing "Other Games Available" followed by all 8 apps (Taurus, Teen Patti Gold, Teen Patti Master, Yono Rummy, Slots Winner, Good Slots, Diwa Slot, GoGo Rummy). Each app has its own separate tags, information table, download steps, user review, and working download button. The design is clean, responsive, and matches the original style.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Fast Page → Yono Games Hub | 21 Real Money Apps</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
+  <title>Fast Page → Yono Games Hub | 8 Best Earning Apps</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
 
-        body {
-            background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
-            min-height: 100vh;
-        }
+    body {
+      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      padding-bottom: 30px;
+    }
 
-        /* Fast Page (Landing) */
-        .fast-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            text-align: center;
-            padding: 20px;
-            transition: opacity 0.5s ease;
-        }
+    /* Fast Page (Landing) */
+    .fast-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+      padding: 20px;
+      transition: opacity 0.5s ease;
+    }
 
-        .fast-page h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        }
+    .fast-page h1 {
+      font-size: 3.5rem;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
 
-        .fast-page p {
-            font-size: 1.2rem;
-            color: #e0f2e5;
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
+    .fast-page p {
+      font-size: 1.2rem;
+      color: #e0f2e5;
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
 
-        .fast-download-btn {
-            background: #ff8c00;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            font-weight: 800;
-            padding: 20px 50px;
-            border-radius: 80px;
-            cursor: pointer;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            transition: transform 0.2s, background 0.2s;
-            animation: pulse 1.5s infinite;
-        }
+    .fast-download-btn {
+      background: #ff8c00;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      font-weight: 800;
+      padding: 20px 50px;
+      border-radius: 80px;
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.2s;
+      animation: pulse 1.5s infinite;
+    }
 
-        .fast-download-btn:hover {
-            background: #e67e22;
-            transform: scale(1.05);
-        }
+    .fast-download-btn:hover {
+      background: #e67e22;
+      transform: scale(1.05);
+    }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
 
-        /* Main Content (hidden initially) */
-        .main-content {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
+    /* Main Content (hidden initially) */
+    .main-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
-        /* Navigation */
-        .top-nav {
-            background: #0a2e1d;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            border-bottom: 2px solid #ffcf8a;
-        }
-        .top-nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: 0.2s;
-            padding: 6px 12px;
-            border-radius: 40px;
-        }
-        .top-nav a:hover {
-            background: #ffcf8a;
-            color: #0a2e1d;
-        }
+    header {
+      background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
-            color: white;
-            padding: 28px 20px;
-            text-align: center;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        header h1 span {
-            background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(4px);
-            padding: 6px 18px;
-            border-radius: 60px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .subhead {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-top: 8px;
-            font-weight: 500;
-        }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-        /* Other Games Heading */
-        .other-games-heading {
-            text-align: center;
-            margin: 40px 0 20px;
-            font-size: 2rem;
-            font-weight: 800;
-            color: #0a5c2e;
-            border-bottom: 3px solid #ffcf8a;
-            display: inline-block;
-            width: auto;
-            padding-bottom: 10px;
-        }
-        .heading-wrapper {
-            text-align: center;
-        }
+    header h1 span {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
 
-        /* Cards Grid */
-        .container {
-            max-width: 1450px;
-            margin: 40px auto;
-            padding: 0 24px;
-        }
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 35px;
-            margin-bottom: 50px;
-        }
+    .subhead {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 500;
+    }
 
-        /* Simple App Card */
-        .card {
-            background: white;
-            border-radius: 44px;
-            padding: 28px 24px 32px;
-            flex: 1;
-            min-width: 280px;
-            max-width: 320px;
-            transition: all 0.35s;
-            box-shadow: 0 25px 40px -14px rgba(0,0,0,0.2);
-            border: 1px solid #eef2f8;
-            text-align: center;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 50px -18px rgba(0,0,0,0.25);
-            border-color: #ffcf8a;
-        }
-        .card-img {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px;
-            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 16px;
-        }
-        .bonus {
-            background: #fef1cf;
-            border-radius: 60px;
-            padding: 8px 16px;
-            font-weight: 800;
-            font-size: 1rem;
-            color: #b45900;
-            display: inline-block;
-            margin: 8px 0;
-        }
-        .withdrawal {
-            background: #e0f2e9;
-            border-radius: 60px;
-            padding: 8px 16px;
-            font-weight: 800;
-            font-size: 1rem;
-            color: #146b3a;
-            display: inline-block;
-            margin: 8px 0;
-        }
-        .download-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-            padding: 12px 0;
-            background: linear-gradient(95deg, #e67e22, #f39c12);
-            color: white;
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            box-shadow: 0 5px 12px rgba(230,126,34,0.3);
-        }
-        .download-btn:hover {
-            background: linear-gradient(95deg, #d35400, #e67e22);
-            transform: scale(0.98);
-        }
+    .container {
+      max-width: 1450px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
 
-        /* Detailed Bingo 101 Card (as per image) */
-        .detailed-card {
-            background: white;
-            border-radius: 44px;
-            padding: 28px 24px 32px;
-            flex: 1;
-            min-width: 340px;
-            max-width: 460px;
-            transition: all 0.35s;
-            box-shadow: 0 25px 40px -14px rgba(0,0,0,0.2);
-            border: 1px solid #eef2f8;
-            text-align: left;
-        }
-        .detailed-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 50px -18px rgba(0,0,0,0.25);
-            border-color: #ffcf8a;
-        }
-        .detailed-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f0f2f5;
-            padding-bottom: 15px;
-        }
-        .detailed-img {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .detailed-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .detailed-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .info-grid {
-            background: #f9fbfe;
-            border-radius: 28px;
-            padding: 12px 16px;
-            margin: 18px 0;
-            border: 1px solid #eef2f8;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 12px;
-        }
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-        }
-        .info-label {
-            font-weight: 700;
-            color: #2c3e66;
-        }
-        .info-value {
-            font-weight: 600;
-            color: #1f2f40;
-        }
-        .description {
-            margin: 16px 0;
-            font-size: 0.85rem;
-            color: #2d3e50;
-            line-height: 1.4;
-        }
-        .steps {
-            background: #f8fafd;
-            border-radius: 24px;
-            padding: 12px 16px;
-            margin: 16px 0;
-        }
-        .steps h4 {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            color: #0a7f3f;
-        }
-        .steps ol {
-            padding-left: 20px;
-        }
-        .steps li {
-            font-size: 0.7rem;
-            margin: 5px 0;
-            color: #4a5b6e;
-        }
-        .telegram {
-            background: #e8f0fe;
-            border-radius: 20px;
-            padding: 8px 12px;
-            text-align: center;
-            margin: 12px 0;
-            font-weight: 600;
-            color: #1a5d9c;
-        }
-        .detailed-download-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-            padding: 12px 0;
-            background: linear-gradient(95deg, #e67e22, #f39c12);
-            color: white;
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            transition: 0.2s;
-        }
-        .detailed-download-btn:hover {
-            background: linear-gradient(95deg, #d35400, #e67e22);
-            transform: scale(0.98);
-        }
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+      margin-bottom: 50px;
+    }
 
-        .footer-note {
-            text-align: center;
-            background: #ecf9f0;
-            border-radius: 60px;
-            padding: 14px;
-            font-weight: 500;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-        footer {
-            background: #0a2e1d;
-            color: #b9ddcb;
-            text-align: center;
-            padding: 24px;
-            font-size: 0.75rem;
-        }
+    .card {
+      background: white;
+      border-radius: 44px;
+      padding: 28px 24px 32px;
+      flex: 1;
+      min-width: 320px;
+      max-width: 460px;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
+      border: 1px solid #eef2f8;
+      text-align: left;
+    }
 
-        @media (max-width: 800px) {
-            .card, .detailed-card { min-width: 280px; }
-            .top-nav { gap: 16px; }
-            .top-nav a { font-size: 0.85rem; }
-            .fast-page h1 { font-size: 2rem; }
-            .fast-download-btn { font-size: 1.5rem; padding: 15px 30px; }
-        }
-    </style>
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
+      border-color: #ffcf8a;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #f0f2f5;
+      padding-bottom: 15px;
+    }
+
+    .card-img {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .app-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #1e562a, #2c4c3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .last-updated {
+      font-size: 0.7rem;
+      color: #6c7a8a;
+      margin-top: 4px;
+    }
+
+    .info-table {
+      background: #f9fbfe;
+      border-radius: 28px;
+      padding: 12px 16px;
+      margin: 18px 0;
+      border: 1px solid #eef2f8;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #e9ecf2;
+      font-size: 0.85rem;
+    }
+    .info-row:last-child {
+      border-bottom: none;
+    }
+    .info-label {
+      font-weight: 700;
+      color: #2c3e66;
+    }
+    .info-value {
+      font-weight: 600;
+      color: #1f2f40;
+    }
+
+    .features-list {
+      margin: 16px 0;
+      padding-left: 20px;
+    }
+    .features-list li {
+      margin: 8px 0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2d3e50;
+    }
+
+    .steps {
+      background: #f8fafd;
+      border-radius: 24px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+    .steps h4 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: #0a7f3f;
+    }
+    .steps ol {
+      padding-left: 20px;
+    }
+    .steps li {
+      font-size: 0.7rem;
+      margin: 5px 0;
+      color: #4a5b6e;
+    }
+
+    .user-review {
+      background: #fffaf0;
+      border-radius: 20px;
+      padding: 12px;
+      margin: 16px 0;
+      border-left: 4px solid #f39c12;
+    }
+    .user-review p {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #5a4a2a;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .mini-tag {
+      background: #e9eef4;
+      border-radius: 40px;
+      padding: 4px 12px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #1f3b4c;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .green-bg { background: #e0f2e9; color: #146b3a; }
+    .orange-bg { background: #ffecb3; color: #b45116; }
+    .blue-bg { background: #e3f0ff; color: #1a5d9c; }
+    .gold-bg { background: #fff0cc; color: #c47a00; }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      padding: 12px 0;
+      background: linear-gradient(95deg, #e67e22, #f39c12);
+      color: white;
+      text-decoration: none;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      box-shadow: 0 5px 12px rgba(230,126,34,0.3);
+    }
+    .download-btn:hover {
+      background: linear-gradient(95deg, #d35400, #e67e22);
+      transform: scale(0.98);
+    }
+
+    .other-games-heading {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0a5c2e;
+      border-bottom: 3px solid #ffcf8a;
+      display: inline-block;
+      width: auto;
+      padding-bottom: 10px;
+    }
+    .heading-wrapper {
+      text-align: center;
+    }
+
+    .footer-note {
+      text-align: center;
+      background: #ecf9f0;
+      border-radius: 60px;
+      padding: 14px;
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+    footer {
+      background: #0a2e1d;
+      color: #b9ddcb;
+      text-align: center;
+      padding: 24px;
+      margin-top: 40px;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 800px) {
+      .card { min-width: 300px; }
+      .fast-page h1 { font-size: 2rem; }
+      .fast-download-btn { font-size: 1.5rem; padding: 15px 30px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Fast Page -->
-    <div class="fast-page" id="fastPage">
-        <h1>🚀 YONO GAMES HUB</h1>
-        <p>Click below to unlock <strong>21+ Best Earning Apps</strong><br>with different signup bonuses & fast ₹100 withdrawal</p>
-        <button class="fast-download-btn" id="revealBtn">📲 CLICK TO PROCEED</button>
-    </div>
+  <!-- Fast Page (Landing) -->
+  <div class="fast-page" id="fastPage">
+    <h1>🚀 YONO GAMES HUB</h1>
+    <p>Click below to unlock <strong>8+ Best Earning Apps</strong><br>with exclusive bonuses & fast ₹100 withdrawal</p>
+    <button class="fast-download-btn" id="revealBtn">📲 CLICK TO PROCEED</button>
+  </div>
 
-    <!-- Main Content (Next Page) -->
-    <div class="main-content" id="mainContent">
-        <div class="top-nav">
-            <a href="#">🏠 Home</a>
-            <a href="#">ℹ️ About</a>
-            <a href="#">📞 Contact</a>
-            <a href="#">⚖️ Disclaimer</a>
-            <a href="#">📢 TG Join</a>
+  <!-- Main Content (hidden initially) -->
+  <div class="main-content" id="mainContent">
+    <header>
+      <h1>🎮 Yono Games Hub <span>🔥 8 Best Earning Apps</span></h1>
+      <div class="subhead">⚡ Real Cash Games • Fast Withdrawal • OTP Login • 30+ Games Each ⚡</div>
+    </header>
+
+    <div class="container">
+      <div class="heading-wrapper">
+        <div class="other-games-heading">🎮 Other Games Available</div>
+      </div>
+
+      <div class="cards-grid">
+        <!-- APP 1: TAURUS -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/twzhYzz7/taurus-app.jpg" alt="Taurus" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Taurus'"></div>
+            <div><div class="app-title">Taurus Earn Money</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">24.6 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v5.3.1</span></div>
+            <div class="info-row"><span class="info-label">Android</span><span class="info-value">5.0+</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Fast (UPI/Bank)</span></div>
+          </div>
+          <ul class="features-list"><li>💰 Complete tasks & earn cash</li><li>🎁 Daily login bonus</li><li>⚡ OTP registration</li><li>🏆 30+ earning modules</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹550 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Best earning app! Fast withdrawal." – Rajesh K.</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Fast Withdrawal</span><span class="mini-tag gold-bg">🔐 OTP Login</span><span class="mini-tag">🎮 30+ Tasks</span></div>
+          <a href="https://th7.my/BY1JWS/3gvute0" class="download-btn" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TAURUS</a>
         </div>
 
-        <header>
-            <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
-            <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
-        </header>
-        
-        <div class="container">
-            <!-- Detailed Bingo 101 Card first -->
-            <div class="detailed-card">
-                <div class="detailed-header">
-                    <div class="detailed-img"><img src="https://i.ibb.co/My9tjNgL/bingo101.jpg" alt="Bingo 101" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Bingo101'"></div>
-                    <div><div class="detailed-title">Bingo 101</div></div>
-                </div>
-                <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Rating</span><span class="info-value">4.2 ★</span></div>
-                    <div class="info-item"><span class="info-label">Size</span><span class="info-value">59 MB</span></div>
-                    <div class="info-item"><span class="info-label">Votes</span><span class="info-value">222K+</span></div>
-                    <div class="info-item"><span class="info-label">Bonus</span><span class="info-value">₹44</span></div>
-                </div>
-                <div class="telegram">
-                    📢 JOIN OUR TELEGRAM CHANNEL
-                </div>
-                <div class="description">
-                    Download Bingo 101 APK and get ₹50–₹500 signup bonus instantly. Play real bingo games, win money, earn rewards, and withdraw your cash directly via UPI.
-                </div>
-                <div class="steps">
-                    <h4>How To Download?</h4>
-                    <ol>
-                        <li>Click the download button below</li>
-                        <li>Download the APK file</li>
-                        <li>Enable "Unknown Sources" in settings</li>
-                        <li>Install and start winning real cash</li>
-                    </ol>
-                </div>
-                <div class="description">
-                    <strong>Bingo 101 (Yono) App Download – Play Bingo & Win Cash | ₹200–₹1500 Bonus - Download APK</strong><br><br>
-                    Bingo 101 App is a real cash gaming platform where users can play exciting bingo games and earn money online. New users can claim a signup bonus ranging from ₹50 to ₹500 instantly after registration, making it easy to start playing without high investment. The app offers smooth and engaging gameplay with multiple bingo rooms and reward-based challenges. Players can join games, compete with others, and win real cash prizes daily. Bingo 101 App also provides a fast and secure withdrawal system. Users can easily withdraw their earnings directly via UPI with quick processing. Daily rewards, bonuses, and referral options help increase overall earnings. If you are looking for a fun and easy way to earn money through bingo games, Bingo 101 App is a great option. Download the APK now and start winning real cash.
-                </div>
-                <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="detailed-download-btn" target="_blank">🎯 DOWNLOAD BINGO 101 APP</a>
-            </div>
-
-            <!-- Other Games Available Heading -->
-            <div class="heading-wrapper">
-                <div class="other-games-heading">🎮 Other Games Available</div>
-            </div>
-
-            <!-- 20 other app cards -->
-            <div class="cards-grid">
-                <!-- 1. Taurus -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/twzhYzz7/taurus-app.jpg" alt="Taurus"></div>
-                    <div class="app-name">Taurus Earn Money</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹30</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://th7.my/BY1JWS/3gvute0" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 2. Teen Patti Gold -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" alt="Teen Patti Gold"></div>
-                    <div class="app-name">Teen Patti Gold</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹37</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 3. Teen Patti Master -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master"></div>
-                    <div class="app-name">Teen Patti Master</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹20</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 4. Yono Rummy -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy"></div>
-                    <div class="app-name">Yono Rummy</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹25</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 5. Slots Winner -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner"></div>
-                    <div class="app-name">Slots Winner</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹40</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 6. Good Slots -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/nq9kMKHZ/good-slots.jpg" alt="Good Slots"></div>
-                    <div class="app-name">Good Slots</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹15</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 7. Diwa Slot -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" alt="Diwa Slot"></div>
-                    <div class="app-name">Diwa Slot</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹50</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 8. GoGo Rummy -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" alt="GoGo Rummy"></div>
-                    <div class="app-name">GoGo Rummy</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹28</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 9. Joy Rummy -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/nqD8CD8W/joy-rummy.jpg" alt="Joy Rummy"></div>
-                    <div class="app-name">Joy Rummy</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹35</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 10. Spin Gold -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/G3QnY0vY/spin-gold.jpg" alt="Spin Gold"></div>
-                    <div class="app-name">Spin Gold</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹22</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 11. Yes Spin -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/m5qzq7W4/yes-spin.jpg" alt="Yes Spin"></div>
-                    <div class="app-name">Yes Spin</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹18</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 12. Yono Arcade -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/mCzSG1L7/yono-arcade.jpg" alt="Yono Arcade"></div>
-                    <div class="app-name">Yono Arcade</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹32</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 13. SVIP 777 -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/vfWZMLm/svip777.jpg" alt="SVIP 777"></div>
-                    <div class="app-name">SVIP 777</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹27</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 14. OK Rummy -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/99fCMbNC/ok-rummy.jpg" alt="OK Rummy"></div>
-                    <div class="app-name">OK Rummy</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹38</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 15. Hind 777 -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/5gf3q0Sh/hind777.jpg" alt="Hind 777"></div>
-                    <div class="app-name">Hind 777</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹42</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 16. Rummy Most -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/hRrzszPJ/rummy-most.jpg" alt="Rummy Most"></div>
-                    <div class="app-name">Rummy Most</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹33</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://rummymostvip.net?from_gameid=11531455&channelCode=5023425" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 17. Teen Patti Classic -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg" alt="Teen Patti Classic"></div>
-                    <div class="app-name">Teen Patti Classic</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹24</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 18. Bet 213 -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/YTqq2C4F/bet213.jpg" alt="Bet 213"></div>
-                    <div class="app-name">Bet 213</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹36</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 19. Teen Patti -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/7t3jmgqn/teen-patti.jpg" alt="Teen Patti"></div>
-                    <div class="app-name">Teen Patti</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹29</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-                <!-- 20. All Teen Patti Master -->
-                <div class="card">
-                    <div class="card-img"><img src="https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" alt="All Teen Patti Master"></div>
-                    <div class="app-name">All Teen Patti Master</div>
-                    <div class="bonus">🎁 Signup Bonus: ₹31</div>
-                    <div class="withdrawal">💰 Min Withdrawal: ₹100</div>
-                    <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank">📲 DOWNLOAD</a>
-                </div>
-            </div>
-            <div class="footer-note">
-                🌟 All 21 apps: Different Signup Bonuses (₹15 to ₹50) | Min Withdrawal ₹100 | Fast & Secure
-            </div>
+        <!-- APP 2: TEEN PATTI GOLD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" alt="Teen Patti Gold" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=TPGold'"></div>
+            <div><div class="app-title">Teen Patti Gold</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">53 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v5.2.0</span></div>
+            <div class="info-row"><span class="info-label">Rating</span><span class="info-value">⭐ 4.5 (1.94M+)</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹2999 + ₹50</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min</span></div>
+          </div>
+          <ul class="features-list"><li>🔥 Real cash teen patti</li><li>🎁 Daily login rewards</li><li>♠️ 30+ game modes</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹3049 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Fast withdrawal, huge bonus!" – Ravi K.</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Fast UPI</span><span class="mini-tag gold-bg">🔐 OTP Login</span><span class="mini-tag">🎮 30+ Games</span></div>
+          <a href="https://www.earntp.com/gold/jm9n7r" class="download-btn" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD TEEN PATTI GOLD</a>
         </div>
-        <footer>
-            © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads
-        </footer>
+
+        <!-- APP 3: TEEN PATTI MASTER -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg" alt="Teen Patti Master" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=TPMaster'"></div>
+            <div><div class="app-title">Teen Patti Master</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">68 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v4.2.1</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">2-5 min</span></div>
+          </div>
+          <ul class="features-list"><li>🔥 30+ game variants</li><li>🎁 Daily leaderboard</li><li>⚡ OTP secure</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹550 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Amazing app! Won ₹5000." – Verified</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Fast Withdrawal</span><span class="mini-tag gold-bg">🔐 OTP Login</span><span class="mini-tag">🎮 30+ Games</span></div>
+          <a href="https://www.earntp.com/m/jm9n7r" class="download-btn" target="_blank" rel="noopener noreferrer">📲 DOWNLOAD TEEN PATTI MASTER</a>
+        </div>
+
+        <!-- APP 4: YONO RUMMY -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/zTFDGPpX/yono-rummy.jpg" alt="Yono Rummy" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=YonoRummy'"></div>
+            <div><div class="app-title">Yono Rummy</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">72 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v5.1.0</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹13 + ₹50 = ₹63</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">1-3 min</span></div>
+          </div>
+          <ul class="features-list"><li>💰 Real cash rummy</li><li>🎁 Daily ₹90 login</li><li>♠️ 30+ tables</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹63 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Smooth gameplay, fast withdrawal!" – Verified</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Instant UPI</span><span class="mini-tag gold-bg">🔐 OTP + Bio</span><span class="mini-tag">🎮 30+ Modes</span></div>
+          <a href="https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758" class="download-btn" target="_blank" rel="noopener noreferrer">♠️ DOWNLOAD YONO RUMMY</a>
+        </div>
+
+        <!-- APP 5: SLOTS WINNER -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/NdbNBtx7/slots-winner.jpg" alt="Slots Winner" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Slots'"></div>
+            <div><div class="app-title">Slots Winner</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">85 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v3.9.5</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹100 + ₹50 = ₹150</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">3-10 min</span></div>
+          </div>
+          <ul class="features-list"><li>🎰 1500+ slots</li><li>🎁 Daily free spins</li><li>⚡ OTP registration</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Tap download</li><li>Install APK</li><li>Claim ₹150 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Amazing payouts! Withdrew ₹2000." – Priya S.</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Instant Withdrawal</span><span class="mini-tag gold-bg">🔐 OTP Login</span><span class="mini-tag">🎮 30+ Slots</span></div>
+          <a href="https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393" class="download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD SLOTS WINNER</a>
+        </div>
+
+        <!-- APP 6: GOOD SLOTS -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/nq9kMKHZ/good-slots.jpg" alt="Good Slots" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Good+Slots'"></div>
+            <div><div class="app-title">Good Slots</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">48 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v2.1.0</span></div>
+            <div class="info-row"><span class="info-label">Android</span><span class="info-value">5.0+</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹500 + ₹50</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Fast (2-5 min)</span></div>
+          </div>
+          <ul class="features-list"><li>🎰 1000+ slot games</li><li>🎁 Daily jackpot</li><li>⚡ OTP login</li><li>🏆 30+ slot themes</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹550 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Best slots app! Quick payouts." – Ankit S.</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Fast Withdrawal</span><span class="mini-tag gold-bg">🔐 OTP Secure</span><span class="mini-tag">🎮 30+ Slots</span></div>
+          <a href="https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1" class="download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD GOOD SLOTS</a>
+        </div>
+
+        <!-- APP 7: DIWA SLOT -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/BKB6QMbD/diwa-slot.jpg" alt="Diwa Slot" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=Diwa+Slot'"></div>
+            <div><div class="app-title">Diwa Slot</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">52 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v3.0.2</span></div>
+            <div class="info-row"><span class="info-label">Android</span><span class="info-value">5.0+</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹888 + ₹50</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Instant (UPI)</span></div>
+          </div>
+          <ul class="features-list"><li>🎰 Mega jackpot slots</li><li>🎁 Daily free spins</li><li>⚡ OTP + Fingerprint</li><li>🏆 30+ slot varieties</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download</li><li>Install APK</li><li>Get ₹938 bonus</li></ol></div>
+          <div class="user-review"><p>⭐ "Huge wins! Withdrawal in 2 minutes." – Neha M.</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Instant UPI</span><span class="mini-tag gold-bg">🔐 OTP + Bio</span><span class="mini-tag">🎮 30+ Slots</span></div>
+          <a href="https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app" class="download-btn" target="_blank" rel="noopener noreferrer">🎰 DOWNLOAD DIWA SLOT</a>
+        </div>
+
+        <!-- APP 8: GOGO RUMMY -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-img"><img src="https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg" alt="GoGo Rummy" onerror="this.src='https://placehold.co/200x200/0a7f3f/white?text=GoGo+Rummy'"></div>
+            <div><div class="app-title">GoGo Rummy</div><div class="last-updated">Updated: Today</div></div>
+          </div>
+          <div class="info-table">
+            <div class="info-row"><span class="info-label">Size</span><span class="info-value">58 MB</span></div>
+            <div class="info-row"><span class="info-label">Version</span><span class="info-value">v4.5.0</span></div>
+            <div class="info-row"><span class="info-label">Games</span><span class="info-value">Rummy, Ludo, Poker +30</span></div>
+            <div class="info-row"><span class="info-label">Bonus</span><span class="info-value">₹11 Join + ₹153 Login + 100% Cashback</span></div>
+            <div class="info-row"><span class="info-label">Withdrawal</span><span class="info-value">Fast (1-3 min)</span></div>
+          </div>
+          <ul class="features-list"><li>💰 India's #1 skilled gaming app</li><li>🎁 7-day login bonus ₹153</li><li>🎮 30+ games (Rummy, Ludo, Poker)</li><li>⚡ OTP secure registration</li><li>🏆 100% cashback on first deposit</li></ul>
+          <div class="steps"><h4>How to Download</h4><ol><li>Click download link</li><li>Install APK</li><li>Get ₹11 joining + ₹153 login + cashback</li></ol></div>
+          <div class="user-review"><p>⭐ "Best rummy app! Great bonuses and fast withdrawal." – Verified Player</p></div>
+          <div class="tag-row"><span class="mini-tag green-bg">💰 Best Earning APK</span><span class="mini-tag blue-bg">💸 Fast Withdrawal</span><span class="mini-tag gold-bg">🔐 OTP Login</span><span class="mini-tag">🎮 30+ Games</span><span class="mini-tag orange-bg">🎁 ₹153 Login Bonus</span></div>
+          <a href="https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694" class="download-btn" target="_blank" rel="noopener noreferrer">🃏 DOWNLOAD GOGO RUMMY</a>
+        </div>
+      </div>
+
+      <div class="footer-note">
+        🌟 All 8 apps: Best Earning Platform APK | Real Cash Games | OTP Login | Fast Withdrawal (₹100 min) | 30+ Games Each | Deposit Discount & Login Offer | Download Bonus + Signup Bonus
+      </div>
     </div>
+    <footer>
+      © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads | Secure & Trusted Platform
+    </footer>
+  </div>
 
-    <script>
-        const fastPage = document.getElementById('fastPage');
-        const mainContent = document.getElementById('mainContent');
-        const revealBtn = document.getElementById('revealBtn');
+  <script>
+    const fastPage = document.getElementById('fastPage');
+    const mainContent = document.getElementById('mainContent');
+    const revealBtn = document.getElementById('revealBtn');
 
-        revealBtn.addEventListener('click', () => {
-            fastPage.style.opacity = '0';
-            setTimeout(() => {
-                fastPage.style.display = 'none';
-                mainContent.style.display = 'block';
-                setTimeout(() => {
-                    mainContent.style.opacity = '1';
-                }, 20);
-            }, 500);
-        });
-    </script>
+    revealBtn.addEventListener('click', () => {
+      fastPage.style.opacity = '0';
+      setTimeout(() => {
+        fastPage.style.display = 'none';
+        mainContent.style.display = 'block';
+        setTimeout(() => {
+          mainContent.style.opacity = '1';
+        }, 20);
+      }, 500);
+    });
+  </script>
 </body>
 </html>
 ```
