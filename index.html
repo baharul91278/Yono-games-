@@ -1,6 +1,3 @@
-The provided HTML already has a fully functional Back to Home button on every download page and a Home link in the top navigation – both return you to the main grid with all 21 apps and scroll smoothly to the top.
-
-If you meant something else by “back to Back hona chahiye pora back hota ha” (e.g., a browser-like back button or a different visual), here is the same working code – it already does exactly what you need:
 
 ```html
 <!DOCTYPE html>
@@ -93,7 +90,7 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             padding: 0 24px;
         }
 
-        /* Main grid styles - app name ABOVE image */
+        /* Main grid - app name ABOVE image */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -122,7 +119,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             border-color: #ffcf8a;
         }
 
-        /* App name above image */
         .card-app-name {
             font-size: 1.5rem;
             font-weight: 800;
@@ -197,7 +193,7 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             transform: scale(0.98);
         }
 
-        /* Download page (next page) */
+        /* Download page */
         .download-page {
             background: white;
             border-radius: 48px;
@@ -244,7 +240,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             text-align: center;
         }
 
-        /* stats row */
         .stats-row {
             display: flex;
             flex-wrap: wrap;
@@ -306,7 +301,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             line-height: 1.4;
         }
 
-        /* Smaller DOWNLOAD button */
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
             padding: 10px 20px;
@@ -328,7 +322,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             background: linear-gradient(95deg, #219653, #27ae60);
         }
 
-        /* HD Back to Home button with vibrant gradient */
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 20px;
@@ -488,7 +481,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Generate stats (Rating, Size, Votes)
         function getAppStats(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -502,7 +494,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
         }
 
-        // Description
         function getDescription(appName, category, bonusAmount) {
             if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
             if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
@@ -510,7 +501,8 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render main grid with app name ABOVE image
+        let currentSelectedIndex = null;
+
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -530,13 +522,19 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const idx = btn.getAttribute('data-download-index');
-                    if (idx !== null) showDownloadPage(parseInt(idx));
+                    if (idx !== null) navigateToDownloadPage(parseInt(idx));
                     e.stopPropagation();
                 });
             });
         }
 
-        // Show download page with HD Back to Home button
+        function navigateToDownloadPage(selectedIndex) {
+            currentSelectedIndex = selectedIndex;
+            // push a new history state
+            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
+            showDownloadPage(selectedIndex);
+        }
+
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -573,7 +571,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         <div class="app-name" style="font-size: 1.8rem; font-weight:800;">${selectedApp.name}</div>
                         
-                        <!-- Stats Row -->
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
@@ -598,7 +595,6 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
-                        <!-- HD Back to Home button with gradient and shadow -->
                         <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
@@ -614,12 +610,10 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             
             downloadContainer.innerHTML = downloadPageHtml;
             
-            // Attach events for "Other Apps" download buttons
-            const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
-            otherDownloadBtns.forEach(btn => {
+            document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const otherIdx = btn.getAttribute('data-other-index');
-                    if (otherIdx !== null) showDownloadPage(parseInt(otherIdx));
+                    if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
                     e.stopPropagation();
                 });
             });
@@ -627,26 +621,18 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
-                    downloadContainer.classList.add('hidden');
-                    gridDiv.classList.remove('hidden');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    const headerElem = document.querySelector('header');
-                    if (headerElem) {
-                        headerElem.style.transition = '0.2s';
-                        headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                        setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
-                    }
+                    // replace history to avoid duplicate entries
+                    history.back(); // this will trigger popstate which will go to main grid
                 });
             }
             
-            // Auto-scroll to top section
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
-        
-        function resetToMainGrid() {
+
+        function goToMainGrid() {
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
             if (gridDiv && downloadContainer) {
@@ -660,6 +646,34 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
                     setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
                 }
             }
+            currentSelectedIndex = null;
+        }
+
+        // Handle browser back button
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.page === 'download') {
+                // already on download page, but we need to go back to main grid
+                goToMainGrid();
+            } else {
+                // if no state or main grid, ensure we are on main grid and prevent exit
+                if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
+                    goToMainGrid();
+                }
+                // optionally replace state to keep main grid as root
+                history.replaceState({ page: 'main' }, '', window.location.pathname);
+            }
+        });
+
+        // initial state
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+
+        function resetToMainGrid() {
+            if (currentSelectedIndex !== null) {
+                // if we are on download page, go back in history
+                history.back();
+            } else {
+                goToMainGrid();
+            }
         }
         
         function init() {
@@ -668,7 +682,7 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
             if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
             otherNavs.forEach(link => {
-                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps. Fast download hub!'); });
+                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps.'); });
             });
         }
         init();
@@ -676,12 +690,3 @@ If you meant something else by “back to Back hona chahiye pora back hota ha”
 </body>
 </html>
 ```
-
-✅ “Pora back hota ha” –
-
-· The Back to Home button on every download page returns to the full 21‑app grid.
-· The Home link in the top navigation does the same.
-· Both actions scroll smoothly to the top.
-· Clicking any Other App from the bottom list also opens its own page with a working back button.
-
-Everything works completely.
