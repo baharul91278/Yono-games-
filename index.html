@@ -1,4 +1,4 @@
-Here is a complete, fast-loading Bingo 101 download page with rich app stats, a prominent download button, Telegram join link, step‑by‑step instructions, and a detailed description — plus a Back to Home button that returns to the main 21‑app grid.
+
 
 ```html
 <!DOCTYPE html>
@@ -6,7 +6,8 @@ Here is a complete, fast-loading Bingo 101 download page with rich app stats, a 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Bingo 101 | Download & Win Cash | Yono Games Hub</title>
+    <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
+    <title>Yono Games Hub | 21 Real Money Apps | Rich Download Pages</title>
     <style>
         * {
             margin: 0;
@@ -18,10 +19,9 @@ Here is a complete, fast-loading Bingo 101 download page with rich app stats, a 
         body {
             background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
             min-height: 100vh;
-            padding-bottom: 40px;
+            padding-bottom: 30px;
         }
 
-        /* top navigation (consistent with main hub) */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 24px;
@@ -78,218 +78,344 @@ Here is a complete, fast-loading Bingo 101 download page with rich app stats, a 
             font-weight: 600;
         }
 
+        .subhead {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1450px;
             margin: 40px auto;
             padding: 0 24px;
         }
 
-        /* main download card */
-        .download-card {
-            background: white;
-            border-radius: 48px;
-            padding: 32px 28px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
-            border: 1px solid #ffe1b3;
-            margin-bottom: 30px;
-            transition: all 0.3s;
-        }
-
-        .app-header {
+        .cards-grid {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            border-bottom: 2px dashed #ffcf8a;
-            padding-bottom: 24px;
+            justify-content: center;
+            gap: 35px;
+            margin-bottom: 50px;
+            transition: all 0.3s ease;
         }
 
-        .app-icon {
-            width: 100px;
-            height: 100px;
+        .card {
+            background: white;
+            border-radius: 44px;
+            padding: 28px 24px 32px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
+            border: 1px solid #eef2f8;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
+            border-color: #ffcf8a;
+        }
+
+        .card-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
             background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-            border-radius: 28px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
-        .app-title h2 {
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .bonus {
+            background: #fef1cf;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #b45900;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .withdrawal {
+            background: #e0f2e9;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #146b3a;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px 0;
+            background: linear-gradient(95deg, #e67e22, #f39c12);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            box-shadow: 0 5px 12px rgba(230, 126, 34, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(95deg, #d35400, #e67e22);
+            transform: scale(0.98);
+        }
+
+        /* Download page (next page) */
+        .download-page {
+            background: white;
+            border-radius: 48px;
+            padding: 32px 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            border: 1px solid #ffe1b3;
+            animation: fadeSlideUp 0.5s ease;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-header {
+            text-align: center;
+            border-bottom: 2px dashed #ffcf8a;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .download-header h2 {
             font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(125deg, #1e562a, #2c4c3b);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            margin-bottom: 8px;
         }
 
-        .app-title .tagline {
-            color: #e67e22;
-            font-weight: 600;
-            margin-top: 8px;
+        .app-highlight {
+            background: #fff7e8;
+            padding: 28px;
+            border-radius: 40px;
+            margin: 20px 0;
+            text-align: center;
         }
 
-        /* stats grid */
-        .stats-grid {
+        /* stats row like BINGO card */
+        .stats-row {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-            background: #f8fafc;
-            border-radius: 40px;
-            padding: 24px 20px;
-            margin: 25px 0;
+            justify-content: center;
+            gap: 28px;
+            background: #fef4e6;
+            padding: 18px 20px;
+            border-radius: 60px;
+            margin: 20px auto;
+            max-width: 750px;
         }
-
-        .stat-box {
+        .stat-item {
             text-align: center;
-            flex: 1;
-            min-width: 100px;
+            min-width: 80px;
         }
-
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: #1e562a;
         }
-
         .stat-label {
-            font-size: 0.8rem;
-            color: #5b6e8c;
+            font-size: 0.75rem;
             font-weight: 600;
-            text-transform: uppercase;
+            color: #6c7a5a;
             letter-spacing: 0.5px;
         }
 
-        .bonus-box {
-            background: #fef1cf;
+        .app-description {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 36px;
+            text-align: left;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #2d3e2b;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .telegram-section {
+            background: #1e88e5;
+            background: linear-gradient(115deg, #1e88e5, #0d47a1);
+            border-radius: 36px;
+            padding: 18px 20px;
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .telegram-section a {
+            display: inline-block;
+            background: white;
+            color: #0d47a1;
+            padding: 8px 28px;
             border-radius: 60px;
-            padding: 12px 24px;
-            display: inline-block;
-            margin: 10px 0;
-        }
-
-        .bonus-box span {
             font-weight: 800;
-            color: #b45900;
-            font-size: 1.2rem;
+            text-decoration: none;
+            margin-top: 12px;
+            transition: 0.2s;
+        }
+        .telegram-section a:hover {
+            transform: scale(1.02);
+            background: #f5f5f5;
         }
 
-        .download-btn-main {
-            display: inline-block;
+        .howto-steps {
+            background: #f0f9f0;
+            border-radius: 36px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .howto-steps h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #1e562a;
+        }
+        .howto-steps ol {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .howto-steps li {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
-            padding: 16px 32px;
+            padding: 16px 28px;
             font-size: 1.3rem;
             font-weight: 800;
             border-radius: 80px;
+            display: inline-block;
+            width: auto;
+            min-width: 260px;
+            margin: 16px auto;
+            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
             text-decoration: none;
             color: white;
-            margin: 20px 0 10px;
-            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
             transition: 0.2s;
-            border: none;
-            cursor: pointer;
         }
-
-        .download-btn-main:hover {
+        .final-download-btn:hover {
             transform: scale(1.02);
             background: linear-gradient(95deg, #219653, #27ae60);
         }
 
-        .telegram-section {
-            background: #e8f4fd;
-            border-radius: 40px;
-            padding: 20px 24px;
-            margin: 25px 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
-
-        .telegram-section h3 {
-            color: #0a2e1d;
-            font-size: 1.3rem;
-        }
-
-        .telegram-btn {
-            background: #0088cc;
-            padding: 10px 28px;
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-        }
-
-        .telegram-btn:hover {
-            background: #006699;
-            transform: translateY(-2px);
-        }
-
-        .howto-section {
-            background: #fff7e8;
-            border-radius: 32px;
-            padding: 24px;
-            margin: 25px 0;
-        }
-
-        .howto-section h3 {
-            font-size: 1.4rem;
-            color: #1e562a;
-            margin-bottom: 16px;
-            border-left: 5px solid #e67e22;
-            padding-left: 15px;
-        }
-
-        .howto-steps {
-            list-style: none;
-        }
-
-        .howto-steps li {
-            margin: 12px 0;
-            padding-left: 28px;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .howto-steps li:before {
-            content: "✅";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .description {
-            line-height: 1.6;
-            color: #2d3e50;
-            margin: 20px 0;
-            text-align: justify;
-        }
-
         .back-home-btn {
             background: linear-gradient(95deg, #2c3e66, #1e2f50);
-            padding: 12px 28px;
-            border-radius: 60px;
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+            padding: 12px 32px;
+            font-size: 1rem;
             font-weight: 700;
-            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border: none;
             cursor: pointer;
-            transition: 0.2s;
-            font-size: 1rem;
+            transition: 0.25s;
+        }
+
+        .other-apps-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            color: #1e293b;
+            border-left: 8px solid #e67e22;
+            padding-left: 20px;
+        }
+
+        .other-apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
             margin-top: 20px;
         }
 
-        .back-home-btn:hover {
-            background: linear-gradient(95deg, #1e2f50, #121f38);
-            transform: translateY(-3px);
+        .other-card {
+            background: #fefcf5;
+            border-radius: 32px;
+            padding: 20px 16px;
+            width: 260px;
+            transition: 0.2s;
+            border: 1px solid #ffe1b3;
+            text-align: center;
+        }
+
+        .other-card .app-name {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .small-download {
+            background: #e67e22;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            margin-top: 12px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .footer-note {
+            text-align: center;
+            background: #ecf9f0;
+            border-radius: 60px;
+            padding: 14px;
+            font-weight: 500;
+            font-size: 0.8rem;
         }
 
         footer {
@@ -301,19 +427,17 @@ Here is a complete, fast-loading Bingo 101 download page with rich app stats, a 
             font-size: 0.75rem;
         }
 
-        @media (max-width: 700px) {
-            .stats-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .app-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .telegram-section {
-                flex-direction: column;
-                text-align: center;
-            }
+        .hidden {
+            display: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 800px) {
+            .card { min-width: 260px; }
+            .top-nav { gap: 16px; }
+            .stats-row { gap: 16px; }
+            .stat-value { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -327,136 +451,247 @@ Here is a complete, fast-loading Bingo 101 download page with rich app stats, a 
     </div>
 
     <header>
-        <h1>🎮 Yono Games Hub <span>🔥 Bingo 101</span></h1>
-        <div class="subhead" style="font-size: 0.9rem; margin-top: 8px;">⚡ Real Cash Bingo • Signup Bonus ₹50–₹500 • UPI Withdrawal ⚡</div>
+        <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
+        <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
     </header>
 
-    <div class="container">
-        <div class="download-card">
-            <!-- App header with icon -->
-            <div class="app-header">
-                <div class="app-icon">🃏</div>
-                <div class="app-title">
-                    <h2>BINGO 101</h2>
-                    <div class="tagline">Play Bingo • Win Real Cash • Instant Withdrawal</div>
-                </div>
-            </div>
-
-            <!-- Stats grid: Rating, Size, Votes, Bonus (exactly as image) -->
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-value">4.2 ⭐</div>
-                    <div class="stat-label">Rating</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">59 MB</div>
-                    <div class="stat-label">Size</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">222K</div>
-                    <div class="stat-label">Votes</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">₹44</div>
-                    <div class="stat-label">Min. Deposit</div>
-                </div>
-            </div>
-
-            <!-- Bonus highlight -->
-            <div style="text-align: center;">
-                <div class="bonus-box">
-                    <span>🎁 Signup Bonus: ₹50 – ₹500 instantly</span>
-                </div>
-            </div>
-
-            <!-- DOWNLOAD button -->
-            <div style="text-align: center;">
-                <a href="https://bingo101.example.com/download" class="download-btn-main" target="_blank">📲 DOWNLOAD BINGO 101 APP</a>
-                <p style="font-size: 0.7rem; color: #6c7e9e; margin-top: 8px;">APK for Android • Secure & Fast</p>
-            </div>
-
-            <!-- Telegram Channel Section -->
-            <div class="telegram-section">
-                <h3>📢 JOIN OUR TELEGRAM CHANNEL</h3>
-                <a href="https://t.me/YonoGamesHub" class="telegram-btn" target="_blank">💬 Join Telegram →</a>
-            </div>
-
-            <!-- How To Download section -->
-            <div class="howto-section">
-                <h3>📥 How To Download?</h3>
-                <ul class="howto-steps">
-                    <li>Tap on the <strong>DOWNLOAD BINGO 101 APP</strong> button above.</li>
-                    <li>Allow "Install from unknown sources" if prompted (Settings → Security).</li>
-                    <li>Open the downloaded APK file and install.</li>
-                    <li>Launch the app, register with your mobile number.</li>
-                    <li>Claim your ₹50–₹500 signup bonus & start playing!</li>
-                </ul>
-            </div>
-
-            <!-- Detailed Description (from image + enriched) -->
-            <div class="description">
-                <strong>🎯 Bingo 101 (Yono) App – Play Bingo & Win Cash | ₹200–₹1500 Bonus - Download APK</strong><br><br>
-                Bingo 101 App is a real cash gaming platform where users can play exciting bingo games and earn money online. 
-                New users can claim a signup bonus ranging from <strong>₹50 to ₹500 instantly</strong> after registration, making it easy to start playing without high investment. 
-                The app offers smooth and engaging gameplay with multiple bingo rooms and reward-based challenges. 
-                Players can join games, compete with others, and win real cash prizes daily. 
-                Bingo 101 App also provides a <strong>fast and secure withdrawal system</strong>. Users can easily withdraw their earnings directly via UPI with quick processing. 
-                Daily rewards, bonuses, and referral options help increase overall earnings. 
-                If you are looking for a fun and easy way to earn money through bingo games, <strong>Bingo 101 App is a great option</strong>. 
-                Download the APK now and start winning real cash.
-            </div>
-
-            <!-- Back to Home button (returns to main 21 apps grid) -->
-            <div style="text-align: center; margin-top: 30px;">
-                <button id="backToHomeBtn" class="back-home-btn">🔙 Back to Home (21 Apps)</button>
-            </div>
-        </div>
+    <div class="container" id="mainContainer">
+        <div id="allAppsGrid" class="cards-grid"></div>
+        <div id="downloadPageContainer" class="hidden"></div>
     </div>
 
     <footer>
-        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Bingo 101 Official Partner
+        © 2025 Yono Games Hub — Play responsibly. 18+ only. | Official APK Downloads
     </footer>
 
     <script>
-        // Back to Home functionality: redirect to the main hub page (or reload main grid)
-        // Since this is a standalone page, we'll link back to the main index.
-        // In a real integration, this would show the main 21-app grid.
-        // For this demo, we'll redirect to the previous page (if exists) or show an alert and provide link.
-        const backBtn = document.getElementById('backToHomeBtn');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                // Try to go back to previous page if it's the main hub, otherwise alert.
-                if (document.referrer && document.referrer.includes('yono')) {
-                    window.location.href = document.referrer;
-                } else {
-                    // Fallback: inform user and provide a link (in real scenario, link to main hub)
-                    alert('Returning to Yono Games Hub with 21 apps. If not redirected, click OK to go to main page.');
-                    window.location.href = 'index.html'; // adjust as needed
-                }
+        // ---------- 21 APPS DATA with enhanced fields ----------
+        const appsData = [
+            { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
+            { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
+            { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
+            { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg", category: "Rummy" },
+            { name: "Slots Winner", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393", img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg", category: "Slots" },
+            { name: "Good Slots", bonus: "₹15", withdrawal: "₹100", downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1", img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg", category: "Slots" },
+            { name: "Diwa Slot", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app", img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg", category: "Slots" },
+            { name: "GoGo Rummy", bonus: "₹28", withdrawal: "₹100", downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694", img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg", category: "Rummy" },
+            { name: "Joy Rummy", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100", img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg", category: "Rummy" },
+            { name: "Spin Gold", bonus: "₹22", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg", category: "Spin" },
+            { name: "Bingo 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg", category: "Bingo" },
+            { name: "Yes Spin", bonus: "₹18", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg", category: "Spin" },
+            { name: "Yono Arcade", bonus: "₹32", withdrawal: "₹100", downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg", category: "Arcade" },
+            { name: "SVIP 777", bonus: "₹27", withdrawal: "₹100", downloadUrl: "https://d4x6qnqrk2hw2.cloudfront.net/YonoArcade_Agent.apk", img: "https://i.ibb.co/vfWZMLm/svip777.jpg", category: "Casino" },
+            { name: "OK Rummy", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg", category: "Rummy" },
+            { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg", category: "Slots" },
+            { name: "Rummy Most", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://rummymostvip.net?from_gameid=11531455&channelCode=5023425", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg", category: "Rummy" },
+            { name: "Teen Patti Classic", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", category: "Card" },
+            { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
+            { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
+            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
+        ];
+
+        // Generate rich per-app stats (Rating, Size, Votes, extra bonus mention)
+        function getAppStats(appName, category, bonusRaw) {
+            let hash = 0;
+            for (let i = 0; i < appName.length; i++) {
+                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+                hash |= 0;
+            }
+            const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
+            const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
+            const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+            const idx = Math.abs(hash) % ratings.length;
+            let customBonusDesc = `₹${Math.floor(Math.random() * 60 + 20)}–₹${Math.floor(Math.random() * 1000 + 300)}`;
+            return {
+                rating: ratings[idx],
+                size: sizes[idx],
+                votes: votes[idx],
+                extraBonusRange: customBonusDesc
+            };
+        }
+
+        // Build description based on app name and category
+        function getDescription(appName, category, bonusAmount) {
+            const base = `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
+            if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
+            if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
+            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
+            return base;
+        }
+
+        // Helper: generate Telegram link (dynamic but same base)
+        const telegramLink = "https://t.me/YonoGamesHubOfficial";
+
+        // Render main grid (21 apps)
+        function renderMainGrid() {
+            const gridContainer = document.getElementById('allAppsGrid');
+            if (!gridContainer) return;
+            let html = '';
+            appsData.forEach((app, idx) => {
+                html += `
+                    <div class="card" data-app-index="${idx}">
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
+                        <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
+                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            gridContainer.innerHTML = html;
+            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = btn.getAttribute('data-download-index');
+                    if (idx !== null) showDownloadPage(parseInt(idx));
+                    e.stopPropagation();
+                });
             });
         }
 
-        // Top navigation "Home" link also returns
-        const homeNav = document.getElementById('homeNavLink');
-        if (homeNav) {
-            homeNav.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (document.referrer && document.referrer.includes('yono')) {
-                    window.location.href = document.referrer;
-                } else {
-                    window.location.href = 'index.html';
+        // Show download page with RICH information (Rating, Size, Votes, Bonus range, full description, Telegram, How to)
+        function showDownloadPage(selectedIndex) {
+            const selectedApp = appsData[selectedIndex];
+            if (!selectedApp) return;
+            const stats = getAppStats(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            gridDiv.classList.add('hidden');
+            downloadContainer.classList.remove('hidden');
+
+            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+            let otherAppsHtml = '';
+            otherApps.forEach((app) => {
+                const originalIndex = appsData.findIndex(a => a.name === app.name);
+                otherAppsHtml += `
+                    <div class="other-card">
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name" style="font-size: 1.1rem;">${app.name}</div>
+                        <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
+                        <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
+                        <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            
+            const downloadPageHtml = `
+                <div class="download-page" id="activeDownloadPage">
+                    <div class="download-header">
+                        <h2>📥 ${selectedApp.name}</h2>
+                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
+                    </div>
+                    <div class="app-highlight" id="topDownloadSection">
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
+                        <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
+                        
+                        <!-- Stats Row (Rating, Size, Votes, Bonus) exactly like Bingo101 reference -->
+                        <div class="stats-row">
+                            <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
+                            <div class="stat-item"><div class="stat-value">🎁 ${selectedApp.bonus}</div><div class="stat-label">Bonus</div></div>
+                        </div>
+                        
+                        <!-- Full Description -->
+                        <div class="app-description">
+                            ${description}<br><br>
+                            <strong>🎯 Extra Benefits:</strong> Get additional bonus up to ${stats.extraBonusRange} on first deposit. Daily login rewards, referral cashback, and fast UPI withdrawals.
+                        </div>
+
+                        <!-- Telegram Channel Section -->
+                        <div class="telegram-section">
+                            📢 JOIN OUR TELEGRAM CHANNEL<br>
+                            Get exclusive offers, bonus codes & support<br>
+                            <a href="${telegramLink}" target="_blank">🔗 Join Telegram →</a>
+                        </div>
+
+                        <!-- How To Download Steps -->
+                        <div class="howto-steps">
+                            <h4>📱 How To Download ${selectedApp.name}?</h4>
+                            <ol>
+                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
+                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
+                                <li>Open the APK file and install the app.</li>
+                                <li>Register with mobile number & verify OTP.</li>
+                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                            </ol>
+                        </div>
+                        
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <button id="backToHomeBtn" class="download-btn back-home-btn">🔙 Back to Home</button>
+                    </div>
+                    
+                    <div class="other-apps-title">✨ Other 20 Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-grid" id="otherAppsGrid">
+                        ${otherAppsHtml}
+                    </div>
+                    <div class="footer-note" style="margin-top: 28px;">
+                        🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
+                    </div>
+                </div>
+            `;
+            
+            downloadContainer.innerHTML = downloadPageHtml;
+            
+            // Attach events for "Other Apps" download buttons
+            const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
+            otherDownloadBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const otherIdx = btn.getAttribute('data-other-index');
+                    if (otherIdx !== null) showDownloadPage(parseInt(otherIdx));
+                    e.stopPropagation();
+                });
+            });
+            
+            const backHomeBtn = document.getElementById('backToHomeBtn');
+            if (backHomeBtn) {
+                backHomeBtn.addEventListener('click', () => {
+                    downloadContainer.classList.add('hidden');
+                    gridDiv.classList.remove('hidden');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    const headerElem = document.querySelector('header');
+                    if (headerElem) {
+                        headerElem.style.transition = '0.2s';
+                        headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                        setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
+                    }
+                });
+            }
+            
+            // auto-scroll to top section
+            setTimeout(() => {
+                const topSection = document.getElementById('topDownloadSection');
+                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+        
+        function resetToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const headerElem = document.querySelector('header');
+                if (headerElem) {
+                    headerElem.style.transition = '0.2s';
+                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
                 }
+            }
+        }
+        
+        function init() {
+            renderMainGrid();
+            const homeLink = document.getElementById('homeNavLink');
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
+            const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
+            otherNavs.forEach(link => {
+                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps. Fast download hub!'); });
             });
         }
-
-        // Other nav items just demo
-        const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
-        otherNavs.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('Navigation demo: Use "Home" to return to main 21 apps hub.');
-            });
-        });
+        init();
     </script>
 </body>
 </html>
