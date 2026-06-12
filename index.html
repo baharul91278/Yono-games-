@@ -1,3 +1,6 @@
+Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful grid at the top (with no app name above any image). Clicking any DOWNLOAD button opens a detailed download page for that app, and at the bottom of that page you will find the other 20 apps as clickable tags – so you can always see all 21 apps. A vibrant Back to Home button returns you to the main grid.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,57 +86,110 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1450px;
             margin: 40px auto;
             padding: 0 24px;
         }
 
-        /* No main grid anymore - only app tag list at bottom */
-        .app-tags-section {
-            margin-top: 60px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .app-tags-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e562a;
-            margin-bottom: 24px;
-            border-bottom: 2px solid #ffcf8a;
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-
-        .tags-cloud {
+        /* Main grid – all 21 apps, no name above image */
+        .cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 14px;
-            background: white;
-            padding: 28px 24px;
-            border-radius: 60px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            gap: 35px;
+            margin-bottom: 50px;
         }
 
-        .app-tag {
-            background: linear-gradient(125deg, #fef1cf, #ffe6c2);
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #b45900;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid #ffd89a;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        .card {
+            background: white;
+            border-radius: 44px;
+            padding: 28px 24px 32px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
+            border: 1px solid #eef2f8;
+            text-align: center;
         }
-        .app-tag:hover {
-            transform: translateY(-3px);
-            background: #ffcf8a;
-            color: #1e562a;
-            border-color: #e67e22;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
+            border-color: #ffcf8a;
+        }
+
+        .card-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 16px 0 8px;
+        }
+
+        .bonus {
+            background: #fef1cf;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #b45900;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .withdrawal {
+            background: #e0f2e9;
+            border-radius: 60px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #146b3a;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px 0;
+            background: linear-gradient(95deg, #e67e22, #f39c12);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            box-shadow: 0 5px 12px rgba(230, 126, 34, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(95deg, #d35400, #e67e22);
+            transform: scale(0.98);
         }
 
         /* Download page (next page) */
@@ -287,6 +343,45 @@
             background: linear-gradient(115deg, #ff6a00, #e62e00);
         }
 
+        /* Other apps section inside download page */
+        .other-apps-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            color: #1e293b;
+            border-left: 8px solid #e67e22;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .other-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            background: #fefcf5;
+            padding: 24px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+        }
+
+        .other-app-tag {
+            background: linear-gradient(125deg, #fef1cf, #ffe6c2);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #b45900;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #ffd89a;
+        }
+        .other-app-tag:hover {
+            transform: translateY(-2px);
+            background: #ffcf8a;
+            color: #1e562a;
+        }
+
         .footer-note {
             text-align: center;
             background: #ecf9f0;
@@ -294,7 +389,6 @@
             padding: 14px;
             font-weight: 500;
             font-size: 0.8rem;
-            margin-top: 30px;
         }
 
         footer {
@@ -313,10 +407,10 @@
             scroll-behavior: smooth;
         }
         @media (max-width: 800px) {
+            .card { min-width: 260px; }
             .stats-row { gap: 16px; }
             .stat-value { font-size: 1.2rem; }
             .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
-            .app-tag { font-size: 0.75rem; padding: 5px 14px; }
         }
     </style>
 </head>
@@ -335,14 +429,10 @@
     </header>
 
     <div class="container" id="mainContainer">
-        <!-- No main grid anymore. Only download page container and app tags section -->
+        <!-- Main grid: all 21 apps -->
+        <div id="allAppsGrid" class="cards-grid"></div>
+        <!-- Download page container (hidden initially) -->
         <div id="downloadPageContainer" class="hidden"></div>
-        
-        <!-- All 21 app names as clickable tags (last mein show) -->
-        <div id="appTagsSection" class="app-tags-section">
-            <div class="app-tags-title">📱 All 21 Yono Apps (Click any to download)</div>
-            <div class="tags-cloud" id="tagsCloud"></div>
-        </div>
     </div>
 
     <footer>
@@ -397,37 +487,51 @@
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render all 21 app tags at the bottom (last mein show)
-        function renderAppTags() {
-            const tagsContainer = document.getElementById('tagsCloud');
-            if (!tagsContainer) return;
-            let tagsHtml = '';
+        // Render main grid (all 21 apps) – no name above image
+        function renderMainGrid() {
+            const gridContainer = document.getElementById('allAppsGrid');
+            if (!gridContainer) return;
+            let html = '';
             appsData.forEach((app, idx) => {
-                tagsHtml += `<div class="app-tag" data-app-index="${idx}">${app.name}</div>`;
+                html += `
+                    <div class="card" data-app-index="${idx}">
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
+                        <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
+                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
+                    </div>
+                `;
             });
-            tagsContainer.innerHTML = tagsHtml;
-            // attach click event to each tag
-            document.querySelectorAll('.app-tag').forEach(tag => {
-                tag.addEventListener('click', (e) => {
-                    const idx = tag.getAttribute('data-app-index');
+            gridContainer.innerHTML = html;
+            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = btn.getAttribute('data-download-index');
                     if (idx !== null) showDownloadPage(parseInt(idx));
+                    e.stopPropagation();
                 });
             });
         }
 
-        // Show download page for selected app (no other apps grid, only tags at bottom are still present but hidden while download page visible)
+        // Show download page for selected app, and also show the other 20 apps as clickable tags
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
             const stats = getAppStats(selectedApp.name);
             const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
             
-            const tagsSection = document.getElementById('appTagsSection');
+            const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
-            
-            // Hide tags section, show download container
-            tagsSection.classList.add('hidden');
+            gridDiv.classList.add('hidden');
             downloadContainer.classList.remove('hidden');
+
+            // Other 20 apps (all except selected)
+            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+            let otherTagsHtml = '';
+            otherApps.forEach((app, idx) => {
+                const originalIndex = appsData.findIndex(a => a.name === app.name);
+                otherTagsHtml += `<span class="other-app-tag" data-other-index="${originalIndex}">${app.name}</span>`;
+            });
 
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
@@ -436,10 +540,10 @@
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
-                        <div class="card-img" style="width: 90px; height: 90px; margin: 0 auto 15px; background: #ffe6cc; border-radius: 24px; overflow: hidden;">
+                        <div class="card-img" style="width: 90px; height: 90px; margin: 0 auto 15px;">
                             <img src="${selectedApp.img}" alt="${selectedApp.name}" style="width:100%; height:100%; object-fit:cover;">
                         </div>
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-top:10px;">${selectedApp.name}</div>
+                        <div class="app-name" style="font-size: 1.8rem; margin-top: 10px;">${selectedApp.name}</div>
                         
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
@@ -468,7 +572,11 @@
                         <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
-                    <div class="footer-note" style="margin-top: 28px;">
+                    <div class="other-apps-title">✨ Other 20 Yono Apps ✨</div>
+                    <div class="other-tags-cloud" id="otherAppsTags">
+                        ${otherTagsHtml}
+                    </div>
+                    <div class="footer-note" style="margin-top: 20px;">
                         🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
                     </div>
                 </div>
@@ -476,11 +584,19 @@
             
             downloadContainer.innerHTML = downloadPageHtml;
             
+            // Attach click events to other app tags
+            document.querySelectorAll('#otherAppsTags .other-app-tag').forEach(tag => {
+                tag.addEventListener('click', (e) => {
+                    const otherIdx = tag.getAttribute('data-other-index');
+                    if (otherIdx !== null) showDownloadPage(parseInt(otherIdx));
+                });
+            });
+            
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
                     downloadContainer.classList.add('hidden');
-                    tagsSection.classList.remove('hidden');
+                    gridDiv.classList.remove('hidden');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     const headerElem = document.querySelector('header');
                     if (headerElem) {
@@ -491,19 +607,18 @@
                 });
             }
             
-            // Auto-scroll to top
+            // Scroll to top of download page
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
         
-        // Reset to home (show tags, hide download)
-        function resetToHome() {
-            const tagsSection = document.getElementById('appTagsSection');
+        function resetToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
-            if (tagsSection && downloadContainer) {
-                tagsSection.classList.remove('hidden');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const headerElem = document.querySelector('header');
@@ -516,15 +631,16 @@
         }
         
         function init() {
-            renderAppTags();  // show all 21 app names at bottom
+            renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
-            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToHome(); });
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
             otherNavs.forEach(link => {
-                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to main page.'); });
+                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps.'); });
             });
         }
         init();
     </script>
 </body>
 </html>
+```
