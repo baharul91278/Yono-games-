@@ -1,4 +1,3 @@
-Here is the final Yono Games Hub page with the Telegram section removed and the download button made smaller — just as you requested.
 
 ```html
 <!DOCTYPE html>
@@ -91,6 +90,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             padding: 0 24px;
         }
 
+        /* Main grid styles - app name ABOVE image */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -119,6 +119,18 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             border-color: #ffcf8a;
         }
 
+        /* App name above image */
+        .card-app-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
         .card-img {
             width: 80px;
             height: 80px;
@@ -135,16 +147,6 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 16px;
         }
 
         .bonus {
@@ -301,7 +303,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             line-height: 1.4;
         }
 
-        /* SMALLER DOWNLOAD BUTTON */
+        /* Smaller DOWNLOAD button */
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
             padding: 10px 20px;
@@ -323,18 +325,27 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             background: linear-gradient(95deg, #219653, #27ae60);
         }
 
+        /* HD Back to Home button with vibrant gradient */
         .back-home-btn {
-            background: linear-gradient(95deg, #2c3e66, #1e2f50);
+            background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 20px;
             display: inline-block;
             width: auto;
-            padding: 10px 28px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.4);
             border: none;
             cursor: pointer;
             transition: 0.25s;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .back-home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 46, 0, 0.5);
+            background: linear-gradient(115deg, #ff6a00, #e62e00);
         }
 
         .other-apps-title {
@@ -367,6 +378,12 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
         .other-card .app-name {
             font-size: 1.2rem;
             margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .other-card .bonus {
+            font-size: 0.8rem;
+            padding: 4px 12px;
         }
 
         .small-download {
@@ -490,7 +507,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render main grid
+        // Render main grid with app name ABOVE image
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -498,8 +515,8 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             appsData.forEach((app, idx) => {
                 html += `
                     <div class="card" data-app-index="${idx}">
+                        <div class="card-app-name">${app.name}</div>
                         <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="app-name">${app.name}</div>
                         <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
                         <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
                         <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
@@ -516,7 +533,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
             });
         }
 
-        // Show download page (no Telegram section, smaller DOWNLOAD button)
+        // Show download page with HD Back to Home button
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -535,7 +552,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
                 otherAppsHtml += `
                     <div class="other-card">
                         <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="app-name" style="font-size: 1.1rem;">${app.name}</div>
+                        <div class="app-name">${app.name}</div>
                         <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
                         <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
                         <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
@@ -551,7 +568,7 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
-                        <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800;">${selectedApp.name}</div>
                         
                         <!-- Stats Row -->
                         <div class="stats-row">
@@ -561,13 +578,11 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
                             <div class="stat-item"><div class="stat-value">🎁 ${selectedApp.bonus}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
-                        <!-- Full Description -->
                         <div class="app-description">
                             ${description}<br><br>
                             <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
                         </div>
 
-                        <!-- How To Download Steps (No Telegram) -->
                         <div class="howto-steps">
                             <h4>📱 How To Download ${selectedApp.name}?</h4>
                             <ol>
@@ -579,9 +594,9 @@ Here is the final Yono Games Hub page with the Telegram section removed and the 
                             </ol>
                         </div>
                         
-                        <!-- Smaller DOWNLOAD button -->
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
-                        <button id="backToHomeBtn" class="download-btn back-home-btn">🔙 Back to Home</button>
+                        <!-- HD Back to Home button with gradient and shadow -->
+                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
                     <div class="other-apps-title">✨ Other 20 Yono Apps (Last Show) ✨</div>
