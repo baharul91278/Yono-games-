@@ -1,6 +1,3 @@
-Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful grid at the top (with no app name above any image). Clicking any DOWNLOAD button opens a detailed download page for that app, and at the bottom of that page you will find the other 20 apps as clickable tags – so you can always see all 21 apps. A vibrant Back to Home button returns you to the main grid.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,13 +88,14 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             padding: 0 24px;
         }
 
-        /* Main grid – all 21 apps, no name above image */
+        /* Main grid styles - app name ABOVE image */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 35px;
             margin-bottom: 50px;
+            transition: all 0.3s ease;
         }
 
         .card {
@@ -119,6 +117,18 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             border-color: #ffcf8a;
         }
 
+        /* App name above image */
+        .card-app-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
         .card-img {
             width: 80px;
             height: 80px;
@@ -135,16 +145,6 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin: 16px 0 8px;
         }
 
         .bonus {
@@ -239,6 +239,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             text-align: center;
         }
 
+        /* stats row */
         .stats-row {
             display: flex;
             flex-wrap: wrap;
@@ -300,6 +301,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             line-height: 1.4;
         }
 
+        /* Smaller DOWNLOAD button */
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
             padding: 10px 20px;
@@ -321,6 +323,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             background: linear-gradient(95deg, #219653, #27ae60);
         }
 
+        /* HD Back to Home button with vibrant gradient */
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 20px;
@@ -343,43 +346,59 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             background: linear-gradient(115deg, #ff6a00, #e62e00);
         }
 
-        /* Other apps section inside download page */
         .other-apps-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             margin: 40px 0 20px;
             color: #1e293b;
             border-left: 8px solid #e67e22;
             padding-left: 20px;
-            text-align: left;
         }
 
-        .other-tags-cloud {
+        .other-apps-grid {
             display: flex;
             flex-wrap: wrap;
+            gap: 24px;
             justify-content: center;
-            gap: 14px;
-            background: #fefcf5;
-            padding: 24px;
-            border-radius: 60px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
-        .other-app-tag {
-            background: linear-gradient(125deg, #fef1cf, #ffe6c2);
-            padding: 8px 18px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #b45900;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid #ffd89a;
+        .other-card {
+            background: #fefcf5;
+            border-radius: 32px;
+            padding: 20px 16px;
+            width: 260px;
+            transition: 0.2s;
+            border: 1px solid #ffe1b3;
+            text-align: center;
         }
-        .other-app-tag:hover {
-            transform: translateY(-2px);
-            background: #ffcf8a;
-            color: #1e562a;
+
+        .other-card .app-name {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .other-card .bonus {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+        }
+
+        .small-download {
+            background: #e67e22;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            margin-top: 12px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
         }
 
         .footer-note {
@@ -408,6 +427,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
         }
         @media (max-width: 800px) {
             .card { min-width: 260px; }
+            .top-nav { gap: 16px; }
             .stats-row { gap: 16px; }
             .stat-value { font-size: 1.2rem; }
             .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
@@ -429,9 +449,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
     </header>
 
     <div class="container" id="mainContainer">
-        <!-- Main grid: all 21 apps -->
         <div id="allAppsGrid" class="cards-grid"></div>
-        <!-- Download page container (hidden initially) -->
         <div id="downloadPageContainer" class="hidden"></div>
     </div>
 
@@ -487,7 +505,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render main grid (all 21 apps) – no name above image
+        // Render main grid with app name ABOVE image
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -495,8 +513,8 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             appsData.forEach((app, idx) => {
                 html += `
                     <div class="card" data-app-index="${idx}">
+                        <div class="card-app-name">${app.name}</div>
                         <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="app-name">${app.name}</div>
                         <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
                         <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
                         <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
@@ -513,7 +531,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             });
         }
 
-        // Show download page for selected app, and also show the other 20 apps as clickable tags
+        // Show download page with HD Back to Home button
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -525,14 +543,21 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             gridDiv.classList.add('hidden');
             downloadContainer.classList.remove('hidden');
 
-            // Other 20 apps (all except selected)
             const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
-            let otherTagsHtml = '';
-            otherApps.forEach((app, idx) => {
+            let otherAppsHtml = '';
+            otherApps.forEach((app) => {
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
-                otherTagsHtml += `<span class="other-app-tag" data-other-index="${originalIndex}">${app.name}</span>`;
+                otherAppsHtml += `
+                    <div class="other-card">
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
+                        <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
+                        <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
+                    </div>
+                `;
             });
-
+            
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -540,11 +565,10 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
-                        <div class="card-img" style="width: 90px; height: 90px; margin: 0 auto 15px;">
-                            <img src="${selectedApp.img}" alt="${selectedApp.name}" style="width:100%; height:100%; object-fit:cover;">
-                        </div>
-                        <div class="app-name" style="font-size: 1.8rem; margin-top: 10px;">${selectedApp.name}</div>
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800;">${selectedApp.name}</div>
                         
+                        <!-- Stats Row -->
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
@@ -569,14 +593,15 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <!-- HD Back to Home button with gradient and shadow -->
                         <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
-                    <div class="other-apps-title">✨ Other 20 Yono Apps ✨</div>
-                    <div class="other-tags-cloud" id="otherAppsTags">
-                        ${otherTagsHtml}
+                    <div class="other-apps-title">✨ Other 20 Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-grid" id="otherAppsGrid">
+                        ${otherAppsHtml}
                     </div>
-                    <div class="footer-note" style="margin-top: 20px;">
+                    <div class="footer-note" style="margin-top: 28px;">
                         🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
                     </div>
                 </div>
@@ -584,11 +609,13 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             
             downloadContainer.innerHTML = downloadPageHtml;
             
-            // Attach click events to other app tags
-            document.querySelectorAll('#otherAppsTags .other-app-tag').forEach(tag => {
-                tag.addEventListener('click', (e) => {
-                    const otherIdx = tag.getAttribute('data-other-index');
+            // Attach events for "Other Apps" download buttons
+            const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
+            otherDownloadBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const otherIdx = btn.getAttribute('data-other-index');
                     if (otherIdx !== null) showDownloadPage(parseInt(otherIdx));
+                    e.stopPropagation();
                 });
             });
             
@@ -607,7 +634,7 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
                 });
             }
             
-            // Scroll to top of download page
+            // Auto-scroll to top section
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -636,11 +663,10 @@ Here is the final Yono Games Hub page. It now shows all 21 apps in a beautiful g
             if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
             otherNavs.forEach(link => {
-                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps.'); });
+                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps. Fast download hub!'); });
             });
         }
         init();
     </script>
 </body>
 </html>
-```
