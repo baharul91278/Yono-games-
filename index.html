@@ -320,27 +320,30 @@
             line-height: 1.4;
         }
 
+        /* PINK DOWNLOAD BUTTON on next page (per user request) */
         .final-download-btn {
-            background: linear-gradient(95deg, #00bcd4, #00e5ff);
+            background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 12px 22px;
             font-size: 1rem;
             font-weight: 700;
             border-radius: 50px;
             display: inline-block;
             width: auto;
-            min-width: 200px;
+            min-width: 220px;
             margin: 12px auto;
-            box-shadow: 0 5px 14px rgba(0, 188, 212, 0.3);
+            box-shadow: 0 8px 20px rgba(245, 0, 87, 0.35);
             text-decoration: none;
             color: white;
-            transition: 0.2s;
+            transition: 0.25s;
             letter-spacing: 0.5px;
             cursor: pointer;
             text-align: center;
+            border: none;
         }
         .final-download-btn:hover {
             transform: scale(1.02);
-            background: linear-gradient(95deg, #0097a7, #00b8d4);
+            background: linear-gradient(95deg, #e91e63, #c51162);
+            box-shadow: 0 12px 26px rgba(233, 30, 99, 0.5);
         }
 
         .back-home-btn {
@@ -463,6 +466,7 @@
             .download-header h2 { font-size: 1.4rem; }
             .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
             .other-card { width: 210px; }
+            .final-download-btn { min-width: 180px; font-size: 0.9rem; padding: 10px 16px; }
         }
         @media (max-width: 480px) {
             .container { padding: 0 12px; }
@@ -474,6 +478,10 @@
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
         <a>ℹ️ About</a>
+        <a>📞 Contact</a>
+        <a>⚖️ Disclaimer</a>
+        <a>📢 TG Join</a>
+    </div>
 
     <header>
         <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
@@ -650,7 +658,7 @@
                             </ol>
                         </div>
                         
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">💖 PINK DOWNLOAD • ${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
@@ -721,7 +729,6 @@
         // handle popstate (browser back)
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                // if it's download state but we want to go back to main grid
                 resetToMainGridAndReplace();
             } else {
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
