@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,9 +88,9 @@
             padding: 0 24px;
         }
 
-        /* Only the bottom tags section */
+        /* No main grid anymore - only app tag list at bottom */
         .app-tags-section {
-            margin-top: 20px;
+            margin-top: 60px;
             margin-bottom: 40px;
             text-align: center;
         }
@@ -182,24 +181,6 @@
             border-radius: 40px;
             margin: 20px 0;
             text-align: center;
-        }
-
-        /* No app name above image inside download page */
-        .card-img {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 15px;
-            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .stats-row {
@@ -354,10 +335,10 @@
     </header>
 
     <div class="container" id="mainContainer">
-        <!-- Download page container (hidden initially) -->
+        <!-- No main grid anymore. Only download page container and app tags section -->
         <div id="downloadPageContainer" class="hidden"></div>
         
-        <!-- Only the bottom tags section with all 21 app names -->
+        <!-- All 21 app names as clickable tags (last mein show) -->
         <div id="appTagsSection" class="app-tags-section">
             <div class="app-tags-title">📱 All 21 Yono Apps (Click any to download)</div>
             <div class="tags-cloud" id="tagsCloud"></div>
@@ -416,7 +397,7 @@
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render all 21 app tags at the bottom (no grid at top)
+        // Render all 21 app tags at the bottom (last mein show)
         function renderAppTags() {
             const tagsContainer = document.getElementById('tagsCloud');
             if (!tagsContainer) return;
@@ -425,6 +406,7 @@
                 tagsHtml += `<div class="app-tag" data-app-index="${idx}">${app.name}</div>`;
             });
             tagsContainer.innerHTML = tagsHtml;
+            // attach click event to each tag
             document.querySelectorAll('.app-tag').forEach(tag => {
                 tag.addEventListener('click', (e) => {
                     const idx = tag.getAttribute('data-app-index');
@@ -433,7 +415,7 @@
             });
         }
 
-        // Show download page for selected app (no "other apps" section, no name above image)
+        // Show download page for selected app (no other apps grid, only tags at bottom are still present but hidden while download page visible)
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -443,6 +425,7 @@
             const tagsSection = document.getElementById('appTagsSection');
             const downloadContainer = document.getElementById('downloadPageContainer');
             
+            // Hide tags section, show download container
             tagsSection.classList.add('hidden');
             downloadContainer.classList.remove('hidden');
 
@@ -453,10 +436,10 @@
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
-                        <!-- Only image, no name above it -->
-                        <div class="card-img">
-                            <img src="${selectedApp.img}" alt="${selectedApp.name}">
+                        <div class="card-img" style="width: 90px; height: 90px; margin: 0 auto 15px; background: #ffe6cc; border-radius: 24px; overflow: hidden;">
+                            <img src="${selectedApp.img}" alt="${selectedApp.name}" style="width:100%; height:100%; object-fit:cover;">
                         </div>
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-top:10px;">${selectedApp.name}</div>
                         
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
@@ -508,12 +491,14 @@
                 });
             }
             
+            // Auto-scroll to top
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
         
+        // Reset to home (show tags, hide download)
         function resetToHome() {
             const tagsSection = document.getElementById('appTagsSection');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -531,7 +516,7 @@
         }
         
         function init() {
-            renderAppTags();  // only tags at the bottom
+            renderAppTags();  // show all 21 app names at bottom
             const homeLink = document.getElementById('homeNavLink');
             if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToHome(); });
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
@@ -543,4 +528,3 @@
     </script>
 </body>
 </html>
-```
