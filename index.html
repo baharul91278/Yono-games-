@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 21 Real Money Apps | Fast Download Page</title>
+    <title>Yono Games Hub | 21 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +19,7 @@
             padding-bottom: 30px;
         }
 
+        /* top navigation */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 24px;
@@ -28,6 +28,9 @@
             gap: 32px;
             flex-wrap: wrap;
             border-bottom: 2px solid #ffcf8a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .top-nav a {
@@ -86,13 +89,14 @@
             padding: 0 24px;
         }
 
-        /* Main grid styles */
+        /* main grid - 21 apps */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 35px;
             margin-bottom: 50px;
+            transition: all 0.3s ease;
         }
 
         .card {
@@ -102,7 +106,7 @@
             flex: 1;
             min-width: 280px;
             max-width: 320px;
-            transition: all 0.35s;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
             border: 1px solid #eef2f8;
             text-align: center;
@@ -187,7 +191,7 @@
             transform: scale(0.98);
         }
 
-        /* Download page (next page) styling */
+        /* Download page (next page) */
         .download-page {
             background: white;
             border-radius: 48px;
@@ -195,6 +199,18 @@
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
             margin-bottom: 40px;
             border: 1px solid #ffe1b3;
+            animation: fadeSlideUp 0.5s ease;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .download-header {
@@ -223,23 +239,28 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 24px;
+            gap: 20px;
             background: #f8fafc;
             padding: 18px 20px;
             border-radius: 50px;
             margin: 20px auto;
-            max-width: 700px;
+            max-width: 800px;
         }
+
         .info-tag {
             background: #ffffff;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #2c4c3b;
             box-shadow: 0 2px 6px rgba(0,0,0,0.03);
             border: 1px solid #e2edf2;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
+
         .rating-box {
             display: inline-flex;
             align-items: center;
@@ -248,10 +269,12 @@
             padding: 6px 18px;
             border-radius: 60px;
         }
+
         .stars {
             color: #f5b042;
             letter-spacing: 2px;
         }
+
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
             padding: 16px 28px;
@@ -260,20 +283,38 @@
             border-radius: 80px;
             display: inline-block;
             width: auto;
-            min-width: 220px;
+            min-width: 240px;
             margin: 16px auto;
             box-shadow: 0 8px 18px rgba(39, 174, 96, 0.4);
             text-decoration: none;
             color: white;
+            transition: 0.2s;
         }
-        .back-home {
-            background: #475569;
+
+        .final-download-btn:hover {
+            transform: scale(1.02);
+            background: linear-gradient(95deg, #219653, #27ae60);
+        }
+
+        /* Back to Home button (full HD style) */
+        .back-home-btn {
+            background: linear-gradient(95deg, #2c3e66, #1e2f50);
             margin-top: 20px;
             display: inline-block;
             width: auto;
-            padding: 10px 28px;
-            font-size: 0.9rem;
-            box-shadow: none;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .back-home-btn:hover {
+            background: linear-gradient(95deg, #1e2f50, #121f38);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .other-apps-title {
@@ -327,6 +368,12 @@
             font-weight: 700;
             cursor: pointer;
             border: none;
+            transition: 0.2s;
+        }
+
+        .small-download:hover {
+            background: #d35400;
+            transform: scale(0.97);
         }
 
         .footer-note {
@@ -349,6 +396,11 @@
 
         .hidden {
             display: none;
+        }
+
+        /* smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
 
         @media (max-width: 800px) {
@@ -391,7 +443,7 @@
     </footer>
 
     <script>
-        // ---------- FULL APPS DATA (21 apps with original links & bonuses) ----------
+        // ---------- 21 APPS DATA (complete) ----------
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg" },
@@ -416,7 +468,7 @@
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg" }
         ];
 
-        // helper: generate dynamic rich info for each app (downloads, size, rating, reviews)
+        // Generate rich info (downloads, size, rating, reviews, PEGI)
         function getRichInfo(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -464,8 +516,7 @@
             });
         }
 
-        // Show download page (next page) with rich info and ONLY "DOWNLOAD" button text
-        // Also automatically scroll to the top of the download page (top download section)
+        // Show download page (next page) with rich info + BACK TO HOME button
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -479,7 +530,7 @@
             const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
             
             let otherAppsHtml = '';
-            otherApps.forEach((app, idx) => {
+            otherApps.forEach((app) => {
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                     <div class="other-card">
@@ -494,8 +545,8 @@
             
             const richInfoHtml = `
                 <div class="rich-info">
-                    <span class="info-tag">📥 ${rich.downloads} Downloads</span>
-                    <span class="info-tag">💾 ${rich.size}</span>
+                    <span class="info-tag">📦 ${rich.downloads} Downloads</span>
+                    <span class="info-tag">📱 ${rich.size}</span>
                     <span class="info-tag">🤖 ${rich.androidVer}</span>
                     <div class="rating-box">
                         <span class="stars">⭐ ${rich.rating}</span>
@@ -515,10 +566,11 @@
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
                         <div class="bonus" style="font-size: 1.2rem; padding: 8px 22px;">🎁 Signup Bonus: ${selectedApp.bonus}</div>
-                        <div class="withdrawal" style="font-size: 1rem;">💰 Min Withdrawal: ${selectedApp.withdrawal}</div>
+                        <div class="withdrawal" style="font-size: 1rem;">🤑 Min Withdrawal: ${selectedApp.withdrawal}</div>
                         ${richInfoHtml}
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" style="display: inline-block; text-decoration: none;">📲 DOWNLOAD</a>
-                        <button id="backToAllAppsBtn" class="download-btn back-home">🏠 Back to All 21 Apps</button>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD</a>
+                        <!-- Back to Home button (full HD style) -->
+                        <button id="backToHomeBtn" class="download-btn back-home-btn">🔙 Back to Home</button>
                     </div>
                     
                     <div class="other-apps-title">✨ Other 20 Yono Apps (Last Show) ✨</div>
@@ -533,7 +585,7 @@
             
             downloadContainer.innerHTML = downloadPageHtml;
             
-            // attach events for other app download buttons (all say DOWNLOAD)
+            // Attach events for "Other Apps" download buttons
             const otherDownloadBtns = document.querySelectorAll('#otherAppsGrid .small-download');
             otherDownloadBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -545,28 +597,36 @@
                 });
             });
             
-            const backBtn = document.getElementById('backToAllAppsBtn');
-            if (backBtn) {
-                backBtn.addEventListener('click', () => {
+            // Back to Home button: return to main grid with smooth scroll to TOP (full HD moment)
+            const backHomeBtn = document.getElementById('backToHomeBtn');
+            if (backHomeBtn) {
+                backHomeBtn.addEventListener('click', () => {
                     downloadContainer.classList.add('hidden');
                     gridDiv.classList.remove('hidden');
+                    // Smooth scroll to top of the page (full HD effect)
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Optional: subtle flash highlight on header to indicate return
+                    const headerElem = document.querySelector('header');
+                    if (headerElem) {
+                        headerElem.style.transition = '0.2s';
+                        headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                        setTimeout(() => {
+                            headerElem.style.boxShadow = '';
+                        }, 400);
+                    }
                 });
             }
             
-            // ** NEW: Scroll to top of download page (top download section) **
-            // Ensures when any "other app" is clicked, the page jumps to the main download area.
+            // Auto scroll to top download section when any other app is clicked (already handled by new page load)
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) {
                     topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    // fallback: scroll to download container
-                    downloadContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 100); // small delay to ensure DOM is fully rendered
+            }, 100);
         }
         
+        // Reset to main grid (Home action from top nav)
         function resetToMainGrid() {
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -574,6 +634,15 @@
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Highlight header for feedback
+                const headerElem = document.querySelector('header');
+                if (headerElem) {
+                    headerElem.style.transition = '0.2s';
+                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                    setTimeout(() => {
+                        headerElem.style.boxShadow = '';
+                    }, 400);
+                }
             }
         }
         
@@ -590,7 +659,7 @@
             otherNavs.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    alert('Navigate using "Home" button to return to all 21 apps. This is a fast download hub.');
+                    alert('🏠 Use "Home" button to return to all 21 apps. Fast download hub!');
                 });
             });
         }
@@ -599,5 +668,3 @@
     </script>
 </body>
 </html>
-```
-```
