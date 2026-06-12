@@ -1,15 +1,4 @@
-Here is the final HTML with a clean download page that shows only:
 
-· App name
-· App image
-· Rating, Size, Votes, Bonus (the four stats exactly as your model)
-· DOWNLOAD button
-· Back to Home button
-· The list of other Yono apps (with their own DOWNLOAD buttons)
-
-All extra descriptions, "How To Download" steps, and extra benefits have been removed – exactly as you requested.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,7 +208,7 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             transform: scale(0.98);
         }
 
-        /* Download page - simplified: only stats row, no extra text */
+        /* Download page - 5 stats: Rating, Size, Votes, Bonus, Downloads */
         .download-page {
             background: white;
             border-radius: 48px;
@@ -266,29 +255,29 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             text-align: center;
         }
 
-        /* Simplified stats row: exactly Rating, Size, Votes, Bonus */
-        .stats-row-simple {
+        /* 5-stat row */
+        .stats-row-5 {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 28px;
+            gap: 24px;
             background: #fef4e6;
             padding: 20px 24px;
             border-radius: 60px;
             margin: 20px auto;
-            max-width: 650px;
+            max-width: 850px;
         }
         .stat-item {
             text-align: center;
-            min-width: 80px;
+            min-width: 70px;
         }
         .stat-value {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: #1e562a;
         }
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #6c7a5a;
             letter-spacing: 0.5px;
@@ -424,8 +413,8 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
         @media (max-width: 800px) {
             .card { min-width: 260px; }
             .top-nav { gap: 16px; }
-            .stats-row-simple { gap: 16px; }
-            .stat-value { font-size: 1.2rem; }
+            .stats-row-5 { gap: 16px; }
+            .stat-value { font-size: 1.1rem; }
             .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
             .card-stats { gap: 8px; }
             .card-stat { min-width: 45px; }
@@ -481,7 +470,7 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Generate stats for card (Rating, Size, Votes, Bonus)
+        // Generate stats for card (Rating, Size, Votes, Bonus, Downloads)
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -491,18 +480,20 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
             const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+            const downloads = ["89K+", "125K+", "210K+", "95K+", "150K+", "310K+", "74K+", "500K+"];
             const idx = Math.abs(hash) % ratings.length;
             const bonusNumeric = bonusAmount.replace('₹', '');
             return {
                 rating: ratings[idx],
                 size: sizes[idx],
                 votes: votes[idx],
-                bonus: bonusNumeric
+                bonus: bonusNumeric,
+                downloads: downloads[idx]
             };
         }
 
-        // For download page (same stats, just formatted)
-        function getAppStats(appName) {
+        // For download page (5 stats)
+        function getFullStats(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
                 hash = ((hash << 5) - hash) + appName.charCodeAt(i);
@@ -511,13 +502,19 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
             const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+            const downloads = ["89K+", "125K+", "210K+", "95K+", "150K+", "310K+", "74K+", "500K+"];
             const idx = Math.abs(hash) % ratings.length;
-            return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
+            return {
+                rating: ratings[idx],
+                size: sizes[idx],
+                votes: votes[idx],
+                downloads: downloads[idx]
+            };
         }
 
         let currentSelectedIndex = null;
 
-        // Render main grid with stats row (Rating, Size, Votes, Bonus) under image
+        // Render main grid with stats row (Rating, Size, Votes, Bonus)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -555,11 +552,11 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
             showDownloadPage(selectedIndex);
         }
 
-        // Simplified download page: only stats row, no extra text
+        // Download page with 5 stats: Rating, Size, Votes, Bonus, Downloads
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
-            const stats = getAppStats(selectedApp.name);
+            const stats = getFullStats(selectedApp.name);
             const bonusNumeric = selectedApp.bonus.replace('₹', '');
             
             const gridDiv = document.getElementById('allAppsGrid');
@@ -592,12 +589,13 @@ All extra descriptions, "How To Download" steps, and extra benefits have been re
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         
-                        <!-- Only Rating, Size, Votes, Bonus - exactly as model -->
-                        <div class="stats-row-simple">
+                        <!-- 5 separate stats: Rating, Size, Votes, Bonus, Downloads -->
+                        <div class="stats-row-5">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
                             <div class="stat-item"><div class="stat-value">${bonusNumeric}</div><div class="stat-label">Bonus</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.downloads}</div><div class="stat-label">Downloads</div></div>
                         </div>
                         
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD</a>
