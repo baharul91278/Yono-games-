@@ -1,11 +1,4 @@
-Here is the final Yono Games Hub page as you requested:
 
-· The main grid of 21 apps has been removed from the top.
-· All 21 app names are now shown at the very bottom as clean, clickable tags.
-· Clicking any app name takes you to its dedicated download page (with full details, stats, and a vibrant Back to Home button).
-· On the download page, the Other 20 apps grid is gone – only the selected app info appears, plus the full app tag list at the bottom.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,9 +89,9 @@ Here is the final Yono Games Hub page as you requested:
             padding: 0 24px;
         }
 
-        /* No main grid anymore - only app tag list at bottom */
+        /* Only the bottom tags section */
         .app-tags-section {
-            margin-top: 60px;
+            margin-top: 20px;
             margin-bottom: 40px;
             text-align: center;
         }
@@ -189,6 +182,24 @@ Here is the final Yono Games Hub page as you requested:
             border-radius: 40px;
             margin: 20px 0;
             text-align: center;
+        }
+
+        /* No app name above image inside download page */
+        .card-img {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px;
+            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .stats-row {
@@ -343,10 +354,10 @@ Here is the final Yono Games Hub page as you requested:
     </header>
 
     <div class="container" id="mainContainer">
-        <!-- No main grid anymore. Only download page container and app tags section -->
+        <!-- Download page container (hidden initially) -->
         <div id="downloadPageContainer" class="hidden"></div>
         
-        <!-- All 21 app names as clickable tags (last mein show) -->
+        <!-- Only the bottom tags section with all 21 app names -->
         <div id="appTagsSection" class="app-tags-section">
             <div class="app-tags-title">📱 All 21 Yono Apps (Click any to download)</div>
             <div class="tags-cloud" id="tagsCloud"></div>
@@ -405,7 +416,7 @@ Here is the final Yono Games Hub page as you requested:
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
-        // Render all 21 app tags at the bottom (last mein show)
+        // Render all 21 app tags at the bottom (no grid at top)
         function renderAppTags() {
             const tagsContainer = document.getElementById('tagsCloud');
             if (!tagsContainer) return;
@@ -414,7 +425,6 @@ Here is the final Yono Games Hub page as you requested:
                 tagsHtml += `<div class="app-tag" data-app-index="${idx}">${app.name}</div>`;
             });
             tagsContainer.innerHTML = tagsHtml;
-            // attach click event to each tag
             document.querySelectorAll('.app-tag').forEach(tag => {
                 tag.addEventListener('click', (e) => {
                     const idx = tag.getAttribute('data-app-index');
@@ -423,7 +433,7 @@ Here is the final Yono Games Hub page as you requested:
             });
         }
 
-        // Show download page for selected app (no other apps grid, only tags at bottom are still present but hidden while download page visible)
+        // Show download page for selected app (no "other apps" section, no name above image)
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -433,7 +443,6 @@ Here is the final Yono Games Hub page as you requested:
             const tagsSection = document.getElementById('appTagsSection');
             const downloadContainer = document.getElementById('downloadPageContainer');
             
-            // Hide tags section, show download container
             tagsSection.classList.add('hidden');
             downloadContainer.classList.remove('hidden');
 
@@ -444,10 +453,10 @@ Here is the final Yono Games Hub page as you requested:
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
-                        <div class="card-img" style="width: 90px; height: 90px; margin: 0 auto 15px; background: #ffe6cc; border-radius: 24px; overflow: hidden;">
-                            <img src="${selectedApp.img}" alt="${selectedApp.name}" style="width:100%; height:100%; object-fit:cover;">
+                        <!-- Only image, no name above it -->
+                        <div class="card-img">
+                            <img src="${selectedApp.img}" alt="${selectedApp.name}">
                         </div>
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-top:10px;">${selectedApp.name}</div>
                         
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
@@ -499,14 +508,12 @@ Here is the final Yono Games Hub page as you requested:
                 });
             }
             
-            // Auto-scroll to top
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
         
-        // Reset to home (show tags, hide download)
         function resetToHome() {
             const tagsSection = document.getElementById('appTagsSection');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -524,7 +531,7 @@ Here is the final Yono Games Hub page as you requested:
         }
         
         function init() {
-            renderAppTags();  // show all 21 app names at bottom
+            renderAppTags();  // only tags at the bottom
             const homeLink = document.getElementById('homeNavLink');
             if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToHome(); });
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
