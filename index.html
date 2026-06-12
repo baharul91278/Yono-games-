@@ -1,4 +1,15 @@
+Here is the final HTML with a clean download page that shows only:
 
+· App name
+· App image
+· Rating, Size, Votes, Bonus (the four stats exactly as your model)
+· DOWNLOAD button
+· Back to Home button
+· The list of other Yono apps (with their own DOWNLOAD buttons)
+
+All extra descriptions, "How To Download" steps, and extra benefits have been removed – exactly as you requested.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,7 +219,7 @@
             transform: scale(0.98);
         }
 
-        /* Download page */
+        /* Download page - simplified: only stats row, no extra text */
         .download-page {
             background: white;
             border-radius: 48px;
@@ -255,78 +266,45 @@
             text-align: center;
         }
 
-        .stats-row {
+        /* Simplified stats row: exactly Rating, Size, Votes, Bonus */
+        .stats-row-simple {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 28px;
             background: #fef4e6;
-            padding: 18px 20px;
+            padding: 20px 24px;
             border-radius: 60px;
             margin: 20px auto;
-            max-width: 750px;
+            max-width: 650px;
         }
         .stat-item {
             text-align: center;
             min-width: 80px;
         }
         .stat-value {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #1e562a;
         }
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: #6c7a5a;
             letter-spacing: 0.5px;
         }
 
-        .app-description {
-            background: white;
-            padding: 18px 22px;
-            border-radius: 36px;
-            text-align: left;
-            margin: 20px 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #2d3e2b;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-
-        .howto-steps {
-            background: #f0f9f0;
-            border-radius: 36px;
-            padding: 18px 22px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .howto-steps h4 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: #1e562a;
-        }
-        .howto-steps ol {
-            padding-left: 20px;
-            margin-top: 8px;
-        }
-        .howto-steps li {
-            margin: 10px 0;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
         .final-download-btn {
             background: linear-gradient(95deg, #27ae60, #2ecc71);
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 60px;
             display: inline-block;
             width: auto;
-            min-width: 180px;
-            margin: 10px auto;
-            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+            min-width: 200px;
+            margin: 20px auto 10px;
+            box-shadow: 0 6px 14px rgba(39, 174, 96, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
@@ -339,14 +317,14 @@
 
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
-            margin-top: 20px;
+            margin-top: 10px;
             display: inline-block;
             width: auto;
-            padding: 12px 32px;
-            font-size: 1rem;
+            padding: 10px 28px;
+            font-size: 0.95rem;
             font-weight: 800;
             border-radius: 60px;
-            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.4);
+            box-shadow: 0 6px 14px rgba(255, 46, 0, 0.3);
             border: none;
             cursor: pointer;
             transition: 0.25s;
@@ -354,18 +332,19 @@
             letter-spacing: 1px;
         }
         .back-home-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 46, 0, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 46, 0, 0.4);
             background: linear-gradient(115deg, #ff6a00, #e62e00);
         }
 
         .other-apps-title {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
             margin: 40px 0 20px;
             color: #1e293b;
             border-left: 8px solid #e67e22;
             padding-left: 20px;
+            text-align: left;
         }
 
         .other-apps-grid {
@@ -379,22 +358,22 @@
         .other-card {
             background: #fefcf5;
             border-radius: 32px;
-            padding: 20px 16px;
-            width: 260px;
+            padding: 18px 12px;
+            width: 240px;
             transition: 0.2s;
             border: 1px solid #ffe1b3;
             text-align: center;
         }
 
         .other-card .app-name {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            margin: 8px 0;
             font-weight: 800;
         }
 
         .other-card .bonus {
-            font-size: 0.8rem;
-            padding: 4px 12px;
+            font-size: 0.75rem;
+            padding: 4px 10px;
             background: #fef1cf;
             border-radius: 60px;
             display: inline-block;
@@ -402,9 +381,9 @@
 
         .small-download {
             background: #e67e22;
-            font-size: 0.85rem;
-            padding: 8px 0;
-            margin-top: 12px;
+            font-size: 0.8rem;
+            padding: 6px 0;
+            margin-top: 10px;
             text-decoration: none;
             color: white;
             display: block;
@@ -424,6 +403,7 @@
             padding: 14px;
             font-weight: 500;
             font-size: 0.8rem;
+            margin-top: 30px;
         }
 
         footer {
@@ -444,7 +424,7 @@
         @media (max-width: 800px) {
             .card { min-width: 260px; }
             .top-nav { gap: 16px; }
-            .stats-row { gap: 16px; }
+            .stats-row-simple { gap: 16px; }
             .stat-value { font-size: 1.2rem; }
             .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
             .card-stats { gap: 8px; }
@@ -512,7 +492,6 @@
             const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
             const idx = Math.abs(hash) % ratings.length;
-            // bonus is already given, but we show it as numeric without ₹ for the stat row
             const bonusNumeric = bonusAmount.replace('₹', '');
             return {
                 rating: ratings[idx],
@@ -522,7 +501,7 @@
             };
         }
 
-        // For download page (full stats)
+        // For download page (same stats, just formatted)
         function getAppStats(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -534,13 +513,6 @@
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
             const idx = Math.abs(hash) % ratings.length;
             return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
-        }
-
-        function getDescription(appName, category, bonusAmount) {
-            if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
-            if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
-            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
-            return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
         let currentSelectedIndex = null;
@@ -583,11 +555,12 @@
             showDownloadPage(selectedIndex);
         }
 
+        // Simplified download page: only stats row, no extra text
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
             const stats = getAppStats(selectedApp.name);
-            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            const bonusNumeric = selectedApp.bonus.replace('₹', '');
             
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -617,32 +590,17 @@
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800;">${selectedApp.name}</div>
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         
-                        <div class="stats-row">
+                        <!-- Only Rating, Size, Votes, Bonus - exactly as model -->
+                        <div class="stats-row-simple">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                            <div class="stat-item"><div class="stat-value">${bonusNumeric}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
-                        <div class="app-description">
-                            ${description}<br><br>
-                            <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
-                        </div>
-
-                        <div class="howto-steps">
-                            <h4>📱 How To Download ${selectedApp.name}?</h4>
-                            <ol>
-                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
-                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
-                                <li>Open the APK file and install the app.</li>
-                                <li>Register with mobile number & verify OTP.</li>
-                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
-                            </ol>
-                        </div>
-                        
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
