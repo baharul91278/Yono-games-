@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
     <title>Yono Games Hub | 21 Real Money Apps | Fast Download</title>
     <style>
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
@@ -20,28 +20,32 @@
             padding-bottom: 30px;
         }
 
+        /* top navigation - mobile friendly */
         .top-nav {
             background: #0a2e1d;
-            padding: 12px 24px;
+            padding: 12px 16px;
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 20px;
             flex-wrap: wrap;
             border-bottom: 2px solid #ffcf8a;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(2px);
         }
 
         .top-nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: 0.2s;
             padding: 6px 12px;
             border-radius: 40px;
             cursor: pointer;
+            background: rgba(255,255,240,0.1);
+            white-space: nowrap;
         }
 
         .top-nav a:hover {
@@ -52,13 +56,13 @@
         header {
             background: linear-gradient(135deg, #0a7f3f 0%, #0d5c2e 100%);
             color: white;
-            padding: 28px 20px;
+            padding: 24px 16px;
             text-align: center;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -70,75 +74,75 @@
         header h1 span {
             background: rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(4px);
-            padding: 6px 18px;
+            padding: 5px 14px;
             border-radius: 60px;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
         .subhead {
-            font-size: 1rem;
-            opacity: 0.9;
+            font-size: 0.85rem;
+            opacity: 0.95;
             margin-top: 8px;
             font-weight: 500;
         }
 
         .container {
             max-width: 1450px;
-            margin: 40px auto;
-            padding: 0 24px;
+            margin: 30px auto;
+            padding: 0 16px;
         }
 
-        /* Main grid - app name ABOVE image */
+        /* Cards grid - fully responsive */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 35px;
-            margin-bottom: 50px;
-            transition: all 0.3s ease;
+            gap: 24px;
+            margin-bottom: 40px;
         }
 
         .card {
             background: white;
-            border-radius: 44px;
-            padding: 28px 24px 32px;
+            border-radius: 36px;
+            padding: 20px 18px 24px;
             flex: 1;
-            min-width: 280px;
-            max-width: 320px;
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.2);
+            min-width: 270px;
+            max-width: 310px;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
             border: 1px solid #eef2f8;
             text-align: center;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.2);
             border-color: #ffcf8a;
         }
 
         .card-app-name {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 800;
             background: linear-gradient(125deg, #1e562a, #2c4c3b);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 12px;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.2px;
         }
 
         .card-img {
             width: 80px;
             height: 80px;
-            margin: 0 auto 15px;
+            margin: 0 auto 12px;
             background: linear-gradient(145deg, #fff5e6, #ffe6cc);
             border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
         }
 
         .card-img img {
@@ -147,15 +151,15 @@
             object-fit: cover;
         }
 
-        /* Stats row inside card (Rating, Size, Votes, Bonus) */
+        /* Stats chips */
         .card-stats {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
             background: #fef4e6;
-            padding: 10px 12px;
-            border-radius: 40px;
+            padding: 10px 10px;
+            border-radius: 48px;
             margin: 12px 0 8px;
         }
         .card-stat {
@@ -163,24 +167,24 @@
             min-width: 55px;
         }
         .card-stat-value {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: #1e562a;
         }
         .card-stat-label {
-            font-size: 0.6rem;
-            font-weight: 600;
+            font-size: 0.55rem;
+            font-weight: 700;
             color: #6c7a5a;
             letter-spacing: 0.3px;
         }
 
         .withdrawal-note {
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.7rem;
+            font-weight: 700;
             color: #146b3a;
             background: #e0f2e9;
             display: inline-block;
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 40px;
             margin-top: 6px;
         }
@@ -190,7 +194,7 @@
             width: 100%;
             text-align: center;
             margin-top: 16px;
-            padding: 10px 0;
+            padding: 12px 0;
             background: linear-gradient(95deg, #e67e22, #f39c12);
             color: white;
             text-decoration: none;
@@ -198,7 +202,7 @@
             font-weight: 800;
             font-size: 0.9rem;
             transition: 0.2s;
-            box-shadow: 0 5px 12px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 6px 14px rgba(230, 126, 34, 0.25);
             cursor: pointer;
             border: none;
         }
@@ -208,21 +212,21 @@
             transform: scale(0.98);
         }
 
-        /* Download page */
+        /* Download page container */
         .download-page {
             background: white;
-            border-radius: 48px;
-            padding: 32px 28px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
-            margin-bottom: 40px;
+            border-radius: 44px;
+            padding: 24px 20px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
             border: 1px solid #ffe1b3;
-            animation: fadeSlideUp 0.5s ease;
+            animation: fadeSlideUp 0.4s ease;
         }
 
         @keyframes fadeSlideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -233,25 +237,25 @@
         .download-header {
             text-align: center;
             border-bottom: 2px dashed #ffcf8a;
-            padding-bottom: 20px;
-            margin-bottom: 28px;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
         }
 
         .download-header h2 {
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 800;
             background: linear-gradient(125deg, #1e562a, #2c4c3b);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .app-highlight {
             background: #fff7e8;
-            padding: 28px;
+            padding: 24px 20px;
             border-radius: 40px;
-            margin: 20px 0;
+            margin: 16px 0;
             text-align: center;
         }
 
@@ -259,24 +263,24 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 28px;
+            gap: 20px;
             background: #fef4e6;
-            padding: 18px 20px;
+            padding: 14px 16px;
             border-radius: 60px;
             margin: 20px auto;
             max-width: 750px;
         }
         .stat-item {
             text-align: center;
-            min-width: 80px;
+            min-width: 70px;
         }
         .stat-value {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #1e562a;
         }
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #6c7a5a;
             letter-spacing: 0.5px;
@@ -284,25 +288,25 @@
 
         .app-description {
             background: white;
-            padding: 18px 22px;
-            border-radius: 36px;
+            padding: 18px 20px;
+            border-radius: 32px;
             text-align: left;
             margin: 20px 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.45;
             color: #2d3e2b;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
         }
 
         .howto-steps {
             background: #f0f9f0;
-            border-radius: 36px;
+            border-radius: 32px;
             padding: 18px 22px;
             margin: 20px 0;
             text-align: left;
         }
         .howto-steps h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 12px;
             color: #1e562a;
         }
@@ -312,26 +316,27 @@
         }
         .howto-steps li {
             margin: 10px 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.4;
         }
 
-        /* CYAN DOWNLOAD BUTTON for next page */
         .final-download-btn {
             background: linear-gradient(95deg, #00bcd4, #00e5ff);
-            padding: 10px 20px;
+            padding: 12px 22px;
             font-size: 1rem;
             font-weight: 700;
             border-radius: 50px;
             display: inline-block;
             width: auto;
-            min-width: 180px;
-            margin: 10px auto;
-            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+            min-width: 200px;
+            margin: 12px auto;
+            box-shadow: 0 5px 14px rgba(0, 188, 212, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
             letter-spacing: 0.5px;
+            cursor: pointer;
+            text-align: center;
         }
         .final-download-btn:hover {
             transform: scale(1.02);
@@ -343,58 +348,57 @@
             margin-top: 20px;
             display: inline-block;
             width: auto;
-            padding: 12px 32px;
+            padding: 12px 36px;
             font-size: 1rem;
             font-weight: 800;
             border-radius: 60px;
-            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.3);
             border: none;
             cursor: pointer;
-            transition: 0.25s;
+            transition: 0.2s;
             color: white;
             letter-spacing: 1px;
         }
         .back-home-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 12px 25px rgba(255, 46, 0, 0.5);
-            background: linear-gradient(115deg, #ff6a00, #e62e00);
         }
 
         .other-apps-title {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            margin: 40px 0 20px;
+            margin: 35px 0 18px;
             color: #1e293b;
-            border-left: 8px solid #e67e22;
-            padding-left: 20px;
+            border-left: 6px solid #e67e22;
+            padding-left: 16px;
         }
 
         .other-apps-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 18px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 12px;
         }
 
         .other-card {
             background: #fefcf5;
             border-radius: 32px;
-            padding: 20px 16px;
-            width: 260px;
+            padding: 16px 12px;
+            width: 240px;
             transition: 0.2s;
             border: 1px solid #ffe1b3;
             text-align: center;
         }
 
         .other-card .app-name {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            font-size: 1rem;
+            margin: 8px 0 6px;
             font-weight: 800;
         }
 
         .other-card .bonus {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             padding: 4px 12px;
             background: #fef1cf;
             border-radius: 60px;
@@ -403,7 +407,7 @@
 
         .small-download {
             background: #e67e22;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             padding: 8px 0;
             margin-top: 12px;
             text-decoration: none;
@@ -417,23 +421,27 @@
             border: none;
             transition: 0.2s;
         }
+        .small-download:hover {
+            background: #d35400;
+        }
 
         .footer-note {
             text-align: center;
             background: #ecf9f0;
             border-radius: 60px;
-            padding: 14px;
+            padding: 12px;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            margin-top: 20px;
         }
 
         footer {
             background: #0a2e1d;
             color: #b9ddcb;
             text-align: center;
-            padding: 24px;
-            margin-top: 40px;
-            font-size: 0.75rem;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.7rem;
         }
 
         .hidden {
@@ -442,25 +450,30 @@
         html {
             scroll-behavior: smooth;
         }
-        @media (max-width: 800px) {
-            .card { min-width: 260px; }
-            .top-nav { gap: 16px; }
-            .stats-row { gap: 16px; }
-            .stat-value { font-size: 1.2rem; }
-            .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
+        /* extra mobile comfort */
+        @media (max-width: 640px) {
+            .top-nav { gap: 10px; }
+            .top-nav a { font-size: 0.75rem; padding: 5px 8px; }
+            header h1 { font-size: 1.5rem; }
+            .card { min-width: 250px; padding: 18px 14px; }
+            .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
-            .card-stat { min-width: 45px; }
+            .card-stat { min-width: 48px; }
+            .stats-row { gap: 12px; }
+            .download-header h2 { font-size: 1.4rem; }
+            .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
+            .other-card { width: 210px; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 12px; }
+            .other-apps-title { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
     <div class="top-nav">
-        <a id="homeNavLink">🏠 Home</a>
+        <a id="homeNavLink">🏠 HOME</a>
         <a>ℹ️ About</a>
-        <a>📞 Contact</a>
-        <a>⚖️ Disclaimer</a>
-        <a>📢 TG Join</a>
-    </div>
 
     <header>
         <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
@@ -477,7 +490,7 @@
     </footer>
 
     <script>
-        // ---------- 21 APPS DATA ----------
+        // ---------- 21 APPS DATA (Real Money Games) ----------
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -502,7 +515,7 @@
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Generate stats for card (Rating, Size, Votes, Bonus)
+        // Consistent stats generator
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -514,15 +527,9 @@
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
             const idx = Math.abs(hash) % ratings.length;
             const bonusNumeric = bonusAmount.replace('₹', '');
-            return {
-                rating: ratings[idx],
-                size: sizes[idx],
-                votes: votes[idx],
-                bonus: bonusNumeric
-            };
+            return { rating: ratings[idx], size: sizes[idx], votes: votes[idx], bonus: bonusNumeric };
         }
 
-        // For download page (full stats)
         function getAppStats(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -545,7 +552,7 @@
 
         let currentSelectedIndex = null;
 
-        // Render main grid with stats row (Rating, Size, Votes, Bonus) under image
+        // Render main grid (21 apps)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -555,7 +562,7 @@
                 html += `
                     <div class="card" data-app-index="${idx}">
                         <div class="card-app-name">${app.name}</div>
-                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://placehold.co/80x80?text=App'"></div>
                         <div class="card-stats">
                             <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
                             <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
@@ -577,9 +584,10 @@
             });
         }
 
+        // Navigate to download page (push state + show)
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
-            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
+            history.pushState({ page: 'download', index: selectedIndex }, '', `#app-${selectedIndex}`);
             showDownloadPage(selectedIndex);
         }
 
@@ -600,10 +608,10 @@
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                     <div class="other-card">
-                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://placehold.co/60x60?text=img'"></div>
                         <div class="app-name">${app.name}</div>
                         <div class="bonus">🎁 ${app.bonus}</div>
-                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
+                        <div class="withdrawal-note" style="font-size:0.65rem;">💰 ${app.withdrawal}</div>
                         <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
                     </div>
                 `;
@@ -616,8 +624,7 @@
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
-                        <!-- App name above image -->
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
+                        <div class="app-name" style="font-size: 1.6rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         
                         <div class="stats-row">
@@ -643,15 +650,15 @@
                             </ol>
                         </div>
                         
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
-                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
-                    <div class="other-apps-title">✨ Other Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-title">✨ More Real Money Apps ✨</div>
                     <div class="other-apps-grid" id="otherAppsGrid">
                         ${otherAppsHtml}
                     </div>
-                    <div class="footer-note" style="margin-top: 28px;">
+                    <div class="footer-note">
                         🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
                     </div>
                 </div>
@@ -659,6 +666,7 @@
             
             downloadContainer.innerHTML = downloadPageHtml;
             
+            // Other cards download listener
             document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const otherIdx = btn.getAttribute('data-other-index');
@@ -670,61 +678,77 @@
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
-                    history.back();
+                    resetToMainGridAndReplace();
                 });
             }
             
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            }, 80);
         }
 
-        function goToMainGrid() {
+        // Strong clear back to home with history replace
+        function resetToMainGridAndReplace() {
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
             if (gridDiv && downloadContainer) {
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Clear state: replace current history with main state
+                history.replaceState({ page: 'main' }, '', window.location.pathname);
+                currentSelectedIndex = null;
+                // extra visual highlight header for feedback
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
                     headerElem.style.transition = '0.2s';
                     headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
+                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 300);
                 }
             }
-            currentSelectedIndex = null;
         }
 
+        function goHomeDirect() {
+            if (!document.getElementById('allAppsGrid').classList.contains('hidden')) {
+                // already home, scroll top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                resetToMainGridAndReplace();
+            }
+        }
+
+        // handle popstate (browser back)
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                goToMainGrid();
+                // if it's download state but we want to go back to main grid
+                resetToMainGridAndReplace();
             } else {
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
-                    goToMainGrid();
+                    resetToMainGridAndReplace();
                 }
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             }
         });
 
+        // Initial state
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
-        function resetToMainGrid() {
-            if (currentSelectedIndex !== null) {
-                history.back();
-            } else {
-                goToMainGrid();
-            }
-        }
-        
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
-            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
+            if (homeLink) {
+                homeLink.addEventListener('click', (e) => { 
+                    e.preventDefault(); 
+                    goHomeDirect(); 
+                });
+            }
             const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
             otherNavs.forEach(link => {
-                link.addEventListener('click', (e) => { e.preventDefault(); alert('🏠 Use "Home" button to return to all 21 apps.'); });
+                link.addEventListener('click', (e) => { 
+                    e.preventDefault(); 
+                    alert('🏠 Click "HOME" to see all 21 apps & return to main page.'); 
+                });
             });
         }
         init();
