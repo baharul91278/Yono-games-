@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 21 Real Money Apps | Fast Download</title>
+    <title>Yono Games Hub | 21 Real Money Apps | Pink Download</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,6 @@
             padding-bottom: 30px;
         }
 
-        /* top navigation - mobile friendly */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -93,7 +92,7 @@
             padding: 0 16px;
         }
 
-        /* Cards grid - fully responsive */
+        /* Cards grid */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -151,7 +150,6 @@
             object-fit: cover;
         }
 
-        /* Stats chips */
         .card-stats {
             display: flex;
             flex-wrap: wrap;
@@ -257,6 +255,12 @@
             border-radius: 40px;
             margin: 16px 0;
             text-align: center;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .app-highlight:active {
+            background: #ffefd6;
+            transform: scale(0.99);
         }
 
         .stats-row {
@@ -320,22 +324,22 @@
             line-height: 1.4;
         }
 
-        /* PINK DOWNLOAD BUTTON on next page (per user request) */
+        /* PINK BUTTON (without the word "PINK" in text) */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
-            padding: 12px 22px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 50px;
+            padding: 14px 26px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 60px;
             display: inline-block;
             width: auto;
-            min-width: 220px;
-            margin: 12px auto;
-            box-shadow: 0 8px 20px rgba(245, 0, 87, 0.35);
+            min-width: 240px;
+            margin: 16px auto;
+            box-shadow: 0 10px 22px rgba(245, 0, 87, 0.4);
             text-decoration: none;
             color: white;
             transition: 0.25s;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             cursor: pointer;
             text-align: center;
             border: none;
@@ -343,7 +347,7 @@
         .final-download-btn:hover {
             transform: scale(1.02);
             background: linear-gradient(95deg, #e91e63, #c51162);
-            box-shadow: 0 12px 26px rgba(233, 30, 99, 0.5);
+            box-shadow: 0 14px 28px rgba(233, 30, 99, 0.5);
         }
 
         .back-home-btn {
@@ -453,7 +457,6 @@
         html {
             scroll-behavior: smooth;
         }
-        /* extra mobile comfort */
         @media (max-width: 640px) {
             .top-nav { gap: 10px; }
             .top-nav a { font-size: 0.75rem; padding: 5px 8px; }
@@ -466,21 +469,15 @@
             .download-header h2 { font-size: 1.4rem; }
             .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
             .other-card { width: 210px; }
-            .final-download-btn { min-width: 180px; font-size: 0.9rem; padding: 10px 16px; }
-        }
-        @media (max-width: 480px) {
-            .container { padding: 0 12px; }
-            .other-apps-title { font-size: 1.2rem; }
+            .final-download-btn { min-width: 200px; font-size: 0.9rem; padding: 10px 18px; }
         }
     </style>
 </head>
 <body>
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
-        <a>ℹ️ About</a>
-        <a>📞 Contact</a>
-        <a>⚖️ Disclaimer</a>
-        <a>📢 TG Join</a>
+        <a id="aboutNavLink">ℹ️ About</a>
+        <!-- Removed: Contact, Disclaimer, TG Join as requested -->
     </div>
 
     <header>
@@ -498,7 +495,7 @@
     </footer>
 
     <script>
-        // ---------- 21 APPS DATA (Real Money Games) ----------
+        // 21 APPS DATA (Real Money Games)
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -523,7 +520,6 @@
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Consistent stats generator
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -560,10 +556,8 @@
 
         let currentSelectedIndex = null;
 
-        // Render main grid (21 apps)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
-            if (!gridContainer) return;
             let html = '';
             appsData.forEach((app, idx) => {
                 const stats = getCardStats(app.name, app.bonus);
@@ -592,11 +586,28 @@
             });
         }
 
-        // Navigate to download page (push state + show)
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
             history.pushState({ page: 'download', index: selectedIndex }, '', `#app-${selectedIndex}`);
             showDownloadPage(selectedIndex);
+        }
+
+        function resetToMainGridAndReplace() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                history.replaceState({ page: 'main' }, '', window.location.pathname);
+                currentSelectedIndex = null;
+                const headerElem = document.querySelector('header');
+                if (headerElem) {
+                    headerElem.style.transition = '0.2s';
+                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 300);
+                }
+            }
         }
 
         function showDownloadPage(selectedIndex) {
@@ -631,7 +642,7 @@
                         <h2>📥 ${selectedApp.name}</h2>
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
-                    <div class="app-highlight" id="topDownloadSection">
+                    <div class="app-highlight" id="wholeAppHighlight">
                         <div class="app-name" style="font-size: 1.6rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         
@@ -658,7 +669,7 @@
                             </ol>
                         </div>
                         
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">💖 PINK DOWNLOAD • ${selectedApp.name}</a>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">💖 DOWNLOAD ${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
@@ -674,59 +685,54 @@
             
             downloadContainer.innerHTML = downloadPageHtml;
             
-            // Other cards download listener
+            const highlightCard = document.getElementById('wholeAppHighlight');
+            if (highlightCard) {
+                highlightCard.addEventListener('click', (e) => {
+                    const target = e.target;
+                    const isInteractive = target.closest('.final-download-btn') || target.closest('#backToHomeBtn') || target.closest('.small-download') || target.tagName === 'A' || target.tagName === 'BUTTON';
+                    if (!isInteractive) {
+                        resetToMainGridAndReplace();
+                    }
+                });
+            }
+            
             document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
                 btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     const otherIdx = btn.getAttribute('data-other-index');
                     if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
-                    e.stopPropagation();
                 });
             });
             
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
-                backHomeBtn.addEventListener('click', () => {
+                backHomeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
                     resetToMainGridAndReplace();
                 });
             }
             
+            const finalDownloadLink = document.querySelector('.final-download-btn');
+            if (finalDownloadLink) {
+                finalDownloadLink.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+            
             setTimeout(() => {
-                const topSection = document.getElementById('topDownloadSection');
+                const topSection = document.getElementById('wholeAppHighlight');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 80);
         }
 
-        // Strong clear back to home with history replace
-        function resetToMainGridAndReplace() {
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
-            if (gridDiv && downloadContainer) {
-                gridDiv.classList.remove('hidden');
-                downloadContainer.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Clear state: replace current history with main state
-                history.replaceState({ page: 'main' }, '', window.location.pathname);
-                currentSelectedIndex = null;
-                // extra visual highlight header for feedback
-                const headerElem = document.querySelector('header');
-                if (headerElem) {
-                    headerElem.style.transition = '0.2s';
-                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 300);
-                }
-            }
-        }
-
         function goHomeDirect() {
             if (!document.getElementById('allAppsGrid').classList.contains('hidden')) {
-                // already home, scroll top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 resetToMainGridAndReplace();
             }
         }
 
-        // handle popstate (browser back)
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
                 resetToMainGridAndReplace();
@@ -738,7 +744,6 @@
             }
         });
 
-        // Initial state
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function init() {
@@ -750,13 +755,13 @@
                     goHomeDirect(); 
                 });
             }
-            const otherNavs = document.querySelectorAll('.top-nav a:not(#homeNavLink)');
-            otherNavs.forEach(link => {
-                link.addEventListener('click', (e) => { 
-                    e.preventDefault(); 
-                    alert('🏠 Click "HOME" to see all 21 apps & return to main page.'); 
+            const aboutLink = document.getElementById('aboutNavLink');
+            if (aboutLink) {
+                aboutLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('ℹ️ Yono Games Hub — 21+ real money earning apps. All apps offer signup bonus and ₹100 min withdrawal. Play responsibly, 18+ only.');
                 });
-            });
+            }
         }
         init();
     </script>
