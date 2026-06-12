@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -511,7 +512,6 @@
             const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
             const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
             const idx = Math.abs(hash) % ratings.length;
-            // bonus is already given, but we show it as numeric without ₹ for the stat row
             const bonusNumeric = bonusAmount.replace('₹', '');
             return {
                 rating: ratings[idx],
@@ -608,6 +608,7 @@
                 `;
             });
             
+            // FIX: App name placed ABOVE the image inside .app-highlight
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -615,8 +616,9 @@
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
+                        <!-- App name above image -->
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800;">${selectedApp.name}</div>
                         
                         <div class="stats-row">
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
@@ -729,3 +731,4 @@
     </script>
 </body>
 </html>
+```
