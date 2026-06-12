@@ -1,3 +1,6 @@
+Here is the updated Yono Games Hub page. The download header now dynamically shows the selected app name and its key details (bonus & withdrawal) instead of a generic message, giving each app its own dedicated download information.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +22,6 @@
             padding-bottom: 30px;
         }
 
-        /* top navigation */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 24px;
@@ -89,7 +91,6 @@
             padding: 0 24px;
         }
 
-        /* main grid - 21 apps */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -216,14 +217,24 @@
         .download-header {
             text-align: center;
             border-bottom: 2px dashed #ffcf8a;
-            padding-bottom: 24px;
+            padding-bottom: 20px;
             margin-bottom: 28px;
         }
 
         .download-header h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
-            color: #1e562a;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .download-header p {
+            font-size: 1rem;
+            color: #4a5b6e;
+            font-weight: 500;
         }
 
         .app-highlight {
@@ -234,7 +245,6 @@
             text-align: center;
         }
 
-        /* rich info tags */
         .rich-info {
             display: flex;
             flex-wrap: wrap;
@@ -296,7 +306,6 @@
             background: linear-gradient(95deg, #219653, #27ae60);
         }
 
-        /* Back to Home button (full HD style) */
         .back-home-btn {
             background: linear-gradient(95deg, #2c3e66, #1e2f50);
             margin-top: 20px;
@@ -398,7 +407,6 @@
             display: none;
         }
 
-        /* smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
@@ -411,7 +419,7 @@
                 gap: 16px;
             }
             .download-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             .rich-info {
                 gap: 12px;
@@ -516,7 +524,7 @@
             });
         }
 
-        // Show download page (next page) with rich info + BACK TO HOME button
+        // Show download page with app-specific header (app name + bonus/withdrawal)
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -556,11 +564,12 @@
                 </div>
             `;
             
+            // NEW: dynamic header with app name and its own download info (bonus + withdrawal)
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
-                        <h2>📥 DOWNLOAD PAGE</h2>
-                        <p style="color: #4a5b6e;">Complete information — tap DOWNLOAD to get your bonus</p>
+                        <h2>📥 ${selectedApp.name}</h2>
+                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
@@ -569,7 +578,6 @@
                         <div class="withdrawal" style="font-size: 1rem;">🤑 Min Withdrawal: ${selectedApp.withdrawal}</div>
                         ${richInfoHtml}
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD</a>
-                        <!-- Back to Home button (full HD style) -->
                         <button id="backToHomeBtn" class="download-btn back-home-btn">🔙 Back to Home</button>
                     </div>
                     
@@ -597,15 +605,13 @@
                 });
             });
             
-            // Back to Home button: return to main grid with smooth scroll to TOP (full HD moment)
+            // Back to Home button: smooth scroll to top and show main grid
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
                     downloadContainer.classList.add('hidden');
                     gridDiv.classList.remove('hidden');
-                    // Smooth scroll to top of the page (full HD effect)
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    // Optional: subtle flash highlight on header to indicate return
                     const headerElem = document.querySelector('header');
                     if (headerElem) {
                         headerElem.style.transition = '0.2s';
@@ -617,7 +623,7 @@
                 });
             }
             
-            // Auto scroll to top download section when any other app is clicked (already handled by new page load)
+            // Auto scroll to top download section when new app loads
             setTimeout(() => {
                 const topSection = document.getElementById('topDownloadSection');
                 if (topSection) {
@@ -634,7 +640,6 @@
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Highlight header for feedback
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
                     headerElem.style.transition = '0.2s';
@@ -668,3 +673,4 @@
     </script>
 </body>
 </html>
+```
