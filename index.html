@@ -1,4 +1,4 @@
-Here is the improved Yono Games Hub page. On the Download Page, each app now shows a clean DOWNLOAD button and rich information tags (downloads, size, Android version, rating, reviews, PEGI), while the other 20 apps are listed below with their own DOWNLOAD buttons.
+Here is the final Yono Games Hub page. Now, when you click any DOWNLOAD button from the "Other 20 Yono Apps" list, the page will automatically scroll to the top download section (the main app highlight area) so you can see the full details and the main DOWNLOAD button immediately.
 
 ```html
 <!DOCTYPE html>
@@ -327,6 +327,8 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
             text-align: center;
             border-radius: 60px;
             font-weight: 700;
+            cursor: pointer;
+            border: none;
         }
 
         .footer-note {
@@ -418,7 +420,6 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
 
         // helper: generate dynamic rich info for each app (downloads, size, rating, reviews)
         function getRichInfo(appName) {
-            // deterministic fake but realistic data based on name hash
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
                 hash = ((hash << 5) - hash) + appName.charCodeAt(i);
@@ -465,7 +466,8 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
             });
         }
 
-        // Show download page (next page) with rich info and ONLY "DOWNLOAD" button text (and back button)
+        // Show download page (next page) with rich info and ONLY "DOWNLOAD" button text
+        // Also automatically scroll to the top of the download page (top download section)
         function showDownloadPage(selectedIndex) {
             const selectedApp = appsData[selectedIndex];
             if (!selectedApp) return;
@@ -511,7 +513,7 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
                         <h2>📥 DOWNLOAD PAGE</h2>
                         <p style="color: #4a5b6e;">Complete information — tap DOWNLOAD to get your bonus</p>
                     </div>
-                    <div class="app-highlight">
+                    <div class="app-highlight" id="topDownloadSection">
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         <div class="app-name" style="font-size: 1.8rem;">${selectedApp.name}</div>
                         <div class="bonus" style="font-size: 1.2rem; padding: 8px 22px;">🎁 Signup Bonus: ${selectedApp.bonus}</div>
@@ -553,6 +555,18 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
+            
+            // ** NEW: Scroll to top of download page (top download section) **
+            // Ensures when any "other app" is clicked, the page jumps to the main download area.
+            setTimeout(() => {
+                const topSection = document.getElementById('topDownloadSection');
+                if (topSection) {
+                    topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    // fallback: scroll to download container
+                    downloadContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); // small delay to ensure DOM is fully rendered
         }
         
         function resetToMainGrid() {
@@ -587,4 +601,5 @@ Here is the improved Yono Games Hub page. On the Download Page, each app now sho
     </script>
 </body>
 </html>
+```
 ```
