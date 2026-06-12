@@ -1,5 +1,4 @@
 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,40 +147,56 @@
             object-fit: cover;
         }
 
-        .bonus {
-            background: #fef1cf;
-            border-radius: 60px;
-            padding: 8px 16px;
-            font-weight: 800;
+        /* Stats row inside card (Rating, Size, Votes, Bonus) */
+        .card-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            background: #fef4e6;
+            padding: 10px 12px;
+            border-radius: 40px;
+            margin: 12px 0 8px;
+        }
+        .card-stat {
+            text-align: center;
+            min-width: 55px;
+        }
+        .card-stat-value {
             font-size: 1rem;
-            color: #b45900;
-            display: inline-block;
-            margin: 8px 0;
+            font-weight: 800;
+            color: #1e562a;
+        }
+        .card-stat-label {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #6c7a5a;
+            letter-spacing: 0.3px;
         }
 
-        .withdrawal {
-            background: #e0f2e9;
-            border-radius: 60px;
-            padding: 8px 16px;
-            font-weight: 800;
-            font-size: 1rem;
+        .withdrawal-note {
+            font-size: 0.75rem;
+            font-weight: 600;
             color: #146b3a;
+            background: #e0f2e9;
             display: inline-block;
-            margin: 8px 0;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-top: 6px;
         }
 
         .download-btn {
             display: block;
             width: 100%;
             text-align: center;
-            margin-top: 20px;
-            padding: 12px 0;
+            margin-top: 16px;
+            padding: 10px 0;
             background: linear-gradient(95deg, #e67e22, #f39c12);
             color: white;
             text-decoration: none;
             border-radius: 60px;
             font-weight: 800;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.2s;
             box-shadow: 0 5px 12px rgba(230, 126, 34, 0.3);
             cursor: pointer;
@@ -380,6 +395,9 @@
         .other-card .bonus {
             font-size: 0.8rem;
             padding: 4px 12px;
+            background: #fef1cf;
+            border-radius: 60px;
+            display: inline-block;
         }
 
         .small-download {
@@ -429,6 +447,8 @@
             .stats-row { gap: 16px; }
             .stat-value { font-size: 1.2rem; }
             .final-download-btn { font-size: 0.9rem; padding: 8px 16px; min-width: 150px; }
+            .card-stats { gap: 8px; }
+            .card-stat { min-width: 45px; }
         }
     </style>
 </head>
@@ -481,6 +501,28 @@
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
+        // Generate stats for card (Rating, Size, Votes, Bonus)
+        function getCardStats(appName, bonusAmount) {
+            let hash = 0;
+            for (let i = 0; i < appName.length; i++) {
+                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+                hash |= 0;
+            }
+            const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
+            const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
+            const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+            const idx = Math.abs(hash) % ratings.length;
+            // bonus is already given, but we show it as numeric without ₹ for the stat row
+            const bonusNumeric = bonusAmount.replace('₹', '');
+            return {
+                rating: ratings[idx],
+                size: sizes[idx],
+                votes: votes[idx],
+                bonus: bonusNumeric
+            };
+        }
+
+        // For download page (full stats)
         function getAppStats(appName) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -503,17 +545,24 @@
 
         let currentSelectedIndex = null;
 
+        // Render main grid with stats row (Rating, Size, Votes, Bonus) under image
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
             let html = '';
             appsData.forEach((app, idx) => {
+                const stats = getCardStats(app.name, app.bonus);
                 html += `
                     <div class="card" data-app-index="${idx}">
                         <div class="card-app-name">${app.name}</div>
                         <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="bonus">🎁 Signup Bonus: ${app.bonus}</div>
-                        <div class="withdrawal">💰 Min Withdrawal: ${app.withdrawal}</div>
+                        <div class="card-stats">
+                            <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.votes}</div><div class="card-stat-label">Votes</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
+                        </div>
+                        <div class="withdrawal-note">💰 Min Withdrawal: ${app.withdrawal}</div>
                         <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
                     </div>
                 `;
@@ -530,7 +579,6 @@
 
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
-            // push a new history state
             history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
             showDownloadPage(selectedIndex);
         }
@@ -554,8 +602,8 @@
                     <div class="other-card">
                         <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
                         <div class="app-name">${app.name}</div>
-                        <div class="bonus" style="font-size: 0.75rem;">🎁 ${app.bonus}</div>
-                        <div class="withdrawal" style="font-size: 0.7rem;">💰 ${app.withdrawal}</div>
+                        <div class="bonus">🎁 ${app.bonus}</div>
+                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
                         <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
                     </div>
                 `;
@@ -575,7 +623,7 @@
                             <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                             <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                            <div class="stat-item"><div class="stat-value">🎁 ${selectedApp.bonus}</div><div class="stat-label">Bonus</div></div>
+                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
                         </div>
                         
                         <div class="app-description">
@@ -621,8 +669,7 @@
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
-                    // replace history to avoid duplicate entries
-                    history.back(); // this will trigger popstate which will go to main grid
+                    history.back();
                 });
             }
             
@@ -649,27 +696,21 @@
             currentSelectedIndex = null;
         }
 
-        // Handle browser back button
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                // already on download page, but we need to go back to main grid
                 goToMainGrid();
             } else {
-                // if no state or main grid, ensure we are on main grid and prevent exit
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
                     goToMainGrid();
                 }
-                // optionally replace state to keep main grid as root
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             }
         });
 
-        // initial state
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
             if (currentSelectedIndex !== null) {
-                // if we are on download page, go back in history
                 history.back();
             } else {
                 goToMainGrid();
