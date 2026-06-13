@@ -1,4 +1,6 @@
+Here is the final HTML document where every app's download button now shows only the APK name (e.g., "Taurus Earn Money") without any extra words like "DOWNLOAD" or icons, as you requested. The pink button remains full-width on mobile, and the top navigation has only the HOME link.
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +22,6 @@
             padding-bottom: 30px;
         }
 
-        /* top navigation - only HOME */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -93,7 +94,6 @@
             padding: 0 16px;
         }
 
-        /* Cards grid */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -211,7 +211,6 @@
             transform: scale(0.98);
         }
 
-        /* Download page container */
         .download-page {
             background: white;
             border-radius: 44px;
@@ -325,7 +324,7 @@
             line-height: 1.4;
         }
 
-        /* PINK BUTTON - shows ONLY the app name (APK name) */
+        /* PINK BUTTON: only the app name (APK name), no extra text */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -479,7 +478,7 @@
 <body>
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
-        <!-- Only HOME remains, all others removed -->
+        <!-- Only HOME remains -->
     </div>
 
     <header>
@@ -497,7 +496,7 @@
     </footer>
 
     <script>
-        // 21 APPS DATA (Real Money Games)
+        // 21 APPS DATA
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -638,7 +637,7 @@
                 `;
             });
             
-            // 🔥 IMPORTANT: Download button shows ONLY the APK name (no extra text)
+            // 🔥 BUTTON: ONLY the app name (APK name) — no extra text, no icon
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -672,7 +671,7 @@
                             </ol>
                         </div>
                         
-                        <!-- PINK BUTTON: ONLY the app name (APK name) is shown -->
+                        <!-- PINK BUTTON: shows only the APK name (e.g., "Taurus Earn Money") -->
                         <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
