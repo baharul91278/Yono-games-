@@ -1,4 +1,4 @@
-Her
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +31,6 @@ Her
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(2px);
         }
 
         .top-nav a {
@@ -253,12 +252,6 @@ Her
             border-radius: 40px;
             margin: 16px 0;
             text-align: center;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-        .app-highlight:active {
-            background: #ffefd6;
-            transform: scale(0.99);
         }
 
         .stats-row {
@@ -322,7 +315,7 @@ Her
             line-height: 1.4;
         }
 
-        /* PINK BUTTON: shows "Download AppName" (per user request) */
+        /* PINK DOWNLOAD BUTTON on next page */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -341,8 +334,6 @@ Her
             cursor: pointer;
             text-align: center;
             border: none;
-            white-space: normal;
-            word-break: break-word;
         }
         .final-download-btn:hover {
             transform: scale(0.98);
@@ -458,7 +449,6 @@ Her
             scroll-behavior: smooth;
         }
         @media (max-width: 640px) {
-            .top-nav { gap: 10px; }
             .top-nav a { font-size: 0.75rem; padding: 5px 8px; }
             header h1 { font-size: 1.5rem; }
             .card { min-width: 250px; padding: 18px 14px; }
@@ -476,7 +466,6 @@ Her
 <body>
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
-        <!-- Only HOME remains -->
     </div>
 
     <header>
@@ -557,13 +546,14 @@ Her
 
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
+            if (!gridContainer) return;
             let html = '';
             appsData.forEach((app, idx) => {
                 const stats = getCardStats(app.name, app.bonus);
                 html += `
                     <div class="card" data-app-index="${idx}">
                         <div class="card-app-name">${app.name}</div>
-                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://placehold.co/80x80?text=App'"></div>
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
                         <div class="card-stats">
                             <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
                             <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
@@ -587,26 +577,8 @@ Her
 
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
-            history.pushState({ page: 'download', index: selectedIndex }, '', `#app-${selectedIndex}`);
+            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
             showDownloadPage(selectedIndex);
-        }
-
-        function resetToMainGridAndReplace() {
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
-            if (gridDiv && downloadContainer) {
-                gridDiv.classList.remove('hidden');
-                downloadContainer.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                history.replaceState({ page: 'main' }, '', window.location.pathname);
-                currentSelectedIndex = null;
-                const headerElem = document.querySelector('header');
-                if (headerElem) {
-                    headerElem.style.transition = '0.2s';
-                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 300);
-                }
-            }
         }
 
         function showDownloadPage(selectedIndex) {
@@ -626,24 +598,23 @@ Her
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                     <div class="other-card">
-                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://placehold.co/60x60?text=img'"></div>
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
                         <div class="app-name">${app.name}</div>
                         <div class="bonus">🎁 ${app.bonus}</div>
-                        <div class="withdrawal-note" style="font-size:0.65rem;">💰 ${app.withdrawal}</div>
+                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
                         <button class="small-download" data-other-index="${originalIndex}">⬇️ DOWNLOAD</button>
                     </div>
                 `;
             });
             
-            // BUTTON TEXT: "Download AppName" as requested (e.g., "Download Taurus Earn Money")
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
                         <h2>📥 ${selectedApp.name}</h2>
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
-                    <div class="app-highlight" id="wholeAppHighlight">
-                        <div class="app-name" style="font-size: 1.6rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
+                    <div class="app-highlight" id="topDownloadSection">
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
                         <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
                         
                         <div class="stats-row">
@@ -669,16 +640,15 @@ Her
                             </ol>
                         </div>
                         
-                        <!-- PINK BUTTON: "Download AppName" -->
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">Download ${selectedApp.name}</a>
-                        <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
                     </div>
                     
-                    <div class="other-apps-title">✨ More Real Money Apps ✨</div>
+                    <div class="other-apps-title">✨ Other Yono Apps (Last Show) ✨</div>
                     <div class="other-apps-grid" id="otherAppsGrid">
                         ${otherAppsHtml}
                     </div>
-                    <div class="footer-note">
+                    <div class="footer-note" style="margin-top: 28px;">
                         🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
                     </div>
                 </div>
@@ -686,76 +656,76 @@ Her
             
             downloadContainer.innerHTML = downloadPageHtml;
             
-            const highlightCard = document.getElementById('wholeAppHighlight');
-            if (highlightCard) {
-                highlightCard.addEventListener('click', (e) => {
-                    const target = e.target;
-                    const isInteractive = target.closest('.final-download-btn') || target.closest('#backToHomeBtn') || target.closest('.small-download') || target.tagName === 'A' || target.tagName === 'BUTTON';
-                    if (!isInteractive) {
-                        resetToMainGridAndReplace();
-                    }
-                });
-            }
-            
             document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
                     const otherIdx = btn.getAttribute('data-other-index');
                     if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
+                    e.stopPropagation();
                 });
             });
             
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
-                backHomeBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    resetToMainGridAndReplace();
-                });
-            }
-            
-            const finalDownloadLink = document.querySelector('.final-download-btn');
-            if (finalDownloadLink) {
-                finalDownloadLink.addEventListener('click', (e) => {
-                    e.stopPropagation();
+                backHomeBtn.addEventListener('click', () => {
+                    history.back();
                 });
             }
             
             setTimeout(() => {
-                const topSection = document.getElementById('wholeAppHighlight');
+                const topSection = document.getElementById('topDownloadSection');
                 if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 80);
+            }, 100);
         }
 
-        function goHomeDirect() {
-            if (!document.getElementById('allAppsGrid').classList.contains('hidden')) {
+        function goToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                resetToMainGridAndReplace();
+                const headerElem = document.querySelector('header');
+                if (headerElem) {
+                    headerElem.style.transition = '0.2s';
+                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
+                }
             }
+            currentSelectedIndex = null;
         }
 
+        // Handle browser back button: one click from download -> main grid, then stop
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                resetToMainGridAndReplace();
+                // We are coming back from a download page
+                goToMainGrid();
+                // Replace the current state with main state so that pressing back again does nothing
+                history.replaceState({ page: 'main' }, '', window.location.pathname);
             } else {
+                // If we are on main grid and back is pressed, stay on main grid
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
-                    resetToMainGridAndReplace();
+                    goToMainGrid();
                 }
+                // Ensure the main grid state is the root
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             }
         });
 
+        // Set initial state (main grid)
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
+        function resetToMainGrid() {
+            if (currentSelectedIndex !== null) {
+                history.back();
+            } else {
+                goToMainGrid();
+            }
+        }
+        
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
-            if (homeLink) {
-                homeLink.addEventListener('click', (e) => { 
-                    e.preventDefault(); 
-                    goHomeDirect(); 
-                });
-            }
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
         }
         init();
     </script>
