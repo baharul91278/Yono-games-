@@ -1,7 +1,4 @@
-ok
-```Here is the
-
-```html
+okHere is the 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +20,13 @@ ok
             padding-bottom: 30px;
         }
 
+        /* Top navigation with menu */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             border-bottom: 2px solid #ffcf8a;
             position: sticky;
@@ -36,7 +34,7 @@ ok
             z-index: 100;
         }
 
-        .top-nav a {
+        .nav-left a {
             color: white;
             text-decoration: none;
             font-weight: 600;
@@ -49,9 +47,117 @@ ok
             white-space: nowrap;
         }
 
-        .top-nav a:hover {
+        .nav-left a:hover {
             background: #ffcf8a;
             color: #0a2e1d;
+        }
+
+        .menu-btn {
+            background: rgba(255,255,240,0.2);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+        }
+
+        .menu-btn:hover {
+            background: #ffcf8a;
+            color: #0a2e1d;
+        }
+
+        /* Modal overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 36px;
+            padding: 24px 20px;
+            text-align: center;
+            animation: fadeInUp 0.3s ease;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+            border: 1px solid #ffcf8a;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #1e562a;
+            border-bottom: 2px solid #ffcf8a;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .modal-btn {
+            background: linear-gradient(95deg, #e67e22, #f39c12);
+            border: none;
+            padding: 12px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .modal-btn:hover {
+            background: linear-gradient(95deg, #d35400, #e67e22);
+            transform: scale(0.98);
+        }
+
+        .info-text {
+            background: #fef4e6;
+            padding: 16px;
+            border-radius: 32px;
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #2d3e2b;
+            margin: 16px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            background: #475569;
+            margin-top: 10px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
         }
 
         header {
@@ -318,7 +424,6 @@ ok
             line-height: 1.4;
         }
 
-        /* PINK DOWNLOAD BUTTON (main) */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -343,7 +448,6 @@ ok
             box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
-        /* BACK TO HOME button (orange/red) */
         .back-home-btn {
             background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 20px;
@@ -406,7 +510,6 @@ ok
             display: inline-block;
         }
 
-        /* PINK SMALL DOWNLOAD BUTTON for other apps */
         .small-download {
             background: linear-gradient(95deg, #ff4081, #f50057);
             font-size: 0.8rem;
@@ -454,7 +557,7 @@ ok
             scroll-behavior: smooth;
         }
         @media (max-width: 640px) {
-            .top-nav a { font-size: 0.75rem; padding: 5px 8px; }
+            .menu-btn { font-size: 1rem; padding: 4px 12px; }
             header h1 { font-size: 1.5rem; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
@@ -471,7 +574,26 @@ ok
 </head>
 <body>
     <div class="top-nav">
-        <a id="homeNavLink">🏠 HOME</a>
+        <div class="nav-left">
+            <a id="homeNavLink">🏠 HOME</a>
+        </div>
+        <button class="menu-btn" id="menuBtn">☰ MENU</button>
+    </div>
+
+    <!-- Modal for menu options -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h3>📋 MENU</h3>
+            <div class="modal-buttons">
+                <button class="modal-btn" id="privacyBtn">🔒 Privacy Policy</button>
+                <button class="modal-btn" id="disclaimerBtn">⚠️ Disclaimer</button>
+                <button class="modal-btn" id="aboutBtn">ℹ️ About Us</button>
+            </div>
+            <div id="infoDisplay" class="info-text">
+                Select an option to view information.
+            </div>
+            <button class="modal-btn close-modal" id="closeModalBtn">✖ Close</button>
+        </div>
     </div>
 
     <header>
@@ -489,6 +611,7 @@ ok
     </footer>
 
     <script>
+        // ---------- APP DATA (21 apps) ----------
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -513,6 +636,7 @@ ok
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
+        // Helper functions
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -547,6 +671,7 @@ ok
             return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
         }
 
+        // ------------------ Main Grid & Download Logic ------------------
         let currentSelectedIndex = null;
 
         function renderMainGrid() {
@@ -582,7 +707,6 @@ ok
 
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
-            // Push a new history state for the download page
             history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
             showDownloadPage(selectedIndex);
         }
@@ -673,7 +797,6 @@ ok
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
-                    // Go back in history – will trigger popstate and show previous page
                     history.back();
                 });
             }
@@ -701,28 +824,82 @@ ok
             currentSelectedIndex = null;
         }
 
-        // Handle browser back button
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                // Load the download page for the stored index
                 showDownloadPage(event.state.index);
             } else {
-                // Main grid (or no state)
                 goToMainGrid();
             }
         });
 
-        // Replace the initial state with 'main'
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
-            // Go back to the main grid by navigating to the main state
-            // We can use history.back() if the previous state is main, but if there are multiple download pages, we need to go all the way back.
-            // Simpler: replace the current state with main and show main grid, then replace again to avoid extra entries.
             history.replaceState({ page: 'main' }, '', window.location.pathname);
             goToMainGrid();
         }
         
+        // ------------------ Modal Menu Logic ------------------
+        const modal = document.getElementById('infoModal');
+        const menuBtn = document.getElementById('menuBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const privacyBtn = document.getElementById('privacyBtn');
+        const disclaimerBtn = document.getElementById('disclaimerBtn');
+        const aboutBtn = document.getElementById('aboutBtn');
+        const infoDisplay = document.getElementById('infoDisplay');
+
+        function openModal() {
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        menuBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        privacyBtn.addEventListener('click', () => {
+            infoDisplay.innerHTML = `
+                <strong>🔒 Privacy Policy</strong><br><br>
+                We value your privacy. This app does not collect any personal information without your consent.
+                Any data entered (like mobile number for registration) is handled by third‑party game providers.
+                We do not store or share your financial details. For any concerns, contact us.
+                <br><br>
+                <strong>Data Collection:</strong> Only necessary for account creation and withdrawals.<br>
+                <strong>Security:</strong> We use SSL encryption for all transactions.<br>
+                <strong>Cookies:</strong> None used.
+            `;
+        });
+
+        disclaimerBtn.addEventListener('click', () => {
+            infoDisplay.innerHTML = `
+                <strong>⚠️ Disclaimer</strong><br><br>
+                All games listed are third‑party applications. We do not own or operate any of the games.
+                The signup bonuses and withdrawal limits are as provided by the respective apps.
+                Users must be 18+ and verify local laws before playing. Play responsibly.
+                <br><br>
+                We are not responsible for any losses or disputes arising from use of these apps.
+                Always read the terms of each app before depositing money.
+            `;
+        });
+
+        aboutBtn.addEventListener('click', () => {
+            infoDisplay.innerHTML = `
+                <strong>ℹ️ About Us</strong><br><br>
+                Yono Games Hub is a platform that collects the best real‑money earning apps in one place.
+                We provide verified signup bonuses and fast withdrawal information.
+                Our goal is to help users find trusted gaming apps with transparent bonus offers.
+                <br><br>
+                <strong>Contact:</strong> support@yonogameshub.com<br>
+                <strong>Founded:</strong> 2025<br>
+                <strong>Mission:</strong> Safe and fair gaming for everyone.
+            `;
+        });
+
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
