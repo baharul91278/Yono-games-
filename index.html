@@ -1,4 +1,6 @@
-Here is the 
+Here
+Here is the final 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +22,7 @@ Here is the
             padding-bottom: 30px;
         }
 
+        /* Top navigation with menu dropdown */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -51,6 +54,10 @@ Here is the
             color: #0a2e1d;
         }
 
+        /* Menu button + dropdown */
+        .menu-container {
+            position: relative;
+        }
         .menu-btn {
             background: rgba(255,255,240,0.2);
             border: none;
@@ -63,102 +70,43 @@ Here is the
             transition: 0.2s;
             backdrop-filter: blur(4px);
         }
-
         .menu-btn:hover {
             background: #ffcf8a;
             color: #0a2e1d;
         }
-
-        /* Modal overlay */
-        .modal {
+        .dropdown {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 200;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
+            position: absolute;
+            top: 45px;
+            right: 0;
             background: white;
-            max-width: 500px;
-            width: 90%;
-            border-radius: 36px;
-            padding: 24px 20px;
-            text-align: center;
-            animation: fadeInUp 0.3s ease;
-            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            min-width: 180px;
+            z-index: 150;
+            overflow: hidden;
             border: 1px solid #ffcf8a;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+        .dropdown a {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
             color: #1e562a;
-            border-bottom: 2px solid #ffcf8a;
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin: 20px 0;
-        }
-
-        .modal-btn {
-            background: linear-gradient(95deg, #e67e22, #f39c12);
-            border: none;
-            padding: 12px;
-            border-radius: 60px;
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 1px solid #ffe6cc;
         }
-
-        .modal-btn:hover {
-            background: linear-gradient(95deg, #d35400, #e67e22);
-            transform: scale(0.98);
+        .dropdown a:last-child {
+            border-bottom: none;
         }
-
-        .info-text {
-            background: #fef4e6;
-            padding: 16px;
-            border-radius: 32px;
-            text-align: left;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #2d3e2b;
-            margin: 16px 0;
-            max-height: 350px;
-            overflow-y: auto;
-        }
-
-        .info-text strong {
+        .dropdown a:hover {
+            background: #fef1cf;
             color: #b45900;
         }
-
-        .close-modal {
-            background: #475569;
-            margin-top: 10px;
+        .dropdown.show {
+            display: block;
         }
 
         header {
@@ -570,8 +518,8 @@ Here is the
             .other-card { width: 210px; }
             .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
             .small-download { font-size: 0.75rem; padding: 6px 0; }
-            .modal-content { padding: 20px 16px; }
-            .info-text { max-height: 280px; }
+            .dropdown { right: 0; min-width: 160px; }
+            .dropdown a { padding: 10px 16px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -580,23 +528,14 @@ Here is the
         <div class="nav-left">
             <a id="homeNavLink">🏠 HOME</a>
         </div>
-        <button class="menu-btn" id="menuBtn">☰ MENU</button>
-    </div>
-
-    <!-- Modal with exactly 4 options -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <h3>📋 MENU</h3>
-            <div class="modal-buttons">
-                <button class="modal-btn" id="homeModalBtn">🏠 Home</button>
-                <button class="modal-btn" id="privacyBtn">🔒 Privacy Policy</button>
-                <button class="modal-btn" id="disclaimerBtn">⚠️ Disclaimer</button>
-                <button class="modal-btn" id="aboutBtn">ℹ️ About Us</button>
+        <div class="menu-container">
+            <button class="menu-btn" id="menuBtn">☰ MENU</button>
+            <div class="dropdown" id="dropdownMenu">
+                <a id="menuHome">🏠 Home</a>
+                <a id="menuPrivacy">🔒 Privacy Policy</a>
+                <a id="menuDisclaimer">⚠️ Disclaimer</a>
+                <a id="menuAbout">ℹ️ About Us</a>
             </div>
-            <div id="infoDisplay" class="info-text">
-                Select an option to view detailed information.
-            </div>
-            <button class="modal-btn close-modal" id="closeModalBtn">✖ Close</button>
         </div>
     </div>
 
@@ -838,112 +777,55 @@ Here is the
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
-            // Close modal if open
-            closeModal();
+            // Close dropdown if open
+            dropdown.classList.remove('show');
             history.replaceState({ page: 'main' }, '', window.location.pathname);
             goToMainGrid();
         }
         
-        // ------------------ Modal Logic (4 options) ------------------
-        const modal = document.getElementById('infoModal');
+        // ------------------ Dropdown Menu Logic ------------------
         const menuBtn = document.getElementById('menuBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const homeModalBtn = document.getElementById('homeModalBtn');
-        const privacyBtn = document.getElementById('privacyBtn');
-        const disclaimerBtn = document.getElementById('disclaimerBtn');
-        const aboutBtn = document.getElementById('aboutBtn');
-        const infoDisplay = document.getElementById('infoDisplay');
+        const dropdown = document.getElementById('dropdownMenu');
+        const menuHome = document.getElementById('menuHome');
+        const menuPrivacy = document.getElementById('menuPrivacy');
+        const menuDisclaimer = document.getElementById('menuDisclaimer');
+        const menuAbout = document.getElementById('menuAbout');
 
-        function openModal() {
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        menuBtn.addEventListener('click', openModal);
-        closeModalBtn.addEventListener('click', closeModal);
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        // Toggle dropdown
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
         });
 
-        // Home button in modal: close modal and go to main grid
-        homeModalBtn.addEventListener('click', () => {
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Menu options actions
+        menuHome.addEventListener('click', () => {
+            dropdown.classList.remove('show');
             resetToMainGrid();
         });
 
-        // Privacy Policy content
-        privacyBtn.addEventListener('click', () => {
-            infoDisplay.innerHTML = `
-                <strong>🔒 Privacy Policy (Detailed)</strong><br><br>
-                <strong>1. Information We Collect</strong><br>
-                - No personal data is collected directly by Yono Games Hub.<br>
-                - Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.<br>
-                - We do not store or have access to your UPI ID, bank details, or password.<br><br>
-                <strong>2. How We Use Information</strong><br>
-                - Only to provide referral links and display app offers.<br>
-                - No data is sold or shared with advertisers.<br><br>
-                <strong>3. Cookies</strong><br>
-                - This site does not use cookies or tracking scripts.<br><br>
-                <strong>4. Third‑Party Links</strong><br>
-                - We link to external APK download pages. Their privacy policies apply.<br><br>
-                <strong>5. Children's Privacy</strong><br>
-                - Our platform is only for users 18 years or older.<br><br>
-                <strong>6. Changes to This Policy</strong><br>
-                - Any updates will be posted on this page.<br><br>
-                <strong>7. Contact Us</strong><br>
-                - For privacy concerns: privacy@yonogameshub.com
-            `;
+        menuPrivacy.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            alert("🔒 PRIVACY POLICY\n\n1. No personal data is collected directly by Yono Games Hub.\n2. Third‑party apps may collect your mobile number, name, or transaction details.\n3. We do not store or have access to your UPI ID, bank details, or password.\n4. This site does not use cookies.\n5. For privacy concerns: privacy@yonogameshub.com");
         });
 
-        // Disclaimer content
-        disclaimerBtn.addEventListener('click', () => {
-            infoDisplay.innerHTML = `
-                <strong>⚠️ Disclaimer (Important)</strong><br><br>
-                <strong>1. No Financial Advice</strong><br>
-                - The information on this website is for informational purposes only. We do not provide financial or investment advice.<br><br>
-                <strong>2. Third‑Party Responsibility</strong><br>
-                - All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.<br>
-                - We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.<br><br>
-                <strong>3. Age Restriction</strong><br>
-                - You must be 18 years or older to use any real‑money gaming app. It is your responsibility to comply with local laws.<br><br>
-                <strong>4. Financial Risk</strong><br>
-                - Playing real‑money games involves risk. You may lose money. Never play with money you cannot afford to lose.<br><br>
-                <strong>5. No Warranty</strong><br>
-                - We provide the platform "as is" without any warranties. We are not liable for any damages arising from the use of third‑party apps.<br><br>
-                <strong>6. Responsible Gaming</strong><br>
-                - If you feel you have a gambling problem, please seek help from professional organizations like BeGambleAware.<br><br>
-                <strong>7. External Links</strong><br>
-                - We are not responsible for the content or security of external APK download links.
-            `;
+        menuDisclaimer.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            alert("⚠️ DISCLAIMER\n\n1. Informational purposes only – no financial advice.\n2. We are not the developer or operator of any game.\n3. You must be 18+ to use real‑money gaming apps.\n4. Playing involves risk – never play with money you cannot afford to lose.\n5. We are not liable for any losses or disputes.\n6. If you have a gambling problem, seek professional help.");
         });
 
-        // About Us content
-        aboutBtn.addEventListener('click', () => {
-            infoDisplay.innerHTML = `
-                <strong>ℹ️ About Us – Yono Games Hub</strong><br><br>
-                <strong>Our Mission</strong><br>
-                To provide a trusted, transparent platform where users can discover the best real‑money earning apps with verified signup bonuses and easy withdrawal options.<br><br>
-                <strong>What We Offer</strong><br>
-                ✅ Curated list of 21+ high‑quality gaming apps<br>
-                ✅ Daily updated signup bonus offers<br>
-                ✅ Clear minimum withdrawal information<br>
-                ✅ Direct download links – no redirect tricks<br>
-                ✅ Fast and secure APK access<br><br>
-                <strong>Why Trust Us?</strong><br>
-                - We manually verify each app’s bonus and withdrawal policy.<br>
-                - We do not store your personal or financial data.<br>
-                - 100% transparent about affiliate relationships (we may earn a commission when you download through our links).<br><br>
-                <strong>Contact Information</strong><br>
-                📧 Email: support@yonogameshub.com<br>
-                📱 Telegram: @YonoGamesSupport<br>
-                ⏱️ Response time: Within 24 hours<br><br>
-                <strong>Our Commitment</strong><br>
-                We continuously update our list to remove any apps that stop paying or change their terms unfairly. Your earnings and safety matter to us.
-            `;
+        menuAbout.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            alert("ℹ️ ABOUT US\n\nYono Games Hub collects the best real‑money earning apps in one place.\n✅ 21+ curated apps\n✅ Verified signup bonuses & withdrawal info\n✅ Direct download links\n✅ No data storage\n\nContact: support@yonogameshub.com\nTelegram: @YonoGamesSupport");
         });
 
+        // Also handle the HOME link in navigation
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
