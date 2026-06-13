@@ -325,7 +325,7 @@
             line-height: 1.4;
         }
 
-        /* SIMPLE PINK BUTTON - full width on mobile, no heart, clean text */
+        /* PINK BUTTON - shows ONLY the app name (APK name) */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -479,7 +479,7 @@
 <body>
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
-        <!-- About, Contact, Disclaimer, TG Join removed as requested -->
+        <!-- Only HOME remains, all others removed -->
     </div>
 
     <header>
@@ -638,7 +638,7 @@
                 `;
             });
             
-            // Simplified download button: no heart, full width, clean text
+            // 🔥 IMPORTANT: Download button shows ONLY the APK name (no extra text)
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -672,7 +672,8 @@
                             </ol>
                         </div>
                         
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">📥 DOWNLOAD ${selectedApp.name}</a>
+                        <!-- PINK BUTTON: ONLY the app name (APK name) is shown -->
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
