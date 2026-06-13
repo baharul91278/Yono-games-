@@ -1,4 +1,4 @@
-okHere is the 
+okHere iHere is the final 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,6 @@ okHere is the
             padding-bottom: 30px;
         }
 
-        /* Top navigation with menu */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -78,7 +77,7 @@ okHere is the
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             z-index: 200;
             justify-content: center;
             align-items: center;
@@ -86,7 +85,7 @@ okHere is the
 
         .modal-content {
             background: white;
-            max-width: 500px;
+            max-width: 550px;
             width: 90%;
             border-radius: 36px;
             padding: 24px 20px;
@@ -149,8 +148,12 @@ okHere is the
             line-height: 1.5;
             color: #2d3e2b;
             margin: 16px 0;
-            max-height: 300px;
+            max-height: 350px;
             overflow-y: auto;
+        }
+
+        .info-text strong {
+            color: #b45900;
         }
 
         .close-modal {
@@ -158,6 +161,11 @@ okHere is the
             margin-top: 10px;
             padding: 8px 20px;
             font-size: 0.9rem;
+        }
+
+        .back-home-modal {
+            background: linear-gradient(115deg, #ff8c00, #ff2e00);
+            margin-top: 10px;
         }
 
         header {
@@ -569,6 +577,8 @@ okHere is the
             .other-card { width: 210px; }
             .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
             .small-download { font-size: 0.75rem; padding: 6px 0; }
+            .modal-content { padding: 20px 16px; }
+            .info-text { max-height: 280px; }
         }
     </style>
 </head>
@@ -590,9 +600,10 @@ okHere is the
                 <button class="modal-btn" id="aboutBtn">ℹ️ About Us</button>
             </div>
             <div id="infoDisplay" class="info-text">
-                Select an option to view information.
+                Select an option to view detailed information.
             </div>
             <button class="modal-btn close-modal" id="closeModalBtn">✖ Close</button>
+            <button class="modal-btn back-home-modal" id="backHomeModalBtn">🏠 Back to Home</button>
         </div>
     </div>
 
@@ -835,14 +846,17 @@ okHere is the
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
+            // Close modal if open
+            closeModal();
             history.replaceState({ page: 'main' }, '', window.location.pathname);
             goToMainGrid();
         }
         
-        // ------------------ Modal Menu Logic ------------------
+        // ------------------ Modal Logic ------------------
         const modal = document.getElementById('infoModal');
         const menuBtn = document.getElementById('menuBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
+        const backHomeModalBtn = document.getElementById('backHomeModalBtn');
         const privacyBtn = document.getElementById('privacyBtn');
         const disclaimerBtn = document.getElementById('disclaimerBtn');
         const aboutBtn = document.getElementById('aboutBtn');
@@ -858,45 +872,81 @@ okHere is the
 
         menuBtn.addEventListener('click', openModal);
         closeModalBtn.addEventListener('click', closeModal);
+        backHomeModalBtn.addEventListener('click', () => {
+            resetToMainGrid();
+        });
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
+        // Enhanced Privacy Policy
         privacyBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
-                <strong>🔒 Privacy Policy</strong><br><br>
-                We value your privacy. This app does not collect any personal information without your consent.
-                Any data entered (like mobile number for registration) is handled by third‑party game providers.
-                We do not store or share your financial details. For any concerns, contact us.
-                <br><br>
-                <strong>Data Collection:</strong> Only necessary for account creation and withdrawals.<br>
-                <strong>Security:</strong> We use SSL encryption for all transactions.<br>
-                <strong>Cookies:</strong> None used.
+                <strong>🔒 Privacy Policy (Detailed)</strong><br><br>
+                <strong>1. Information We Collect</strong><br>
+                - No personal data is collected directly by Yono Games Hub.<br>
+                - Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.<br>
+                - We do not store or have access to your UPI ID, bank details, or password.<br><br>
+                <strong>2. How We Use Information</strong><br>
+                - Only to provide referral links and display app offers.<br>
+                - No data is sold or shared with advertisers.<br><br>
+                <strong>3. Cookies</strong><br>
+                - This site does not use cookies or tracking scripts.<br><br>
+                <strong>4. Third‑Party Links</strong><br>
+                - We link to external APK download pages. Their privacy policies apply.<br><br>
+                <strong>5. Children's Privacy</strong><br>
+                - Our platform is only for users 18 years or older.<br><br>
+                <strong>6. Changes to This Policy</strong><br>
+                - Any updates will be posted on this page.<br><br>
+                <strong>7. Contact Us</strong><br>
+                - For privacy concerns: privacy@yonogameshub.com
             `;
         });
 
+        // Enhanced Disclaimer
         disclaimerBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
-                <strong>⚠️ Disclaimer</strong><br><br>
-                All games listed are third‑party applications. We do not own or operate any of the games.
-                The signup bonuses and withdrawal limits are as provided by the respective apps.
-                Users must be 18+ and verify local laws before playing. Play responsibly.
-                <br><br>
-                We are not responsible for any losses or disputes arising from use of these apps.
-                Always read the terms of each app before depositing money.
+                <strong>⚠️ Disclaimer (Important)</strong><br><br>
+                <strong>1. No Financial Advice</strong><br>
+                - The information on this website is for informational purposes only. We do not provide financial or investment advice.<br><br>
+                <strong>2. Third‑Party Responsibility</strong><br>
+                - All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.<br>
+                - We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.<br><br>
+                <strong>3. Age Restriction</strong><br>
+                - You must be 18 years or older to use any real‑money gaming app. It is your responsibility to comply with local laws.<br><br>
+                <strong>4. Financial Risk</strong><br>
+                - Playing real‑money games involves risk. You may lose money. Never play with money you cannot afford to lose.<br><br>
+                <strong>5. No Warranty</strong><br>
+                - We provide the platform "as is" without any warranties. We are not liable for any damages arising from the use of third‑party apps.<br><br>
+                <strong>6. Responsible Gaming</strong><br>
+                - If you feel you have a gambling problem, please seek help from professional organizations like BeGambleAware.<br><br>
+                <strong>7. External Links</strong><br>
+                - We are not responsible for the content or security of external APK download links.
             `;
         });
 
+        // Enhanced About Us
         aboutBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
-                <strong>ℹ️ About Us</strong><br><br>
-                Yono Games Hub is a platform that collects the best real‑money earning apps in one place.
-                We provide verified signup bonuses and fast withdrawal information.
-                Our goal is to help users find trusted gaming apps with transparent bonus offers.
-                <br><br>
-                <strong>Contact:</strong> support@yonogameshub.com<br>
-                <strong>Founded:</strong> 2025<br>
-                <strong>Mission:</strong> Safe and fair gaming for everyone.
+                <strong>ℹ️ About Us – Yono Games Hub</strong><br><br>
+                <strong>Our Mission</strong><br>
+                To provide a trusted, transparent platform where users can discover the best real‑money earning apps with verified signup bonuses and easy withdrawal options.<br><br>
+                <strong>What We Offer</strong><br>
+                ✅ Curated list of 21+ high‑quality gaming apps<br>
+                ✅ Daily updated signup bonus offers<br>
+                ✅ Clear minimum withdrawal information<br>
+                ✅ Direct download links – no redirect tricks<br>
+                ✅ Fast and secure APK access<br><br>
+                <strong>Why Trust Us?</strong><br>
+                - We manually verify each app’s bonus and withdrawal policy.<br>
+                - We do not store your personal or financial data.<br>
+                - 100% transparent about affiliate relationships (we may earn a commission when you download through our links).<br><br>
+                <strong>Contact Information</strong><br>
+                📧 Email: support@yonogameshub.com<br>
+                📱 Telegram: @YonoGamesSupport<br>
+                ⏱️ Response time: Within 24 hours<br><br>
+                <strong>Our Commitment</strong><br>
+                We continuously update our list to remove any apps that stop paying or change their terms unfairly. Your earnings and safety matter to us.
             `;
         });
 
