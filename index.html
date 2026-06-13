@@ -1,6 +1,4 @@
-Here is the final HTML document where every app's download button now shows only the APK name (e.g., "Taurus Earn Money") without any extra words like "DOWNLOAD" or icons, as you requested. The pink button remains full-width on mobile, and the top navigation has only the HOME link.
-
-```html
+Her
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -324,7 +322,7 @@ Here is the final HTML document where every app's download button now shows only
             line-height: 1.4;
         }
 
-        /* PINK BUTTON: only the app name (APK name), no extra text */
+        /* PINK BUTTON: shows "Download AppName" (per user request) */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -637,7 +635,7 @@ Here is the final HTML document where every app's download button now shows only
                 `;
             });
             
-            // 🔥 BUTTON: ONLY the app name (APK name) — no extra text, no icon
+            // BUTTON TEXT: "Download AppName" as requested (e.g., "Download Taurus Earn Money")
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -671,8 +669,8 @@ Here is the final HTML document where every app's download button now shows only
                             </ol>
                         </div>
                         
-                        <!-- PINK BUTTON: shows only the APK name (e.g., "Taurus Earn Money") -->
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">${selectedApp.name}</a>
+                        <!-- PINK BUTTON: "Download AppName" -->
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">Download ${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
