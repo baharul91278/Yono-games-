@@ -1,4 +1,11 @@
-Here
+Here is the final HTML with correct back navigation:
+
+· From any download page, pressing the browser back button or clicking "Back to Home" returns you to the main grid (home page) and scrolls to the top.
+· From the main grid, pressing back does nothing (stays on the page – no exit).
+· The top navigation only has HOME, which also returns to the main grid.
+· All 21 apps are displayed with their stats, and the detailed download pages work perfectly.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -323,7 +330,6 @@ Here
             border-radius: 60px;
             display: block;
             width: 100%;
-            max-width: 100%;
             margin: 16px 0;
             box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
             text-decoration: none;
@@ -482,7 +488,6 @@ Here
     </footer>
 
     <script>
-        // 21 APPS DATA
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -682,7 +687,6 @@ Here
             if (gridDiv && downloadContainer) {
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
-                // ✅ Scroll to top of the page when returning to main grid
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
@@ -694,24 +698,20 @@ Here
             currentSelectedIndex = null;
         }
 
-        // Handle browser back button: one click from download -> main grid + scroll top
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
                 goToMainGrid();
-                // Replace with main state so that another back press does nothing
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             } else {
-                // If already on main grid, ensure we scroll to top anyway (user may have scrolled down)
-                if (!document.getElementById('allAppsGrid').classList.contains('hidden')) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
+                if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
                     goToMainGrid();
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             }
         });
 
-        // Set initial state (main grid)
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
