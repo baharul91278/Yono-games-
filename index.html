@@ -1,4 +1,4 @@
-Here is 
+Here is the final 
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@ Here is
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 21 Real Money Apps | Fast Download</title>
+    <title>Yono Games Hub | Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -124,13 +124,39 @@ Here is
             flex-wrap: wrap;
         }
 
-        header h1 span {
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(4px);
-            padding: 5px 14px;
+        /* LED Star Effect for "Real Money Apps" */
+        .led-star {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 16px;
             border-radius: 60px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
+            animation: ledGlow 1.2s infinite alternate;
+            box-shadow: 0 0 5px #ffcf8a;
+        }
+        .led-star .star {
+            font-size: 1.1rem;
+            filter: drop-shadow(0 0 3px gold);
+            animation: starPulse 0.8s infinite alternate;
+        }
+        @keyframes ledGlow {
+            0% {
+                text-shadow: 0 0 2px #fff, 0 0 4px #ffcf8a;
+                box-shadow: 0 0 2px #ffcf8a;
+                background: rgba(255,207,138,0.2);
+            }
+            100% {
+                text-shadow: 0 0 6px #fff, 0 0 12px #ffcf8a;
+                box-shadow: 0 0 10px #ffcf8a;
+                background: rgba(255,207,138,0.4);
+            }
+        }
+        @keyframes starPulse {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.2); opacity: 1; text-shadow: 0 0 8px gold; }
         }
 
         .best-badge {
@@ -621,7 +647,12 @@ Here is
     </div>
 
     <header>
-        <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
+        <h1>
+            🎮 Yono Games Hub
+            <span class="led-star">
+                <span class="star">⭐</span> Real Money Apps
+            </span>
+        </h1>
         <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
         <div class="best-badge">⭐ Best Gaming Platform – Trusted by 1M+ Users ⭐</div>
     </header>
@@ -899,7 +930,7 @@ Here is
             }
         });
 
-        // ------------------ Dropdown Menu Logic with updated About Us ------------------
+        // ------------------ Dropdown Menu Logic ------------------
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
         const menuHome = document.getElementById('menuHome');
@@ -953,7 +984,6 @@ Here is
             `);
         });
 
-        // NEW About Us – clean, no tags, no Telegram, email without .com
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('⭐ Trusted Gaming Platform', `
