@@ -1,12 +1,4 @@
-html>Here is the final HTML code that meets your request:
-
-· One back press from any download page returns you to the top of the home page (the “Taurus Earn Money” app is shown first).
-· From the main grid, pressing back does nothing (stays on the page).
-· The HOME button and Back to Home button also scroll to the top.
-· All 21 apps are displayed with rating, size, votes, bonus, and minimum withdrawal.
-
-Just copy the code into an .html file and open it in your browser.
-
+I 
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -689,7 +681,6 @@ Just copy the code into an .html file and open it in your browser.
             if (gridDiv && downloadContainer) {
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
-                // Force scroll to top – shows "Taurus Earn Money" first
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
