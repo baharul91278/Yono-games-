@@ -1,17 +1,4 @@
-I understand your requirement:
 
-No matter how many times you press the browser back button (from any download page, from any nested “Other App” click), you should always return to the top home page (the main grid showing “Taurus Earn Money”).
-Pressing back again while on the home page should do nothing (stay on the page, not exit the website).
-
-The code I provided in the previous response already does exactly that:
-
-· Each time you go to a download page, a new history state is pushed.
-· When you press back, you go to the main grid and that history state is replaced so that further back presses keep you on the home page.
-· The home page is always scrolled to the top.
-
-Here is the final, complete HTML again for your convenience – just copy and save as .html.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
