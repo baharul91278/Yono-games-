@@ -1,6 +1,3 @@
-Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 apps grid – no menu, no modal, no extra options. Just the main header, the LED badges, and the 21 app cards with their stats and DOWNLOAD buttons. Everything is clean and fast.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +17,91 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
             min-height: 100vh;
             padding-bottom: 30px;
+        }
+
+        .top-nav {
+            background: #0a2e1d;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #ffcf8a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            padding: 6px 12px;
+            border-radius: 40px;
+            cursor: pointer;
+            background: rgba(255,255,240,0.1);
+            white-space: nowrap;
+        }
+
+        .nav-left a:hover {
+            background: #ffcf8a;
+            color: #0a2e1d;
+        }
+
+        .menu-container {
+            position: relative;
+        }
+        .menu-btn {
+            background: rgba(255,255,240,0.2);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            backdrop-filter: blur(4px);
+        }
+        .menu-btn:hover {
+            background: #ffcf8a;
+            color: #0a2e1d;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            min-width: 180px;
+            z-index: 150;
+            overflow: hidden;
+            border: 1px solid #ffcf8a;
+        }
+        .dropdown a {
+            display: block;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #1e562a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            cursor: pointer;
+            border-bottom: 1px solid #ffe6cc;
+        }
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+        .dropdown a:hover {
+            background: #fef1cf;
+            color: #b45900;
+        }
+        .dropdown.show {
+            display: block;
         }
 
         header {
@@ -75,56 +157,33 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             to { transform: scale(1.2); opacity: 1; text-shadow: 0 0 8px gold; }
         }
 
-        /* Full HD 10-Color LED Badge with slow star scaling */
+        /* LED Pink/Red Mix Badge */
         .best-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #000;
+            display: inline-block;
+            background: linear-gradient(135deg, #ff3366, #ff0066);
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 800;
-            padding: 10px 28px;
-            border-radius: 80px;
-            margin-top: 14px;
-            letter-spacing: 0.8px;
-            animation: hdColorCycle 3s infinite linear;
-            box-shadow: 0 0 15px currentColor;
-            text-shadow: 0 0 5px currentColor;
+            padding: 8px 20px;
+            border-radius: 60px;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+            animation: ledPinkRed 1.2s infinite alternate;
+            box-shadow: 0 0 8px #ff0066;
+            text-shadow: 0 0 4px rgba(255,255,255,0.5);
+            backdrop-filter: blur(2px);
         }
-        @keyframes hdColorCycle {
-            0% { color: #ff0040; box-shadow: 0 0 20px #ff0040; text-shadow: 0 0 6px #ff0040; background: #1a0008; }
-            10% { color: #ff8000; box-shadow: 0 0 20px #ff8000; text-shadow: 0 0 6px #ff8000; background: #1a0a00; }
-            20% { color: #ffff00; box-shadow: 0 0 20px #ffff00; text-shadow: 0 0 6px #ffff00; background: #1a1a00; }
-            30% { color: #80ff00; box-shadow: 0 0 20px #80ff00; text-shadow: 0 0 6px #80ff00; background: #0a1a00; }
-            40% { color: #00ff40; box-shadow: 0 0 20px #00ff40; text-shadow: 0 0 6px #00ff40; background: #001a08; }
-            50% { color: #00ffff; box-shadow: 0 0 20px #00ffff; text-shadow: 0 0 6px #00ffff; background: #001a1a; }
-            60% { color: #0080ff; box-shadow: 0 0 20px #0080ff; text-shadow: 0 0 6px #0080ff; background: #000a1a; }
-            70% { color: #4000ff; box-shadow: 0 0 20px #4000ff; text-shadow: 0 0 6px #4000ff; background: #08001a; }
-            80% { color: #8000ff; box-shadow: 0 0 20px #8000ff; text-shadow: 0 0 6px #8000ff; background: #10001a; }
-            90% { color: #ff00ff; box-shadow: 0 0 20px #ff00ff; text-shadow: 0 0 6px #ff00ff; background: #1a001a; }
-            100% { color: #ff0040; box-shadow: 0 0 20px #ff0040; text-shadow: 0 0 6px #ff0040; background: #1a0008; }
-        }
-        .best-badge .big-star {
-            display: inline-block;
-            font-size: 1.6rem;
-            animation: slowStarScale 2.5s ease-in-out infinite;
-            filter: drop-shadow(0 0 6px gold);
-        }
-        @keyframes slowStarScale {
-            0% { transform: scale(0.6); opacity: 0.7; }
-            50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 12px gold; }
-            100% { transform: scale(0.6); opacity: 0.7; }
-        }
-        .best-badge .badge-text {
-            display: inline-block;
-            animation: textPulse 1.8s ease-in-out infinite;
-        }
-        @keyframes textPulse {
-            0% { opacity: 0.9; text-shadow: 0 0 2px currentColor; }
-            50% { opacity: 1; text-shadow: 0 0 10px currentColor; }
-            100% { opacity: 0.9; text-shadow: 0 0 2px currentColor; }
+        @keyframes ledPinkRed {
+            0% {
+                background: linear-gradient(135deg, #ff3366, #ff0066);
+                box-shadow: 0 0 4px #ff0066, 0 0 8px #ff3366;
+                text-shadow: 0 0 2px white;
+            }
+            100% {
+                background: linear-gradient(135deg, #ff6699, #ff3399);
+                box-shadow: 0 0 12px #ff0066, 0 0 20px #ff3366;
+                text-shadow: 0 0 6px white;
+            }
         }
 
         .subhead {
@@ -257,6 +316,230 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             transform: scale(0.98);
         }
 
+        .download-page {
+            background: white;
+            border-radius: 44px;
+            padding: 24px 20px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            border: 1px solid #ffe1b3;
+            animation: fadeSlideUp 0.4s ease;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-header {
+            text-align: center;
+            border-bottom: 2px dashed #ffcf8a;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+        }
+
+        .download-header h2 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #1e562a, #2c4c3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .app-highlight {
+            background: #fff7e8;
+            padding: 24px 20px;
+            border-radius: 40px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background: #fef4e6;
+            padding: 14px 16px;
+            border-radius: 60px;
+            margin: 20px auto;
+            max-width: 750px;
+        }
+        .stat-item {
+            text-align: center;
+            min-width: 70px;
+        }
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1e562a;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #6c7a5a;
+            letter-spacing: 0.5px;
+        }
+
+        .app-description {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 32px;
+            text-align: left;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: #2d3e2b;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+
+        .howto-steps {
+            background: #f0f9f0;
+            border-radius: 32px;
+            padding: 18px 22px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .howto-steps h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #1e562a;
+        }
+        .howto-steps ol {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .howto-steps li {
+            margin: 10px 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .final-download-btn {
+            background: linear-gradient(95deg, #ff4081, #f50057);
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 60px;
+            display: block;
+            width: 100%;
+            margin: 16px 0;
+            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+        }
+        .final-download-btn:hover {
+            transform: scale(0.98);
+            background: linear-gradient(95deg, #e91e63, #c51162);
+            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
+        }
+
+        .back-home-btn {
+            background: linear-gradient(115deg, #ff8c00, #ff2e00);
+            margin-top: 20px;
+            display: inline-block;
+            width: auto;
+            padding: 12px 36px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(255, 46, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 46, 0, 0.5);
+        }
+
+        .other-apps-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 35px 0 18px;
+            color: #1e293b;
+            border-left: 6px solid #e67e22;
+            padding-left: 16px;
+        }
+
+        .other-apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .other-card {
+            background: #fefcf5;
+            border-radius: 32px;
+            padding: 16px 12px;
+            width: 240px;
+            transition: 0.2s;
+            border: 1px solid #ffe1b3;
+            text-align: center;
+        }
+
+        .other-card .app-name {
+            font-size: 1rem;
+            margin: 8px 0 6px;
+            font-weight: 800;
+        }
+
+        .other-card .bonus {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            background: #fef1cf;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .small-download {
+            background: linear-gradient(95deg, #ff4081, #f50057);
+            font-size: 0.8rem;
+            padding: 8px 0;
+            margin-top: 12px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+        .small-download:hover {
+            background: linear-gradient(95deg, #e91e63, #c51162);
+            transform: scale(0.98);
+        }
+
+        .footer-note {
+            text-align: center;
+            background: #ecf9f0;
+            border-radius: 60px;
+            padding: 12px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            margin-top: 20px;
+        }
+
         footer {
             background: #0a2e1d;
             color: #b9ddcb;
@@ -266,18 +549,118 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             font-size: 0.7rem;
         }
 
+        /* Custom modal */
+        .info-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-modal-content {
+            background: white;
+            max-width: 450px;
+            width: 85%;
+            border-radius: 36px;
+            padding: 24px 20px;
+            text-align: left;
+            animation: fadeInUp 0.3s ease;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+            border: 1px solid #ffcf8a;
+        }
+        .info-modal-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #1e562a;
+            border-left: 5px solid #ff8c00;
+            padding-left: 16px;
+        }
+        .info-modal-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 12px 0;
+            color: #2d3e2b;
+        }
+        .info-modal-content ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        .info-modal-content li {
+            margin: 6px 0;
+            font-size: 0.85rem;
+        }
+        .info-close {
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            margin-top: 16px;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .info-close:hover {
+            background: #1e8449;
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         @media (max-width: 640px) {
+            .menu-btn { font-size: 1rem; padding: 4px 12px; }
             header h1 { font-size: 1.5rem; }
             .card { min-width: 250px; padding: 18px 14px; }
             .card-app-name { font-size: 1.2rem; }
             .card-stats { gap: 8px; }
             .card-stat { min-width: 48px; }
-            .best-badge { font-size: 0.65rem; padding: 6px 16px; gap: 6px; }
-            .best-badge .big-star { font-size: 1.2rem; }
+            .stats-row { gap: 12px; }
+            .download-header h2 { font-size: 1.4rem; }
+            .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
+            .other-card { width: 210px; }
+            .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
+            .small-download { font-size: 0.75rem; padding: 6px 0; }
+            .dropdown { right: 0; min-width: 160px; }
+            .dropdown a { padding: 10px 16px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
+    <div class="top-nav">
+        <div class="nav-left">
+            <a id="homeNavLink">🏠 HOME</a>
+        </div>
+        <div class="menu-container">
+            <button class="menu-btn" id="menuBtn">☰ MENU</button>
+            <div class="dropdown" id="dropdownMenu">
+                <a id="menuHome">🏠 Home</a>
+                <a id="menuPrivacy">🔒 Privacy Policy</a>
+                <a id="menuDisclaimer">⚠️ Disclaimer</a>
+                <a id="menuAbout">ℹ️ About Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom modal -->
+    <div id="customInfoModal" class="info-modal">
+        <div class="info-modal-content">
+            <h4 id="modalTitle">Information</h4>
+            <div id="modalBody"></div>
+            <button class="info-close" id="closeInfoModal">OK</button>
+        </div>
+    </div>
+
     <header>
         <h1>
             🎮 Yono Games Hub
@@ -286,15 +669,13 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             </span>
         </h1>
         <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
-        <div class="best-badge">
-            <span class="big-star">⭐</span>
-            <span class="badge-text">Best Gaming Platform – Trusted by 1M+ Users</span>
-            <span class="big-star">⭐</span>
-        </div>
+        <!-- LED Pink/Red Mix Badge -->
+        <div class="best-badge"> Best Gaming Platform – Trusted by 1M+ Users </div>
     </header>
 
-    <div class="container">
+    <div class="container" id="mainContainer">
         <div id="allAppsGrid" class="cards-grid"></div>
+        <div id="downloadPageContainer" class="hidden"></div>
     </div>
 
     <footer>
@@ -302,7 +683,7 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
     </footer>
 
     <script>
-        // ---------- 21 APPS DATA ----------
+        // ---------- APP DATA (21 apps) ----------
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -327,7 +708,6 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Generate stats for each app (Rating, Size, Votes, Bonus)
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -342,7 +722,29 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             return { rating: ratings[idx], size: sizes[idx], votes: votes[idx], bonus: bonusNumeric };
         }
 
-        // Render all 21 app cards
+        function getAppStats(appName) {
+            let hash = 0;
+            for (let i = 0; i < appName.length; i++) {
+                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+                hash |= 0;
+            }
+            const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
+            const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
+            const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+            const idx = Math.abs(hash) % ratings.length;
+            return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
+        }
+
+        function getDescription(appName, category, bonusAmount) {
+            if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
+            if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
+            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
+            return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
+        }
+
+        // ------------------ Main Grid & Download Logic ------------------
+        let currentSelectedIndex = null;
+
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -350,7 +752,7 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
             appsData.forEach((app, idx) => {
                 const stats = getCardStats(app.name, app.bonus);
                 html += `
-                    <div class="card">
+                    <div class="card" data-app-index="${idx}">
                         <div class="card-app-name">${app.name}</div>
                         <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
                         <div class="card-stats">
@@ -360,15 +762,265 @@ Here is the final HTML votes = ["122K",Here is the final HTML with only the 21 a
                             <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
                         </div>
                         <div class="withdrawal-note">💰 Min Withdrawal: ${app.withdrawal}</div>
-                        <a href="${app.downloadUrl}" target="_blank" class="download-btn">📲 DOWNLOAD</a>
+                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
                     </div>
                 `;
             });
             gridContainer.innerHTML = html;
+            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = btn.getAttribute('data-download-index');
+                    if (idx !== null) navigateToDownloadPage(parseInt(idx));
+                    e.stopPropagation();
+                });
+            });
         }
 
-        renderMainGrid();
+        function navigateToDownloadPage(selectedIndex) {
+            currentSelectedIndex = selectedIndex;
+            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
+            showDownloadPage(selectedIndex);
+        }
+
+        function showDownloadPage(selectedIndex) {
+            const selectedApp = appsData[selectedIndex];
+            if (!selectedApp) return;
+            const stats = getAppStats(selectedApp.name);
+            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            gridDiv.classList.add('hidden');
+            downloadContainer.classList.remove('hidden');
+
+            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+            let otherAppsHtml = '';
+            otherApps.forEach((app) => {
+                const originalIndex = appsData.findIndex(a => a.name === app.name);
+                otherAppsHtml += `
+                    <div class="other-card">
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus">🎁 ${app.bonus}</div>
+                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
+                        <button class="small-download" data-other-index="${originalIndex}">📲 DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            
+            const downloadPageHtml = `
+                <div class="download-page" id="activeDownloadPage">
+                    <div class="download-header">
+                        <h2>📥 ${selectedApp.name}</h2>
+                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
+                    </div>
+                    <div class="app-highlight" id="topDownloadSection">
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
+                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                        </div>
+                        
+                        <div class="app-description">
+                            ${description}<br><br>
+                            <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
+                        </div>
+
+                        <div class="howto-steps">
+                            <h4>📱 How To Download ${selectedApp.name}?</h4>
+                            <ol>
+                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
+                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
+                                <li>Open the APK file and install the app.</li>
+                                <li>Register with mobile number & verify OTP.</li>
+                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                            </ol>
+                        </div>
+                        
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
+                    </div>
+                    
+                    <div class="other-apps-title">✨ Other Yono Apps (Last Show) ✨</div>
+                    <div class="other-apps-grid" id="otherAppsGrid">
+                        ${otherAppsHtml}
+                    </div>
+                    <div class="footer-note" style="margin-top: 28px;">
+                        🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
+                    </div>
+                </div>
+            `;
+            
+            downloadContainer.innerHTML = downloadPageHtml;
+            
+            document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const otherIdx = btn.getAttribute('data-other-index');
+                    if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
+                    e.stopPropagation();
+                });
+            });
+            
+            const backHomeBtn = document.getElementById('backToHomeBtn');
+            if (backHomeBtn) {
+                backHomeBtn.addEventListener('click', () => {
+                    history.back();
+                });
+            }
+            
+            setTimeout(() => {
+                const topSection = document.getElementById('topDownloadSection');
+                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function goToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const headerElem = document.querySelector('header');
+                if (headerElem) {
+                    headerElem.style.transition = '0.2s';
+                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
+                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
+                }
+            }
+            currentSelectedIndex = null;
+        }
+
+        window.addEventListener('popstate', (event) => {
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+                return;
+            }
+            if (event.state && event.state.page === 'download') {
+                showDownloadPage(event.state.index);
+            } else {
+                goToMainGrid();
+            }
+        });
+
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+
+        function resetToMainGrid() {
+            dropdown.classList.remove('show');
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+            }
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+            goToMainGrid();
+        }
+
+        // ------------------ Custom Modal Logic ------------------
+        const customModal = document.getElementById('customInfoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const closeInfoModal = document.getElementById('closeInfoModal');
+
+        function showInfoModal(title, contentHtml) {
+            modalTitle.innerText = title;
+            modalBody.innerHTML = contentHtml;
+            customModal.style.display = 'flex';
+            history.pushState({ modal: true }, '');
+        }
+
+        function closeModalAndResetHistory() {
+            customModal.style.display = 'none';
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+        }
+
+        closeInfoModal.addEventListener('click', () => {
+            closeModalAndResetHistory();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === customModal) {
+                closeModalAndResetHistory();
+            }
+        });
+
+        // ------------------ Dropdown Menu Logic ------------------
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdown = document.getElementById('dropdownMenu');
+        const menuHome = document.getElementById('menuHome');
+        const menuPrivacy = document.getElementById('menuPrivacy');
+        const menuDisclaimer = document.getElementById('menuDisclaimer');
+        const menuAbout = document.getElementById('menuAbout');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        menuHome.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            resetToMainGrid();
+        });
+
+        menuPrivacy.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('🔒 Privacy Policy', `
+                <ul>
+                    <li>No personal data is collected directly by Yono Games Hub.</li>
+                    <li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li>
+                    <li>We do not store or have access to your UPI ID, bank details, or password.</li>
+                    <li>This site does not use cookies or tracking scripts.</li>
+                    <li>We link to external APK download pages – their privacy policies apply.</li>
+                    <li>Our platform is only for users 18 years or older.</li>
+                    <li>For privacy concerns: support@yonogamesnew</li>
+                </ul>
+            `);
+        });
+
+        menuDisclaimer.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('⚠️ Disclaimer', `
+                <ul>
+                    <li>Informational purposes only – we do not provide financial or investment advice.</li>
+                    <li>All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.</li>
+                    <li>We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</li>
+                    <li>You must be 18 years or older to use any real‑money gaming app. Comply with local laws.</li>
+                    <li>Playing real‑money games involves risk – you may lose money. Never play with money you cannot afford to lose.</li>
+                    <li>We provide the platform "as is" without warranties. Not liable for damages from third‑party apps.</li>
+                    <li>If you have a gambling problem, seek help from professional organizations like BeGambleAware.</li>
+                </ul>
+            `);
+        });
+
+        menuAbout.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('⭐ Trusted Gaming Platform', `
+                <p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p>
+                <p><strong>Why choose us?</strong><br>
+                ✅ 100% verified signup bonuses<br>
+                ✅ Fastest withdrawal updates (₹100 min)<br>
+                ✅ Zero data storage – your privacy is our priority<br>
+                ✅ 24/7 customer support<br>
+                ✅ Curated list of 21+ top earning apps</p>
+                <p><strong>Contact:</strong> support@yonogamesnew<br>
+                <strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
+            `);
+        });
+
+        function init() {
+            renderMainGrid();
+            const homeLink = document.getElementById('homeNavLink');
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
+        }
+        init();
     </script>
 </body>
 </html>
-```
