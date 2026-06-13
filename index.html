@@ -1,4 +1,11 @@
 
+```Here is the final HTML with the requested behavior:
+
+· Clicking Privacy Policy, Disclaimer, or About Us from the menu opens a custom modal with detailed information.
+· Pressing the browser back button once closes the modal and returns you to the home page (main app grid).
+· Clicking Home from the menu directly returns to the main grid and also closes any open modal.
+· All other features (21 apps, download pages with pink buttons, “Other Yono Apps”, back navigation between download pages) remain unchanged.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,6 @@
             padding-bottom: 30px;
         }
 
-        /* Top navigation with menu dropdown */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -53,7 +59,6 @@
             color: #0a2e1d;
         }
 
-        /* Menu button + dropdown */
         .menu-container {
             position: relative;
         }
@@ -510,7 +515,7 @@
             font-size: 0.7rem;
         }
 
-        /* Custom modal for info (no domain name) */
+        /* Custom modal */
         .info-modal {
             display: none;
             position: fixed;
@@ -613,7 +618,7 @@
         </div>
     </div>
 
-    <!-- Custom modal for showing information without domain name -->
+    <!-- Custom modal -->
     <div id="customInfoModal" class="info-modal">
         <div class="info-modal-content">
             <h4 id="modalTitle">Information</h4>
@@ -862,11 +867,15 @@
 
         function resetToMainGrid() {
             dropdown.classList.remove('show');
+            // Close modal if open
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+            }
             history.replaceState({ page: 'main' }, '', window.location.pathname);
             goToMainGrid();
         }
-        
-        // ------------------ Custom Modal (no domain name) ------------------
+
+        // ------------------ Custom Modal Logic (with back button support) ------------------
         const customModal = document.getElementById('customInfoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -876,13 +885,41 @@
             modalTitle.innerText = title;
             modalBody.innerHTML = contentHtml;
             customModal.style.display = 'flex';
+            // Push a modal state so that back button closes modal
+            history.pushState({ modal: true }, '');
+        }
+
+        function closeModalAndResetHistory() {
+            customModal.style.display = 'none';
+            // Replace current state with main state so that back button goes to home next time
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
         }
 
         closeInfoModal.addEventListener('click', () => {
-            customModal.style.display = 'none';
+            closeModalAndResetHistory();
         });
+
+        // If user clicks outside modal
         window.addEventListener('click', (e) => {
-            if (e.target === customModal) customModal.style.display = 'none';
+            if (e.target === customModal) {
+                closeModalAndResetHistory();
+            }
+        });
+
+        // Handle back button when modal is open: close modal and stay on same page (no navigation)
+        window.addEventListener('popstate', (event) => {
+            if (customModal.style.display === 'flex') {
+                // Modal is open: close it and prevent further back navigation
+                closeModalAndResetHistory();
+                // Do not allow the popstate to change page
+                return;
+            }
+            // Otherwise, handle normal download page back navigation
+            if (event.state && event.state.page === 'download') {
+                showDownloadPage(event.state.index);
+            } else {
+                goToMainGrid();
+            }
         });
 
         // ------------------ Dropdown Menu Logic ------------------
