@@ -1,5 +1,5 @@
-
-Here is the 
+Here is 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -899,7 +899,7 @@ Here is the
             }
         });
 
-        // ------------------ Dropdown Menu Logic with updated About Us content ------------------
+        // ------------------ Dropdown Menu Logic with updated About Us ------------------
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
         const menuHome = document.getElementById('menuHome');
@@ -933,7 +933,7 @@ Here is the
                     <li>This site does not use cookies or tracking scripts.</li>
                     <li>We link to external APK download pages – their privacy policies apply.</li>
                     <li>Our platform is only for users 18 years or older.</li>
-                    <li>For privacy concerns: support@yonogamesnew.com</li>
+                    <li>For privacy concerns: support@yonogamesnew</li>
                 </ul>
             `);
         });
@@ -953,20 +953,19 @@ Here is the
             `);
         });
 
-        // NEW About Us content – "best policy information"
+        // NEW About Us – clean, no tags, no Telegram, email without .com
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            showInfoModal('⭐ About Us – Trusted Gaming Platform', `
-                <p><strong>Yono Games Hub</strong> is the #1 destination for real‑money gaming enthusiasts.</p>
+            showInfoModal('⭐ Trusted Gaming Platform', `
+                <p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p>
                 <p><strong>Why choose us?</strong><br>
                 ✅ 100% verified signup bonuses<br>
                 ✅ Fastest withdrawal updates (₹100 min)<br>
                 ✅ Zero data storage – your privacy is our priority<br>
                 ✅ 24/7 customer support<br>
                 ✅ Curated list of 21+ top earning apps</p>
-                <p><strong>Contact:</strong> ✉️ <strong>support@yonogamesnew.com</strong><br>
-                <strong>Telegram:</strong> @YonoGamesSupport</p>
-                <p><strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
+                <p><strong>Contact:</strong> support@yonogamesnew<br>
+                <strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
             `);
         });
 
