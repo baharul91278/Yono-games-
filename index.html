@@ -1,4 +1,6 @@
 ok
+```Here is the
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -316,9 +318,9 @@ ok
             line-height: 1.4;
         }
 
-        /* GREEN MAIN DOWNLOAD BUTTON for selected app */
+        /* PINK DOWNLOAD BUTTON (main) */
         .final-download-btn {
-            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
             font-size: 1rem;
             font-weight: 800;
@@ -326,7 +328,7 @@ ok
             display: block;
             width: 100%;
             margin: 16px 0;
-            box-shadow: 0 8px 18px rgba(39, 174, 96, 0.3);
+            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
             text-decoration: none;
             color: white;
             transition: 0.2s;
@@ -337,8 +339,8 @@ ok
         }
         .final-download-btn:hover {
             transform: scale(0.98);
-            background: linear-gradient(95deg, #1e8449, #27ae60);
-            box-shadow: 0 6px 14px rgba(30, 132, 73, 0.4);
+            background: linear-gradient(95deg, #e91e63, #c51162);
+            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
         /* BACK TO HOME button (orange/red) */
@@ -404,7 +406,7 @@ ok
             display: inline-block;
         }
 
-        /* PINK DOWNLOAD BUTTON for other apps */
+        /* PINK SMALL DOWNLOAD BUTTON for other apps */
         .small-download {
             background: linear-gradient(95deg, #ff4081, #f50057);
             font-size: 0.8rem;
@@ -580,6 +582,7 @@ ok
 
         function navigateToDownloadPage(selectedIndex) {
             currentSelectedIndex = selectedIndex;
+            // Push a new history state for the download page
             history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
             showDownloadPage(selectedIndex);
         }
@@ -670,6 +673,7 @@ ok
             const backHomeBtn = document.getElementById('backToHomeBtn');
             if (backHomeBtn) {
                 backHomeBtn.addEventListener('click', () => {
+                    // Go back in history – will trigger popstate and show previous page
                     history.back();
                 });
             }
@@ -697,28 +701,26 @@ ok
             currentSelectedIndex = null;
         }
 
+        // Handle browser back button
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                goToMainGrid();
-                history.replaceState({ page: 'main' }, '', window.location.pathname);
+                // Load the download page for the stored index
+                showDownloadPage(event.state.index);
             } else {
-                if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
-                    goToMainGrid();
-                } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-                history.replaceState({ page: 'main' }, '', window.location.pathname);
+                // Main grid (or no state)
+                goToMainGrid();
             }
         });
 
+        // Replace the initial state with 'main'
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
-            if (currentSelectedIndex !== null) {
-                history.back();
-            } else {
-                goToMainGrid();
-            }
+            // Go back to the main grid by navigating to the main state
+            // We can use history.back() if the previous state is main, but if there are multiple download pages, we need to go all the way back.
+            // Simpler: replace the current state with main and show main grid, then replace again to avoid extra entries.
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+            goToMainGrid();
         }
         
         function init() {
