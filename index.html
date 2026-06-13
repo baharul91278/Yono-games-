@@ -1,12 +1,5 @@
 
-```Here is the final HTML with the requested behavior:
-
-· Clicking Privacy Policy, Disclaimer, or About Us from the menu opens a custom modal with detailed information.
-· Pressing the browser back button once closes the modal and returns you to the home page (main app grid).
-· Clicking Home from the menu directly returns to the main grid and also closes any open modal.
-· All other features (21 apps, download pages with pink buttons, “Other Yono Apps”, back navigation between download pages) remain unchanged.
-
-```html
+Here is the 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -856,6 +849,10 @@
         }
 
         window.addEventListener('popstate', (event) => {
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+                return;
+            }
             if (event.state && event.state.page === 'download') {
                 showDownloadPage(event.state.index);
             } else {
@@ -867,7 +864,6 @@
 
         function resetToMainGrid() {
             dropdown.classList.remove('show');
-            // Close modal if open
             if (customModal.style.display === 'flex') {
                 closeModalAndResetHistory();
             }
@@ -875,7 +871,7 @@
             goToMainGrid();
         }
 
-        // ------------------ Custom Modal Logic (with back button support) ------------------
+        // ------------------ Custom Modal Logic ------------------
         const customModal = document.getElementById('customInfoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -885,13 +881,11 @@
             modalTitle.innerText = title;
             modalBody.innerHTML = contentHtml;
             customModal.style.display = 'flex';
-            // Push a modal state so that back button closes modal
             history.pushState({ modal: true }, '');
         }
 
         function closeModalAndResetHistory() {
             customModal.style.display = 'none';
-            // Replace current state with main state so that back button goes to home next time
             history.replaceState({ page: 'main' }, '', window.location.pathname);
         }
 
@@ -899,30 +893,13 @@
             closeModalAndResetHistory();
         });
 
-        // If user clicks outside modal
         window.addEventListener('click', (e) => {
             if (e.target === customModal) {
                 closeModalAndResetHistory();
             }
         });
 
-        // Handle back button when modal is open: close modal and stay on same page (no navigation)
-        window.addEventListener('popstate', (event) => {
-            if (customModal.style.display === 'flex') {
-                // Modal is open: close it and prevent further back navigation
-                closeModalAndResetHistory();
-                // Do not allow the popstate to change page
-                return;
-            }
-            // Otherwise, handle normal download page back navigation
-            if (event.state && event.state.page === 'download') {
-                showDownloadPage(event.state.index);
-            } else {
-                goToMainGrid();
-            }
-        });
-
-        // ------------------ Dropdown Menu Logic ------------------
+        // ------------------ Dropdown Menu Logic with updated About Us content ------------------
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
         const menuHome = document.getElementById('menuHome');
@@ -956,7 +933,7 @@
                     <li>This site does not use cookies or tracking scripts.</li>
                     <li>We link to external APK download pages – their privacy policies apply.</li>
                     <li>Our platform is only for users 18 years or older.</li>
-                    <li>For privacy concerns: privacy@yonogameshub.com</li>
+                    <li>For privacy concerns: support@yonogamesnew.com</li>
                 </ul>
             `);
         });
@@ -976,13 +953,20 @@
             `);
         });
 
+        // NEW About Us content – "best policy information"
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            showInfoModal('ℹ️ About Us', `
-                <p><strong>Yono Games Hub</strong> is a trusted platform that collects the best real‑money earning apps in one place.</p>
-                <p><strong>What we offer:</strong> ✅ 21+ curated apps • ✅ Verified signup bonuses • ✅ Clear withdrawal info • ✅ Direct download links • ✅ No data storage</p>
-                <p><strong>Contact:</strong> support@yonogameshub.com<br><strong>Telegram:</strong> @YonoGamesSupport</p>
-                <p><strong>Our commitment:</strong> We continuously update our list to remove apps that stop paying or change terms unfairly. Your earnings and safety matter to us.</p>
+            showInfoModal('⭐ About Us – Trusted Gaming Platform', `
+                <p><strong>Yono Games Hub</strong> is the #1 destination for real‑money gaming enthusiasts.</p>
+                <p><strong>Why choose us?</strong><br>
+                ✅ 100% verified signup bonuses<br>
+                ✅ Fastest withdrawal updates (₹100 min)<br>
+                ✅ Zero data storage – your privacy is our priority<br>
+                ✅ 24/7 customer support<br>
+                ✅ Curated list of 21+ top earning apps</p>
+                <p><strong>Contact:</strong> ✉️ <strong>support@yonogamesnew.com</strong><br>
+                <strong>Telegram:</strong> @YonoGamesSupport</p>
+                <p><strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
             `);
         });
 
@@ -995,5 +979,4 @@
     </script>
 </body>
 </html>
-```
 ```
