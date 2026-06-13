@@ -1,4 +1,13 @@
-Here 
+html>Here is the final HTML code that meets your request:
+
+· One back press from any download page returns you to the top of the home page (the “Taurus Earn Money” app is shown first).
+· From the main grid, pressing back does nothing (stays on the page).
+· The HOME button and Back to Home button also scroll to the top.
+· All 21 apps are displayed with rating, size, votes, bonus, and minimum withdrawal.
+
+Just copy the code into an .html file and open it in your browser.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -695,10 +704,8 @@ Here
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
                 goToMainGrid();
-                // Replace state so that further back presses stay on main grid
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             } else {
-                // On main grid, just scroll to top if needed
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
                     goToMainGrid();
                 } else {
