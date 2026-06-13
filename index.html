@@ -1,4 +1,4 @@
-okHere iHere is the final 
+Here is the 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +85,7 @@ okHere iHere is the final
 
         .modal-content {
             background: white;
-            max-width: 550px;
+            max-width: 500px;
             width: 90%;
             border-radius: 36px;
             padding: 24px 20px;
@@ -158,13 +158,6 @@ okHere iHere is the final
 
         .close-modal {
             background: #475569;
-            margin-top: 10px;
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        .back-home-modal {
-            background: linear-gradient(115deg, #ff8c00, #ff2e00);
             margin-top: 10px;
         }
 
@@ -590,11 +583,12 @@ okHere iHere is the final
         <button class="menu-btn" id="menuBtn">☰ MENU</button>
     </div>
 
-    <!-- Modal for menu options -->
+    <!-- Modal with 4 options -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <h3>📋 MENU</h3>
             <div class="modal-buttons">
+                <button class="modal-btn" id="homeModalBtn">🏠 Home</button>
                 <button class="modal-btn" id="privacyBtn">🔒 Privacy Policy</button>
                 <button class="modal-btn" id="disclaimerBtn">⚠️ Disclaimer</button>
                 <button class="modal-btn" id="aboutBtn">ℹ️ About Us</button>
@@ -603,7 +597,6 @@ okHere iHere is the final
                 Select an option to view detailed information.
             </div>
             <button class="modal-btn close-modal" id="closeModalBtn">✖ Close</button>
-            <button class="modal-btn back-home-modal" id="backHomeModalBtn">🏠 Back to Home</button>
         </div>
     </div>
 
@@ -647,7 +640,6 @@ okHere iHere is the final
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
         ];
 
-        // Helper functions
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -852,11 +844,11 @@ okHere iHere is the final
             goToMainGrid();
         }
         
-        // ------------------ Modal Logic ------------------
+        // ------------------ Modal Logic (4 options) ------------------
         const modal = document.getElementById('infoModal');
         const menuBtn = document.getElementById('menuBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
-        const backHomeModalBtn = document.getElementById('backHomeModalBtn');
+        const homeModalBtn = document.getElementById('homeModalBtn');
         const privacyBtn = document.getElementById('privacyBtn');
         const disclaimerBtn = document.getElementById('disclaimerBtn');
         const aboutBtn = document.getElementById('aboutBtn');
@@ -872,14 +864,16 @@ okHere iHere is the final
 
         menuBtn.addEventListener('click', openModal);
         closeModalBtn.addEventListener('click', closeModal);
-        backHomeModalBtn.addEventListener('click', () => {
-            resetToMainGrid();
-        });
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
-        // Enhanced Privacy Policy
+        // Home button in modal: close modal and go to main grid
+        homeModalBtn.addEventListener('click', () => {
+            resetToMainGrid();
+        });
+
+        // Privacy Policy content
         privacyBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
                 <strong>🔒 Privacy Policy (Detailed)</strong><br><br>
@@ -903,7 +897,7 @@ okHere iHere is the final
             `;
         });
 
-        // Enhanced Disclaimer
+        // Disclaimer content
         disclaimerBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
                 <strong>⚠️ Disclaimer (Important)</strong><br><br>
@@ -925,7 +919,7 @@ okHere iHere is the final
             `;
         });
 
-        // Enhanced About Us
+        // About Us content
         aboutBtn.addEventListener('click', () => {
             infoDisplay.innerHTML = `
                 <strong>ℹ️ About Us – Yono Games Hub</strong><br><br>
