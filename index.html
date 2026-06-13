@@ -1,4 +1,4 @@
-
+Here
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -315,7 +315,6 @@
             line-height: 1.4;
         }
 
-        /* PINK DOWNLOAD BUTTON on next page */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
             padding: 14px 20px;
@@ -683,6 +682,7 @@
             if (gridDiv && downloadContainer) {
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
+                // ✅ Scroll to top of the page when returning to main grid
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
@@ -694,19 +694,19 @@
             currentSelectedIndex = null;
         }
 
-        // Handle browser back button: one click from download -> main grid, then stop
+        // Handle browser back button: one click from download -> main grid + scroll top
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
-                // We are coming back from a download page
                 goToMainGrid();
-                // Replace the current state with main state so that pressing back again does nothing
+                // Replace with main state so that another back press does nothing
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             } else {
-                // If we are on main grid and back is pressed, stay on main grid
-                if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
+                // If already on main grid, ensure we scroll to top anyway (user may have scrolled down)
+                if (!document.getElementById('allAppsGrid').classList.contains('hidden')) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
                     goToMainGrid();
                 }
-                // Ensure the main grid state is the root
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             }
         });
