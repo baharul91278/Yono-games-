@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | 21 Real Money Apps | Pink Download</title>
+    <title>Yono Games Hub | 21 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,7 @@
             padding-bottom: 30px;
         }
 
+        /* top navigation - only HOME */
         .top-nav {
             background: #0a2e1d;
             padding: 12px 16px;
@@ -324,30 +325,32 @@
             line-height: 1.4;
         }
 
-        /* PINK BUTTON (without the word "PINK" in text) */
+        /* SIMPLE PINK BUTTON - full width on mobile, no heart, clean text */
         .final-download-btn {
             background: linear-gradient(95deg, #ff4081, #f50057);
-            padding: 14px 26px;
-            font-size: 1.05rem;
+            padding: 14px 20px;
+            font-size: 1rem;
             font-weight: 800;
             border-radius: 60px;
-            display: inline-block;
-            width: auto;
-            min-width: 240px;
-            margin: 16px auto;
-            box-shadow: 0 10px 22px rgba(245, 0, 87, 0.4);
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 16px 0;
+            box-shadow: 0 8px 18px rgba(245, 0, 87, 0.3);
             text-decoration: none;
             color: white;
-            transition: 0.25s;
-            letter-spacing: 1px;
+            transition: 0.2s;
+            letter-spacing: 0.5px;
             cursor: pointer;
             text-align: center;
             border: none;
+            white-space: normal;
+            word-break: break-word;
         }
         .final-download-btn:hover {
-            transform: scale(1.02);
+            transform: scale(0.98);
             background: linear-gradient(95deg, #e91e63, #c51162);
-            box-shadow: 0 14px 28px rgba(233, 30, 99, 0.5);
+            box-shadow: 0 6px 14px rgba(233, 30, 99, 0.4);
         }
 
         .back-home-btn {
@@ -469,15 +472,14 @@
             .download-header h2 { font-size: 1.4rem; }
             .back-home-btn { padding: 10px 28px; font-size: 0.9rem; }
             .other-card { width: 210px; }
-            .final-download-btn { min-width: 200px; font-size: 0.9rem; padding: 10px 18px; }
+            .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
         }
     </style>
 </head>
 <body>
     <div class="top-nav">
         <a id="homeNavLink">🏠 HOME</a>
-        <a id="aboutNavLink">ℹ️ About</a>
-        <!-- Removed: Contact, Disclaimer, TG Join as requested -->
+        <!-- About, Contact, Disclaimer, TG Join removed as requested -->
     </div>
 
     <header>
@@ -636,6 +638,7 @@
                 `;
             });
             
+            // Simplified download button: no heart, full width, clean text
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
@@ -669,7 +672,7 @@
                             </ol>
                         </div>
                         
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">💖 DOWNLOAD ${selectedApp.name}</a>
+                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn" rel="noopener noreferrer">📥 DOWNLOAD ${selectedApp.name}</a>
                         <button id="backToHomeBtn" class="back-home-btn">🏠 BACK TO HOME</button>
                     </div>
                     
@@ -753,13 +756,6 @@
                 homeLink.addEventListener('click', (e) => { 
                     e.preventDefault(); 
                     goHomeDirect(); 
-                });
-            }
-            const aboutLink = document.getElementById('aboutNavLink');
-            if (aboutLink) {
-                aboutLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    alert('ℹ️ Yono Games Hub — 21+ real money earning apps. All apps offer signup bonus and ₹100 min withdrawal. Play responsibly, 18+ only.');
                 });
             }
         }
