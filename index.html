@@ -1,11 +1,4 @@
-Here is the final HTML code.
-✅ One back press from any download page returns you to the top of the home page (the first app “Taurus Earn Money” is visible).
-✅ From the main grid, pressing back does nothing (stays on the page).
-✅ Works perfectly for all 21 apps, including “All Teen Patti Master”.
-
-Just copy and save as .html – no external dependencies.
-
-```html
+Here 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -687,6 +680,7 @@ Just copy and save as .html – no external dependencies.
             if (gridDiv && downloadContainer) {
                 gridDiv.classList.remove('hidden');
                 downloadContainer.classList.add('hidden');
+                // Force scroll to top – shows "Taurus Earn Money" first
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 const headerElem = document.querySelector('header');
                 if (headerElem) {
@@ -701,8 +695,10 @@ Just copy and save as .html – no external dependencies.
         window.addEventListener('popstate', (event) => {
             if (event.state && event.state.page === 'download') {
                 goToMainGrid();
+                // Replace state so that further back presses stay on main grid
                 history.replaceState({ page: 'main' }, '', window.location.pathname);
             } else {
+                // On main grid, just scroll to top if needed
                 if (document.getElementById('allAppsGrid').classList.contains('hidden')) {
                     goToMainGrid();
                 } else {
