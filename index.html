@@ -1,6 +1,5 @@
 Here
-Here is the final 
-```html
+Here is the final HTML with 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,6 +133,18 @@ Here is the final
             border-radius: 60px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .best-badge {
+            display: inline-block;
+            background: #ffcf8a;
+            color: #0a2e1d;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
         }
 
         .subhead {
@@ -499,6 +510,69 @@ Here is the final
             font-size: 0.7rem;
         }
 
+        /* Custom modal for info (no domain name) */
+        .info-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-modal-content {
+            background: white;
+            max-width: 450px;
+            width: 85%;
+            border-radius: 36px;
+            padding: 24px 20px;
+            text-align: left;
+            animation: fadeInUp 0.3s ease;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+            border: 1px solid #ffcf8a;
+        }
+        .info-modal-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #1e562a;
+            border-left: 5px solid #ff8c00;
+            padding-left: 16px;
+        }
+        .info-modal-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 12px 0;
+            color: #2d3e2b;
+        }
+        .info-modal-content ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        .info-modal-content li {
+            margin: 6px 0;
+            font-size: 0.85rem;
+        }
+        .info-close {
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            margin-top: 16px;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .info-close:hover {
+            background: #1e8449;
+            transform: scale(0.98);
+        }
+
         .hidden {
             display: none;
         }
@@ -539,9 +613,19 @@ Here is the final
         </div>
     </div>
 
+    <!-- Custom modal for showing information without domain name -->
+    <div id="customInfoModal" class="info-modal">
+        <div class="info-modal-content">
+            <h4 id="modalTitle">Information</h4>
+            <div id="modalBody"></div>
+            <button class="info-close" id="closeInfoModal">OK</button>
+        </div>
+    </div>
+
     <header>
         <h1>🎮 Yono Games Hub <span>🔥 21 Real Money Apps</span></h1>
         <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
+        <div class="best-badge">⭐ Best Gaming Platform – Trusted by 1M+ Users ⭐</div>
     </header>
 
     <div class="container" id="mainContainer">
@@ -777,12 +861,30 @@ Here is the final
         history.replaceState({ page: 'main' }, '', window.location.pathname);
 
         function resetToMainGrid() {
-            // Close dropdown if open
             dropdown.classList.remove('show');
             history.replaceState({ page: 'main' }, '', window.location.pathname);
             goToMainGrid();
         }
         
+        // ------------------ Custom Modal (no domain name) ------------------
+        const customModal = document.getElementById('customInfoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const closeInfoModal = document.getElementById('closeInfoModal');
+
+        function showInfoModal(title, contentHtml) {
+            modalTitle.innerText = title;
+            modalBody.innerHTML = contentHtml;
+            customModal.style.display = 'flex';
+        }
+
+        closeInfoModal.addEventListener('click', () => {
+            customModal.style.display = 'none';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === customModal) customModal.style.display = 'none';
+        });
+
         // ------------------ Dropdown Menu Logic ------------------
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
@@ -791,20 +893,17 @@ Here is the final
         const menuDisclaimer = document.getElementById('menuDisclaimer');
         const menuAbout = document.getElementById('menuAbout');
 
-        // Toggle dropdown
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdown.classList.toggle('show');
         });
 
-        // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
                 dropdown.classList.remove('show');
             }
         });
 
-        // Menu options actions
         menuHome.addEventListener('click', () => {
             dropdown.classList.remove('show');
             resetToMainGrid();
@@ -812,20 +911,44 @@ Here is the final
 
         menuPrivacy.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            alert("🔒 PRIVACY POLICY\n\n1. No personal data is collected directly by Yono Games Hub.\n2. Third‑party apps may collect your mobile number, name, or transaction details.\n3. We do not store or have access to your UPI ID, bank details, or password.\n4. This site does not use cookies.\n5. For privacy concerns: privacy@yonogameshub.com");
+            showInfoModal('🔒 Privacy Policy', `
+                <ul>
+                    <li>No personal data is collected directly by Yono Games Hub.</li>
+                    <li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li>
+                    <li>We do not store or have access to your UPI ID, bank details, or password.</li>
+                    <li>This site does not use cookies or tracking scripts.</li>
+                    <li>We link to external APK download pages – their privacy policies apply.</li>
+                    <li>Our platform is only for users 18 years or older.</li>
+                    <li>For privacy concerns: privacy@yonogameshub.com</li>
+                </ul>
+            `);
         });
 
         menuDisclaimer.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            alert("⚠️ DISCLAIMER\n\n1. Informational purposes only – no financial advice.\n2. We are not the developer or operator of any game.\n3. You must be 18+ to use real‑money gaming apps.\n4. Playing involves risk – never play with money you cannot afford to lose.\n5. We are not liable for any losses or disputes.\n6. If you have a gambling problem, seek professional help.");
+            showInfoModal('⚠️ Disclaimer', `
+                <ul>
+                    <li>Informational purposes only – we do not provide financial or investment advice.</li>
+                    <li>All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.</li>
+                    <li>We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</li>
+                    <li>You must be 18 years or older to use any real‑money gaming app. Comply with local laws.</li>
+                    <li>Playing real‑money games involves risk – you may lose money. Never play with money you cannot afford to lose.</li>
+                    <li>We provide the platform "as is" without warranties. Not liable for damages from third‑party apps.</li>
+                    <li>If you have a gambling problem, seek help from professional organizations like BeGambleAware.</li>
+                </ul>
+            `);
         });
 
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            alert("ℹ️ ABOUT US\n\nYono Games Hub collects the best real‑money earning apps in one place.\n✅ 21+ curated apps\n✅ Verified signup bonuses & withdrawal info\n✅ Direct download links\n✅ No data storage\n\nContact: support@yonogameshub.com\nTelegram: @YonoGamesSupport");
+            showInfoModal('ℹ️ About Us', `
+                <p><strong>Yono Games Hub</strong> is a trusted platform that collects the best real‑money earning apps in one place.</p>
+                <p><strong>What we offer:</strong> ✅ 21+ curated apps • ✅ Verified signup bonuses • ✅ Clear withdrawal info • ✅ Direct download links • ✅ No data storage</p>
+                <p><strong>Contact:</strong> support@yonogameshub.com<br><strong>Telegram:</strong> @YonoGamesSupport</p>
+                <p><strong>Our commitment:</strong> We continuously update our list to remove apps that stop paying or change terms unfairly. Your earnings and safety matter to us.</p>
+            `);
         });
 
-        // Also handle the HOME link in navigation
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
