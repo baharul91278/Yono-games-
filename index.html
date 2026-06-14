@@ -1,9 +1,4 @@
-Here is the final HTML file with the requested changes:
-
-· SVIP 777 link replaced with: https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5
-· Rummy Most link replaced with: https://th1.my/BY1JWS/3gvute0
-· Teen Patti Classic name changed to Teen Patti Gold Old Version
-· All 25 apps display correctly with their updated links and names.
+Here is the final HTML with all 25 apps displaying the correct download page header: 📥 [App Name] APK (e.g., “📥 Teen Patti Gold APK”). The main grid remains unchanged, and each app’s download page now shows its own name followed by “APK”.
 
 ```html
 <!DOCTYPE html>
@@ -685,7 +680,7 @@ Here is the final HTML file with the requested changes:
     </footer>
 
     <script>
-        // ---------- 25 APPS DATA (with updated links and names) ----------
+        // ---------- 25 APPS DATA ----------
         const appsData = [
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
@@ -700,19 +695,14 @@ Here is the final HTML file with the requested changes:
             { name: "Bingo 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg", category: "Bingo" },
             { name: "Yes Spin", bonus: "₹18", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg", category: "Spin" },
             { name: "Yono Arcade", bonus: "₹32", withdrawal: "₹100", downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg", category: "Arcade" },
-            // SVIP 777 - UPDATED LINK
             { name: "SVIP 777", bonus: "₹27", withdrawal: "₹100", downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5", img: "https://i.ibb.co/vfWZMLm/svip777.jpg", category: "Casino" },
             { name: "OK Rummy", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg", category: "Rummy" },
             { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg", category: "Slots" },
-            // Rummy Most - UPDATED LINK
             { name: "Rummy Most", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://th1.my/BY1JWS/3gvute0", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg", category: "Rummy" },
-            // Teen Patti Classic - NAME CHANGED
             { name: "Teen Patti Gold Old Version", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", category: "Card" },
             { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
             { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
-            
-            // 4 NEW APPS
             { name: "Boss Rummy", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg", category: "Rummy" },
             { name: "Yono 777", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg", category: "Slots" },
             { name: "Diwa VIP", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg", category: "VIP" },
@@ -819,10 +809,11 @@ Here is the final HTML file with the requested changes:
                 `;
             });
             
+            // 🔥 FIXED: Download page header shows "📥 AppName APK"
             const downloadPageHtml = `
                 <div class="download-page" id="activeDownloadPage">
                     <div class="download-header">
-                        <h2>📥 ${selectedApp.name}</h2>
+                        <h2>📥 ${selectedApp.name} APK</h2>
                         <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
                     </div>
                     <div class="app-highlight" id="topDownloadSection">
