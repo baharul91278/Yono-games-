@@ -1,5 +1,4 @@
-以下是您所需的包含4个新增应用的完整HTML文件。它在一个响应式游戏中心页面中，集成了Boss Rummy、Yono 777、Diwa VIP和Diwa 777这四款应用，并保持了原有的25个应用布局和下载功能。
-
+以下是您所需
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="uYusGCBH9dFnZjHHnExoT2M-daqYANlCKqlnsn1Eye4" />
-    <title>Yono Games Hub | Real Money Apps | Fast Download</title>
+    <title>Yono Games Hub | 25 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -80,7 +79,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            min-width: 180px;
+            min-width: 200px;
             z-index: 150;
             overflow: hidden;
             border: 1px solid #ffcf8a;
@@ -219,12 +218,27 @@
             box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
             border: 1px solid #eef2f8;
             text-align: center;
+            position: relative;
         }
 
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.2);
             border-color: #ffcf8a;
+        }
+
+        .app-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #e67e22;
+            color: white;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            letter-spacing: 0.5px;
         }
 
         .card-app-name {
@@ -235,6 +249,7 @@
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 12px;
+            margin-top: 8px;
             letter-spacing: -0.2px;
         }
 
@@ -631,7 +646,7 @@
             .other-card { width: 210px; }
             .final-download-btn { font-size: 0.9rem; padding: 12px 16px; }
             .small-download { font-size: 0.75rem; padding: 6px 0; }
-            .dropdown { right: 0; min-width: 160px; }
+            .dropdown { right: 0; min-width: 170px; }
             .dropdown a { padding: 10px 16px; font-size: 0.8rem; }
         }
     </style>
@@ -645,6 +660,7 @@
             <button class="menu-btn" id="menuBtn">☰ MENU</button>
             <div class="dropdown" id="dropdownMenu">
                 <a id="menuHome">🏠 Home</a>
+                <a id="menuAllApps">📱 All Apps (25)</a>
                 <a id="menuPrivacy">🔒 Privacy Policy</a>
                 <a id="menuDisclaimer">⚠️ Disclaimer</a>
                 <a id="menuAbout">ℹ️ About Us</a>
@@ -681,8 +697,9 @@
     </footer>
 
     <script>
-        // ---------- APP DATA (现在包含25个应用: 原有21 + 新增4个) ----------
+        // ---------- 完整25个应用：序号从1到25，包含原有21个 + 最后4个新增 (Boss Rummy, Yono 777, Diwa VIP, Diwa 777) ----------
         const appsData = [
+            // 1 - 21 原有应用
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
             { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
@@ -704,13 +721,14 @@
             { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
             { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
-            // ========== 新增4个指定APP ==========
+            // 22 - 25 新增最后4个应用 (严格按照末尾添加)
             { name: "Boss Rummy", bonus: "₹55", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk", category: "Rummy" },
             { name: "Yono 777", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB", category: "Slots" },
             { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg", category: "VIP" },
             { name: "Diwa 777", bonus: "₹52", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN", category: "Slots" }
         ];
 
+        // 辅助方法：生成卡片统计数据
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -748,6 +766,243 @@
 
         let currentSelectedIndex = null;
 
+        // 渲染主网格 显示全部25个应用 (序号从1开始)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
-            if (!grid
+            if (!gridContainer) return;
+            let html = '';
+            appsData.forEach((app, idx) => {
+                const appNumber = idx + 1;
+                const stats = getCardStats(app.name, app.bonus);
+                html += `
+                    <div class="card" data-app-index="${idx}">
+                        <div class="app-number">#${appNumber}</div>
+                        <div class="card-app-name">${app.name}</div>
+                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://i.ibb.co/4T5YzXp/placeholder.png'"></div>
+                        <div class="card-stats">
+                            <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.votes}</div><div class="card-stat-label">Votes</div></div>
+                            <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
+                        </div>
+                        <div class="withdrawal-note">💰 Min Withdrawal: ${app.withdrawal}</div>
+                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            gridContainer.innerHTML = html;
+            // 绑定下载按钮事件
+            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = btn.getAttribute('data-download-index');
+                    if (idx !== null) navigateToDownloadPage(parseInt(idx));
+                    e.stopPropagation();
+                });
+            });
+        }
+
+        function navigateToDownloadPage(selectedIndex) {
+            currentSelectedIndex = selectedIndex;
+            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
+            showDownloadPage(selectedIndex);
+        }
+
+        function showDownloadPage(selectedIndex) {
+            const selectedApp = appsData[selectedIndex];
+            if (!selectedApp) return;
+            const stats = getAppStats(selectedApp.name);
+            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
+            
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            gridDiv.classList.add('hidden');
+            downloadContainer.classList.remove('hidden');
+
+            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+            let otherAppsHtml = '';
+            otherApps.forEach((app) => {
+                const originalIndex = appsData.findIndex(a => a.name === app.name);
+                otherAppsHtml += `
+                    <div class="other-card">
+                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://i.ibb.co/4T5YzXp/placeholder.png'"></div>
+                        <div class="app-name">${app.name}</div>
+                        <div class="bonus">🎁 ${app.bonus}</div>
+                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
+                        <button class="small-download" data-other-index="${originalIndex}">📲 DOWNLOAD</button>
+                    </div>
+                `;
+            });
+            
+            const downloadPageHtml = `
+                <div class="download-page" id="activeDownloadPage">
+                    <div class="download-header">
+                        <h2>📥 ${selectedApp.name}</h2>
+                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
+                    </div>
+                    <div class="app-highlight" id="topDownloadSection">
+                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
+                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}" onerror="this.src='https://i.ibb.co/4T5YzXp/placeholder.png'"></div>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
+                            <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
+                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                        </div>
+                        
+                        <div class="app-description">
+                            ${description}<br><br>
+                            <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
+                        </div>
+
+                        <div class="howto-steps">
+                            <h4>📱 How To Download ${selectedApp.name}?</h4>
+                            <ol>
+                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
+                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
+                                <li>Open the APK file and install the app.</li>
+                                <li>Register with mobile number & verify OTP.</li>
+                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                            </ol>
+                        </div>
+                        
+                        <a href="${selectedApp.downloadUrl}" target="_blank" rel="noopener noreferrer" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
+                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
+                    </div>
+                    
+                    <div class="other-apps-title">✨ Other Apps (Total 25) ✨</div>
+                    <div class="other-apps-grid" id="otherAppsGrid">
+                        ${otherAppsHtml}
+                    </div>
+                    <div class="footer-note" style="margin-top: 28px;">
+                        🌟 All ${appsData.length} apps: ₹100 min withdrawal | Trusted platform | 18+
+                    </div>
+                </div>
+            `;
+            
+            downloadContainer.innerHTML = downloadPageHtml;
+            
+            document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const otherIdx = btn.getAttribute('data-other-index');
+                    if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
+                    e.stopPropagation();
+                });
+            });
+            
+            const backHomeBtn = document.getElementById('backToHomeBtn');
+            if (backHomeBtn) {
+                backHomeBtn.addEventListener('click', () => {
+                    history.back();
+                });
+            }
+            
+            setTimeout(() => {
+                const topSection = document.getElementById('topDownloadSection');
+                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function goToMainGrid() {
+            const gridDiv = document.getElementById('allAppsGrid');
+            const downloadContainer = document.getElementById('downloadPageContainer');
+            if (gridDiv && downloadContainer) {
+                gridDiv.classList.remove('hidden');
+                downloadContainer.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            currentSelectedIndex = null;
+        }
+
+        // popstate 处理
+        window.addEventListener('popstate', (event) => {
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+                return;
+            }
+            if (event.state && event.state.page === 'download') {
+                showDownloadPage(event.state.index);
+            } else {
+                goToMainGrid();
+            }
+        });
+
+        history.replaceState({ page: 'main' }, '', window.location.pathname);
+
+        function resetToMainGrid() {
+            dropdown.classList.remove('show');
+            if (customModal.style.display === 'flex') {
+                closeModalAndResetHistory();
+            }
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+            goToMainGrid();
+        }
+
+        // Modal 逻辑
+        const customModal = document.getElementById('customInfoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const closeInfoModal = document.getElementById('closeInfoModal');
+
+        function showInfoModal(title, contentHtml) {
+            modalTitle.innerText = title;
+            modalBody.innerHTML = contentHtml;
+            customModal.style.display = 'flex';
+            history.pushState({ modal: true }, '');
+        }
+
+        function closeModalAndResetHistory() {
+            customModal.style.display = 'none';
+            history.replaceState({ page: 'main' }, '', window.location.pathname);
+        }
+
+        closeInfoModal.addEventListener('click', () => {
+            closeModalAndResetHistory();
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === customModal) closeModalAndResetHistory();
+        });
+
+        // 下拉菜单交互
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdown = document.getElementById('dropdownMenu');
+        const menuHome = document.getElementById('menuHome');
+        const menuAllApps = document.getElementById('menuAllApps');
+        const menuPrivacy = document.getElementById('menuPrivacy');
+        const menuDisclaimer = document.getElementById('menuDisclaimer');
+        const menuAbout = document.getElementById('menuAbout');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) dropdown.classList.remove('show');
+        });
+
+        menuHome.addEventListener('click', () => { dropdown.classList.remove('show'); resetToMainGrid(); });
+        menuAllApps.addEventListener('click', () => { dropdown.classList.remove('show'); resetToMainGrid(); });  // 展示所有25个应用（首页网格）
+        menuPrivacy.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('🔒 Privacy Policy', `<ul><li>No personal data is collected directly by Yono Games Hub.</li><li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li><li>We do not store or have access to your UPI ID, bank details, or password.</li><li>This site does not use cookies or tracking scripts.</li><li>We link to external APK download pages – their privacy policies apply.</li><li>Our platform is only for users 18 years or older.</li><li>For privacy concerns: support@yonogameshub</li></ul>`);
+        });
+        menuDisclaimer.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('⚠️ Disclaimer', `<ul><li>Informational purposes only – we do not provide financial or investment advice.</li><li>All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.</li><li>We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</li><li>You must be 18 years or older to use any real‑money gaming app. Comply with local laws.</li><li>Playing real‑money games involves risk – you may lose money. Never play with money you cannot afford to lose.</li><li>We provide the platform "as is" without warranties. Not liable for damages from third‑party apps.</li><li>If you have a gambling problem, seek help from professional organizations like BeGambleAware.</li></ul>`);
+        });
+        menuAbout.addEventListener('click', () => {
+            dropdown.classList.remove('show');
+            showInfoModal('⭐ Trusted Gaming Platform', `<p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p><p><strong>Why choose us?</strong><br>✅ 100% verified signup bonuses<br>✅ Fastest withdrawal updates (₹100 min)<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support<br>✅ Curated list of ${appsData.length}+ top earning apps</p><p><strong>Contact:</strong> support@yonogameshub<br><strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>`);
+        });
+
+        // 初始化页面
+        function init() {
+            renderMainGrid();
+            const homeLink = document.getElementById('homeNavLink');
+            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
+        }
+        init();
+    </script>
+</body>
+</html>
+```
