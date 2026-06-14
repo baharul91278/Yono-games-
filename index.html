@@ -1,4 +1,4 @@
-以下是您所需
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -697,9 +697,9 @@
     </footer>
 
     <script>
-        // ---------- 完整25个应用：序号从1到25，包含原有21个 + 最后4个新增 (Boss Rummy, Yono 777, Diwa VIP, Diwa 777) ----------
+        // ---------- COMPLETE 25 APPS: 21 original + 4 new apps (Boss Rummy, Yono 777, Diwa VIP, Diwa 777) with updated image links ----------
         const appsData = [
-            // 1 - 21 原有应用
+            // 1 - 21 Original Apps
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
             { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
@@ -721,14 +721,14 @@
             { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
             { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
             { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
-            // 22 - 25 新增最后4个应用 (严格按照末尾添加)
+            // 22 - 25 New Apps (exactly as requested with correct photo links)
             { name: "Boss Rummy", bonus: "₹55", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk", category: "Rummy" },
             { name: "Yono 777", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB", category: "Slots" },
             { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg", category: "VIP" },
             { name: "Diwa 777", bonus: "₹52", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN", category: "Slots" }
         ];
 
-        // 辅助方法：生成卡片统计数据
+        // Helper: generate dynamic card stats
         function getCardStats(appName, bonusAmount) {
             let hash = 0;
             for (let i = 0; i < appName.length; i++) {
@@ -766,7 +766,7 @@
 
         let currentSelectedIndex = null;
 
-        // 渲染主网格 显示全部25个应用 (序号从1开始)
+        // Render main grid with all 25 apps (numbers 1 to 25)
         function renderMainGrid() {
             const gridContainer = document.getElementById('allAppsGrid');
             if (!gridContainer) return;
@@ -791,7 +791,6 @@
                 `;
             });
             gridContainer.innerHTML = html;
-            // 绑定下载按钮事件
             document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const idx = btn.getAttribute('data-download-index');
@@ -914,7 +913,6 @@
             currentSelectedIndex = null;
         }
 
-        // popstate 处理
         window.addEventListener('popstate', (event) => {
             if (customModal.style.display === 'flex') {
                 closeModalAndResetHistory();
@@ -938,7 +936,7 @@
             goToMainGrid();
         }
 
-        // Modal 逻辑
+        // Modal logic
         const customModal = document.getElementById('customInfoModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -963,7 +961,7 @@
             if (e.target === customModal) closeModalAndResetHistory();
         });
 
-        // 下拉菜单交互
+        // Dropdown menu handlers
         const menuBtn = document.getElementById('menuBtn');
         const dropdown = document.getElementById('dropdownMenu');
         const menuHome = document.getElementById('menuHome');
@@ -981,7 +979,7 @@
         });
 
         menuHome.addEventListener('click', () => { dropdown.classList.remove('show'); resetToMainGrid(); });
-        menuAllApps.addEventListener('click', () => { dropdown.classList.remove('show'); resetToMainGrid(); });  // 展示所有25个应用（首页网格）
+        menuAllApps.addEventListener('click', () => { dropdown.classList.remove('show'); resetToMainGrid(); });
         menuPrivacy.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('🔒 Privacy Policy', `<ul><li>No personal data is collected directly by Yono Games Hub.</li><li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li><li>We do not store or have access to your UPI ID, bank details, or password.</li><li>This site does not use cookies or tracking scripts.</li><li>We link to external APK download pages – their privacy policies apply.</li><li>Our platform is only for users 18 years or older.</li><li>For privacy concerns: support@yonogameshub</li></ul>`);
@@ -995,7 +993,6 @@
             showInfoModal('⭐ Trusted Gaming Platform', `<p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p><p><strong>Why choose us?</strong><br>✅ 100% verified signup bonuses<br>✅ Fastest withdrawal updates (₹100 min)<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support<br>✅ Curated list of ${appsData.length}+ top earning apps</p><p><strong>Contact:</strong> support@yonogameshub<br><strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>`);
         });
 
-        // 初始化页面
         function init() {
             renderMainGrid();
             const homeLink = document.getElementById('homeNavLink');
