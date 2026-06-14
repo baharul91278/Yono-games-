@@ -1,3 +1,6 @@
+Here is the updated HTML with the 4 image URLs. I have used the direct image links from your message (https://ibb.co/...). If those do not display, you may need to replace them with the actual .jpg or .png direct links from ImgBB (right-click on the uploaded image → “Copy image address”).
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -669,8 +672,7 @@
             </span>
         </h1>
         <div class="subhead">⚡ Different Signup Bonuses • Fast Withdrawal • ₹100 Min ⚡</div>
-        <!-- LED Pink/Red Mix Badge -->
-        <div class="best-badge"> Best Gaming Platform – Trusted by 1M+ Users </div>
+        <div class="best-badge">⭐ Best Gaming Platform – Trusted by 1M+ Users ⭐</div>
     </header>
 
     <div class="container" id="mainContainer">
@@ -683,8 +685,9 @@
     </footer>
 
     <script>
-        // ---------- APP DATA (21 apps) ----------
+        // ---------- 25 APPS DATA (21 original + 4 new) ----------
         const appsData = [
+            // Original 21 apps
             { name: "Taurus Earn Money", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
             { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
             { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
@@ -705,7 +708,13 @@
             { name: "Teen Patti Classic", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", category: "Card" },
             { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
             { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
-            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" }
+            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
+            
+            // 4 NEW APPS
+            { name: "Boss Rummy", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://ibb.co/fdWgRgxk", category: "Rummy" },
+            { name: "Yono 777", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://ibb.co/VWz6S3JB", category: "Slots" },
+            { name: "Diwa VIP", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://ibb.co/ynsBHKtg", category: "VIP" },
+            { name: "Diwa 777", bonus: "₹?", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://ibb.co/Kx2RKNvN", category: "Slots" }
         ];
 
         function getCardStats(appName, bonusAmount) {
@@ -738,289 +747,4 @@
         function getDescription(appName, category, bonusAmount) {
             if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
             if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
-            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win real money every day. Trusted by millions.`;
-            return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
-        }
-
-        // ------------------ Main Grid & Download Logic ------------------
-        let currentSelectedIndex = null;
-
-        function renderMainGrid() {
-            const gridContainer = document.getElementById('allAppsGrid');
-            if (!gridContainer) return;
-            let html = '';
-            appsData.forEach((app, idx) => {
-                const stats = getCardStats(app.name, app.bonus);
-                html += `
-                    <div class="card" data-app-index="${idx}">
-                        <div class="card-app-name">${app.name}</div>
-                        <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="card-stats">
-                            <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
-                            <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
-                            <div class="card-stat"><div class="card-stat-value">${stats.votes}</div><div class="card-stat-label">Votes</div></div>
-                            <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
-                        </div>
-                        <div class="withdrawal-note">💰 Min Withdrawal: ${app.withdrawal}</div>
-                        <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
-                    </div>
-                `;
-            });
-            gridContainer.innerHTML = html;
-            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const idx = btn.getAttribute('data-download-index');
-                    if (idx !== null) navigateToDownloadPage(parseInt(idx));
-                    e.stopPropagation();
-                });
-            });
-        }
-
-        function navigateToDownloadPage(selectedIndex) {
-            currentSelectedIndex = selectedIndex;
-            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
-            showDownloadPage(selectedIndex);
-        }
-
-        function showDownloadPage(selectedIndex) {
-            const selectedApp = appsData[selectedIndex];
-            if (!selectedApp) return;
-            const stats = getAppStats(selectedApp.name);
-            const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
-            
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
-            gridDiv.classList.add('hidden');
-            downloadContainer.classList.remove('hidden');
-
-            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
-            let otherAppsHtml = '';
-            otherApps.forEach((app) => {
-                const originalIndex = appsData.findIndex(a => a.name === app.name);
-                otherAppsHtml += `
-                    <div class="other-card">
-                        <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy"></div>
-                        <div class="app-name">${app.name}</div>
-                        <div class="bonus">🎁 ${app.bonus}</div>
-                        <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
-                        <button class="small-download" data-other-index="${originalIndex}">📲 DOWNLOAD</button>
-                    </div>
-                `;
-            });
-            
-            const downloadPageHtml = `
-                <div class="download-page" id="activeDownloadPage">
-                    <div class="download-header">
-                        <h2>📥 ${selectedApp.name}</h2>
-                        <p>🎁 Signup Bonus: ${selectedApp.bonus}  |  🤑 Min Withdrawal: ${selectedApp.withdrawal}</p>
-                    </div>
-                    <div class="app-highlight" id="topDownloadSection">
-                        <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
-                        <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}"></div>
-                        
-                        <div class="stats-row">
-                            <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
-                            <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
-                            <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                            <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
-                        </div>
-                        
-                        <div class="app-description">
-                            ${description}<br><br>
-                            <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
-                        </div>
-
-                        <div class="howto-steps">
-                            <h4>📱 How To Download ${selectedApp.name}?</h4>
-                            <ol>
-                                <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
-                                <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
-                                <li>Open the APK file and install the app.</li>
-                                <li>Register with mobile number & verify OTP.</li>
-                                <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
-                            </ol>
-                        </div>
-                        
-                        <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
-                        <button id="backToHomeBtn" class="back-home-btn">🏠 Back to Home</button>
-                    </div>
-                    
-                    <div class="other-apps-title">✨ Other Yono Apps (Last Show) ✨</div>
-                    <div class="other-apps-grid" id="otherAppsGrid">
-                        ${otherAppsHtml}
-                    </div>
-                    <div class="footer-note" style="margin-top: 28px;">
-                        🌟 All apps: ₹100 min withdrawal | Trusted platform | 18+
-                    </div>
-                </div>
-            `;
-            
-            downloadContainer.innerHTML = downloadPageHtml;
-            
-            document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const otherIdx = btn.getAttribute('data-other-index');
-                    if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
-                    e.stopPropagation();
-                });
-            });
-            
-            const backHomeBtn = document.getElementById('backToHomeBtn');
-            if (backHomeBtn) {
-                backHomeBtn.addEventListener('click', () => {
-                    history.back();
-                });
-            }
-            
-            setTimeout(() => {
-                const topSection = document.getElementById('topDownloadSection');
-                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-
-        function goToMainGrid() {
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
-            if (gridDiv && downloadContainer) {
-                gridDiv.classList.remove('hidden');
-                downloadContainer.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                const headerElem = document.querySelector('header');
-                if (headerElem) {
-                    headerElem.style.transition = '0.2s';
-                    headerElem.style.boxShadow = '0 0 0 3px #ffcf8a';
-                    setTimeout(() => { headerElem.style.boxShadow = ''; }, 400);
-                }
-            }
-            currentSelectedIndex = null;
-        }
-
-        window.addEventListener('popstate', (event) => {
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-                return;
-            }
-            if (event.state && event.state.page === 'download') {
-                showDownloadPage(event.state.index);
-            } else {
-                goToMainGrid();
-            }
-        });
-
-        history.replaceState({ page: 'main' }, '', window.location.pathname);
-
-        function resetToMainGrid() {
-            dropdown.classList.remove('show');
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-            }
-            history.replaceState({ page: 'main' }, '', window.location.pathname);
-            goToMainGrid();
-        }
-
-        // ------------------ Custom Modal Logic ------------------
-        const customModal = document.getElementById('customInfoModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
-        const closeInfoModal = document.getElementById('closeInfoModal');
-
-        function showInfoModal(title, contentHtml) {
-            modalTitle.innerText = title;
-            modalBody.innerHTML = contentHtml;
-            customModal.style.display = 'flex';
-            history.pushState({ modal: true }, '');
-        }
-
-        function closeModalAndResetHistory() {
-            customModal.style.display = 'none';
-            history.replaceState({ page: 'main' }, '', window.location.pathname);
-        }
-
-        closeInfoModal.addEventListener('click', () => {
-            closeModalAndResetHistory();
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === customModal) {
-                closeModalAndResetHistory();
-            }
-        });
-
-        // ------------------ Dropdown Menu Logic ------------------
-        const menuBtn = document.getElementById('menuBtn');
-        const dropdown = document.getElementById('dropdownMenu');
-        const menuHome = document.getElementById('menuHome');
-        const menuPrivacy = document.getElementById('menuPrivacy');
-        const menuDisclaimer = document.getElementById('menuDisclaimer');
-        const menuAbout = document.getElementById('menuAbout');
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('show');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-                dropdown.classList.remove('show');
-            }
-        });
-
-        menuHome.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            resetToMainGrid();
-        });
-
-        menuPrivacy.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('🔒 Privacy Policy', `
-                <ul>
-                    <li>No personal data is collected directly by Yono Games Hub.</li>
-                    <li>Third‑party apps may collect your mobile number, name, or transaction details during registration and withdrawal.</li>
-                    <li>We do not store or have access to your UPI ID, bank details, or password.</li>
-                    <li>This site does not use cookies or tracking scripts.</li>
-                    <li>We link to external APK download pages – their privacy policies apply.</li>
-                    <li>Our platform is only for users 18 years or older.</li>
-                    <li>For privacy concerns: support@yonogamesnew</li>
-                </ul>
-            `);
-        });
-
-        menuDisclaimer.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('⚠️ Disclaimer', `
-                <ul>
-                    <li>Informational purposes only – we do not provide financial or investment advice.</li>
-                    <li>All games, apps, and bonuses are offered by third‑party providers. We are not the developer or operator of any game.</li>
-                    <li>We do not guarantee the accuracy of bonus amounts, withdrawal limits, or payout processing times.</li>
-                    <li>You must be 18 years or older to use any real‑money gaming app. Comply with local laws.</li>
-                    <li>Playing real‑money games involves risk – you may lose money. Never play with money you cannot afford to lose.</li>
-                    <li>We provide the platform "as is" without warranties. Not liable for damages from third‑party apps.</li>
-                    <li>If you have a gambling problem, seek help from professional organizations like BeGambleAware.</li>
-                </ul>
-            `);
-        });
-
-        menuAbout.addEventListener('click', () => {
-            dropdown.classList.remove('show');
-            showInfoModal('⭐ Trusted Gaming Platform', `
-                <p><strong>Yono Games Hub</strong> is the #1 destination for real-money gaming enthusiasts.</p>
-                <p><strong>Why choose us?</strong><br>
-                ✅ 100% verified signup bonuses<br>
-                ✅ Fastest withdrawal updates (₹100 min)<br>
-                ✅ Zero data storage – your privacy is our priority<br>
-                ✅ 24/7 customer support<br>
-                ✅ Curated list of 21+ top earning apps</p>
-                <p><strong>Contact:</strong> support@yonogamesnew<br>
-                <strong>Our promise:</strong> We manually test every app before listing. If an app stops paying, we remove it immediately. Your earnings and safety are our top priority.</p>
-            `);
-        });
-
-        function init() {
-            renderMainGrid();
-            const homeLink = document.getElementById('homeNavLink');
-            if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); resetToMainGrid(); });
-        }
-        init();
-    </script>
-</body>
-</html>
+            if (category === "Card") return `Experience the thrill of Teen Patti / poker on ${appName}. Get ${bonusAmount} free cash, play with friends, and win
