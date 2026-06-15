@@ -1,4 +1,5 @@
-Here is the final HTML with the 13 new apps added, each with a signup bonus and working download page. The header now shows 13 Real Money Apps. All other features (menu, modals, back navigation, download pages with pink buttons, “Other Yono Apps” section) remain intact.
+
+Here is the final HTML with 38 real money apps displayed in the main grid. Each app has its own name, signup bonus, min withdrawal ₹100, stats (Rating, Size, Votes, Bonus), and a working DOWNLOAD button that leads to a detailed download page. The header animation, menu, modals, and back navigation are all fully functional.
 
 ```html
 <!DOCTYPE html>
@@ -6,7 +7,7 @@ Here is the final HTML with the 13 new apps added, each with a signup bonus and 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Yono Games Platform | 13 Real Money Apps | Fast Download</title>
+    <title>Yono Games Platform | 38 Real Money Apps | Fast Download</title>
     <style>
         * {
             margin: 0;
@@ -687,8 +688,9 @@ Here is the final HTML with the 13 new apps added, each with a signup bonus and 
     </footer>
 
     <script>
-        // ---------- 13 NEW APPS (as per user request) ----------
+        // ---------- 38 APPS DATA (13 new + 25 from previous collection) ----------
         const appsData = [
+            // New 13 apps (as provided)
             { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg", category: "Slots" },
             { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg", category: "Slots" },
             { name: "Jaiho 91", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg", category: "Casino" },
@@ -701,7 +703,34 @@ Here is the final HTML with the 13 new apps added, each with a signup bonus and 
             { name: "New Yono Games", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/p6BTzfRz/1000022725.jpg", category: "Casino" },
             { name: "All Yono App", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/S7MsNPQ5/1000022725.jpg", category: "Casino" },
             { name: "Hello Rummy", bonus: "₹34", withdrawal: "₹100", downloadUrl: "https://t.me/yonogameswepsate", img: "https://i.ibb.co/27DSP5zR/1000022725.jpg", category: "Rummy" },
-            { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg", category: "Rummy" }
+            { name: "Rummy 365", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg", category: "Rummy" },
+            
+            // Previous 25 apps (to reach 38 total)
+            { name: "Taurus App", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg", category: "Earn" },
+            { name: "Teen Patti Gold", bonus: "₹37", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg", category: "Card" },
+            { name: "Teen Patti Master", bonus: "₹20", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg", category: "Card" },
+            { name: "Yono Rummy", bonus: "₹25", withdrawal: "₹100", downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758", img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg", category: "Rummy" },
+            { name: "Slots Winner", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393", img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg", category: "Slots" },
+            { name: "Good Slots", bonus: "₹15", withdrawal: "₹100", downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1", img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg", category: "Slots" },
+            { name: "Diwa Slot", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app", img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg", category: "Slots" },
+            { name: "GoGo Rummy", bonus: "₹28", withdrawal: "₹100", downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694", img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg", category: "Rummy" },
+            { name: "Joy Rummy", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100", img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg", category: "Rummy" },
+            { name: "Spin Gold", bonus: "₹22", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg", category: "Spin" },
+            { name: "Bingo 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828", img: "https://i.ibb.co/My9tjNgL/bingo101.jpg", category: "Bingo" },
+            { name: "Yes Spin", bonus: "₹18", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg", category: "Spin" },
+            { name: "Yono Arcade", bonus: "₹32", withdrawal: "₹100", downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006", img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg", category: "Arcade" },
+            { name: "SVIP 777", bonus: "₹27", withdrawal: "₹100", downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5", img: "https://i.ibb.co/vfWZMLm/svip777.jpg", category: "Casino" },
+            { name: "OK Rummy", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220", img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg", category: "Rummy" },
+            { name: "Hind 777", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307", img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg", category: "Slots" },
+            { name: "Rummy Most", bonus: "₹33", withdrawal: "₹100", downloadUrl: "https://th1.my/BY1JWS/3gvute0", img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg", category: "Rummy" },
+            { name: "Teen Patti Gold Old Version", bonus: "₹24", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg", category: "Card" },
+            { name: "Bet 213", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576", img: "https://i.ibb.co/YTqq2C4F/bet213.jpg", category: "Betting" },
+            { name: "Teen Patti", bonus: "₹29", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg", category: "Card" },
+            { name: "All Teen Patti Master", bonus: "₹31", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg", category: "Card" },
+            { name: "Boss Rummy", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504", img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg", category: "Rummy" },
+            { name: "Yono 777", bonus: "₹35", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg", category: "Slots" },
+            { name: "Diwa VIP", bonus: "₹60", withdrawal: "₹100", downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388", img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg", category: "VIP" },
+            { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg", category: "Slots" }
         ];
 
         function getCardStats(appName, bonusAmount) {
@@ -1026,7 +1055,7 @@ Here is the final HTML with the 13 new apps added, each with a signup bonus and 
             showInfoModal('⭐ About Us – Yono Games Platform', `
                 <p><strong>Who We Are</strong><br>Yono Games Platform is the #1 trusted destination for real-money gaming enthusiasts. We bring together the best earning apps in one place.</p>
                 <p><strong>Our Mission</strong><br>To provide 100% verified, transparent, and up-to-date information about signup bonuses, withdrawal limits, and game features.</p>
-                <p><strong>What We Offer</strong><br>✅ 13+ curated real-money gaming apps<br>✅ Daily updated signup bonus offers<br>✅ Clear minimum withdrawal information (₹100)<br>✅ Direct, safe APK download links<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support</p>
+                <p><strong>What We Offer</strong><br>✅ 38+ curated real-money gaming apps<br>✅ Daily updated signup bonus offers<br>✅ Clear minimum withdrawal information (₹100)<br>✅ Direct, safe APK download links<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support</p>
                 <p><strong>Why Trust Us</strong><br>- We manually test every app before listing.<br>- If an app stops paying or changes terms unfairly, we remove it immediately.<br>- Completely transparent about affiliate relationships (we may earn a commission).<br>- No hidden fees or misleading information.</p>
                 <p><strong>Contact Information</strong><br>📧 Email: support@yonogamesplatform.com<br>⏱️ Response time: Within 24 hours</p>
                 <p><strong>Our Commitment</strong><br>Your earnings and safety are our top priority. We continuously update our list to ensure you only get the best and most reliable apps.</p>
