@@ -114,11 +114,163 @@
             overflow: hidden;
         }
 
-        header img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        /* ===== NEW CUSTOM HD BANNER ===== */
+        .custom-banner {
+            background: linear-gradient(145deg, #0a2e1d 0%, #124d2b 50%, #0a2e1d 100%);
+            border-radius: 24px;
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            border: 2px solid #ffcf8a;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(255, 207, 138, 0.1);
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+        .custom-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 64, 129, 0.05) 0%, transparent 50%);
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            100% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+        }
+        .banner-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .banner-top-text {
+            font-size: 0.9rem;
+            color: #ffcf8a;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .banner-age-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 12px 0 10px;
+        }
+        .banner-age-badge {
+            display: inline-block;
+            background: #d50000;
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(213, 0, 0, 0.4);
+            border: 1px solid #ff6666;
+        }
+        .banner-age-badge.second {
+            background: transparent;
+            border: 2px solid #ffcf8a;
+            color: #ffcf8a;
+            box-shadow: none;
+            font-size: 1.1rem;
+            padding: 4px 16px;
+        }
+        .banner-main-heading {
+            font-size: clamp(1.8rem, 6vw, 3.2rem);
+            font-weight: 900;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            margin: 15px 0 10px;
+            line-height: 1.2;
+        }
+        .banner-main-heading span {
+            color: #ffcf8a;
+            background: linear-gradient(135deg, #ffcf8a, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .banner-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 25px;
+            margin: 20px 0 18px;
+        }
+        .banner-feature {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(4px);
+            padding: 8px 22px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e8f5e9;
+        }
+        .banner-feature .icon {
+            font-size: 1.2rem;
+        }
+        .banner-cta {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 700;
+            margin: 15px 0 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.4;
+        }
+        .banner-cta strong {
+            color: #ffcf8a;
+            font-weight: 900;
+        }
+        .banner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .banner-tag {
+            background: linear-gradient(135deg, #ffcf8a, #f5a623);
+            color: #0a2e1d;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(255, 207, 138, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        @media (max-width: 640px) {
+            .custom-banner {
+                padding: 20px 15px;
+                border-radius: 16px;
+            }
+            .banner-features {
+                gap: 10px;
+            }
+            .banner-feature {
+                padding: 5px 14px;
+                font-size: 0.8rem;
+            }
+            .banner-tag {
+                font-size: 0.65rem;
+                padding: 4px 12px;
+            }
+            .banner-age-badge {
+                font-size: 1rem;
+                padding: 2px 14px;
+            }
         }
 
         .container {
@@ -766,8 +918,39 @@
         </div>
     </div>
 
+    <!-- ===== HEADER WITH CUSTOM HD BANNER ===== -->
     <header>
-        <img src="https://i.ibb.co/G4XtBrm7" alt="Yono Games Platform Banner" loading="lazy" onerror="this.style.display='none'">
+        <div class="custom-banner">
+            <div class="banner-inner">
+                <div class="banner-top-text">✨ AllYonoGamesSite.com Informs You ✨</div>
+
+                <div class="banner-age-group">
+                    <span class="banner-age-badge">18+</span>
+                    <span class="banner-age-badge second">ADULTS ONLY</span>
+                </div>
+
+                <div class="banner-main-heading">
+                    India's Top <span>Rummy Games</span> Download Platform
+                </div>
+
+                <div class="banner-features">
+                    <span class="banner-feature"><span class="icon">🛡️</span> 100% Safe & Secure</span>
+                    <span class="banner-feature"><span class="icon">⚡</span> Fast & Easy Downloads</span>
+                    <span class="banner-feature"><span class="icon">🎁</span> Top Bonuses & Rewards</span>
+                </div>
+
+                <div class="banner-cta">
+                    <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
+                </div>
+
+                <div class="banner-tags">
+                    <span class="banner-tag">💰 REAL CASH GAMES</span>
+                    <span class="banner-tag">⚡ FAST PAYOUTS</span>
+                    <span class="banner-tag">🎯 DAILY BONUSES</span>
+                    <span class="banner-tag">📞 24X7 SUPPORT</span>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="container" id="mainContainer">
