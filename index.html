@@ -780,55 +780,44 @@
                 min-width: 120px;
             }
         }
-        /* Contact specific styles – full HD colorful */
-        .contact-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: linear-gradient(145deg, #fff9f0, #ffe6cc);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+        /* ===== AI Robot Rotation (Round Moment) ===== */
+        .ai-robot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0 10px;
         }
-        .contact-table th, .contact-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #ffcf8a;
+        .ai-robot {
+            font-size: 4rem;
+            display: inline-block;
+            animation: spinRobot 3s linear infinite;
+            filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.6));
+            background: radial-gradient(circle, #e0f7fa, #b2ebf2);
+            border-radius: 50%;
+            padding: 16px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
+        }
+        @keyframes spinRobot {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .ai-label {
+            text-align: center;
+            font-weight: 700;
+            color: #0a2e1d;
             font-size: 0.9rem;
-        }
-        .contact-table th {
-            background: #0a2e1d;
-            color: white;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .contact-table td {
-            background: white;
-        }
-        .contact-table tr:last-child td {
-            border-bottom: none;
-        }
-        .contact-email {
-            color: #d50000;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-email:hover {
-            text-decoration: underline;
-        }
-        .contact-telegram {
-            color: #0088cc;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-telegram:hover {
-            text-decoration: underline;
-        }
-        .contact-highlight {
-            background: linear-gradient(135deg, #ff4081, #ff8c00);
+            letter-spacing: 1px;
+            margin-top: 6px;
+            background: linear-gradient(90deg, #ff4081, #ff8c00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
         }
     </style>
 </head>
@@ -1234,7 +1223,7 @@
                     `);
         });
 
-        // ===== FIXED DISCLAIMER – Full content as requested =====
+        // ===== DISCLAIMER – Full content =====
         menuDisclaimer.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('⚠️ Disclaimer', `
@@ -1262,15 +1251,36 @@
                     `);
         });
 
+        // ===== NEW ABOUT US – Full custom content + AI robot round moment =====
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            showInfoModal('⭐ About Us – Yono Games Platform', `
-                        <p><strong>Who We Are</strong><br>Yono Games Platform is the #1 trusted destination for real-money gaming enthusiasts. We bring together the best earning apps in one place.</p>
-                        <p><strong>Our Mission</strong><br>To provide 100% verified, transparent, and up-to-date information about signup bonuses, withdrawal limits, and game features.</p>
-                        <p><strong>What We Offer</strong><br>✅ 38+ curated real-money gaming apps<br>✅ Daily updated signup bonus offers<br>✅ Clear minimum withdrawal information (₹100)<br>✅ Direct, safe APK download links<br>✅ Zero data storage – your privacy is our priority<br>✅ 24/7 customer support</p>
-                        <p><strong>Why Trust Us</strong><br>- We manually test every app before listing.<br>- If an app stops paying or changes terms unfairly, we remove it immediately.<br>- Completely transparent about affiliate relationships (we may earn a commission).<br>- No hidden fees or misleading information.</p>
-                        <p><strong>Contact Information</strong><br>📧 Email: support@yonogamesplatform.com<br>⏱️ Response time: Within 24 hours</p>
-                        <p><strong>Our Commitment</strong><br>Your earnings and safety are our top priority. We continuously update our list to ensure you only get the best and most reliable apps.</p>
+            showInfoModal('⭐ About - https://AllYonoGamesSite.com', `
+                        <p><strong>Welcome to our platform, about-all-yono-Games Store</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users about-all-yono-Games Store.</p>
+
+                        <p>Our journey began with a simple yet powerful vision: to revolutionize the way people discover and download apps. We recognize the evolving needs of the digital age and strive to meet them by offering an extensive selection of applications. From utility and productivity apps to entertainment and lifestyle options, our platform is a one-stop destination for all your app needs.</p>
+
+                        <p>We are not just about providing access to apps; we are about fostering a community where knowledge about the latest digital tools is shared and celebrated. Our platform is designed to be user-friendly, ensuring a seamless experience for everyone, from tech-savvy individuals to those just starting their digital journey.</p>
+
+                        <p>Our focus on Indian applications sets us apart, reflecting our dedication to cater to the unique needs and preferences of our audience. We believe in the power of local solutions for local challenges, and our platform is a testament to this belief.</p>
+
+                        <p>Join us in our endeavor to bring the best of digital innovations to your fingertips. Explore, download, and stay ahead in the ever-evolving world of apps with us about-all-yono-Games Store.</p>
+
+                        <hr style="margin: 20px 0; border: 1px dashed #ffcf8a;">
+
+                        <p><strong>🎯 Our Mission</strong><br>
+                        To provide the best gaming and app experience for Indian users with secure downloads and reliable service.</p>
+
+                        <p><strong>🔒 Secure Downloads</strong><br>
+                        All apps are verified and safe only.</p>
+
+                        <!-- AI Robot Round Moment -->
+                        <div style="margin-top: 20px; text-align: center; border-top: 2px solid #ffcf8a; padding-top: 20px;">
+                            <div class="ai-robot-container">
+                                <div class="ai-robot">🤖</div>
+                            </div>
+                            <div class="ai-label">⚡ AI Assistant — Round the Clock Support ⚡</div>
+                            <p style="font-size: 0.8rem; color: #555; margin-top: 4px;">Our intelligent AI is always spinning to help you</p>
+                        </div>
                     `);
         });
 
