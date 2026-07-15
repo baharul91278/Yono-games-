@@ -189,6 +189,11 @@
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             margin: 12px 0 8px;
             line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 12px;
         }
         .banner-main-heading .gold {
             color: #ffcf8a;
@@ -196,6 +201,23 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        /* Real woman avatar */
+        .woman-avatar {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffcf8a;
+            box-shadow: 0 4px 20px rgba(255, 207, 138, 0.4);
+            vertical-align: middle;
+            animation: floatAvatar 3s ease-in-out infinite;
+        }
+        @keyframes floatAvatar {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-4px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
         }
         .banner-features {
             display: flex;
@@ -251,7 +273,6 @@
             box-shadow: 0 4px 12px rgba(255, 207, 138, 0.25);
             border: 1px solid rgba(255,255,255,0.25);
         }
-        /* NEW: Small Size Tag */
         .small-size-tag {
             display: inline-block;
             background: linear-gradient(135deg, #00b894, #00a86b);
@@ -264,25 +285,11 @@
             text-transform: uppercase;
             box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
             border: 1px solid rgba(255,255,255,0.15);
-            margin-top: 6px;
+            margin-top: 0;
         }
         .small-size-tag .icon {
             font-size: 0.85rem;
             margin-right: 4px;
-        }
-        /* Madam / Woman Emoji Decoration */
-        .madam-deco {
-            display: inline-block;
-            font-size: 1.6rem;
-            margin: 0 6px;
-            vertical-align: middle;
-            animation: floatMadam 3s ease-in-out infinite;
-            filter: drop-shadow(0 4px 12px rgba(255, 207, 138, 0.3));
-        }
-        @keyframes floatMadam {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-4px) scale(1.05); }
-            100% { transform: translateY(0px) scale(1); }
         }
         @media (max-width: 640px) {
             .custom-banner {
@@ -312,8 +319,9 @@
                 font-size: 0.65rem;
                 letter-spacing: 1.5px;
             }
-            .madam-deco {
-                font-size: 1.2rem;
+            .woman-avatar {
+                width: 36px;
+                height: 36px;
             }
             .small-size-tag {
                 font-size: 0.6rem;
@@ -979,7 +987,7 @@
 
                 <div class="banner-main-heading">
                     India's Top <span class="gold">Rummy Games</span> Download Platform
-                    <span class="madam-deco">👩</span>
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Woman" class="woman-avatar" loading="lazy" onerror="this.style.display='none'">
                 </div>
 
                 <div class="banner-features">
