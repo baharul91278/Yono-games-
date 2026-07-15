@@ -819,6 +819,79 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Contact table style */
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: linear-gradient(145deg, #fff9f0, #ffe6cc);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .contact-table th, .contact-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #ffcf8a;
+            font-size: 0.9rem;
+        }
+        .contact-table th {
+            background: #0a2e1d;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .contact-table td {
+            background: white;
+        }
+        .contact-table tr:last-child td {
+            border-bottom: none;
+        }
+        .contact-email {
+            color: #d50000;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+        .contact-telegram {
+            color: #0088cc;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .contact-telegram:hover {
+            text-decoration: underline;
+        }
+        /* Disclaimer custom styles */
+        .disclaimer-section {
+            margin: 16px 0;
+            padding: 12px 14px;
+            border-radius: 16px;
+            background: #f8f9fa;
+            border-left: 6px solid #ff8c00;
+        }
+        .disclaimer-section h4 {
+            color: #b45900;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .disclaimer-section strong {
+            color: #1e562a;
+        }
+        .disclaimer-highlight {
+            background: linear-gradient(135deg, #ff4081, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .disclaimer-box {
+            background: #fff7e8;
+            padding: 10px 16px;
+            border-radius: 12px;
+            margin: 10px 0;
+            border: 1px solid #ffcf8a;
+        }
     </style>
 </head>
 <body>
@@ -1202,7 +1275,7 @@
             resetToMainGrid();
         });
 
-        // ===== CONTACT US – with full HD colorful styling =====
+        // ===== CONTACT US =====
         menuContact.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('📞 Contact Us - AllYonoGamesSite.com', `
@@ -1223,35 +1296,113 @@
                     `);
         });
 
-        // ===== DISCLAIMER – Full content =====
+        // ===== NEW DISCLAIMER – Full content, branded as AllYonoGamesSite =====
         menuDisclaimer.addEventListener('click', () => {
             dropdown.classList.remove('show');
-            showInfoModal('⚠️ Disclaimer', `
-                        <p><strong>Independent App Disclaimers:</strong><br>
-                        We strongly recommend that users review and understand the full disclaimer, terms and conditions, and privacy policy of each App they intend to use. The brief disclaimers provided here on Yono Games Store are not exhaustive and may not encapsulate all the terms of use and risks associated with each App.</p>
+            showInfoModal('⚠️ Disclaimer - AllYonoGamesSite', `
+                        <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 12px; border-radius: 16px; margin-bottom: 16px; text-align: center;">
+                            <h3 style="color: #b45900; font-weight: 800; font-size: 1.4rem;">Welcome to AllYonoGamesSite</h3>
+                        </div>
 
-                        <p><strong>No Liability:</strong><br>
-                        Yono Games Store assumes no liability for any losses, damages, or issues arising from the use of these third-party Apps. Our role is limited to providing a platform for accessing these Apps, and we are not responsible for their operation, content, or any outcomes from their use.</p>
+                        <p style="font-weight: 700; color: #1e562a;">This disclaimer applies to all users of the AllYonoGamesSite website and the wide array of applications ("Apps") available on it. Our platform includes diverse apps such as Poker, Rummy, Ludo, fantasy sports, investment apps, and trading apps. By accessing AllYonoGamesSite, you acknowledge and agree to the terms outlined in this disclaimer.</p>
 
-                        <p><strong>Notice of Regional Legal Restrictions:</strong><br>
-                        Users are hereby informed that certain applications (Apps) available on Yono Games Store, such as Rummy, Poker, and Fantasy Sports, may be subject to legal restrictions in certain states within India.</p>
+                        <div class="disclaimer-section">
+                            <h4>📌 Understanding the Scope of Our Platform</h4>
+                            <p>AllYonoGamesSite serves as a digital distribution platform for various third-party applications. Our role is limited to providing access to these apps. We do not develop, modify, or have any control over the content and functionality of these apps.</p>
+                        </div>
 
-                        <p><strong>General Disclaimer:</strong><br>
-                        By using Yono Games Store, users acknowledge and agree to this general disclaimer, affirming their understanding that the Apps are managed by respective third-party entities and that all interactions with these Apps are at their own risk and responsibility.</p>
+                        <div class="disclaimer-section" style="border-left-color: #d50000;">
+                            <h4>💰 User Responsibility and Financial Risk</h4>
+                            <p><strong>Risk of Financial Activities</strong><br>
+                            The Apps, particularly those involving financial transactions like betting games or investment platforms, may carry inherent risks including the potential for significant financial loss. You are solely responsible for any financial outcomes resulting from using these Apps.</p>
+                            <p><strong>Informed Decision-Making</strong><br>
+                            We strongly encourage you to thoroughly research and understand each App, especially those involving financial risks, before using them. This includes seeking advice from financial professionals if needed.</p>
+                            <p><strong>No Endorsement of Financial Strategies</strong><br>
+                            Our platform does not endorse any specific financial strategies, nor do we guarantee their success. Decisions made based on any App's content are solely your responsibility.</p>
+                        </div>
 
-                        <p><strong>Additional Important Information:</strong><br>
-                        – All bonuses, withdrawal limits, and game features are as per the respective third-party app’s policies.<br>
-                        – Yono Games Store does not guarantee the accuracy or timeliness of any information displayed.<br>
-                        – Users must independently verify the legality and suitability of each app in their jurisdiction before downloading or using it.<br>
-                        – We recommend that users exercise caution and use their own judgment while engaging with any real-money gaming platform.<br>
-                        – This platform is intended for users who are 18 years of age or older.</p>
+                        <div class="disclaimer-section" style="border-left-color: #0088cc;">
+                            <h4>⚖️ Legal Age and Compliance</h4>
+                            <p><strong>Age Restrictions</strong><br>
+                            Some Apps, particularly those involving gambling or financial investments, are designed for use by individuals above a certain age (usually 18 or 21 years). You must comply with these age restrictions.</p>
+                            <p><strong>Compliance with Local Laws</strong><br>
+                            It is your responsibility to ensure that your use of any App complies with local laws and regulations. This includes understanding legal constraints related to gambling, investments, and other financial activities.</p>
+                        </div>
 
-                        <p><strong>Contact Us:</strong><br>
-                        If you have any questions about this disclaimer, please reach out to us at support@yonogamesplatform.com</p>
+                        <div class="disclaimer-section" style="border-left-color: #2ecc71;">
+                            <h4>📝 Critical Review of App-Specific Terms</h4>
+                            <p><strong>User Due Diligence</strong><br>
+                            Before signing up, registering, or engaging with any App on our platform, it is crucial that you thoroughly review and understand that App's specific Terms and Conditions, disclaimers, and privacy policies.</p>
+                            <p><strong>No Responsibility for Discrepancies</strong><br>
+                            We are not responsible for any discrepancies or misunderstandings resulting from the App's terms, conditions, or policies.</p>
+                        </div>
+
+                        <div class="disclaimer-box" style="background: #ffebee; border-color: #d50000;">
+                            <p><strong>⚠️ No Liability for Losses</strong><br>
+                            AllYonoGamesSite shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including financial losses, resulting from the use or inability to use any App listed on our website. Your engagement with these Apps is entirely at your own risk and discretion.</p>
+                        </div>
+
+                        <div class="disclaimer-section" style="border-left-color: #9c27b0;">
+                            <h4>🧠 Awareness of Addiction Risks</h4>
+                            <p><strong>Risk of Addiction:</strong> Certain apps, especially games and those involving gambling or trading, can be addictive. We encourage responsible use of these apps and awareness of the potential for addictive behavior.</p>
+                            <p><strong>Seeking Help:</strong> If you or someone you know is struggling with addiction related to these apps, we advise seeking professional help.</p>
+                        </div>
+
+                        <div class="disclaimer-section" style="border-left-color: #ff8c00;">
+                            <h4>📢 Additional Disclaimers</h4>
+                            <p><strong>Variability in App Functionality</strong><br>
+                            The functionality and content of the Apps may change over time, and we do not guarantee their consistency or availability.</p>
+                            <p><strong>Non-Endorsement of App Content</strong><br>
+                            Display of an App on our platform does not constitute an endorsement of its content or functionality.</p>
+                            <p><strong>No Financial or Legal Advice</strong><br>
+                            AllYonoGamesSite does not provide financial, legal, or investment advice. Any information obtained from our platform should not be treated as professional advice.</p>
+                        </div>
+
+                        <div class="disclaimer-box" style="background: #e8f5e9; border-color: #2ecc71;">
+                            <p><strong>🔄 Changes and Amendments</strong><br>
+                            We reserve the right to modify this disclaimer at any time. Such changes will be effective immediately upon posting on our website. It is your responsibility to regularly review this disclaimer.</p>
+                        </div>
+
+                        <hr style="margin: 20px 0; border: 2px dashed #ffcf8a;">
+
+                        <!-- Specific disclaimers for app categories -->
+                        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
+                            <h4 style="color: #b45900;">🎯 Disclaimer for Rummy Apps on AllYonoGamesSite</h4>
+                            <p><strong>General Notice:</strong> This is a brief and partial disclaimer. For full details, refer to the specific Rummy app's own disclaimer. Rummy games are intended for users aged 18+ and involve elements of skill and chance. Play at your own risk and ensure compliance with local gambling laws. Adding money to these games is done at the user's own risk.</p>
+                        </div>
+
+                        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
+                            <h4 style="color: #b45900;">🎲 Disclaimer for Ludo Apps on AllYonoGamesSite</h4>
+                            <p><strong>General Notice:</strong> This disclaimer is concise and may not cover all aspects. Review the full disclaimer in the specific Ludo app. Ludo apps are for entertainment and suitable for users 18+. Play responsibly and at your own risk. Any financial transactions within these apps are the responsibility of the user.</p>
+                        </div>
+
+                        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
+                            <h4 style="color: #b45900;">📈 Disclaimer for Investment Apps on AllYonoGamesSite</h4>
+                            <p><strong>General Notice:</strong> This disclaimer is partial. For complete information, review the specific investment app's disclaimer. Investment apps are for users aged 18+ and involve financial risks, including potential loss of capital. Decisions should be made based on personal financial situations. Any investments are made at the user's own risk.</p>
+                        </div>
+
+                        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
+                            <h4 style="color: #b45900;">🏏 Disclaimer for Fantasy Sports Apps on AllYonoGamesSite</h4>
+                            <p><strong>General Notice:</strong> This is a summarized disclaimer. Refer to the full disclaimer in each Fantasy Sports app for comprehensive details. These apps are intended for users aged 18+ and involve an element of financial risk. There is no guarantee of winning, and losses incurred are the user's responsibility. Play and engage in financial transactions at your own risk.</p>
+                        </div>
+
+                        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
+                            <h4 style="color: #b45900;">💵 Disclaimer for Other Earning Apps on AllYonoGamesSite</h4>
+                            <p><strong>General Notice:</strong> This is an abbreviated disclaimer. Consult the full disclaimer in each earning app for more details. These apps are suitable for users aged 18+ and may offer potential income opportunities with no guaranteed earnings. Any financial decisions or transactions within these apps are entirely at the user's risk.</p>
+                        </div>
+
+                        <div style="background: #fff3e0; padding: 12px; border-radius: 12px; margin: 12px 0; border: 2px solid #ff8c00;">
+                            <h4 style="color: #b45900;">🔗 General Disclaimer for Third-Party Apps on AllYonoGamesSite</h4>
+                            <p><strong>Notice of Non-Affiliation and Disclaimer:</strong> AllYonoGamesSite does not operate, control, or manage any of the applications (Apps) listed on our platform, including Rummy, Ludo, Fantasy Sports, Investment, and Trading apps. These apps are developed, owned, and operated by independent third parties.</p>
+                        </div>
+
+                        <div style="margin-top: 20px; text-align: center; background: linear-gradient(90deg, #ff4081, #ff8c00); padding: 8px; border-radius: 30px; color: white; font-weight: 700;">
+                            ⚡ AllYonoGamesSite – Your Trusted App Discovery Platform ⚡
+                        </div>
                     `);
         });
 
-        // ===== NEW ABOUT US – Full custom content + AI robot round moment =====
+        // ===== ABOUT US (with AI robot) =====
         menuAbout.addEventListener('click', () => {
             dropdown.classList.remove('show');
             showInfoModal('⭐ About - https://AllYonoGamesSite.com', `
