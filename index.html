@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Yono Games Platform | 38 Real Money Apps | Fast Download</title>
+
+    <!-- ===== SPEED OPTIMIZATION: Preconnect & DNS Prefetch ===== -->
+    <link rel="preconnect" href="https://i.ibb.co">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
+    <link rel="preconnect" href="https://th7.my">
+    <link rel="dns-prefetch" href="https://th7.my">
+    <link rel="preconnect" href="https://d34i569g8ztoql.cloudfront.net">
+    <link rel="dns-prefetch" href="https://d34i569g8ztoql.cloudfront.net">
+
     <style>
         * {
             margin: 0;
@@ -1296,7 +1305,9 @@
                 html += `
                             <div class="card" data-app-index="${idx}">
                                 <div class="card-app-name">${app.name}</div>
-                                <div class="card-img"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=App'"></div>
+                                <div class="card-img">
+                                    <img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="80" height="80" onerror="this.src='https://via.placeholder.com/80?text=App'">
+                                </div>
                                 <div class="card-stats">
                                     <div class="card-stat"><div class="card-stat-value">${stats.rating}</div><div class="card-stat-label">Rating</div></div>
                                     <div class="card-stat"><div class="card-stat-value">${stats.size}</div><div class="card-stat-label">Size</div></div>
@@ -1343,7 +1354,9 @@
                 const originalIndex = appsData.findIndex(a => a.name === app.name);
                 otherAppsHtml += `
                             <div class="other-card">
-                                <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;"><img src="${app.img}" alt="${app.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=App'"></div>
+                                <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;">
+                                    <img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="60" height="60" onerror="this.src='https://via.placeholder.com/60?text=App'">
+                                </div>
                                 <div class="app-name">${app.name}</div>
                                 <div class="bonus">🎁 ${app.bonus}</div>
                                 <div class="withdrawal-note" style="font-size:0.7rem;">💰 ${app.withdrawal}</div>
@@ -1360,7 +1373,9 @@
                             </div>
                             <div class="app-highlight" id="topDownloadSection">
                                 <div class="app-name" style="font-size: 1.8rem; font-weight:800; margin-bottom: 12px;">${selectedApp.name}</div>
-                                <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;"><img src="${selectedApp.img}" alt="${selectedApp.name}" onerror="this.src='https://via.placeholder.com/90?text=App'"></div>
+                                <div class="card-img" style="width: 90px; height: 90px; margin-bottom: 12px;">
+                                    <img src="${selectedApp.img}" alt="${selectedApp.name}" loading="lazy" decoding="async" width="90" height="90" onerror="this.src='https://via.placeholder.com/90?text=App'">
+                                </div>
 
                                 <div class="stats-row">
                                     <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
