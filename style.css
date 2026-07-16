@@ -1,0 +1,111 @@
+/* ===== EXTRA OPTIMIZATION ===== */
+
+/* Images - Responsive & Fast Loading */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Remove tap highlight on mobile */
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Selection color */
+::selection {
+    background: #ffcf8a;
+    color: #0a2e1d;
+}
+
+/* GPU acceleration for smooth animations */
+.card,
+.download-btn,
+.final-download-btn {
+    will-change: transform;
+}
+
+/* Smooth hover transitions for all interactive elements */
+.card,
+.download-btn,
+.final-download-btn,
+.small-download,
+.share-btn,
+.app-tag-item,
+.menu-btn,
+.nav-left a {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent layout shift for images */
+.card-img {
+    position: relative;
+    overflow: hidden;
+}
+.card-img img {
+    transition: transform 0.3s ease;
+}
+.card:hover .card-img img {
+    transform: scale(1.05);
+}
+
+/* Better scrolling experience */
+.app-tags-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce repaint for sticky nav */
+.top-nav {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Optimize modal animation */
+.info-modal-content {
+    will-change: transform, opacity;
+}
+
+/* Lazy loading blur-up effect */
+.card-img img {
+    background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+}
+
+/* Prevent text selection on buttons */
+.download-btn,
+.final-download-btn,
+.small-download,
+.share-btn,
+.menu-btn {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Optimize font rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Reduce CLS (Cumulative Layout Shift) */
+.card-img {
+    aspect-ratio: 1/1;
+    width: 80px;
+    height: 80px;
+}
+
+/* Mobile first - touch-friendly */
+@media (max-width: 640px) {
+    .download-btn,
+    .final-download-btn,
+    .small-download {
+        min-height: 44px; /* Apple's recommended touch target size */
+    }
+    .share-btn {
+        min-height: 36px;
+    }
+}
