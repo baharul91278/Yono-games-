@@ -1,0 +1,19 @@
+{
+  "name": "AllYonoGamesSite",
+  "short_name": "AllYonoGames",
+  "description": "Download India's Top Rummy Games & Win Real Cash Prizes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a2e1d",
+  "theme_color": "#0a2e1d",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
