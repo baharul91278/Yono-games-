@@ -1,0 +1,6 @@
+# robots.txt for AllYonoGamesSite
+
+User-agent: *
+Allow: /
+
+Sitemap: https://allyonogamesite.com/sitemap.xml
