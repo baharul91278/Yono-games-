@@ -185,7 +185,13 @@
             transform: scale(1.04);
         }
         .share-btn .icon {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 6px rgba(255, 207, 138, 0.4));
+            animation: pulseShare 2s ease-in-out infinite;
+        }
+        @keyframes pulseShare {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .banner-age-group {
@@ -254,24 +260,6 @@
         .banner-feature .icon {
             font-size: 1.1rem;
         }
-        .small-size-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #00b894, #00a86b);
-            color: white;
-            padding: 3px 16px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
-            border: 1px solid rgba(255,255,255,0.15);
-            margin-top: 0;
-        }
-        .small-size-tag .icon {
-            font-size: 0.85rem;
-            margin-right: 4px;
-        }
 
         .banner-cta {
             font-size: clamp(0.95rem, 1.8vw, 1.2rem);
@@ -306,13 +294,25 @@
             border: 1px solid rgba(255,255,255,0.25);
         }
 
-        /* ===== APP NAME TAGS (Scrollable Row) ===== */
+        /* ===== APP TAGS ===== */
         .app-tags-wrapper {
             margin-top: 16px;
             padding-top: 14px;
             border-top: 1px solid rgba(255, 207, 138, 0.2);
             overflow: hidden;
             position: relative;
+        }
+        .app-tags-label {
+            font-size: 1.1rem; /* increased from 0.6rem to make it more prominent */
+            color: #ffcf8a;
+            opacity: 0.9;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         .app-tags-scroll {
             display: flex;
@@ -355,17 +355,6 @@
             border-color: #ffcf8a;
             transform: scale(1.05);
         }
-        .app-tags-label {
-            font-size: 0.6rem;
-            color: #ffcf8a;
-            opacity: 0.7;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 6px;
-            display: block;
-            text-align: center;
-        }
 
         @media (max-width: 640px) {
             .custom-banner {
@@ -395,20 +384,19 @@
                 font-size: 0.65rem;
                 letter-spacing: 1.5px;
             }
-            .small-size-tag {
-                font-size: 0.6rem;
-                padding: 2px 12px;
-            }
             .share-btn {
                 font-size: 0.65rem;
                 padding: 3px 12px 3px 10px;
             }
             .share-btn .icon {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             .app-tag-item {
                 font-size: 0.55rem;
                 padding: 3px 10px;
+            }
+            .app-tags-label {
+                font-size: 0.9rem;
             }
             .banner-top-row {
                 gap: 6px;
@@ -1064,11 +1052,11 @@
     <header>
         <div class="custom-banner">
             <div class="banner-inner">
-                <!-- Top row: left text + right share button -->
+                <!-- Top row: left text + right share button (AI share icon) -->
                 <div class="banner-top-row">
                     <span class="banner-top-text">✨ ALLYONOGAMESSITE.COM INFORMS YOU ✨</span>
                     <button class="share-btn" onclick="sharePage()">
-                        <span class="icon">📤</span> Share
+                        <span class="icon">🤖📤</span> Share
                     </button>
                 </div>
 
@@ -1085,7 +1073,7 @@
                     <span class="banner-feature"><span class="icon">✅</span> 100% Safe & Secure</span>
                     <span class="banner-feature"><span class="icon">⚡</span> Fast & Easy Downloads</span>
                     <span class="banner-feature"><span class="icon">🎁</span> Top Bonuses & Rewards</span>
-                    <span class="banner-feature"><span class="icon">📱</span> <span class="small-size-tag"><span class="icon">⬇️</span> Small Size</span></span>
+                    <!-- Small Size tag removed as requested -->
                 </div>
 
                 <div class="banner-cta">
@@ -1099,9 +1087,9 @@
                     <span class="banner-tag">📞 24X7 SUPPORT</span>
                 </div>
 
-                <!-- ===== ALL APP NAMES AS SMALL TAGS (Scrollable) ===== -->
+                <!-- ===== ALL APP NAMES AS SCROLLABLE TAGS ===== -->
                 <div class="app-tags-wrapper">
-                    <span class="app-tags-label">🎮 All Apps</span>
+                    <span class="app-tags-label">🎮 ALL APPS</span> <!-- increased size -->
                     <div class="app-tags-scroll" id="appTagsScroll">
                         <!-- Will be populated by JavaScript -->
                     </div>
@@ -1145,7 +1133,7 @@
             }
         });
 
-        // ===== SHARE FUNCTION =====
+        // ===== SHARE FUNCTION (AI share icon action) =====
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
