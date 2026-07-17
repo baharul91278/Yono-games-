@@ -1,79 +1,50 @@
+<div class="premium-marquee">
+  <div class="marquee-track">
+    <span>
+      🎮 567 Slots • Jaiho 91 • Rummy Ludo • ABC Rummy • Rummy 91 • Love Rummy • Bingo 101 • Yono 777 • Saga Slots • Spin Crush • Top Rummy • New Yono Games • Hello Rummy • All Yono Games • Rummy 365 • Taurus App • Teen Patti Gold • Teen Patti Master • Yono Rummy • Slots Winner • Good Slots • Diwa Slot • GoGo Rummy • Joy Rummy • Spin Gold • Yes Spin • Yono Arcade • SVIP 777 • OK Rummy • Hind 777 • Rummy Most • Bet 213 • Teen Patti • Boss Rummy • Diwa VIP • Diwa 777
+    </span>
+  </div>
+</div>
+
 <style>
-.app-marquee {
-    width: 100%;
-    overflow: hidden;
-    background: linear-gradient(135deg,#0b6b2f,#149647,#0b6b2f);
-    padding: 14px 0;
-    border-radius: 14px;
-    border: 2px solid #ffd700;
-    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+.premium-marquee{
+    width:100%;
+    overflow:hidden;
+    background:linear-gradient(135deg,#0b5d1e,#0f8a2b,#16a34a);
+    border:3px solid #ffd700;
+    border-radius:18px;
+    padding:14px 0;
+    box-shadow:0 0 25px rgba(22,163,74,.5);
 }
 
-.app-track {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 35s linear infinite;
+.marquee-track{
+    display:flex;
+    white-space:nowrap;
+    animation:scrollLeft 35s linear infinite;
 }
 
-.app-track span {
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    padding: 10px 18px;
-    margin: 0 8px;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: bold;
-    border: 2px solid #ffd700;
-    box-shadow: 0 0 10px rgba(255,215,0,.4);
+.marquee-track span{
+    display:inline-block;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    padding-left:100%;
+    text-shadow:0 2px 6px rgba(0,0,0,.5);
 }
 
-@keyframes scroll-left {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+.marquee-track:hover{
+    animation-play-state:paused;
+}
+
+@keyframes scrollLeft{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
 }
 </style>
-
-<div class="app-marquee">
-    <div class="app-track">
-        <span>567 Slots</span>
-        <span>Jaiho 91</span>
-        <span>Rummy Ludo</span>
-        <span>ABC Rummy</span>
-        <span>Rummy 91</span>
-        <span>Love Rummy</span>
-        <span>Bingo 101</span>
-        <span>Yono 777</span>
-        <span>Saga Slots</span>
-        <span>Spin Crush</span>
-        <span>Top Rummy</span>
-        <span>New Yono Games</span>
-        <span>Hello Rummy</span>
-        <span>All Yono Games</span>
-        <span>Rummy 365</span>
-        <span>Taurus App</span>
-        <span>Teen Patti Gold</span>
-        <span>Teen Patti Master</span>
-        <span>Yono Rummy</span>
-        <span>Slots Winner</span>
-        <span>Good Slots</span>
-        <span>Diwa Slot</span>
-        <span>GoGo Rummy</span>
-        <span>Joy Rummy</span>
-        <span>Spin Gold</span>
-        <span>Yes Spin</span>
-        <span>Yono Arcade</span>
-        <span>SVIP 777</span>
-        <span>OK Rummy</span>
-        <span>Hind 777</span>
-        <span>Rummy Most</span>
-        <span>Bet 213</span>
-        <span>Teen Patti</span>
-        <span>Boss Rummy</span>
-        <span>Diwa VIP</span>
-        <span>Diwa 777</span>
-    </div>
-</div>
 <!DOCTYPE html>
 
 <html lang="en">
