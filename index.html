@@ -1,72 +1,78 @@
 <style>
-.marquee-box{
-    background:linear-gradient(135deg,#0b6b2d,#138a36,#0b6b2d);
-    padding:15px 0;
-    border-radius:15px;
-    border:2px solid #FFD700;
-    overflow:hidden;
-    box-shadow:0 0 20px rgba(0,0,0,.3);
+.app-marquee {
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg,#0b6b2f,#149647,#0b6b2f);
+    padding: 14px 0;
+    border-radius: 14px;
+    border: 2px solid #ffd700;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
 
-.marquee-box marquee{
-    padding:5px 0;
+.app-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 35s linear infinite;
 }
 
-.app-tag{
-    display:inline-block;
-    background:#FFD700;
-    color:#000;
-    font-weight:bold;
-    padding:8px 18px;
-    margin:0 8px;
-    border-radius:30px;
-    border:2px solid #fff;
-    box-shadow:0 0 12px rgba(255,215,0,.7);
-    font-size:17px;
+.app-track span {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 10px 18px;
+    margin: 0 8px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255,215,0,.4);
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }
 </style>
 
-<div class="marquee-box">
-<marquee behavior="scroll" direction="left" scrollamount="6">
-
-<span class="app-tag">567 Slots</span>
-<span class="app-tag">Jaiho 91</span>
-<span class="app-tag">Rummy Ludo</span>
-<span class="app-tag">ABC Rummy</span>
-<span class="app-tag">Rummy 91</span>
-<span class="app-tag">Love Rummy</span>
-<span class="app-tag">Bingo 101</span>
-<span class="app-tag">Yono 777</span>
-<span class="app-tag">Saga Slots</span>
-<span class="app-tag">Spin Crush</span>
-<span class="app-tag">Top Rummy</span>
-<span class="app-tag">New Yono Games</span>
-<span class="app-tag">Hello Rummy</span>
-<span class="app-tag">All Yono Games</span>
-<span class="app-tag">Rummy 365</span>
-<span class="app-tag">Taurus App</span>
-<span class="app-tag">Teen Patti Gold</span>
-<span class="app-tag">Teen Patti Master</span>
-<span class="app-tag">Yono Rummy</span>
-<span class="app-tag">Slots Winner</span>
-<span class="app-tag">Good Slots</span>
-<span class="app-tag">Diwa Slot</span>
-<span class="app-tag">GoGo Rummy</span>
-<span class="app-tag">Joy Rummy</span>
-<span class="app-tag">Spin Gold</span>
-<span class="app-tag">Yes Spin</span>
-<span class="app-tag">Yono Arcade</span>
-<span class="app-tag">SVIP 777</span>
-<span class="app-tag">OK Rummy</span>
-<span class="app-tag">Hind 777</span>
-<span class="app-tag">Rummy Most</span>
-<span class="app-tag">Bet 213</span>
-<span class="app-tag">Teen Patti</span>
-<span class="app-tag">Boss Rummy</span>
-<span class="app-tag">Diwa VIP</span>
-<span class="app-tag">Diwa 777</span>
-
-</marquee>
+<div class="app-marquee">
+    <div class="app-track">
+        <span>567 Slots</span>
+        <span>Jaiho 91</span>
+        <span>Rummy Ludo</span>
+        <span>ABC Rummy</span>
+        <span>Rummy 91</span>
+        <span>Love Rummy</span>
+        <span>Bingo 101</span>
+        <span>Yono 777</span>
+        <span>Saga Slots</span>
+        <span>Spin Crush</span>
+        <span>Top Rummy</span>
+        <span>New Yono Games</span>
+        <span>Hello Rummy</span>
+        <span>All Yono Games</span>
+        <span>Rummy 365</span>
+        <span>Taurus App</span>
+        <span>Teen Patti Gold</span>
+        <span>Teen Patti Master</span>
+        <span>Yono Rummy</span>
+        <span>Slots Winner</span>
+        <span>Good Slots</span>
+        <span>Diwa Slot</span>
+        <span>GoGo Rummy</span>
+        <span>Joy Rummy</span>
+        <span>Spin Gold</span>
+        <span>Yes Spin</span>
+        <span>Yono Arcade</span>
+        <span>SVIP 777</span>
+        <span>OK Rummy</span>
+        <span>Hind 777</span>
+        <span>Rummy Most</span>
+        <span>Bet 213</span>
+        <span>Teen Patti</span>
+        <span>Boss Rummy</span>
+        <span>Diwa VIP</span>
+        <span>Diwa 777</span>
+    </div>
 </div>
 <!DOCTYPE html>
 
