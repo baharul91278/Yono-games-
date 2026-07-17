@@ -68,6 +68,481 @@
     }
 }
 </style>
+999999999999op99999999999999999999999999
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>Yono Game · Fast Page</title>
+  <!-- Font Awesome for clean icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0e1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    /* main card – glassy dark */
+    .yono-card {
+      max-width: 420px;
+      width: 100%;
+      background: #12162b;
+      background: linear-gradient(145deg, #131a30 0%, #0e1225 100%);
+      border-radius: 40px;
+      padding: 24px 20px 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 215, 0, 0.15);
+      transition: all 0.2s ease;
+      color: #f0f3fa;
+      position: relative;
+      backdrop-filter: blur(2px);
+    }
+
+    /* header: logo + title */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .app-icon {
+      width: 56px;
+      height: 56px;
+      background: #f5c842;
+      background: radial-gradient(circle at 30% 30%, #ffd966, #e6a800);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: #0b0e1a;
+      box-shadow: 0 6px 14px rgba(245, 200, 66, 0.3);
+    }
+
+    .app-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #f9e05d, #f5b342);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .app-title small {
+      font-size: 16px;
+      font-weight: 400;
+      color: #9aa3c9;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #9aa3c9;
+      margin-left: 6px;
+    }
+
+    /* bonus & withdraw row */
+    .bonus-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 14px 18px;
+      border-radius: 60px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    .bonus-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #d6defa;
+    }
+
+    .bonus-item i {
+      color: #f5b342;
+      width: 22px;
+      font-size: 18px;
+    }
+
+    .bonus-item strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .bonus-item .highlight {
+      background: #f5b34220;
+      padding: 4px 12px;
+      border-radius: 40px;
+      border: 1px solid #f5b34240;
+      color: #fad974;
+    }
+
+    /* image placeholder – with the actual photo link */
+    .game-image-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1b2340;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: inset 0 0 0 1px #2a3255, 0 12px 24px -8px #00000080;
+    }
+
+    .game-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* rating, size, votes, bonus (3 names) */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+      background: #0f142b;
+      padding: 12px 6px;
+      border-radius: 40px;
+      border: 1px solid #252d4e;
+    }
+
+    .stat-cell {
+      text-align: center;
+      padding: 4px 0;
+    }
+
+    .stat-cell .value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .stat-cell .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #8891bb;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .stat-cell .value i {
+      font-size: 16px;
+      color: #f5b342;
+      margin-right: 2px;
+    }
+
+    /* download button + second next-page button (both open link) */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+
+    .btn-download {
+      background: linear-gradient(145deg, #f5b342, #e0951f);
+      border: none;
+      padding: 18px 10px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 22px;
+      color: #0b0e1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 8px 0 #9e6f1a, 0 8px 20px #f5b34240;
+      transition: all 0.08s linear;
+      cursor: pointer;
+      width: 100%;
+      letter-spacing: 1px;
+    }
+
+    .btn-download:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #9e6f1a, 0 8px 20px #f5b34230;
+    }
+
+    .btn-download i {
+      font-size: 26px;
+    }
+
+    /* secondary button (for "next page" feel) */
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #3b4570;
+      padding: 14px 10px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #c8d0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: 0.2s;
+      cursor: pointer;
+      width: 100%;
+      backdrop-filter: blur(2px);
+    }
+
+    .btn-secondary i {
+      color: #f5b342;
+    }
+
+    .btn-secondary:active {
+      background: #252d4e;
+      border-color: #f5b34280;
+    }
+
+    /* app info tag (About Yono Game) */
+    .info-tag {
+      margin-top: 16px;
+      background: #0f142b80;
+      backdrop-filter: blur(4px);
+      padding: 18px 18px 20px;
+      border-radius: 30px;
+      border: 1px solid #28305a;
+    }
+
+    .info-tag h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #f5b342;
+      letter-spacing: -0.2px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-tag h3 i {
+      font-size: 18px;
+    }
+
+    .info-tag p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #bcc3e6;
+      margin-bottom: 6px;
+    }
+
+    .info-tag .highlight-text {
+      color: #fad974;
+      font-weight: 500;
+    }
+
+    /* extra micro interaction */
+    .click-feedback {
+      transition: all 0.05s;
+    }
+
+    /* small utilities */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 {
+      margin-top: 6px;
+    }
+
+    /* hide telegram */
+    .telegram-hide {
+      display: none !important;
+    }
+
+    /* responsive */
+    @media (max-width: 400px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        padding: 10px 2px;
+      }
+      .stat-cell .value {
+        font-size: 17px;
+      }
+      .bonus-row {
+        gap: 10px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="yono-card" id="appContainer">
+
+  <!-- header: Yono Game -->
+  <div class="app-header">
+    <div class="app-icon">Y</div>
+    <div class="app-title">Yono <small>Game</small></div>
+  </div>
+
+  <!-- Bonus & Min withdraw (as per requirement) -->
+  <div class="bonus-row">
+    <div class="bonus-item"><i class="fas fa-gift"></i> <strong>Sign Up Bonus</strong> <span class="highlight">₹45</span></div>
+    <div class="bonus-item"><i class="fas fa-wallet"></i> <strong>Min. Withdraw</strong> <span class="highlight">₹100</span></div>
+  </div>
+
+  <!-- image: yono games photo (link from ibb) -->
+  <div class="game-image-wrapper">
+    <img src="https://i.ibb.co/LDWqbqc3/image.jpg" alt="Yono Game" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22225%22%3E%3Crect fill=%22%23131a30%22 width=%22400%22 height=%22225%22/%3E%3Ctext x=%2250%%22 y=%2250%%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23f5b342%22 font-family=%22sans-serif%22%3E🎮 YONO%3C/text%3E%3C/svg%3E'" />
+  </div>
+
+  <!-- rating, size, votes, bonus (exactly 4 stats) -->
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="value"><i class="fas fa-star"></i> 4.5</div>
+      <div class="label">Rating</div>
+    </div>
+    <div class="stat-cell">
+      <div class="value">62</div>
+      <div class="label">Size</div>
+    </div>
+    <div class="stat-cell">
+      <div class="value">28.1K</div>
+      <div class="label">Votes</div>
+    </div>
+    <div class="stat-cell">
+      <div class="value">₹45</div>
+      <div class="label">Bonus</div>
+    </div>
+  </div>
+
+  <!-- download button (fast click -> next page -> open app) -->
+  <div class="action-buttons">
+    <button class="btn-download" id="downloadBtn">
+      <i class="fas fa-download"></i> DOWNLOAD
+    </button>
+    <!-- second button: "next page" style, also opens app link (fast) -->
+    <button class="btn-secondary" id="nextPageBtn">
+      <i class="fas fa-arrow-right"></i> NEXT PAGE
+    </button>
+  </div>
+
+  <!-- app information tag (About Yono Game) -->
+  <div class="info-tag">
+    <h3><i class="fas fa-gamepad"></i> About Yono Game</h3>
+    <p>
+      <span class="highlight-text">Yono Games</span> offers ₹37–₹268 welcome bonus with fast ₹100 withdrawal. 
+      Play exciting online games, claim daily rewards, and enjoy secure UPI deposits and instant withdrawals.
+    </p>
+    <p style="margin-top: 8px; font-size: 14px; color: #9aa3c9;">
+      <i class="fas fa-phone-alt" style="color: #f5b342; margin-right: 6px;"></i> 
+      One of the most popular gaming apps in India – earn real money, secure & user-friendly.
+    </p>
+    <!-- hidden telegram (removed as requested) -->
+    <div class="telegram-hide"></div>
+  </div>
+
+  <!-- small note: back to back navigation is handled via history -->
+  <div style="margin-top: 16px; font-size: 12px; color: #5a6490; text-align: center; border-top: 1px solid #1f2748; padding-top: 14px;">
+    <i class="fas fa-undo-alt" style="margin-right: 6px;"></i> click back to return
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ----- APP LINK (from user) -----
+    const APP_URL = 'https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209';
+
+    // get elements
+    const downloadBtn = document.getElementById('downloadBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const container = document.getElementById('appContainer');
+
+    // ----- helper: open app link and push state for back behaviour -----
+    function openAppLink() {
+      // 1. open the app link in the same tab (simulates "next page")
+      window.location.href = APP_URL;
+    }
+
+    // ----- download button: first click opens app (fast) -----
+    downloadBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // fast: immediately go to app link (next page)
+      openAppLink();
+    });
+
+    // ----- next page button: also open app link (and shows "next page" feel) -----
+    nextPageBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // same: go to app link, acts as "next page"
+      openAppLink();
+    });
+
+    // ----- extra: back to back navigation (history) -----
+    // we want to allow back button to return to this page.
+    // when the user lands on this page, we push a state so that back works.
+    // but since we are already on the page, we can add a state to help with back behaviour.
+    // However, we want "back to back" behaviour: each click on download or next 
+    // navigates away, but if user presses back they come back here.
+    // That's already default browser behaviour. But we also want to handle the case
+    // where the app link might redirect. We'll use a small trick: 
+    // we add a history state on page load, so that if they come back they see this page.
+
+    // On page load: push a state to mark this page (so back works from app link)
+    window.addEventListener('load', function() {
+      // if there's no state, push one
+      if (!window.history.state || window.history.state.page !== 'yono') {
+        window.history.pushState({ page: 'yono' }, 'Yono Game', window.location.href);
+      }
+    });
+
+    // optional: intercept popstate to handle back (but we just let it work)
+    window.addEventListener('popstate', function(event) {
+      // if state is yono, we are back on this page.
+      // we can optionally show a small feedback, but no action needed.
+      console.log('Back to Yono page');
+    });
+
+    // Also: if the user clicks on any link that might be inside the page? none.
+    // but we also want the image click or something? not required.
+
+    // extra: for "back to back" we can also add a small indicator
+    // but we already have the footer message.
+
+    // Edge: if user clicks download and then back, they come back to this page.
+    // That's exactly the required "back to back" behaviour.
+
+    console.log('Yono Fast Page ready – download & next page open app link.');
+  })();
+</script>
+
+<!-- note: the image link uses ibb.co direct image URL, 
+     we used https://i.ibb.co/LDWqbqc3/image.jpg (the actual image link from the user's ibb) 
+     If the image doesn't load, fallback is provided.
+     Also the 3 names: Sign Up Bonus, Min Withdraw, and the stats (rating,size,votes,bonus) 
+     are clearly shown. 
+     Telegram is hidden (no telegram channel mention anywhere).
+     The download button fast click opens the app link (next page).
+     The "next page" button also opens the same app link (as per "download button click open app click se app open hona chahiye")
+     and we have the photo displayed.
+  -->
+</body>
+</html>
+9999999999999999999999999999999999oo9
 <!DOCTYPE html>
 
 <html lang="en">
