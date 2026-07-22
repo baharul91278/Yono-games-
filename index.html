@@ -17,7 +17,7 @@
             padding-bottom: 30px;
         }
 
-        /* ===== TOP NAV - SLOW LEFT MOVE ===== */
+        /* ===== TOP NAV ===== */
         .top-nav {
             background: #0a2e1d;
             padding: 8px 16px;
@@ -41,16 +41,17 @@
         }
         @keyframes slowLeftMove {
             0% { transform: translateX(0px); }
-            100% { transform: translateX(-10px); }
+            100% { transform: translateX(-8px); }
         }
 
+        /* ===== PREMIUM LED ICONS FOR NAV ===== */
         .nav-link {
             color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.65rem;
             padding: 4px 12px;
-            border-radius: 8px;
+            border-radius: 40px;
             cursor: pointer;
             white-space: nowrap;
             transition: 0.3s;
@@ -59,46 +60,72 @@
             align-items: center;
             gap: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        /* Home - default white */
+        /* LED border for all nav links */
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 40px;
+            background: conic-gradient(from 0deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b);
+            animation: ledSpinNav 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.5;
+        }
+        .nav-link:hover::before {
+            opacity: 1;
+        }
+        @keyframes ledSpinNav {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Each link with different LED color theme */
         .nav-link.home {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            border-color: rgba(255, 107, 107, 0.3);
         }
-        .nav-link.home:hover {
-            background: #ffcf8a;
-            color: #0a2e1d;
+        .nav-link.home::before {
+            background: conic-gradient(from 0deg, #ff6b6b, #ee5a24, #ff6b6b, #ee5a24, #ff6b6b);
         }
-        /* About - Blue */
         .nav-link.about {
-            background: rgba(33, 150, 243, 0.25);
-            color: #64b5f6;
-            border-color: rgba(33, 150, 243, 0.3);
+            background: rgba(72, 219, 251, 0.2);
+            color: #48dbfb;
+            border-color: rgba(72, 219, 251, 0.3);
         }
-        .nav-link.about:hover {
-            background: #2196f3;
-            color: #fff;
+        .nav-link.about::before {
+            background: conic-gradient(from 0deg, #48dbfb, #0abde3, #48dbfb, #0abde3, #48dbfb);
         }
-        /* Contact - Cyan */
         .nav-link.contact {
-            background: rgba(0, 188, 212, 0.25);
-            color: #4dd0e1;
-            border-color: rgba(0, 188, 212, 0.3);
+            background: rgba(254, 202, 87, 0.2);
+            color: #feca57;
+            border-color: rgba(254, 202, 87, 0.3);
         }
-        .nav-link.contact:hover {
-            background: #00bcd4;
-            color: #fff;
+        .nav-link.contact::before {
+            background: conic-gradient(from 0deg, #feca57, #f9a825, #feca57, #f9a825, #feca57);
         }
-        /* Disclaimer - Green */
         .nav-link.disclaimer {
-            background: rgba(76, 175, 80, 0.25);
-            color: #81c784;
-            border-color: rgba(76, 175, 80, 0.3);
+            background: rgba(255, 159, 243, 0.2);
+            color: #ff9ff3;
+            border-color: rgba(255, 159, 243, 0.3);
         }
-        .nav-link.disclaimer:hover {
-            background: #4caf50;
-            color: #fff;
+        .nav-link.disclaimer::before {
+            background: conic-gradient(from 0deg, #ff9ff3, #f368e0, #ff9ff3, #f368e0, #ff9ff3);
         }
+
+        .nav-link:hover {
+            transform: scale(1.05);
+        }
+        .nav-link.home:hover { background: #ff6b6b; color: #fff; }
+        .nav-link.about:hover { background: #48dbfb; color: #fff; }
+        .nav-link.contact:hover { background: #feca57; color: #0a2e1d; }
+        .nav-link.disclaimer:hover { background: #ff9ff3; color: #fff; }
 
         .nav-right {
             display: flex;
@@ -445,7 +472,7 @@
             margin-bottom: 40px;
         }
 
-        /* ===== CARD - NO ROUND LED ON IMAGES ===== */
+        /* ===== CARD ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -459,10 +486,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-        /* No LED border on card */
-        .card::before {
-            display: none;
         }
         .card:hover {
             transform: translateY(-5px) scale(1.01);
@@ -705,9 +728,6 @@
             position: relative;
             overflow: hidden;
         }
-        .other-card::before {
-            display: none;
-        }
         .other-card .app-name {
             font-size: 1rem;
             margin: 8px 0 6px;
@@ -786,7 +806,7 @@
             font-size: 0.7rem;
         }
 
-        /* ===== INFO MODAL ===== */
+        /* ===== INFO MODAL - Premium × Close ===== */
         .info-modal {
             display: none;
             position: fixed;
@@ -811,6 +831,34 @@
             border: 1px solid #ffcf8a;
             max-height: 80vh;
             overflow-y: auto;
+            position: relative;
+        }
+        /* Premium × Close Button */
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border: 2px solid #ffcf8a;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            line-height: 1;
+            padding: 0;
+        }
+        .modal-close-btn:hover {
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(135deg, #ff4757, #c0392b);
         }
         .info-modal-content h4 {
             font-size: 1.5rem;
@@ -818,31 +866,13 @@
             color: #1e562a;
             border-left: 5px solid #ff8c00;
             padding-left: 16px;
+            padding-right: 40px;
         }
         .info-modal-content p {
             font-size: 0.9rem;
             line-height: 1.5;
             margin: 12px 0;
             color: #2d3e2b;
-        }
-        .info-close {
-            background: linear-gradient(135deg, #2ecc71, #e91e63);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 60px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-            margin-top: 16px;
-            width: 100%;
-            transition: 0.25s ease;
-            box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
-        }
-        .info-close:hover {
-            transform: scale(0.97);
-            background: linear-gradient(135deg, #27ae60, #c2185b);
-            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30);
         }
         .info-grid {
             display: flex;
@@ -974,10 +1004,10 @@
 <!-- ===== TOP NAV ===== -->
 <nav class="top-nav">
     <div class="nav-left">
-        <a class="nav-link home" id="homeNavLink" href="#">🏠 Home</a>
-        <a class="nav-link about" id="navAbout">ℹ️ About</a>
-        <a class="nav-link contact" id="navContact">📞 Contact</a>
-        <a class="nav-link disclaimer" id="navDisclaimer">⚖️ Disclaimer</a>
+        <a class="nav-link home" id="homeNavLink" href="#">🏠</a>
+        <a class="nav-link about" id="navAbout">ℹ️</a>
+        <a class="nav-link contact" id="navContact">📞</a>
+        <a class="nav-link disclaimer" id="navDisclaimer">⚖️</a>
     </div>
     <div class="nav-right">
         <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
@@ -991,12 +1021,12 @@
     </div>
 </nav>
 
-<!-- ===== INFO MODAL ===== -->
+<!-- ===== INFO MODAL with Premium × Close ===== -->
 <div id="customInfoModal" class="info-modal">
     <div class="info-modal-content">
+        <button class="modal-close-btn" id="closeInfoModal">✕</button>
         <h4 id="modalTitle">Information</h4>
         <div id="modalBody"></div>
-        <button class="info-close" id="closeInfoModal">OK</button>
     </div>
 </div>
 
@@ -1362,7 +1392,7 @@
     const customModal = document.getElementById('customInfoModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
-    const closeInfoModal = document.getElementById('closeInfoModal');
+    const closeModalBtn = document.getElementById('closeInfoModal');
 
     function showInfoModal(title, contentHtml) {
         modalTitle.innerText = title;
@@ -1376,7 +1406,7 @@
         history.replaceState({ page: 'main' }, '', window.location.pathname);
     }
 
-    closeInfoModal.addEventListener('click', () => {
+    closeModalBtn.addEventListener('click', () => {
         closeModalAndResetHistory();
     });
 
