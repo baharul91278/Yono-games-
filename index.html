@@ -17,7 +17,6 @@
             padding-bottom: 30px;
         }
 
-        /* ===== TOP NAV - SLOW LEFT MOVE ===== */
         .top-nav {
             background: #0a2e1d;
             padding: 8px 16px;
@@ -999,6 +998,130 @@
             box-shadow: 0 0 12px rgba(255,215,0,.6);
         }
 
+        /* ===== 4 COLOR ICON TAGS ===== */
+        .icon-tag-group {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .icon-tag {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        .icon-tag:hover {
+            transform: scale(1.08) rotate(4deg);
+        }
+        /* Cyan LED */
+        .icon-tag.cyan {
+            background: linear-gradient(145deg, #00bcd4, #00838f);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+        }
+        .icon-tag.cyan::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
+            animation: ledSpinTag 3s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.7;
+        }
+        /* Green LED */
+        .icon-tag.green {
+            background: linear-gradient(145deg, #4caf50, #1b5e20);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+        }
+        .icon-tag.green::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
+            animation: ledSpinTag 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.7;
+        }
+        /* Yellow LED */
+        .icon-tag.yellow {
+            background: linear-gradient(145deg, #ffc107, #f57f17);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+        }
+        .icon-tag.yellow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
+            animation: ledSpinTag 3.5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.7;
+        }
+        /* Blue LED */
+        .icon-tag.blue {
+            background: linear-gradient(145deg, #2196f3, #0d47a1);
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.4);
+        }
+        .icon-tag.blue::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #2196f3, #64b5f6, #2196f3);
+            animation: ledSpinTag 4.5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.7;
+        }
+        @keyframes ledSpinTag {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Glossy inner gradient for each */
+        .icon-tag .gloss {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .icon-tag .tag-label {
+            position: absolute;
+            bottom: -18px;
+            font-size: 0.5rem;
+            font-weight: 700;
+            color: #333;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.85);
+            padding: 1px 6px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
         img, .card, .download-btn, .nav-link, .share-btn-nav {
             will-change: transform, opacity;
         }
@@ -1206,7 +1329,6 @@
     // Helper to get tags for an app (fallback to generic)
     function getAppTags(app) {
         if (app.tags) return app.tags;
-        // Generic fallback
         return {
             description: `Download ${app.name} APK and get ${app.bonus} signup bonus instantly. Play exciting games, win real money, earn daily rewards, and withdraw cash directly via UPI.`,
             about: `${app.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players.`,
@@ -1264,6 +1386,23 @@
         `;
     }
 
+    // ===== GENERATE 4 COLOR ICON TAGS =====
+    function generateIconTags(appName, bonusAmount) {
+        const colors = [
+            { cls: 'cyan', label: 'Bonus' },
+            { cls: 'green', label: 'Secure' },
+            { cls: 'yellow', label: 'Fast' },
+            { cls: 'blue', label: 'Trusted' }
+        ];
+        return colors.map(c => `
+            <div class="icon-tag ${c.cls}">
+                <div class="gloss"></div>
+                <span style="color:#fff;font-weight:800;font-size:0.6rem;z-index:2;text-shadow:0 2px 4px rgba(0,0,0,0.3);">${bonusAmount}</span>
+                <span class="tag-label">${c.label}</span>
+            </div>
+        `).join('');
+    }
+
     function getInfoTags(appName, bonusAmount) {
         return `
         <div class="info-grid">
@@ -1285,6 +1424,7 @@
         let html = '';
         appsData.forEach((app, idx) => {
             const stats = getCardStats(app.name, app.bonus);
+            const bonusNum = app.bonus.replace('₹', '');
             html += `
             <div class="card" data-app-index="${idx}">
                 <div class="card-app-name">${app.name}</div>
@@ -1298,6 +1438,10 @@
                     <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
                 </div>
                 <div class="withdrawal-note">🏦 Min Withdrawal: ${app.withdrawal}</div>
+                <!-- 4 Color Icon Tags -->
+                <div class="icon-tag-group">
+                    ${generateIconTags(app.name, bonusNum)}
+                </div>
                 <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
             </div>
             `;
@@ -1326,7 +1470,6 @@
         const tags = getAppTags(selectedApp);
         const bonusNumeric = selectedApp.bonus.replace('₹', '');
 
-        // Build unique content using app-specific tags
         const description = tags.description || `Download ${selectedApp.name} APK and get ${selectedApp.bonus} signup bonus instantly.`;
         const aboutHtml = tags.about ? `<p>${tags.about}</p>` : '';
         const featuresHtml = tags.features ? tags.features.map(f => `<li><strong>${f}</strong></li>`).join('') : '';
@@ -1380,13 +1523,16 @@
                 </div>
                 ${getInfoTags(selectedApp.name, selectedApp.bonus)}
                 
-                <!-- About Section -->
+                <!-- 4 Color Icon Tags in detail -->
+                <div class="icon-tag-group" style="margin:16px 0;">
+                    ${generateIconTags(selectedApp.name, bonusNumeric)}
+                </div>
+
                 <div style="background: #fff7e8; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
                     <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">ℹ️ About ${selectedApp.name}</h4>
                     ${aboutHtml || `<p>${selectedApp.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.</p>`}
                 </div>
 
-                <!-- Key Features -->
                 <div style="background: #f0f9f0; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
                     <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">✨ Key Features & Benefits</h4>
                     <ul style="list-style: none; padding: 0;">
@@ -1394,7 +1540,6 @@
                     </ul>
                 </div>
 
-                <!-- Download & Signup -->
                 <div style="background: #fef4e6; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
                     <h4 style="color: #b45900; font-size: 1.1rem; margin-bottom: 12px;">📲 ${selectedApp.name} Download & Signup – Claim Bonus ${selectedApp.bonus}</h4>
                     <div style="font-size: 0.9rem; line-height: 1.6;">
@@ -1419,7 +1564,6 @@
                     </div>
                 </div>
 
-                <!-- How to Download -->
                 <div class="howto-steps">
                     <h4>📱 How To Download ${selectedApp.name}?</h4>
                     <ol>
@@ -1433,7 +1577,6 @@
                     </ol>
                 </div>
 
-                <!-- Safety & Security -->
                 <div style="background: #e8f5e9; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left; border-left: 6px solid #2ecc71;">
                     <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">🔒 Safety & Security</h4>
                     <p style="font-size: 0.9rem; line-height: 1.5; color: #2d3e2b;">Your safety and security are our top priorities. ${selectedApp.name} uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe. The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.</p>
@@ -1533,7 +1676,6 @@
         }
     });
 
-    // ===== NAV LINKS =====
     document.getElementById('homeNavLink').addEventListener('click', (e) => {
         e.preventDefault();
         resetToMainGrid();
