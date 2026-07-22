@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Yono Games Platform - Top Rummy & Casino Apps</title>
     <style>
         * {
@@ -17,7 +17,7 @@
             padding-bottom: 30px;
         }
 
-        /* ===== TOP NAV ===== */
+        /* ===== TOP NAV - SLOW LEFT MOVE ===== */
         .top-nav {
             background: #0a2e1d;
             padding: 8px 16px;
@@ -35,7 +35,7 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
             animation: slowLeftMove 8s ease-in-out infinite alternate;
         }
@@ -44,88 +44,68 @@
             100% { transform: translateX(-8px); }
         }
 
-        /* ===== PREMIUM LED ICONS FOR NAV ===== */
+        /* Premium icon style for nav */
         .nav-link {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.65rem;
-            padding: 4px 12px;
-            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 5px 14px;
+            border-radius: 30px;
             cursor: pointer;
             white-space: nowrap;
             transition: 0.3s;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 6px;
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
         }
-        /* LED border for all nav links */
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 40px;
-            background: conic-gradient(from 0deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b);
-            animation: ledSpinNav 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.5;
-        }
-        .nav-link:hover::before {
-            opacity: 1;
-        }
-        @keyframes ledSpinNav {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Each link with different LED color theme */
+        /* Premium LED glow for each */
         .nav-link.home {
-            background: rgba(255, 107, 107, 0.2);
-            color: #ff6b6b;
-            border-color: rgba(255, 107, 107, 0.3);
+            background: linear-gradient(135deg, #1a237e, #283593);
+            border-color: #5c6bc0;
+            box-shadow: 0 0 20px rgba(92, 107, 192, 0.3);
         }
-        .nav-link.home::before {
-            background: conic-gradient(from 0deg, #ff6b6b, #ee5a24, #ff6b6b, #ee5a24, #ff6b6b);
+        .nav-link.home:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(92, 107, 192, 0.6);
         }
         .nav-link.about {
-            background: rgba(72, 219, 251, 0.2);
-            color: #48dbfb;
-            border-color: rgba(72, 219, 251, 0.3);
+            background: linear-gradient(135deg, #004d40, #00695c);
+            border-color: #26a69a;
+            box-shadow: 0 0 20px rgba(38, 166, 154, 0.3);
         }
-        .nav-link.about::before {
-            background: conic-gradient(from 0deg, #48dbfb, #0abde3, #48dbfb, #0abde3, #48dbfb);
+        .nav-link.about:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(38, 166, 154, 0.6);
         }
         .nav-link.contact {
-            background: rgba(254, 202, 87, 0.2);
-            color: #feca57;
-            border-color: rgba(254, 202, 87, 0.3);
+            background: linear-gradient(135deg, #4a148c, #6a1b9a);
+            border-color: #ab47bc;
+            box-shadow: 0 0 20px rgba(171, 71, 188, 0.3);
         }
-        .nav-link.contact::before {
-            background: conic-gradient(from 0deg, #feca57, #f9a825, #feca57, #f9a825, #feca57);
+        .nav-link.contact:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(171, 71, 188, 0.6);
         }
         .nav-link.disclaimer {
-            background: rgba(255, 159, 243, 0.2);
-            color: #ff9ff3;
-            border-color: rgba(255, 159, 243, 0.3);
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            border-color: #66bb6a;
+            box-shadow: 0 0 20px rgba(102, 187, 106, 0.3);
         }
-        .nav-link.disclaimer::before {
-            background: conic-gradient(from 0deg, #ff9ff3, #f368e0, #ff9ff3, #f368e0, #ff9ff3);
+        .nav-link.disclaimer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(102, 187, 106, 0.6);
         }
 
-        .nav-link:hover {
-            transform: scale(1.05);
+        .nav-link .nav-icon {
+            font-size: 0.9rem;
+            filter: drop-shadow(0 0 6px currentColor);
         }
-        .nav-link.home:hover { background: #ff6b6b; color: #fff; }
-        .nav-link.about:hover { background: #48dbfb; color: #fff; }
-        .nav-link.contact:hover { background: #feca57; color: #0a2e1d; }
-        .nav-link.disclaimer:hover { background: #ff9ff3; color: #fff; }
 
         .nav-right {
             display: flex;
@@ -308,6 +288,7 @@
         }
         .banner-feature .icon {
             font-size: 1.1rem;
+            filter: drop-shadow(0 0 8px currentColor);
         }
         .banner-cta {
             font-size: clamp(0.95rem, 1.8vw, 1.2rem);
@@ -409,7 +390,10 @@
             }
             .nav-link {
                 font-size: 0.5rem;
-                padding: 3px 8px;
+                padding: 3px 10px;
+            }
+            .nav-link .nav-icon {
+                font-size: 0.7rem;
             }
             .share-btn-nav {
                 font-size: 0.5rem;
@@ -472,7 +456,7 @@
             margin-bottom: 40px;
         }
 
-        /* ===== CARD ===== */
+        /* ===== CARD - 4 CORNERS BLACK FRAME ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -486,6 +470,23 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        /* 4 corner black frame */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 32px;
+            border: 2px solid #0a0a0a;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.15;
+        }
+        .card:hover::before {
+            opacity: 0.35;
         }
         .card:hover {
             transform: translateY(-5px) scale(1.01);
@@ -506,14 +507,14 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 12px;
-            background: linear-gradient(145deg, #fff5e6, #ffe6cc);
-            border-radius: 24px;
+            background: #0a0a0a;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-            border: 2px solid #0a2e1d;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border: 3px solid #0a0a0a;
             position: relative;
         }
         .card-img img {
@@ -806,7 +807,7 @@
             font-size: 0.7rem;
         }
 
-        /* ===== INFO MODAL - Premium × Close ===== */
+        /* ===== INFO MODAL ===== */
         .info-modal {
             display: none;
             position: fixed;
@@ -833,32 +834,31 @@
             overflow-y: auto;
             position: relative;
         }
-        /* Premium × Close Button */
-        .modal-close-btn {
-            position: absolute;
-            top: 12px;
-            right: 16px;
+        /* Close button - black premium */
+        .modal-close {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: #0a0a0a;
+            color: #fff;
+            border: 2px solid #333;
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            border: 2px solid #ffcf8a;
-            color: white;
             font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-            line-height: 1;
-            padding: 0;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            margin-bottom: 10px;
         }
-        .modal-close-btn:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 0 35px rgba(255, 107, 107, 0.6);
-            background: linear-gradient(135deg, #ff4757, #c0392b);
+        .modal-close:hover {
+            transform: scale(1.1) rotate(90deg);
+            border-color: #ffcf8a;
+            box-shadow: 0 0 30px rgba(255, 207, 138, 0.3);
         }
         .info-modal-content h4 {
             font-size: 1.5rem;
@@ -866,13 +866,32 @@
             color: #1e562a;
             border-left: 5px solid #ff8c00;
             padding-left: 16px;
-            padding-right: 40px;
+            clear: both;
         }
         .info-modal-content p {
             font-size: 0.9rem;
             line-height: 1.5;
             margin: 12px 0;
             color: #2d3e2b;
+        }
+        .info-close {
+            background: linear-gradient(135deg, #2ecc71, #e91e63);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            margin-top: 16px;
+            width: 100%;
+            transition: 0.25s ease;
+            box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
+        }
+        .info-close:hover {
+            transform: scale(0.97);
+            background: linear-gradient(135deg, #27ae60, #c2185b);
+            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30);
         }
         .info-grid {
             display: flex;
@@ -1004,10 +1023,10 @@
 <!-- ===== TOP NAV ===== -->
 <nav class="top-nav">
     <div class="nav-left">
-        <a class="nav-link home" id="homeNavLink" href="#">🏠</a>
-        <a class="nav-link about" id="navAbout">ℹ️</a>
-        <a class="nav-link contact" id="navContact">📞</a>
-        <a class="nav-link disclaimer" id="navDisclaimer">⚖️</a>
+        <a class="nav-link home" id="homeNavLink" href="#"><span class="nav-icon">🏠</span> Home</a>
+        <a class="nav-link about" id="navAbout"><span class="nav-icon">ℹ️</span> About</a>
+        <a class="nav-link contact" id="navContact"><span class="nav-icon">📞</span> Contact</a>
+        <a class="nav-link disclaimer" id="navDisclaimer"><span class="nav-icon">⚖️</span> Disclaimer</a>
     </div>
     <div class="nav-right">
         <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
@@ -1021,12 +1040,13 @@
     </div>
 </nav>
 
-<!-- ===== INFO MODAL with Premium × Close ===== -->
+<!-- ===== INFO MODAL ===== -->
 <div id="customInfoModal" class="info-modal">
     <div class="info-modal-content">
-        <button class="modal-close-btn" id="closeInfoModal">✕</button>
+        <button class="modal-close" id="closeInfoModal">✕</button>
         <h4 id="modalTitle">Information</h4>
         <div id="modalBody"></div>
+        <button class="info-close" id="infoCloseBtn">OK</button>
     </div>
 </div>
 
@@ -1045,9 +1065,9 @@
                 India's Top <span class="gold">Rummy Games</span> Download Platform
             </div>
             <div class="banner-features">
-                <span class="banner-feature"><span class="icon">✔️</span> 100% Safe & Secure</span>
-                <span class="banner-feature"><span class="icon">⚡</span> Fast & Easy Downloads</span>
-                <span class="banner-feature"><span class="icon">🎁</span> Top Bonuses & Rewards</span>
+                <span class="banner-feature"><span class="icon" style="color:#66bb6a;">✔️</span> 100% Safe & Secure</span>
+                <span class="banner-feature"><span class="icon" style="color:#42a5f5;">⚡</span> Fast & Easy Downloads</span>
+                <span class="banner-feature"><span class="icon" style="color:#ffa726;">🎁</span> Top Bonuses & Rewards</span>
             </div>
             <div class="banner-cta">
                 <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
@@ -1056,10 +1076,10 @@
                 <span class="banner-tag"> REAL CASH GAMES</span>
                 <span class="banner-tag"> FAST PAYOUTS</span>
                 <span class="banner-tag"> DAILY BONUSES</span>
-                <span class="banner-tag">⌛ 24X7 SUPPORT</span>
+                <span class="banner-tag" style="background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff;">⌛ 24X7 SUPPORT</span>
             </div>
             <div class="app-tags-wrapper">
-                <span class="app-tags-label">🎮 ALL APPS</span>
+                <span class="app-tags-label" style="color:#ffd54f;">🎮 ALL APPS</span>
                 <div class="app-tags-scroll" id="appTagsScroll"></div>
             </div>
         </div>
@@ -1210,12 +1230,12 @@
     function getInfoTags(appName, bonusAmount) {
         return `
         <div class="info-grid">
-            <div class="info-card-box"><div class="info-title">🎁 Welcome Bonus</div><div class="info-value">${bonusAmount}</div></div>
-            <div class="info-card-box"><div class="info-title">📦 APK Size</div><div class="info-value">~10-15 MB</div></div>
-            <div class="info-card-box"><div class="info-title">🔒 Secure</div><div class="info-value">OTP Verified</div></div>
-            <div class="info-card-box"><div class="info-title">⏱️ Withdrawal</div><div class="info-value">Instant-24h</div></div>
-            <div class="info-card-box"><div class="info-title">🎯 Daily Reward</div><div class="info-value">Up to ₹50</div></div>
-            <div class="info-card-box"><div class="info-title">🏦 Min Withdraw</div><div class="info-value">₹100 (UPI)</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#ff6f00;">🎁 Welcome Bonus</div><div class="info-value">${bonusAmount}</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#1565c0;">📦 APK Size</div><div class="info-value">~10-15 MB</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#2e7d32;">🔒 Secure</div><div class="info-value">OTP Verified</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#e65100;">⏱️ Withdrawal</div><div class="info-value">Instant-24h</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#ad1457;">🎯 Daily Reward</div><div class="info-value">Up to ₹50</div></div>
+            <div class="info-card-box"><div class="info-title" style="color:#1a237e;">🏦 Min Withdraw</div><div class="info-value">₹100 (UPI)</div></div>
         </div>
         `;
     }
@@ -1393,6 +1413,7 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     const closeModalBtn = document.getElementById('closeInfoModal');
+    const infoCloseBtn = document.getElementById('infoCloseBtn');
 
     function showInfoModal(title, contentHtml) {
         modalTitle.innerText = title;
@@ -1407,6 +1428,9 @@
     }
 
     closeModalBtn.addEventListener('click', () => {
+        closeModalAndResetHistory();
+    });
+    infoCloseBtn.addEventListener('click', () => {
         closeModalAndResetHistory();
     });
 
@@ -1433,23 +1457,6 @@
         <hr style="margin: 20px 0; border: 1px dashed #ffcf8a;">
         <p><strong>🎯 Our Mission</strong><br> To provide the best gaming and app experience for Indian users with secure downloads and reliable service.</p>
         <p><strong>🔒 Secure Downloads</strong><br> All apps are verified and safe only.</p>
-        <div style="margin-top: 20px; text-align: center; border-top: 2px solid #ffcf8a; padding-top: 20px;">
-            <div style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: #000; border: 2px solid #ffcf8a; box-shadow: 0 0 30px rgba(255,207,138,0.3); animation: iconMoveGlow 3s ease-in-out infinite;">
-                <span style="font-size: 2rem; animation: iconSpin 6s linear infinite;">🤖</span>
-            </div>
-            <p style="font-size: 0.8rem; color: #555; margin-top: 8px;">Our intelligent AI is always spinning to help you</p>
-        </div>
-        <style>
-            @keyframes iconMoveGlow {
-                0%, 100% { box-shadow: 0 0 20px rgba(255, 207, 138, 0.2); }
-                50% { box-shadow: 0 0 50px rgba(255, 207, 138, 0.6); }
-            }
-            @keyframes iconSpin {
-                0% { transform: rotate(0deg) scale(1); }
-                50% { transform: rotate(180deg) scale(1.1); }
-                100% { transform: rotate(360deg) scale(1); }
-            }
-        </style>
         `);
     });
 
