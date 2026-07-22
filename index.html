@@ -44,7 +44,6 @@
             100% { transform: translateX(-8px); }
         }
 
-        /* Premium icon style for nav */
         .nav-link {
             color: white;
             text-decoration: none;
@@ -64,7 +63,6 @@
             position: relative;
             overflow: hidden;
         }
-        /* Premium LED glow for each */
         .nav-link.home {
             background: linear-gradient(135deg, #1a237e, #283593);
             border-color: #5c6bc0;
@@ -101,7 +99,6 @@
             transform: scale(1.05);
             box-shadow: 0 0 35px rgba(102, 187, 106, 0.6);
         }
-
         .nav-link .nav-icon {
             font-size: 0.9rem;
             filter: drop-shadow(0 0 6px currentColor);
@@ -266,30 +263,73 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* ===== PREMIUM ICONS FOR FEATURES ===== */
         .banner-features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px 22px;
+            gap: 16px 30px;
             margin: 14px 0 14px;
         }
         .banner-feature {
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(4px);
-            padding: 6px 18px;
+            padding: 8px 20px 8px 16px;
             border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.10);
             font-weight: 600;
             font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 7px;
+            gap: 10px;
             color: #e8f5e9;
+            transition: 0.3s;
         }
-        .banner-feature .icon {
-            font-size: 1.1rem;
-            filter: drop-shadow(0 0 8px currentColor);
+        .banner-feature:hover {
+            transform: scale(1.04);
+            border-color: rgba(255, 207, 138, 0.4);
         }
+        .premium-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px currentColor;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+        .premium-icon.green {
+            background: linear-gradient(135deg, #00e676, #00c853);
+            border: 2px solid #69f0ae;
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+        }
+        .premium-icon.blue {
+            background: linear-gradient(135deg, #40c4ff, #0091ea);
+            border: 2px solid #80d8ff;
+            box-shadow: 0 0 20px rgba(64, 196, 255, 0.4);
+        }
+        .premium-icon.gold {
+            background: linear-gradient(135deg, #ffd740, #ff8f00);
+            border: 2px solid #ffeb3b;
+            box-shadow: 0 0 20px rgba(255, 215, 64, 0.4);
+        }
+        .premium-icon.pink {
+            background: linear-gradient(135deg, #ff4081, #c51162);
+            border: 2px solid #ff80ab;
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.4);
+        }
+        .premium-icon.purple {
+            background: linear-gradient(135deg, #b388ff, #651fff);
+            border: 2px solid #d1c4e9;
+            box-shadow: 0 0 20px rgba(179, 136, 255, 0.4);
+        }
+
         .banner-cta {
             font-size: clamp(0.95rem, 1.8vw, 1.2rem);
             font-weight: 700;
@@ -408,11 +448,16 @@
                 border-radius: 16px;
             }
             .banner-features {
-                gap: 8px 14px;
+                gap: 10px 16px;
             }
             .banner-feature {
-                padding: 4px 12px;
-                font-size: 0.75rem;
+                padding: 5px 14px 5px 12px;
+                font-size: 0.7rem;
+            }
+            .premium-icon {
+                width: 22px;
+                height: 22px;
+                font-size: 0.6rem;
             }
             .banner-tag {
                 font-size: 0.6rem;
@@ -471,7 +516,6 @@
             position: relative;
             overflow: hidden;
         }
-        /* 4 corner black frame */
         .card::before {
             content: '';
             position: absolute;
@@ -483,10 +527,10 @@
             border: 2px solid #0a0a0a;
             pointer-events: none;
             z-index: 2;
-            opacity: 0.15;
+            opacity: 0.12;
         }
         .card:hover::before {
-            opacity: 0.35;
+            opacity: 0.30;
         }
         .card:hover {
             transform: translateY(-5px) scale(1.01);
@@ -834,7 +878,6 @@
             overflow-y: auto;
             position: relative;
         }
-        /* Close button - black premium */
         .modal-close {
             position: sticky;
             top: 0;
@@ -1064,11 +1107,23 @@
             <div class="banner-main-heading">
                 India's Top <span class="gold">Rummy Games</span> Download Platform
             </div>
+
+            <!-- ===== PREMIUM ICONS ===== -->
             <div class="banner-features">
-                <span class="banner-feature"><span class="icon" style="color:#66bb6a;">✔️</span> 100% Safe & Secure</span>
-                <span class="banner-feature"><span class="icon" style="color:#42a5f5;">⚡</span> Fast & Easy Downloads</span>
-                <span class="banner-feature"><span class="icon" style="color:#ffa726;">🎁</span> Top Bonuses & Rewards</span>
+                <span class="banner-feature">
+                    <span class="premium-icon green">✔</span> 100% Safe & Secure
+                </span>
+                <span class="banner-feature">
+                    <span class="premium-icon blue">⚡</span> Fast & Easy Downloads
+                </span>
+                <span class="banner-feature">
+                    <span class="premium-icon gold">🎁</span> Top Bonuses & Rewards
+                </span>
+                <span class="banner-feature">
+                    <span class="premium-icon pink">⌛</span> 24X7 Support
+                </span>
             </div>
+
             <div class="banner-cta">
                 <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
             </div>
