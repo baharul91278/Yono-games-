@@ -17,7 +17,7 @@
             padding-bottom: 30px;
         }
 
-        /* ===== TOP NAV - 3 LINKS IN ROW ===== */
+        /* ===== TOP NAV - SLOW LEFT MOVE ===== */
         .top-nav {
             background: #0a2e1d;
             padding: 8px 16px;
@@ -30,57 +30,74 @@
             top: 0;
             z-index: 100;
             gap: 6px;
+            overflow: hidden;
         }
         .nav-left {
             display: flex;
             align-items: center;
             gap: 6px;
             flex-wrap: wrap;
+            animation: slowLeftMove 8s ease-in-out infinite alternate;
         }
+        @keyframes slowLeftMove {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(-10px); }
+        }
+
         .nav-link {
             color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.65rem;
             padding: 4px 12px;
-            border-radius: 40px;
+            border-radius: 8px;
             cursor: pointer;
-            background: rgba(255, 255, 240, 0.08);
             white-space: nowrap;
             transition: 0.3s;
-            border: 1px solid rgba(255, 207, 138, 0.15);
             letter-spacing: 0.3px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .nav-link:hover {
+        /* Home - default white */
+        .nav-link.home {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        .nav-link.home:hover {
             background: #ffcf8a;
             color: #0a2e1d;
-            border-color: #ffcf8a;
-            transform: scale(1.03);
         }
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 40px;
-            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-            animation: ledSpinNav 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.6;
+        /* About - Blue */
+        .nav-link.about {
+            background: rgba(33, 150, 243, 0.25);
+            color: #64b5f6;
+            border-color: rgba(33, 150, 243, 0.3);
         }
-        .nav-link:hover::before {
-            opacity: 1;
+        .nav-link.about:hover {
+            background: #2196f3;
+            color: #fff;
         }
-        @keyframes ledSpinNav {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Contact - Cyan */
+        .nav-link.contact {
+            background: rgba(0, 188, 212, 0.25);
+            color: #4dd0e1;
+            border-color: rgba(0, 188, 212, 0.3);
+        }
+        .nav-link.contact:hover {
+            background: #00bcd4;
+            color: #fff;
+        }
+        /* Disclaimer - Green */
+        .nav-link.disclaimer {
+            background: rgba(76, 175, 80, 0.25);
+            color: #81c784;
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+        .nav-link.disclaimer:hover {
+            background: #4caf50;
+            color: #fff;
         }
 
         .nav-right {
@@ -89,7 +106,7 @@
             gap: 6px;
         }
 
-        /* ===== SHARE BUTTON WITH MOVING LED ===== */
+        /* ===== SHARE BUTTON ===== */
         .share-btn-nav {
             display: inline-flex;
             align-items: center;
@@ -409,6 +426,10 @@
             .app-tags-label {
                 font-size: 0.9rem;
             }
+            @keyframes slowLeftMove {
+                0% { transform: translateX(0px); }
+                100% { transform: translateX(-5px); }
+            }
         }
 
         .container {
@@ -424,7 +445,7 @@
             margin-bottom: 40px;
         }
 
-        /* ===== CARD WITH 4-CORNER LED (removed from img, kept on card) ===== */
+        /* ===== CARD - NO ROUND LED ON IMAGES ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -439,31 +460,10 @@
             position: relative;
             overflow: hidden;
         }
-        /* 4 corner LEDs on card border */
+        /* No LED border on card */
         .card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 38px;
-            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-            animation: ledSpinCard 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.4;
+            display: none;
         }
-        .card:hover::before {
-            opacity: 1;
-        }
-        @keyframes ledSpinCard {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .card:hover {
             transform: translateY(-5px) scale(1.01);
             box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
@@ -706,20 +706,7 @@
             overflow: hidden;
         }
         .other-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 34px;
-            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-            animation: ledSpinCard 5s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.3;
-        }
-        .other-card:hover::before {
-            opacity: 1;
+            display: none;
         }
         .other-card .app-name {
             font-size: 1rem;
@@ -987,10 +974,10 @@
 <!-- ===== TOP NAV ===== -->
 <nav class="top-nav">
     <div class="nav-left">
-        <a class="nav-link" id="homeNavLink" href="#">🏠 Home</a>
-        <a class="nav-link" id="navAbout">ℹ️ About</a>
-        <a class="nav-link" id="navContact">📞 Contact</a>
-        <a class="nav-link" id="navDisclaimer">⚖️ Disclaimer</a>
+        <a class="nav-link home" id="homeNavLink" href="#">🏠 Home</a>
+        <a class="nav-link about" id="navAbout">ℹ️ About</a>
+        <a class="nav-link contact" id="navContact">📞 Contact</a>
+        <a class="nav-link disclaimer" id="navDisclaimer">⚖️ Disclaimer</a>
     </div>
     <div class="nav-right">
         <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
@@ -1089,9 +1076,6 @@
             });
         }
     });
-
-    // ===== SHARE FUNCTION (link opens directly) =====
-    // share button is now an <a> tag with href, so it opens directly
 
     // ===== APPS DATA =====
     const appsData = [
