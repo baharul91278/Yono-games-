@@ -16,9 +16,11 @@
             min-height: 100vh;
             padding-bottom: 30px;
         }
+
+        /* ===== TOP NAV - 3 LINKS IN ROW ===== */
         .top-nav {
             background: #0a2e1d;
-            padding: 12px 16px;
+            padding: 8px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -27,78 +29,121 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            gap: 6px;
         }
-        .nav-left a {
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .nav-link {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            padding: 6px 12px;
+            font-size: 0.65rem;
+            padding: 4px 12px;
             border-radius: 40px;
             cursor: pointer;
-            background: rgba(255, 255, 240, 0.1);
+            background: rgba(255, 255, 240, 0.08);
             white-space: nowrap;
-        }
-        .nav-left a:hover {
-            background: #ffcf8a;
-            color: #0a2e1d;
-        }
-        .menu-container {
+            transition: 0.3s;
+            border: 1px solid rgba(255, 207, 138, 0.15);
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             position: relative;
+            overflow: hidden;
         }
-        .menu-btn {
-            background: rgba(255, 255, 240, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: 0.2s;
-            backdrop-filter: blur(4px);
-        }
-        .menu-btn:hover {
+        .nav-link:hover {
             background: #ffcf8a;
             color: #0a2e1d;
+            border-color: #ffcf8a;
+            transform: scale(1.03);
         }
-        .dropdown {
-            display: none;
+        /* LED round border for nav links */
+        .nav-link::before {
+            content: '';
             position: absolute;
-            top: 45px;
-            right: 0;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            min-width: 180px;
-            z-index: 150;
-            overflow: hidden;
-            border: 1px solid #ffcf8a;
+            inset: -2px;
+            border-radius: 40px;
+            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
+            animation: ledSpinNav 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.6;
         }
-        .dropdown a {
-            display: block;
-            padding: 12px 18px;
-            text-decoration: none;
-            color: #1e562a;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            cursor: pointer;
-            border-bottom: 1px solid #ffe6cc;
+        .nav-link:hover::before {
+            opacity: 1;
         }
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-        .dropdown a:hover {
-            background: #fef1cf;
-            color: #b45900;
-        }
-        .dropdown.show {
-            display: block;
+        @keyframes ledSpinNav {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        /* ===== PREMIUM HEADER ===== */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== SHARE BUTTON WITH MOVING LED ===== */
+        .share-btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #000;
+            border: none;
+            padding: 4px 14px 4px 10px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        .share-btn-nav::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 40px;
+            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
+            animation: ledSpinShare 3s linear infinite;
+            z-index: -1;
+            padding: 3px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+        }
+        @keyframes ledSpinShare {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .share-btn-nav:hover {
+            transform: scale(1.05);
+            color: #ffcf8a;
+        }
+        .share-btn-nav svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: 0.3s;
+        }
+        .share-btn-nav:hover svg {
+            stroke: #ffcf8a;
+        }
+
+        /* ===== HEADER ===== */
         header {
             background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
             background-size: 300% 300%;
@@ -155,39 +200,6 @@
             letter-spacing: 2.5px;
             font-weight: 600;
             text-transform: uppercase;
-        }
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 4px 16px 4px 12px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #ffcf8a;
-            cursor: pointer;
-            transition: 0.3s;
-            backdrop-filter: blur(4px);
-        }
-        .share-btn:hover {
-            background: rgba(255, 207, 138, 0.18);
-            border-color: #ffcf8a;
-            transform: scale(1.04);
-        }
-        .share-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: none;
-            stroke: #ffcf8a;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: 0.3s;
-        }
-        .share-btn:hover svg {
-            stroke: #fff;
         }
         .banner-age-group {
             display: flex;
@@ -285,7 +297,6 @@
             border: 1px solid rgba(255,255,255,0.25);
         }
 
-        /* App tags scroll */
         .app-tags-wrapper {
             margin-top: 16px;
             padding-top: 14px;
@@ -348,6 +359,22 @@
         }
 
         @media (max-width: 640px) {
+            .top-nav {
+                padding: 6px 10px;
+                gap: 4px;
+            }
+            .nav-link {
+                font-size: 0.5rem;
+                padding: 3px 8px;
+            }
+            .share-btn-nav {
+                font-size: 0.5rem;
+                padding: 3px 10px 3px 6px;
+            }
+            .share-btn-nav svg {
+                width: 12px;
+                height: 12px;
+            }
             .custom-banner {
                 padding: 18px 12px 16px;
                 border-radius: 16px;
@@ -375,23 +402,12 @@
                 font-size: 0.65rem;
                 letter-spacing: 1.5px;
             }
-            .share-btn {
-                font-size: 0.65rem;
-                padding: 3px 12px 3px 10px;
-            }
-            .share-btn svg {
-                width: 15px;
-                height: 15px;
-            }
             .app-tag-item {
                 font-size: 0.55rem;
                 padding: 3px 10px;
             }
             .app-tags-label {
                 font-size: 0.9rem;
-            }
-            .banner-top-row {
-                gap: 6px;
             }
         }
 
@@ -407,6 +423,8 @@
             gap: 24px;
             margin-bottom: 40px;
         }
+
+        /* ===== CARD WITH 4-CORNER LED ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -418,10 +436,58 @@
             box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
             border: 1px solid #eef2f8;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        /* 4 corner LEDs */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 38px;
+            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
+            animation: ledSpinCard 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.4;
+        }
+        .card:hover::before {
+            opacity: 1;
+        }
+        @keyframes ledSpinCard {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Small corner dots */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff00;
+            box-shadow: 0 0 12px #00ff00, 0 0 24px #00ff00;
+            animation: cornerDotMove 3s ease-in-out infinite;
+        }
+        @keyframes cornerDotMove {
+            0% { top: 6px; left: 6px; background: #00ff00; box-shadow: 0 0 12px #00ff00; }
+            25% { top: 6px; right: 6px; left: auto; background: #00ffff; box-shadow: 0 0 12px #00ffff; }
+            50% { bottom: 6px; right: 6px; top: auto; left: auto; background: #ffff00; box-shadow: 0 0 12px #ffff00; }
+            75% { bottom: 6px; left: 6px; top: auto; right: auto; background: #ff00ff; box-shadow: 0 0 12px #ff00ff; }
+            100% { top: 6px; left: 6px; background: #00ff00; box-shadow: 0 0 12px #00ff00; }
+        }
+
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
             border-color: #ffcf8a;
         }
         .card-app-name {
@@ -445,11 +511,17 @@
             justify-content: center;
             overflow: hidden;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            border: 2px solid #0a2e1d;
+            position: relative;
         }
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .card-img img {
+            transform: scale(1.05);
         }
         .card-stats {
             display: flex;
@@ -651,6 +723,24 @@
             transition: 0.2s;
             border: 1px solid #a8d5ba;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .other-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 34px;
+            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
+            animation: ledSpinCard 5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.3;
+        }
+        .other-card:hover::before {
+            opacity: 1;
         }
         .other-card .app-name {
             font-size: 1rem;
@@ -879,53 +969,7 @@
             border: 1px solid #ffcf8a;
         }
 
-        /* ===== ICON ROUND MOVING ANIMATION ===== */
-        .icon-round-move {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #000;
-            border: 2px solid #ffcf8a;
-            box-shadow: 0 0 20px rgba(255, 207, 138, 0.2);
-            position: relative;
-            overflow: hidden;
-            animation: iconMoveGlow 3s ease-in-out infinite;
-        }
-        .icon-round-move .inner-icon {
-            font-size: 1.4rem;
-            z-index: 2;
-            position: relative;
-            animation: iconSpin 6s linear infinite;
-        }
-        .icon-round-move::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #ffcf8a, #ff8c00, #ffcf8a, #ff8c00, #ffcf8a);
-            animation: ledSpin 4s linear infinite;
-            z-index: 0;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
-        }
-        @keyframes ledSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes iconSpin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-        @keyframes iconMoveGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 207, 138, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(255, 207, 138, 0.5); }
-        }
-
-        /* ===== MARQUEE ===== */
+        /* MARQUEE */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -950,81 +994,34 @@
             box-shadow: 0 0 12px rgba(255,215,0,.6);
         }
 
-        /* mobile */
-        @media (max-width: 640px) {
-            .icon-round-move {
-                width: 36px;
-                height: 36px;
-            }
-            .icon-round-move .inner-icon {
-                font-size: 1rem;
-            }
-            .card {
-                min-width: 250px;
-                padding: 18px 14px;
-            }
-            .card-app-name {
-                font-size: 1.2rem;
-            }
-            .card-stats {
-                gap: 8px;
-            }
-            .card-stat {
-                min-width: 48px;
-            }
-            .stats-row {
-                gap: 12px;
-            }
-            .download-header h2 {
-                font-size: 1.4rem;
-            }
-            .other-card {
-                width: 210px;
-            }
-            .final-download-btn {
-                font-size: 0.9rem;
-                padding: 12px 16px;
-            }
-            .small-download {
-                font-size: 0.75rem;
-                padding: 6px 0;
-            }
-            .dropdown {
-                right: 0;
-                min-width: 160px;
-            }
-            .dropdown a {
-                padding: 10px 16px;
-                font-size: 0.8rem;
-            }
-            .info-grid {
-                gap: 10px;
-            }
-            .info-card-box {
-                min-width: 120px;
-            }
-            .menu-btn {
-                font-size: 1rem;
-                padding: 4px 12px;
-            }
+        /* Speed optimizations */
+        img, .card, .download-btn, .nav-link, .share-btn-nav {
+            will-change: transform, opacity;
+        }
+        .card-img img {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
     </style>
 </head>
 <body>
 
-<!-- ===== TOP NAV ===== -->
+<!-- ===== TOP NAV - 3 LINKS IN ROW ===== -->
 <nav class="top-nav">
     <div class="nav-left">
-        <a id="homeNavLink" href="#"> HOME</a>
+        <a class="nav-link" id="homeNavLink" href="#">🏠 Home</a>
+        <a class="nav-link" id="navAbout">ℹ️ About</a>
+        <a class="nav-link" id="navContact">📞 Contact</a>
+        <a class="nav-link" id="navDisclaimer">⚖️ Disclaimer</a>
     </div>
-    <div class="menu-container">
-        <button class="menu-btn" id="menuBtn">☰ MENU</button>
-        <div class="dropdown" id="dropdownMenu">
-            <a id="menuHome"> Home</a>
-            <a id="menuContact">📞 Contact Us</a>
-            <a id="menuDisclaimer"> Disclaimer</a>
-            <a id="menuAbout"> About Us</a>
-        </div>
+    <div class="nav-right">
+        <button class="share-btn-nav" id="shareBtnNav">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                <polyline points="16 6 12 2 8 6"/>
+                <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+            Share
+        </button>
     </div>
 </nav>
 
@@ -1043,16 +1040,6 @@
         <div class="banner-inner">
             <div class="banner-top-row">
                 <span class="banner-top-text">YONO GAMES PLATFORM</span>
-                <button class="share-btn" onclick="sharePage()">
-                    <span class="share-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                            <polyline points="16 6 12 2 8 6"/>
-                            <line x1="12" y1="2" x2="12" y2="15"/>
-                        </svg>
-                    </span>
-                    Share
-                </button>
             </div>
             <div class="banner-age-group">
                 <span class="banner-age-badge">18+</span>
@@ -1075,7 +1062,6 @@
                 <span class="banner-tag"> DAILY BONUSES</span>
                 <span class="banner-tag">⌛ 24X7 SUPPORT</span>
             </div>
-            <!-- App tags scroll -->
             <div class="app-tags-wrapper">
                 <span class="app-tags-label">🎮 ALL APPS</span>
                 <div class="app-tags-scroll" id="appTagsScroll"></div>
@@ -1113,7 +1099,6 @@
         "Rummy Most", "Bet 213", "Teen Patti", "Boss Rummy", "Diwa VIP", "Diwa 777"
     ];
 
-    // ===== POPULATE APP TAGS =====
     document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('appTagsScroll');
         if (container) {
@@ -1128,25 +1113,27 @@
 
     // ===== SHARE FUNCTION =====
     function sharePage() {
+        const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
         if (navigator.share) {
             navigator.share({
                 title: 'Yono Games Platform',
                 text: 'Download India\'s Top Rummy Games & Win Real Cash',
-                url: window.location.href
+                url: shareUrl
             }).catch(() => {});
         } else {
-            const url = window.location.href;
             if (navigator.clipboard) {
-                navigator.clipboard.writeText(url).then(() => {
+                navigator.clipboard.writeText(shareUrl).then(() => {
                     alert('Link copied to clipboard! 📋 Share it with your friends.');
                 }).catch(() => {
-                    prompt('Copy this link to share:', url);
+                    prompt('Copy this link to share:', shareUrl);
                 });
             } else {
-                prompt('Copy this link to share:', url);
+                prompt('Copy this link to share:', shareUrl);
             }
         }
     }
+
+    document.getElementById('shareBtnNav').addEventListener('click', sharePage);
 
     // ===== APPS DATA =====
     const appsData = [
@@ -1423,7 +1410,6 @@
     history.replaceState({ page: 'main' }, '', window.location.pathname);
 
     function resetToMainGrid() {
-        dropdown.classList.remove('show');
         if (customModal.style.display === 'flex') {
             closeModalAndResetHistory();
         }
@@ -1458,32 +1444,45 @@
         }
     });
 
-    const menuBtn = document.getElementById('menuBtn');
-    const dropdown = document.getElementById('dropdownMenu');
-    const menuHome = document.getElementById('menuHome');
-    const menuContact = document.getElementById('menuContact');
-    const menuDisclaimer = document.getElementById('menuDisclaimer');
-    const menuAbout = document.getElementById('menuAbout');
-
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.classList.remove('show');
-        }
-    });
-
-    menuHome.addEventListener('click', () => {
-        dropdown.classList.remove('show');
+    // ===== NAV LINKS =====
+    document.getElementById('homeNavLink').addEventListener('click', (e) => {
+        e.preventDefault();
         resetToMainGrid();
     });
 
-    // ===== CONTACT =====
-    menuContact.addEventListener('click', () => {
-        dropdown.classList.remove('show');
+    // About
+    document.getElementById('navAbout').addEventListener('click', () => {
+        showInfoModal(' About - Yono Games Platform', `
+        <p><strong>Welcome to Yono Games Platform</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users.</p>
+        <p>Our journey began with a simple yet powerful vision: to revolutionize the way people discover and download apps. We recognize the evolving needs of the digital age and strive to meet them by offering an extensive selection of applications. From utility and productivity apps to entertainment and lifestyle options, our platform is a one-stop destination for all your app needs.</p>
+        <p>We are not just about providing access to apps; we are about fostering a community where knowledge about the latest digital tools is shared and celebrated. Our platform is designed to be user-friendly, ensuring a seamless experience for everyone, from tech-savvy individuals to those just starting their digital journey.</p>
+        <p>Our focus on Indian applications sets us apart, reflecting our dedication to cater to the unique needs and preferences of our audience. We believe in the power of local solutions for local challenges, and our platform is a testament to this belief.</p>
+        <p>Join us in our endeavor to bring the best of digital innovations to your fingertips. Explore, download, and stay ahead in the ever-evolving world of apps with us.</p>
+        <hr style="margin: 20px 0; border: 1px dashed #ffcf8a;">
+        <p><strong>🎯 Our Mission</strong><br> To provide the best gaming and app experience for Indian users with secure downloads and reliable service.</p>
+        <p><strong>🔒 Secure Downloads</strong><br> All apps are verified and safe only.</p>
+        <div style="margin-top: 20px; text-align: center; border-top: 2px solid #ffcf8a; padding-top: 20px;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: #000; border: 2px solid #ffcf8a; box-shadow: 0 0 30px rgba(255,207,138,0.3); animation: iconMoveGlow 3s ease-in-out infinite;">
+                <span style="font-size: 2rem; animation: iconSpin 6s linear infinite;">🤖</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #555; margin-top: 8px;">Our intelligent AI is always spinning to help you</p>
+        </div>
+        <style>
+            @keyframes iconMoveGlow {
+                0%, 100% { box-shadow: 0 0 20px rgba(255, 207, 138, 0.2); }
+                50% { box-shadow: 0 0 50px rgba(255, 207, 138, 0.6); }
+            }
+            @keyframes iconSpin {
+                0% { transform: rotate(0deg) scale(1); }
+                50% { transform: rotate(180deg) scale(1.1); }
+                100% { transform: rotate(360deg) scale(1); }
+            }
+        </style>
+        `);
+    });
+
+    // Contact
+    document.getElementById('navContact').addEventListener('click', () => {
         showInfoModal('📞 Contact Us - Yono Games Platform', `
         <p><strong>Yono Games Platform</strong> - We do not provide Customer Support for Listed Apps/Games. If you encounter any problems, please contact the support option within those games. Because the Listed Games/Apps are not ours. We do not own those games.</p>
         <p style="margin-top: 20px;"><strong style="color: #d50000;">📢 Advertisement/Business Queries</strong><br> If you are a game maker company, operator, or administrator, and you want to promote your application through our website, you can contact us through the contact details given below and discuss promotion and cooperation.</p>
@@ -1496,9 +1495,8 @@
         `);
     });
 
-    // ===== DISCLAIMER =====
-    menuDisclaimer.addEventListener('click', () => {
-        dropdown.classList.remove('show');
+    // Disclaimer
+    document.getElementById('navDisclaimer').addEventListener('click', () => {
         showInfoModal(' Disclaimer - Yono Games Platform', `
         <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 12px; border-radius: 16px; margin-bottom: 16px; text-align: center;">
             <h3 style="color: #b45900; font-weight: 800; font-size: 1.4rem;">Welcome to Yono Games Platform</h3>
@@ -1570,34 +1568,8 @@
         `);
     });
 
-    // ===== ABOUT =====
-    menuAbout.addEventListener('click', () => {
-        dropdown.classList.remove('show');
-        showInfoModal(' About - Yono Games Platform', `
-        <p><strong>Welcome to Yono Games Platform</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users.</p>
-        <p>Our journey began with a simple yet powerful vision: to revolutionize the way people discover and download apps. We recognize the evolving needs of the digital age and strive to meet them by offering an extensive selection of applications. From utility and productivity apps to entertainment and lifestyle options, our platform is a one-stop destination for all your app needs.</p>
-        <p>We are not just about providing access to apps; we are about fostering a community where knowledge about the latest digital tools is shared and celebrated. Our platform is designed to be user-friendly, ensuring a seamless experience for everyone, from tech-savvy individuals to those just starting their digital journey.</p>
-        <p>Our focus on Indian applications sets us apart, reflecting our dedication to cater to the unique needs and preferences of our audience. We believe in the power of local solutions for local challenges, and our platform is a testament to this belief.</p>
-        <p>Join us in our endeavor to bring the best of digital innovations to your fingertips. Explore, download, and stay ahead in the ever-evolving world of apps with us.</p>
-        <hr style="margin: 20px 0; border: 1px dashed #ffcf8a;">
-        <p><strong>🎯 Our Mission</strong><br> To provide the best gaming and app experience for Indian users with secure downloads and reliable service.</p>
-        <p><strong>🔒 Secure Downloads</strong><br> All apps are verified and safe only.</p>
-        <div style="margin-top: 20px; text-align: center; border-top: 2px solid #ffcf8a; padding-top: 20px;">
-            <div style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: #000; border: 2px solid #ffcf8a; box-shadow: 0 0 30px rgba(255,207,138,0.3); animation: iconMoveGlow 3s ease-in-out infinite;">
-                <span style="font-size: 2rem; animation: iconSpin 6s linear infinite;">🤖</span>
-            </div>
-            <p style="font-size: 0.8rem; color: #555; margin-top: 8px;">Our intelligent AI is always spinning to help you</p>
-        </div>
-        `);
-    });
-
     function init() {
         renderMainGrid();
-        const homeLink = document.getElementById('homeNavLink');
-        if (homeLink) homeLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            resetToMainGrid();
-        });
     }
     init();
 </script>
