@@ -68,37 +68,26 @@
             border-color: #5c6bc0;
             box-shadow: 0 0 20px rgba(92, 107, 192, 0.3);
         }
-        .nav-link.home:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(92, 107, 192, 0.6);
-        }
+        .nav-link.home:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(92, 107, 192, 0.6); }
         .nav-link.about {
             background: linear-gradient(135deg, #004d40, #00695c);
             border-color: #26a69a;
             box-shadow: 0 0 20px rgba(38, 166, 154, 0.3);
         }
-        .nav-link.about:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(38, 166, 154, 0.6);
-        }
+        .nav-link.about:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(38, 166, 154, 0.6); }
         .nav-link.contact {
             background: linear-gradient(135deg, #4a148c, #6a1b9a);
             border-color: #ab47bc;
             box-shadow: 0 0 20px rgba(171, 71, 188, 0.3);
         }
-        .nav-link.contact:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(171, 71, 188, 0.6);
-        }
+        .nav-link.contact:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(171, 71, 188, 0.6); }
         .nav-link.disclaimer {
             background: linear-gradient(135deg, #1b5e20, #2e7d32);
             border-color: #66bb6a;
             box-shadow: 0 0 20px rgba(102, 187, 106, 0.3);
         }
-        .nav-link.disclaimer:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(102, 187, 106, 0.6);
-        }
+        .nav-link.disclaimer:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(102, 187, 106, 0.6); }
+
         .nav-link .nav-icon {
             font-size: 0.9rem;
             filter: drop-shadow(0 0 6px currentColor);
@@ -160,9 +149,7 @@
             stroke-linejoin: round;
             transition: 0.3s;
         }
-        .share-btn-nav:hover svg {
-            stroke: #ffcf8a;
-        }
+        .share-btn-nav:hover svg { stroke: #ffcf8a; }
 
         /* ===== HEADER ===== */
         header {
@@ -203,10 +190,7 @@
             0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
             100% { transform: scale(1.08) rotate(3deg); opacity: 1; }
         }
-        .banner-inner {
-            position: relative;
-            z-index: 2;
-        }
+        .banner-inner { position: relative; z-index: 2; }
         .banner-top-row {
             display: flex;
             justify-content: space-between;
@@ -264,72 +248,71 @@
             background-clip: text;
         }
 
-        /* ===== PREMIUM ICONS FOR FEATURES ===== */
+        /* === NEW PREMIUM 3D GLOSSY ICONS === */
+        .icon-premium {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #e8e8e8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15), inset 0 -2px 0 rgba(0,0,0,0.05), inset 0 2px 4px rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a2e1d;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+            flex-shrink: 0;
+        }
+        .icon-premium::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            right: 6px;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 8px 8px 50% 50%;
+            pointer-events: none;
+        }
+        /* Color variants */
+        .icon-premium.green { background: linear-gradient(145deg, #66bb6a, #2e7d32); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(46,125,50,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.cyan { background: linear-gradient(145deg, #4dd0e1, #00838f); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(0,131,143,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.orange { background: linear-gradient(145deg, #ffa726, #e65100); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(230,81,0,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.purple { background: linear-gradient(145deg, #ab47bc, #4a148c); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(74,20,140,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.blue { background: linear-gradient(145deg, #42a5f5, #0d47a1); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(13,71,161,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.red { background: linear-gradient(145deg, #ef5350, #b71c1c); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(183,28,28,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.pink { background: linear-gradient(145deg, #f06292, #880e4f); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(136,14,79,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.gold { background: linear-gradient(145deg, #ffd54f, #f57f17); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(245,127,23,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+        .icon-premium.teal { background: linear-gradient(145deg, #4db6ac, #004d40); color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); box-shadow: 0 4px 15px rgba(0,77,64,0.4), inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.2); }
+
         .banner-features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 16px 30px;
+            gap: 12px 22px;
             margin: 14px 0 14px;
         }
         .banner-feature {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(4px);
-            padding: 8px 20px 8px 16px;
+            padding: 6px 18px;
             border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             font-weight: 600;
             font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 7px;
             color: #e8f5e9;
-            transition: 0.3s;
         }
-        .banner-feature:hover {
-            transform: scale(1.04);
-            border-color: rgba(255, 207, 138, 0.4);
+        .banner-feature .icon {
+            font-size: 1.1rem;
+            filter: drop-shadow(0 0 8px currentColor);
         }
-        .premium-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 0 10px currentColor;
-            box-shadow: 0 0 20px rgba(255,255,255,0.1);
-            flex-shrink: 0;
-        }
-        .premium-icon.green {
-            background: linear-gradient(135deg, #00e676, #00c853);
-            border: 2px solid #69f0ae;
-            box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
-        }
-        .premium-icon.blue {
-            background: linear-gradient(135deg, #40c4ff, #0091ea);
-            border: 2px solid #80d8ff;
-            box-shadow: 0 0 20px rgba(64, 196, 255, 0.4);
-        }
-        .premium-icon.gold {
-            background: linear-gradient(135deg, #ffd740, #ff8f00);
-            border: 2px solid #ffeb3b;
-            box-shadow: 0 0 20px rgba(255, 215, 64, 0.4);
-        }
-        .premium-icon.pink {
-            background: linear-gradient(135deg, #ff4081, #c51162);
-            border: 2px solid #ff80ab;
-            box-shadow: 0 0 20px rgba(255, 64, 129, 0.4);
-        }
-        .premium-icon.purple {
-            background: linear-gradient(135deg, #b388ff, #651fff);
-            border: 2px solid #d1c4e9;
-            box-shadow: 0 0 20px rgba(179, 136, 255, 0.4);
-        }
-
         .banner-cta {
             font-size: clamp(0.95rem, 1.8vw, 1.2rem);
             font-weight: 700;
@@ -338,10 +321,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
             line-height: 1.4;
         }
-        .banner-cta strong {
-            color: #ffcf8a;
-            font-weight: 900;
-        }
+        .banner-cta strong { color: #ffcf8a; font-weight: 900; }
         .banner-tags {
             display: flex;
             flex-wrap: wrap;
@@ -392,17 +372,9 @@
             flex-wrap: nowrap;
             scroll-behavior: smooth;
         }
-        .app-tags-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        .app-tags-scroll::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-        }
-        .app-tags-scroll::-webkit-scrollbar-thumb {
-            background: #ffcf8a;
-            border-radius: 4px;
-        }
+        .app-tags-scroll::-webkit-scrollbar { height: 4px; }
+        .app-tags-scroll::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
+        .app-tags-scroll::-webkit-scrollbar-thumb { background: #ffcf8a; border-radius: 4px; }
         .app-tag-item {
             flex: 0 0 auto;
             background: rgba(255, 207, 138, 0.12);
@@ -424,84 +396,27 @@
         }
 
         @media (max-width: 640px) {
-            .top-nav {
-                padding: 6px 10px;
-                gap: 4px;
-            }
-            .nav-link {
-                font-size: 0.5rem;
-                padding: 3px 10px;
-            }
-            .nav-link .nav-icon {
-                font-size: 0.7rem;
-            }
-            .share-btn-nav {
-                font-size: 0.5rem;
-                padding: 3px 10px 3px 6px;
-            }
-            .share-btn-nav svg {
-                width: 12px;
-                height: 12px;
-            }
-            .custom-banner {
-                padding: 18px 12px 16px;
-                border-radius: 16px;
-            }
-            .banner-features {
-                gap: 10px 16px;
-            }
-            .banner-feature {
-                padding: 5px 14px 5px 12px;
-                font-size: 0.7rem;
-            }
-            .premium-icon {
-                width: 22px;
-                height: 22px;
-                font-size: 0.6rem;
-            }
-            .banner-tag {
-                font-size: 0.6rem;
-                padding: 3px 10px;
-            }
-            .banner-age-badge {
-                font-size: 0.95rem;
-                padding: 2px 12px;
-            }
-            .banner-age-badge.second {
-                font-size: 0.85rem;
-                padding: 2px 10px;
-            }
-            .banner-top-text {
-                font-size: 0.65rem;
-                letter-spacing: 1.5px;
-            }
-            .app-tag-item {
-                font-size: 0.55rem;
-                padding: 3px 10px;
-            }
-            .app-tags-label {
-                font-size: 0.9rem;
-            }
-            @keyframes slowLeftMove {
-                0% { transform: translateX(0px); }
-                100% { transform: translateX(-5px); }
-            }
+            .top-nav { padding: 6px 10px; gap: 4px; }
+            .nav-link { font-size: 0.5rem; padding: 3px 10px; }
+            .nav-link .nav-icon { font-size: 0.7rem; }
+            .share-btn-nav { font-size: 0.5rem; padding: 3px 10px 3px 6px; }
+            .share-btn-nav svg { width: 12px; height: 12px; }
+            .custom-banner { padding: 18px 12px 16px; border-radius: 16px; }
+            .banner-features { gap: 8px 14px; }
+            .banner-feature { padding: 4px 12px; font-size: 0.75rem; }
+            .banner-tag { font-size: 0.6rem; padding: 3px 10px; }
+            .banner-age-badge { font-size: 0.95rem; padding: 2px 12px; }
+            .banner-age-badge.second { font-size: 0.85rem; padding: 2px 10px; }
+            .banner-top-text { font-size: 0.65rem; letter-spacing: 1.5px; }
+            .app-tag-item { font-size: 0.55rem; padding: 3px 10px; }
+            .app-tags-label { font-size: 0.9rem; }
+            .icon-premium { width: 28px; height: 28px; font-size: 0.85rem; border-radius: 10px; }
+            @keyframes slowLeftMove { 0% { transform: translateX(0px); } 100% { transform: translateX(-5px); } }
         }
 
-        .container {
-            max-width: 1450px;
-            margin: 30px auto;
-            padding: 0 16px;
-        }
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
+        .container { max-width: 1450px; margin: 30px auto; padding: 0 16px; }
+        .cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 40px; }
 
-        /* ===== CARD - 4 CORNERS BLACK FRAME ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -529,9 +444,7 @@
             z-index: 2;
             opacity: 0.12;
         }
-        .card:hover::before {
-            opacity: 0.30;
-        }
+        .card:hover::before { opacity: 0.3; }
         .card:hover {
             transform: translateY(-5px) scale(1.01);
             box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
@@ -561,15 +474,8 @@
             border: 3px solid #0a0a0a;
             position: relative;
         }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .card:hover .card-img img {
-            transform: scale(1.05);
-        }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .card:hover .card-img img { transform: scale(1.05); }
         .card-stats {
             display: flex;
             flex-wrap: wrap;
@@ -580,21 +486,9 @@
             border-radius: 48px;
             margin: 12px 0 8px;
         }
-        .card-stat {
-            text-align: center;
-            min-width: 55px;
-        }
-        .card-stat-value {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-        .card-stat-label {
-            font-size: 0.55rem;
-            font-weight: 700;
-            color: #6c7a5a;
-            letter-spacing: 0.3px;
-        }
+        .card-stat { text-align: center; min-width: 55px; }
+        .card-stat-value { font-size: 0.95rem; font-weight: 800; color: #1e562a; }
+        .card-stat-label { font-size: 0.55rem; font-weight: 700; color: #6c7a5a; letter-spacing: 0.3px; }
         .withdrawal-note {
             font-size: 0.7rem;
             font-weight: 700;
@@ -638,10 +532,7 @@
             border: 1px solid #ffe1b3;
             animation: fadeSlideUp 0.4s ease;
         }
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .download-header {
             text-align: center;
             border-bottom: 2px dashed #ffcf8a;
@@ -675,21 +566,9 @@
             margin: 20px auto;
             max-width: 750px;
         }
-        .stat-item {
-            text-align: center;
-            min-width: 70px;
-        }
-        .stat-value {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-        .stat-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #6c7a5a;
-            letter-spacing: 0.5px;
-        }
+        .stat-item { text-align: center; min-width: 70px; }
+        .stat-value { font-size: 1.3rem; font-weight: 800; color: #1e562a; }
+        .stat-label { font-size: 0.7rem; font-weight: 600; color: #6c7a5a; letter-spacing: 0.5px; }
         .app-description {
             background: white;
             padding: 18px 20px;
@@ -708,20 +587,9 @@
             margin: 20px 0;
             text-align: left;
         }
-        .howto-steps h4 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            color: #1e562a;
-        }
-        .howto-steps ol {
-            padding-left: 20px;
-            margin-top: 8px;
-        }
-        .howto-steps li {
-            margin: 10px 0;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
+        .howto-steps h4 { font-size: 1.1rem; margin-bottom: 12px; color: #1e562a; }
+        .howto-steps ol { padding-left: 20px; margin-top: 8px; }
+        .howto-steps li { margin: 10px 0; font-size: 0.85rem; line-height: 1.4; }
         .faq-section {
             background: #fef4e6;
             border-radius: 32px;
@@ -729,21 +597,9 @@
             margin: 20px 0;
             text-align: left;
         }
-        .faq-item {
-            margin-bottom: 20px;
-        }
-        .faq-question {
-            font-weight: 800;
-            color: #b45900;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-        .faq-answer {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #2d3e2b;
-            padding-left: 12px;
-        }
+        .faq-item { margin-bottom: 20px; }
+        .faq-question { font-weight: 800; color: #b45900; margin-bottom: 6px; font-size: 0.95rem; }
+        .faq-answer { font-size: 0.85rem; line-height: 1.5; color: #2d3e2b; padding-left: 12px; }
         .other-apps-title {
             font-size: 1.4rem;
             font-weight: 800;
@@ -773,11 +629,7 @@
             position: relative;
             overflow: hidden;
         }
-        .other-card .app-name {
-            font-size: 1rem;
-            margin: 8px 0 6px;
-            font-weight: 800;
-        }
+        .other-card .app-name { font-size: 1rem; margin: 8px 0 6px; font-weight: 800; }
         .other-card .bonus {
             font-size: 0.75rem;
             padding: 4px 12px;
@@ -839,9 +691,7 @@
             font-size: 0.75rem;
             margin-top: 20px;
         }
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
         footer {
             background: #0a2e1d;
             color: #b9ddcb;
@@ -898,11 +748,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
             margin-bottom: 10px;
         }
-        .modal-close:hover {
-            transform: scale(1.1) rotate(90deg);
-            border-color: #ffcf8a;
-            box-shadow: 0 0 30px rgba(255, 207, 138, 0.3);
-        }
+        .modal-close:hover { transform: scale(1.1) rotate(90deg); border-color: #ffcf8a; box-shadow: 0 0 30px rgba(255, 207, 138, 0.3); }
         .info-modal-content h4 {
             font-size: 1.5rem;
             margin-bottom: 16px;
@@ -911,12 +757,7 @@
             padding-left: 16px;
             clear: both;
         }
-        .info-modal-content p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 12px 0;
-            color: #2d3e2b;
-        }
+        .info-modal-content p { font-size: 0.9rem; line-height: 1.5; margin: 12px 0; color: #2d3e2b; }
         .info-close {
             background: linear-gradient(135deg, #2ecc71, #e91e63);
             border: none;
@@ -931,11 +772,7 @@
             transition: 0.25s ease;
             box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
         }
-        .info-close:hover {
-            transform: scale(0.97);
-            background: linear-gradient(135deg, #27ae60, #c2185b);
-            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30);
-        }
+        .info-close:hover { transform: scale(0.97); background: linear-gradient(135deg, #27ae60, #c2185b); box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30); }
         .info-grid {
             display: flex;
             flex-wrap: wrap;
@@ -952,18 +789,8 @@
             border: 1px solid #ffe1b3;
             text-align: center;
         }
-        .info-card-box .info-title {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #6c7a5a;
-            letter-spacing: 0.3px;
-            margin-bottom: 4px;
-        }
-        .info-card-box .info-value {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
+        .info-card-box .info-title { font-size: 0.7rem; font-weight: 700; color: #6c7a5a; letter-spacing: 0.3px; margin-bottom: 4px; }
+        .info-card-box .info-value { font-size: 0.85rem; font-weight: 800; color: #1e562a; }
         .contact-table {
             width: 100%;
             border-collapse: collapse;
@@ -973,61 +800,18 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .contact-table th, .contact-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #ffcf8a;
-            font-size: 0.9rem;
-        }
-        .contact-table th {
-            background: #0a2e1d;
-            color: white;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .contact-table td {
-            background: white;
-        }
-        .contact-table tr:last-child td {
-            border-bottom: none;
-        }
-        .contact-email {
-            color: #d50000;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-email:hover {
-            text-decoration: underline;
-        }
-        .contact-telegram {
-            color: #0088cc;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-telegram:hover {
-            text-decoration: underline;
-        }
-        .disclaimer-section {
-            margin: 16px 0;
-            padding: 12px 14px;
-            border-radius: 16px;
-            background: #f8f9fa;
-            border-left: 6px solid #ff8c00;
-        }
-        .disclaimer-section h4 {
-            color: #b45900;
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-        .disclaimer-box {
-            background: #fff7e8;
-            padding: 10px 16px;
-            border-radius: 12px;
-            margin: 10px 0;
-            border: 1px solid #ffcf8a;
-        }
+        .contact-table th, .contact-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #ffcf8a; font-size: 0.9rem; }
+        .contact-table th { background: #0a2e1d; color: white; font-weight: 700; letter-spacing: 0.5px; }
+        .contact-table td { background: white; }
+        .contact-table tr:last-child td { border-bottom: none; }
+        .contact-email { color: #d50000; font-weight: 700; text-decoration: none; }
+        .contact-email:hover { text-decoration: underline; }
+        .contact-telegram { color: #0088cc; font-weight: 700; text-decoration: none; }
+        .contact-telegram:hover { text-decoration: underline; }
+        .disclaimer-section { margin: 16px 0; padding: 12px 14px; border-radius: 16px; background: #f8f9fa; border-left: 6px solid #ff8c00; }
+        .disclaimer-section h4 { color: #b45900; font-size: 1.1rem; margin-bottom: 6px; }
+        .disclaimer-box { background: #fff7e8; padding: 10px 16px; border-radius: 12px; margin: 10px 0; border: 1px solid #ffcf8a; }
 
-        /* MARQUEE */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -1036,11 +820,7 @@
             padding: 14px 0;
             border: 2px solid #FFD700;
         }
-        .marquee-container marquee {
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-        }
+        .marquee-container marquee { color: #fff; font-size: 1rem; font-weight: 600; }
         .marquee-container marquee span {
             display: inline-block;
             background: #FFD700;
@@ -1052,13 +832,8 @@
             box-shadow: 0 0 12px rgba(255,215,0,.6);
         }
 
-        /* Speed optimizations */
-        img, .card, .download-btn, .nav-link, .share-btn-nav {
-            will-change: transform, opacity;
-        }
-        .card-img img {
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        img, .card, .download-btn, .nav-link, .share-btn-nav { will-change: transform, opacity; }
+        .card-img img { transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     </style>
 </head>
 <body>
@@ -1107,23 +882,21 @@
             <div class="banner-main-heading">
                 India's Top <span class="gold">Rummy Games</span> Download Platform
             </div>
-
-            <!-- ===== PREMIUM ICONS ===== -->
+            <!-- NEW PREMIUM 3D GLOSSY ICONS -->
             <div class="banner-features">
                 <span class="banner-feature">
-                    <span class="premium-icon green">✔</span> 100% Safe & Secure
+                    <span class="icon-premium green">✔</span> 100% Safe & Secure
                 </span>
                 <span class="banner-feature">
-                    <span class="premium-icon blue">⚡</span> Fast & Easy Downloads
+                    <span class="icon-premium cyan">⚡</span> Fast & Easy Downloads
                 </span>
                 <span class="banner-feature">
-                    <span class="premium-icon gold">🎁</span> Top Bonuses & Rewards
+                    <span class="icon-premium orange">🎁</span> Top Bonuses & Rewards
                 </span>
                 <span class="banner-feature">
-                    <span class="premium-icon pink">⌛</span> 24X7 Support
+                    <span class="icon-premium purple">⌛</span> 24X7 Support
                 </span>
             </div>
-
             <div class="banner-cta">
                 <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
             </div>
@@ -1134,7 +907,9 @@
                 <span class="banner-tag" style="background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff;">⌛ 24X7 SUPPORT</span>
             </div>
             <div class="app-tags-wrapper">
-                <span class="app-tags-label" style="color:#ffd54f;">🎮 ALL APPS</span>
+                <span class="app-tags-label">
+                    <span class="icon-premium gold" style="width:28px;height:28px;font-size:0.8rem;display:inline-flex;margin-right:8px;">🎮</span> ALL APPS
+                </span>
                 <div class="app-tags-scroll" id="appTagsScroll"></div>
             </div>
         </div>
@@ -1161,7 +936,6 @@
 </footer>
 
 <script>
-    // ===== ALL APP NAMES =====
     const allAppNames = [
         "567 Slots", "Jaiho 91", "Rummy Ludo", "ABC Rummy", "Rummy 91", "Love Rummy", "Bingo 101", "Yono 777",
         "Saga Slots", "Spin Crush", "Top Rummy", "New Yono Games", "Hello Rummy", "All Yono Apps", "Rummy 365",
@@ -1182,7 +956,6 @@
         }
     });
 
-    // ===== APPS DATA =====
     const appsData = [
         { name: "Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", img: "https://i.ibb.co/LXqV77rd/yono-games.jpg", category: "Slots" },
         { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg", category: "Rummy" },
@@ -1482,26 +1255,18 @@
         history.replaceState({ page: 'main' }, '', window.location.pathname);
     }
 
-    closeModalBtn.addEventListener('click', () => {
-        closeModalAndResetHistory();
-    });
-    infoCloseBtn.addEventListener('click', () => {
-        closeModalAndResetHistory();
-    });
+    closeModalBtn.addEventListener('click', closeModalAndResetHistory);
+    infoCloseBtn.addEventListener('click', closeModalAndResetHistory);
 
     window.addEventListener('click', (e) => {
-        if (e.target === customModal) {
-            closeModalAndResetHistory();
-        }
+        if (e.target === customModal) closeModalAndResetHistory();
     });
 
-    // ===== NAV LINKS =====
     document.getElementById('homeNavLink').addEventListener('click', (e) => {
         e.preventDefault();
         resetToMainGrid();
     });
 
-    // About
     document.getElementById('navAbout').addEventListener('click', () => {
         showInfoModal(' About - Yono Games Platform', `
         <p><strong>Welcome to Yono Games Platform</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users.</p>
@@ -1515,7 +1280,6 @@
         `);
     });
 
-    // Contact
     document.getElementById('navContact').addEventListener('click', () => {
         showInfoModal('📞 Contact Us - Yono Games Platform', `
         <p><strong>Yono Games Platform</strong> - We do not provide Customer Support for Listed Apps/Games. If you encounter any problems, please contact the support option within those games. Because the Listed Games/Apps are not ours. We do not own those games.</p>
@@ -1529,82 +1293,32 @@
         `);
     });
 
-    // Disclaimer
     document.getElementById('navDisclaimer').addEventListener('click', () => {
         showInfoModal(' Disclaimer - Yono Games Platform', `
         <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 12px; border-radius: 16px; margin-bottom: 16px; text-align: center;">
             <h3 style="color: #b45900; font-weight: 800; font-size: 1.4rem;">Welcome to Yono Games Platform</h3>
         </div>
         <p style="font-weight: 700; color: #1e562a;">This disclaimer applies to all users of the Yono Games Platform website and the wide array of applications ("Apps") available on it. Our platform includes diverse apps such as Poker, Rummy, Ludo, fantasy sports, investment apps, and trading apps. By accessing Yono Games Platform, you acknowledge and agree to the terms outlined in this disclaimer.</p>
-        <div class="disclaimer-section">
-            <h4> Understanding the Scope of Our Platform</h4>
-            <p>Yono Games Platform serves as a digital distribution platform for various third-party applications. Our role is limited to providing access to these apps. We do not develop, modify, or have any control over the content and functionality of these apps.</p>
-        </div>
-        <div class="disclaimer-section" style="border-left-color: #d50000;">
-            <h4> User Responsibility and Financial Risk</h4>
-            <p><strong>Risk of Financial Activities</strong><br> The Apps, particularly those involving financial transactions like betting games or investment platforms, may carry inherent risks including the potential for significant financial loss. You are solely responsible for any financial outcomes resulting from using these Apps.</p>
-            <p><strong>Informed Decision-Making</strong><br> We strongly encourage you to thoroughly research and understand each App, especially those involving financial risks, before using them. This includes seeking advice from financial professionals if needed.</p>
-            <p><strong>No Endorsement of Financial Strategies</strong><br> Our platform does not endorse any specific financial strategies, nor do we guarantee their success. Decisions made based on any App's content are solely your responsibility.</p>
-        </div>
-        <div class="disclaimer-section" style="border-left-color: #0088cc;">
-            <h4> Legal Age and Compliance</h4>
-            <p><strong>Age Restrictions</strong><br> Some Apps, particularly those involving gambling or financial investments, are designed for use by individuals above a certain age (usually 18 or 21 years). You must comply with these age restrictions.</p>
-            <p><strong>Compliance with Local Laws</strong><br> It is your responsibility to ensure that your use of any App complies with local laws and regulations. This includes understanding legal constraints related to gambling, investments, and other financial activities.</p>
-        </div>
-        <div class="disclaimer-section" style="border-left-color: #2ecc71;">
-            <h4> Critical Review of App-Specific Terms</h4>
-            <p><strong>User Due Diligence</strong><br> Before signing up, registering, or engaging with any App on our platform, it is crucial that you thoroughly review and understand that App's specific Terms and Conditions, disclaimers, and privacy policies.</p>
-            <p><strong>No Responsibility for Discrepancies</strong><br> We are not responsible for any discrepancies or misunderstandings resulting from the App's terms, conditions, or policies.</p>
-        </div>
-        <div class="disclaimer-box" style="background: #ffebee; border-color: #d50000;">
-            <p><strong>⚠️ No Liability for Losses</strong><br> Yono Games Platform shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including financial losses, resulting from the use or inability to use any App listed on our website. Your engagement with these Apps is entirely at your own risk and discretion.</p>
-        </div>
-        <div class="disclaimer-section" style="border-left-color: #9c27b0;">
-            <h4> Awareness of Addiction Risks</h4>
-            <p><strong>Risk of Addiction:</strong> Certain apps, especially games and those involving gambling or trading, can be addictive. We encourage responsible use of these apps and awareness of the potential for addictive behavior.</p>
-            <p><strong>Seeking Help:</strong> If you or someone you know is struggling with addiction related to these apps, we advise seeking professional help.</p>
-        </div>
-        <div class="disclaimer-section" style="border-left-color: #ff8c00;">
-            <h4>📢 Additional Disclaimers</h4>
-            <p><strong>Variability in App Functionality</strong><br> The functionality and content of the Apps may change over time, and we do not guarantee their consistency or availability.</p>
-            <p><strong>Non-Endorsement of App Content</strong><br> Display of an App on our platform does not constitute an endorsement of its content or functionality.</p>
-            <p><strong>No Financial or Legal Advice</strong><br> Yono Games Platform does not provide financial, legal, or investment advice. Any information obtained from our platform should not be treated as professional advice.</p>
-        </div>
-        <div class="disclaimer-box" style="background: #e8f5e9; border-color: #2ecc71;">
-            <p><strong> Changes and Amendments</strong><br> We reserve the right to modify this disclaimer at any time. Such changes will be effective immediately upon posting on our website. It is your responsibility to regularly review this disclaimer.</p>
-        </div>
+        <div class="disclaimer-section"><h4> Understanding the Scope of Our Platform</h4><p>Yono Games Platform serves as a digital distribution platform for various third-party applications. Our role is limited to providing access to these apps. We do not develop, modify, or have any control over the content and functionality of these apps.</p></div>
+        <div class="disclaimer-section" style="border-left-color: #d50000;"><h4> User Responsibility and Financial Risk</h4><p><strong>Risk of Financial Activities</strong><br> The Apps, particularly those involving financial transactions like betting games or investment platforms, may carry inherent risks including the potential for significant financial loss. You are solely responsible for any financial outcomes resulting from using these Apps.</p><p><strong>Informed Decision-Making</strong><br> We strongly encourage you to thoroughly research and understand each App, especially those involving financial risks, before using them. This includes seeking advice from financial professionals if needed.</p><p><strong>No Endorsement of Financial Strategies</strong><br> Our platform does not endorse any specific financial strategies, nor do we guarantee their success. Decisions made based on any App's content are solely your responsibility.</p></div>
+        <div class="disclaimer-section" style="border-left-color: #0088cc;"><h4> Legal Age and Compliance</h4><p><strong>Age Restrictions</strong><br> Some Apps, particularly those involving gambling or financial investments, are designed for use by individuals above a certain age (usually 18 or 21 years). You must comply with these age restrictions.</p><p><strong>Compliance with Local Laws</strong><br> It is your responsibility to ensure that your use of any App complies with local laws and regulations. This includes understanding legal constraints related to gambling, investments, and other financial activities.</p></div>
+        <div class="disclaimer-section" style="border-left-color: #2ecc71;"><h4> Critical Review of App-Specific Terms</h4><p><strong>User Due Diligence</strong><br> Before signing up, registering, or engaging with any App on our platform, it is crucial that you thoroughly review and understand that App's specific Terms and Conditions, disclaimers, and privacy policies.</p><p><strong>No Responsibility for Discrepancies</strong><br> We are not responsible for any discrepancies or misunderstandings resulting from the App's terms, conditions, or policies.</p></div>
+        <div class="disclaimer-box" style="background: #ffebee; border-color: #d50000;"><p><strong>⚠️ No Liability for Losses</strong><br> Yono Games Platform shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, including financial losses, resulting from the use or inability to use any App listed on our website. Your engagement with these Apps is entirely at your own risk and discretion.</p></div>
+        <div class="disclaimer-section" style="border-left-color: #9c27b0;"><h4> Awareness of Addiction Risks</h4><p><strong>Risk of Addiction:</strong> Certain apps, especially games and those involving gambling or trading, can be addictive. We encourage responsible use of these apps and awareness of the potential for addictive behavior.</p><p><strong>Seeking Help:</strong> If you or someone you know is struggling with addiction related to these apps, we advise seeking professional help.</p></div>
+        <div class="disclaimer-section" style="border-left-color: #ff8c00;"><h4>📢 Additional Disclaimers</h4><p><strong>Variability in App Functionality</strong><br> The functionality and content of the Apps may change over time, and we do not guarantee their consistency or availability.</p><p><strong>Non-Endorsement of App Content</strong><br> Display of an App on our platform does not constitute an endorsement of its content or functionality.</p><p><strong>No Financial or Legal Advice</strong><br> Yono Games Platform does not provide financial, legal, or investment advice. Any information obtained from our platform should not be treated as professional advice.</p></div>
+        <div class="disclaimer-box" style="background: #e8f5e9; border-color: #2ecc71;"><p><strong> Changes and Amendments</strong><br> We reserve the right to modify this disclaimer at any time. Such changes will be effective immediately upon posting on our website. It is your responsibility to regularly review this disclaimer.</p></div>
         <hr style="margin: 20px 0; border: 2px dashed #ffcf8a;">
-        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
-            <h4 style="color: #b45900;"> Disclaimer for Rummy Apps on Yono Games Platform</h4>
-            <p><strong>General Notice:</strong> This is a brief and partial disclaimer. For full details, refer to the specific Rummy app's own disclaimer. Rummy games are intended for users aged 18+ and involve elements of skill and chance. Play at your own risk and ensure compliance with local gambling laws. Adding money to these games is done at the user's own risk.</p>
-        </div>
-        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
-            <h4 style="color: #b45900;"> Disclaimer for Ludo Apps on Yono Games Platform</h4>
-            <p><strong>General Notice:</strong> This disclaimer is concise and may not cover all aspects. Review the full disclaimer in the specific Ludo app. Ludo apps are for entertainment and suitable for users 18+. Play responsibly and at your own risk. Any financial transactions within these apps are the responsibility of the user.</p>
-        </div>
-        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
-            <h4 style="color: #b45900;">📈 Disclaimer for Investment Apps on Yono Games Platform</h4>
-            <p><strong>General Notice:</strong> This disclaimer is partial. For complete information, review the specific investment app's disclaimer. Investment apps are for users aged 18+ and involve financial risks, including potential loss of capital. Decisions should be made based on personal financial situations. Any investments are made at the user's own risk.</p>
-        </div>
-        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
-            <h4 style="color: #b45900;"> Disclaimer for Fantasy Sports Apps on Yono Games Platform</h4>
-            <p><strong>General Notice:</strong> This is a summarized disclaimer. Refer to the full disclaimer in each Fantasy Sports app for comprehensive details. These apps are intended for users aged 18+ and involve an element of financial risk. There is no guarantee of winning, and losses incurred are the user's responsibility. Play and engage in financial transactions at your own risk.</p>
-        </div>
-        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;">
-            <h4 style="color: #b45900;"> Disclaimer for Other Earning Apps on Yono Games Platform</h4>
-            <p><strong>General Notice:</strong> This is an abbreviated disclaimer. Consult the full disclaimer in each earning app for more details. These apps are suitable for users aged 18+ and may offer potential income opportunities with no guaranteed earnings. Any financial decisions or transactions within these apps are entirely at the user's risk.</p>
-        </div>
-        <div style="background: #fff3e0; padding: 12px; border-radius: 12px; margin: 12px 0; border: 2px solid #ff8c00;">
-            <h4 style="color: #b45900;"> General Disclaimer for Third-Party Apps on Yono Games Platform</h4>
-            <p><strong>Notice of Non-Affiliation and Disclaimer:</strong> Yono Games Platform does not operate, control, or manage any of the applications (Apps) listed on our platform, including Rummy, Ludo, Fantasy Sports, Investment, and Trading apps. These apps are developed, owned, and operated by independent third parties.</p>
-        </div>
+        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;"><h4 style="color: #b45900;"> Disclaimer for Rummy Apps on Yono Games Platform</h4><p><strong>General Notice:</strong> This is a brief and partial disclaimer. For full details, refer to the specific Rummy app's own disclaimer. Rummy games are intended for users aged 18+ and involve elements of skill and chance. Play at your own risk and ensure compliance with local gambling laws. Adding money to these games is done at the user's own risk.</p></div>
+        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;"><h4 style="color: #b45900;"> Disclaimer for Ludo Apps on Yono Games Platform</h4><p><strong>General Notice:</strong> This disclaimer is concise and may not cover all aspects. Review the full disclaimer in the specific Ludo app. Ludo apps are for entertainment and suitable for users 18+. Play responsibly and at your own risk. Any financial transactions within these apps are the responsibility of the user.</p></div>
+        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;"><h4 style="color: #b45900;">📈 Disclaimer for Investment Apps on Yono Games Platform</h4><p><strong>General Notice:</strong> This disclaimer is partial. For complete information, review the specific investment app's disclaimer. Investment apps are for users aged 18+ and involve financial risks, including potential loss of capital. Decisions should be made based on personal financial situations. Any investments are made at the user's own risk.</p></div>
+        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;"><h4 style="color: #b45900;"> Disclaimer for Fantasy Sports Apps on Yono Games Platform</h4><p><strong>General Notice:</strong> This is a summarized disclaimer. Refer to the full disclaimer in each Fantasy Sports app for comprehensive details. These apps are intended for users aged 18+ and involve an element of financial risk. There is no guarantee of winning, and losses incurred are the user's responsibility. Play and engage in financial transactions at your own risk.</p></div>
+        <div style="background: #fef4e6; padding: 10px; border-radius: 12px; margin: 12px 0;"><h4 style="color: #b45900;"> Disclaimer for Other Earning Apps on Yono Games Platform</h4><p><strong>General Notice:</strong> This is an abbreviated disclaimer. Consult the full disclaimer in each earning app for more details. These apps are suitable for users aged 18+ and may offer potential income opportunities with no guaranteed earnings. Any financial decisions or transactions within these apps are entirely at the user's risk.</p></div>
+        <div style="background: #fff3e0; padding: 12px; border-radius: 12px; margin: 12px 0; border: 2px solid #ff8c00;"><h4 style="color: #b45900;"> General Disclaimer for Third-Party Apps on Yono Games Platform</h4><p><strong>Notice of Non-Affiliation and Disclaimer:</strong> Yono Games Platform does not operate, control, or manage any of the applications (Apps) listed on our platform, including Rummy, Ludo, Fantasy Sports, Investment, and Trading apps. These apps are developed, owned, and operated by independent third parties.</p></div>
         <div style="margin-top: 20px; text-align: center; background: linear-gradient(90deg, #ff4081, #ff8c00); padding: 8px; border-radius: 30px; color: white; font-weight: 700;"> ⚡ Yono Games Platform – Your Trusted App Discovery Platform ⚡ </div>
         `);
     });
 
-    function init() {
-        renderMainGrid();
-    }
+    function init() { renderMainGrid(); }
     init();
 </script>
 </body>
