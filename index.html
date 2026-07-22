@@ -1,4 +1,3 @@
-llll
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,7 +110,6 @@ llll
             gap: 6px;
         }
 
-        /* ===== SHARE BUTTON ===== */
         .share-btn-nav {
             display: inline-flex;
             align-items: center;
@@ -165,7 +163,6 @@ llll
             stroke: #ffcf8a;
         }
 
-        /* ===== HEADER ===== */
         header {
             background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
             background-size: 300% 300%;
@@ -454,7 +451,6 @@ llll
             margin-bottom: 40px;
         }
 
-        /* ===== CARD - 4 CORNERS BLACK FRAME ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -804,7 +800,6 @@ llll
             font-size: 0.7rem;
         }
 
-        /* ===== INFO MODAL ===== */
         .info-modal {
             display: none;
             position: fixed;
@@ -980,7 +975,6 @@ llll
             border: 1px solid #ffcf8a;
         }
 
-        /* MARQUEE */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -1005,83 +999,11 @@ llll
             box-shadow: 0 0 12px rgba(255,215,0,.6);
         }
 
-        /* Speed optimizations */
         img, .card, .download-btn, .nav-link, .share-btn-nav {
             will-change: transform, opacity;
         }
         .card-img img {
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        /* ===== NEW PREMIUM APP ICON (3D Glossy) ===== */
-        .premium-app-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(145deg, #f7971e, #ffd200);
-            border-radius: 22px;
-            box-shadow: 
-                0 10px 30px rgba(247, 151, 30, 0.4),
-                inset 0 -4px 8px rgba(0,0,0,0.2),
-                inset 0 4px 8px rgba(255,255,255,0.4);
-            position: relative;
-            transform: perspective(800px) rotateX(6deg) rotateY(-4deg);
-            transition: 0.4s ease;
-            border: 2px solid rgba(255,255,255,0.2);
-            flex-shrink: 0;
-        }
-        .premium-app-icon:hover {
-            transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.05);
-            box-shadow: 0 15px 40px rgba(247, 151, 30, 0.5);
-        }
-        .premium-app-icon .icon-inner {
-            font-size: 2.4rem;
-            line-height: 1;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        /* glossy overlay */
-        .premium-app-icon::after {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 10%;
-            right: 10%;
-            height: 30%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
-            border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        /* subtle shine line */
-        .premium-app-icon .shine {
-            position: absolute;
-            top: -2px;
-            left: 20%;
-            right: 20%;
-            height: 3px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            filter: blur(1px);
-        }
-        .icon-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        @media (max-width: 640px) {
-            .premium-app-icon {
-                width: 56px;
-                height: 56px;
-                border-radius: 18px;
-            }
-            .premium-app-icon .icon-inner {
-                font-size: 1.8rem;
-            }
         }
     </style>
 </head>
@@ -1123,13 +1045,6 @@ llll
         <div class="banner-inner">
             <div class="banner-top-row">
                 <span class="banner-top-text">YONO GAMES PLATFORM</span>
-                <!-- NEW PREMIUM APP ICON - 3D Glossy -->
-                <div class="icon-wrapper">
-                    <div class="premium-app-icon">
-                        <span class="shine"></span>
-                        <span class="icon-inner">🎮</span>
-                    </div>
-                </div>
             </div>
             <div class="banner-age-group">
                 <span class="banner-age-badge">18+</span>
@@ -1201,11 +1116,53 @@ llll
         }
     });
 
-    // ===== APPS DATA =====
+    // ===== APPS DATA with unique tags per app =====
     const appsData = [
-        { name: "Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", img: "https://i.ibb.co/LXqV77rd/yono-games.jpg", category: "Slots" },
-        { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg", category: "Rummy" },
-        { name: "MBM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg", category: "Casino" },
+        { 
+            name: "Yono Games", 
+            bonus: "₹45", 
+            withdrawal: "₹100", 
+            downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", 
+            img: "https://i.ibb.co/LXqV77rd/yono-games.jpg", 
+            category: "Slots",
+            tags: {
+                description: "Yono Games offers a premium slots and casino experience with high returns and fast payouts. Enjoy a wide variety of games with ₹45 welcome bonus.",
+                about: "Yono Games is a leading gaming platform in India offering real-money games with secure payments and 24/7 support.",
+                features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play", "Multiple Games"],
+                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK", "Register with Mobile", "Claim ₹45 Bonus"],
+                faqBonus: "₹45"
+            }
+        },
+        { 
+            name: "INR Rummy", 
+            bonus: "₹45", 
+            withdrawal: "₹100", 
+            downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", 
+            img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg", 
+            category: "Rummy",
+            tags: {
+                description: "INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals.",
+                about: "INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
+                features: ["Welcome Bonus: ₹56", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play", "Multiple Games"],
+                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK", "Register with Mobile", "Claim ₹56 Bonus"],
+                faqBonus: "₹56"
+            }
+        },
+        { 
+            name: "MBM BET", 
+            bonus: "₹45", 
+            withdrawal: "₹100", 
+            downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", 
+            img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg", 
+            category: "Casino",
+            tags: {
+                description: "MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games.",
+                about: "MBM Bet is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
+                features: ["Welcome Bonus: ₹39", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play", "Multiple Games"],
+                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK", "Register with Mobile", "Claim ₹39 Bonus"],
+                faqBonus: "₹39"
+            }
+        },
         { name: "567 Slots", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg", category: "Slots" },
         { name: "Saga Slots", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg", category: "Slots" },
         { name: "Jaiho 91", bonus: "₹50", withdrawal: "₹100", downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067", img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg", category: "Casino" },
@@ -1246,6 +1203,19 @@ llll
         { name: "Diwa 777", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app", img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg", category: "Slots" }
     ];
 
+    // Helper to get tags for an app (fallback to generic)
+    function getAppTags(app) {
+        if (app.tags) return app.tags;
+        // Generic fallback
+        return {
+            description: `Download ${app.name} APK and get ${app.bonus} signup bonus instantly. Play exciting games, win real money, earn daily rewards, and withdraw cash directly via UPI.`,
+            about: `${app.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players.`,
+            features: [`Welcome Bonus: ${app.bonus}`, "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play", "Multiple Games"],
+            downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK", "Register with Mobile", `Claim ${app.bonus} Bonus`],
+            faqBonus: app.bonus
+        };
+    }
+
     function getCardStats(appName, bonusAmount) {
         let hash = 0;
         for (let i = 0; i < appName.length; i++) {
@@ -1271,13 +1241,6 @@ llll
         const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
         const idx = Math.abs(hash) % ratings.length;
         return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
-    }
-
-    function getDescription(appName, category, bonusAmount) {
-        if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
-        if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
-        if (category === "Spin") return `Exciting spin games on ${appName}. Get ${bonusAmount} free cash, daily rewards, and fast UPI withdrawals.`;
-        return `Download ${appName} APK and get ${bonusAmount} signup bonus instantly. Play exciting ${category.toLowerCase()} games, win real money, earn daily rewards, and withdraw cash directly via UPI. Fast secure platform with 24/7 support.`;
     }
 
     function getFAQ(appName, bonusAmount) {
@@ -1360,9 +1323,15 @@ llll
         const selectedApp = appsData[selectedIndex];
         if (!selectedApp) return;
         const stats = getAppStats(selectedApp.name);
-        const description = getDescription(selectedApp.name, selectedApp.category, selectedApp.bonus);
-        const faqHtml = getFAQ(selectedApp.name, selectedApp.bonus);
-        const infoTagsHtml = getInfoTags(selectedApp.name, selectedApp.bonus);
+        const tags = getAppTags(selectedApp);
+        const bonusNumeric = selectedApp.bonus.replace('₹', '');
+
+        // Build unique content using app-specific tags
+        const description = tags.description || `Download ${selectedApp.name} APK and get ${selectedApp.bonus} signup bonus instantly.`;
+        const aboutHtml = tags.about ? `<p>${tags.about}</p>` : '';
+        const featuresHtml = tags.features ? tags.features.map(f => `<li><strong>${f}</strong></li>`).join('') : '';
+        const downloadStepsHtml = tags.downloadSteps ? tags.downloadSteps.map((s, i) => `<li><strong>${i+1}.</strong> ${s}</li>`).join('') : '';
+        const faqBonus = tags.faqBonus || bonusNumeric;
 
         const gridDiv = document.getElementById('allAppsGrid');
         const downloadContainer = document.getElementById('downloadPageContainer');
@@ -1402,26 +1371,76 @@ llll
                     <div class="stat-item"><div class="stat-value">${stats.rating}</div><div class="stat-label">Rating</div></div>
                     <div class="stat-item"><div class="stat-value">${stats.size}</div><div class="stat-label">Size</div></div>
                     <div class="stat-item"><div class="stat-value">${stats.votes}</div><div class="stat-label">Votes</div></div>
-                    <div class="stat-item"><div class="stat-value">${selectedApp.bonus.replace('₹', '')}</div><div class="stat-label">Bonus</div></div>
+                    <div class="stat-item"><div class="stat-value">${bonusNumeric}</div><div class="stat-label">Bonus</div></div>
                 </div>
                 <a href="${selectedApp.downloadUrl}" target="_blank" class="final-download-btn">📲 DOWNLOAD ${selectedApp.name}</a>
                 <div class="app-description">
                     ${description}<br><br>
                     <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
                 </div>
-                ${infoTagsHtml}
+                ${getInfoTags(selectedApp.name, selectedApp.bonus)}
+                
+                <!-- About Section -->
+                <div style="background: #fff7e8; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
+                    <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">ℹ️ About ${selectedApp.name}</h4>
+                    ${aboutHtml || `<p>${selectedApp.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country.</p>`}
+                </div>
+
+                <!-- Key Features -->
+                <div style="background: #f0f9f0; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
+                    <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">✨ Key Features & Benefits</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        ${featuresHtml || `<li><strong>Welcome Bonus: ${selectedApp.bonus}</strong></li><li><strong>Low Withdrawal: ₹100</strong></li><li><strong>Secure Payments</strong></li><li><strong>24/7 Support</strong></li><li><strong>Fair Play</strong></li><li><strong>Multiple Games</strong></li>`}
+                    </ul>
+                </div>
+
+                <!-- Download & Signup -->
+                <div style="background: #fef4e6; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
+                    <h4 style="color: #b45900; font-size: 1.1rem; margin-bottom: 12px;">📲 ${selectedApp.name} Download & Signup – Claim Bonus ${selectedApp.bonus}</h4>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <p><strong>ऐप डाउनलोड:</strong></p>
+                        <ol style="padding-left: 20px; margin: 8px 0;">
+                            <li>${selectedApp.name} APK फाइल डाउनलोड करें: होमपेज पर "Download APK" बटन क्लिक करें।</li>
+                            <li>इंस्टॉलेशन इनेबल करें: फोन की सेटिंग्स > सिक्योरिटी > अननोन सोर्सेज को ऑन करें।</li>
+                            <li>इंस्टॉल करें: डाउनलोडेड फाइल ओपन करें और इंस्टॉल करें।</li>
+                        </ol>
+                        <p><strong>${selectedApp.name} रजिस्टर करें:</strong></p>
+                        <ol style="padding-left: 20px; margin: 8px 0;">
+                            <li>ऐप ओपन करें, मोबाइल नंबर वेरिफाई करें, और हिंदी लैंग्वेज सिलेक्ट करें।</li>
+                            <li>साइन-अप पर ${selectedApp.bonus} बोनस क्रेडिट हो जाएगा।</li>
+                        </ol>
+                        <p><strong>${selectedApp.name} Bonus Claim:</strong></p>
+                        <ul style="padding-left: 20px; margin: 8px 0;">
+                            <li>साइन-अप बोनस: ${selectedApp.bonus} फ्री कैश (नए यूजर्स के लिए)।</li>
+                            <li>रेफर & अर्न: दोस्तों को रेफर करने पर ₹10-50 प्रति रेफरल।</li>
+                            <li>मिनिमम विदड्रॉल: ₹100 (बैंक या UPI से)।</li>
+                            <li>गेम्स: रमी, टीन पत्ती, लूडो आदि।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- How to Download -->
                 <div class="howto-steps">
                     <h4>📱 How To Download ${selectedApp.name}?</h4>
                     <ol>
-                        <li>Click on the <strong>DOWNLOAD</strong> button below.</li>
-                        <li>Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
-                        <li>Open the APK file and install the app.</li>
-                        <li>Register with mobile number & verify OTP.</li>
-                        <li>Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                        ${downloadStepsHtml || `
+                        <li><strong>1.</strong> Click on the DOWNLOAD button above.</li>
+                        <li><strong>2.</strong> Allow installation from "Unknown Sources" in your Android settings if prompted.</li>
+                        <li><strong>3.</strong> Open the APK file and install the app.</li>
+                        <li><strong>4.</strong> Register with mobile number & verify OTP.</li>
+                        <li><strong>5.</strong> Claim your ${selectedApp.bonus} signup bonus and start playing!</li>
+                        `}
                     </ol>
                 </div>
+
+                <!-- Safety & Security -->
+                <div style="background: #e8f5e9; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left; border-left: 6px solid #2ecc71;">
+                    <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">🔒 Safety & Security</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.5; color: #2d3e2b;">Your safety and security are our top priorities. ${selectedApp.name} uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe. The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.</p>
+                </div>
+
                 <div class="faq-section">
-                    ${faqHtml}
+                    ${getFAQ(selectedApp.name, faqBonus)}
                 </div>
             </div>
             <div class="other-apps-title">Other Yono Apps</div>
@@ -1520,7 +1539,6 @@ llll
         resetToMainGrid();
     });
 
-    // About
     document.getElementById('navAbout').addEventListener('click', () => {
         showInfoModal(' About - Yono Games Platform', `
         <p><strong>Welcome to Yono Games Platform</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users.</p>
@@ -1534,7 +1552,6 @@ llll
         `);
     });
 
-    // Contact
     document.getElementById('navContact').addEventListener('click', () => {
         showInfoModal('📞 Contact Us - Yono Games Platform', `
         <p><strong>Yono Games Platform</strong> - We do not provide Customer Support for Listed Apps/Games. If you encounter any problems, please contact the support option within those games. Because the Listed Games/Apps are not ours. We do not own those games.</p>
@@ -1548,7 +1565,6 @@ llll
         `);
     });
 
-    // Disclaimer
     document.getElementById('navDisclaimer').addEventListener('click', () => {
         showInfoModal(' Disclaimer - Yono Games Platform', `
         <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 12px; border-radius: 16px; margin-bottom: 16px; text-align: center;">
