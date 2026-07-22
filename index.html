@@ -39,8 +39,12 @@
             animation: slowLeftMove 8s ease-in-out infinite alternate;
         }
         @keyframes slowLeftMove {
-            0% { transform: translateX(0px); }
-            100% { transform: translateX(-8px); }
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-8px);
+            }
         }
 
         .nav-link {
@@ -141,8 +145,12 @@
             mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
         }
         @keyframes ledSpinShare {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
         .share-btn-nav:hover {
             transform: scale(1.05);
@@ -197,8 +205,14 @@
             z-index: 0;
         }
         @keyframes pulseGlow {
-            0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-            100% { transform: scale(1.08) rotate(3deg); opacity: 1; }
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.08) rotate(3deg);
+                opacity: 1;
+            }
         }
         .banner-inner {
             position: relative;
@@ -432,8 +446,12 @@
                 font-size: 0.9rem;
             }
             @keyframes slowLeftMove {
-                0% { transform: translateX(0px); }
-                100% { transform: translateX(-5px); }
+                0% {
+                    transform: translateX(0px);
+                }
+                100% {
+                    transform: translateX(-5px);
+                }
             }
         }
 
@@ -553,129 +571,6 @@
             border-radius: 40px;
             margin-top: 6px;
         }
-
-        /* ===== 3 BAG TAGS ===== */
-        .bag-tags-row {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 12px 0 10px;
-            padding: 0 2px;
-        }
-        .bag-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 12px 4px 10px;
-            border-radius: 30px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            flex: 1;
-            justify-content: center;
-            min-width: 60px;
-        }
-        .bag-tag:hover {
-            transform: scale(1.04);
-        }
-        .bag-tag .tag-icon {
-            font-size: 0.7rem;
-        }
-        /* Bag 1 - Cyan Premium */
-        .bag-tag.bag1 {
-            background: linear-gradient(135deg, #00bcd4, #006064);
-            color: #fff;
-            border-color: #00e5ff;
-            box-shadow: 0 0 16px rgba(0, 188, 212, 0.3);
-        }
-        .bag-tag.bag1::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 32px;
-            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
-            animation: ledSpinBag 3s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.5;
-        }
-        .bag-tag.bag1 .gloss {
-            position: absolute;
-            inset: 0;
-            border-radius: 30px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        /* Bag 2 - Green Premium */
-        .bag-tag.bag2 {
-            background: linear-gradient(135deg, #4caf50, #1b5e20);
-            color: #fff;
-            border-color: #8bc34a;
-            box-shadow: 0 0 16px rgba(76, 175, 80, 0.3);
-        }
-        .bag-tag.bag2::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 32px;
-            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
-            animation: ledSpinBag 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.5;
-        }
-        .bag-tag.bag2 .gloss {
-            position: absolute;
-            inset: 0;
-            border-radius: 30px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        /* Bag 3 - Yellow Premium */
-        .bag-tag.bag3 {
-            background: linear-gradient(135deg, #ffc107, #f57f17);
-            color: #1a1a1a;
-            border-color: #ffeb3b;
-            box-shadow: 0 0 16px rgba(255, 193, 7, 0.3);
-        }
-        .bag-tag.bag3::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 32px;
-            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
-            animation: ledSpinBag 3.5s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.5;
-        }
-        .bag-tag.bag3 .gloss {
-            position: absolute;
-            inset: 0;
-            border-radius: 30px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        @keyframes ledSpinBag {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .download-btn {
             display: block;
             width: 100%;
@@ -700,6 +595,149 @@
             box-shadow: 0 8px 24px rgba(0, 206, 201, 0.45);
         }
 
+        /* ===== 3 TAG BAGS ===== */
+        .tag-bags {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 12px 0 6px;
+        }
+        .tag-bag {
+            flex: 1;
+            min-width: 60px;
+            max-width: 90px;
+            padding: 6px 4px 8px;
+            border-radius: 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.6rem;
+            letter-spacing: 0.3px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .tag-bag:hover {
+            transform: translateY(-3px) scale(1.04);
+        }
+        .tag-bag .bag-label {
+            display: block;
+            font-size: 0.45rem;
+            font-weight: 600;
+            opacity: 0.8;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tag-bag .bag-value {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Bag 1 - Cyan Premium */
+        .tag-bag.bag-1 {
+            background: linear-gradient(145deg, #00bcd4, #006064);
+            color: #fff;
+            border-color: #80deea;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.30);
+        }
+        .tag-bag.bag-1::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
+            animation: bagSpin1 3s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.6;
+        }
+        @keyframes bagSpin1 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Bag 2 - Green Premium */
+        .tag-bag.bag-2 {
+            background: linear-gradient(145deg, #4caf50, #1b5e20);
+            color: #fff;
+            border-color: #a5d6a7;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.30);
+        }
+        .tag-bag.bag-2::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
+            animation: bagSpin2 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.6;
+        }
+        @keyframes bagSpin2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Bag 3 - Yellow Premium */
+        .tag-bag.bag-3 {
+            background: linear-gradient(145deg, #ffc107, #f57f17);
+            color: #fff;
+            border-color: #ffeb3b;
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.30);
+        }
+        .tag-bag.bag-3::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
+            animation: bagSpin3 3.5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.6;
+        }
+        @keyframes bagSpin3 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Gloss overlay for all bags */
+        .tag-bag .gloss {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
+            border-radius: 14px 14px 0 0;
+            pointer-events: none;
+        }
+
         .download-page {
             background: white;
             border-radius: 44px;
@@ -710,8 +748,14 @@
             animation: fadeSlideUp 0.4s ease;
         }
         @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .download-header {
             text-align: center;
@@ -1133,55 +1177,175 @@
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* 3 Bag Tags on card - left aligned */
-        .bag-tags-left {
+        /* 4 LED icon tags (from before) */
+        .icon-tag-group {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0 6px;
+        }
+        .icon-tag-group-left {
             display: flex;
             gap: 5px;
             justify-content: flex-start;
             flex-wrap: wrap;
             margin: 10px 0 6px;
-            padding-left: 2px;
         }
-        .bag-tags-left .bag-tag {
-            flex: 1;
-            min-width: 55px;
-            font-size: 0.55rem;
-            padding: 3px 8px 3px 7px;
-            gap: 3px;
-            border-radius: 24px;
+        .icon-tag {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+            transition: 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
         }
-        .bag-tags-left .bag-tag .tag-icon {
+        .icon-tag:hover {
+            transform: scale(1.10) rotate(3deg);
+        }
+        .icon-tag .bonus-text {
+            color: #fff;
+            font-weight: 900;
             font-size: 0.6rem;
+            z-index: 2;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.3px;
         }
-        .bag-tags-left .bag-tag .gloss {
-            border-radius: 24px;
+        .icon-tag .tag-label {
+            position: absolute;
+            bottom: -16px;
+            font-size: 0.45rem;
+            font-weight: 700;
+            color: #333;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 6px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         }
-        .bag-tags-left .bag-tag::after {
-            border-radius: 26px !important;
+        .icon-tag .gloss {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, transparent 60%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .icon-tag.cyan {
+            background: linear-gradient(145deg, #00bcd4, #006064);
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5), inset 0 0 12px rgba(0, 229, 255, 0.2);
+        }
+        .icon-tag.cyan::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
+            animation: ledSpinTag 3s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.8;
+        }
+        .icon-tag.green {
+            background: linear-gradient(145deg, #4caf50, #1b5e20);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5), inset 0 0 12px rgba(139, 195, 74, 0.2);
+        }
+        .icon-tag.green::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
+            animation: ledSpinTag 4s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.8;
+        }
+        .icon-tag.yellow {
+            background: linear-gradient(145deg, #ffc107, #f57f17);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.5), inset 0 0 12px rgba(255, 235, 59, 0.2);
+        }
+        .icon-tag.yellow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
+            animation: ledSpinTag 3.5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.8;
+        }
+        .icon-tag.blue {
+            background: linear-gradient(145deg, #2196f3, #0d47a1);
+            box-shadow: 0 0 20px rgba(33, 150, 243, 0.5), inset 0 0 12px rgba(100, 181, 246, 0.2);
+        }
+        .icon-tag.blue::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            background: conic-gradient(from 0deg, #2196f3, #64b5f6, #2196f3);
+            animation: ledSpinTag 4.5s linear infinite;
+            z-index: -1;
+            padding: 2px;
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+            opacity: 0.8;
+        }
+        @keyframes ledSpinTag {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
-        /* Download page bag tags */
-        .bag-tags-detail {
+        .card-tags-left {
             display: flex;
-            gap: 8px;
-            justify-content: center;
+            gap: 5px;
+            justify-content: flex-start;
             flex-wrap: wrap;
-            margin: 16px 0;
+            margin: 8px 0 4px;
+            padding-left: 4px;
         }
-        .bag-tags-detail .bag-tag {
-            padding: 6px 16px 6px 14px;
-            font-size: 0.7rem;
-            min-width: 80px;
-            border-radius: 30px;
+        .card-tags-left .icon-tag {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
         }
-        .bag-tags-detail .bag-tag .tag-icon {
-            font-size: 0.8rem;
+        .card-tags-left .icon-tag .bonus-text {
+            font-size: 0.55rem;
         }
-        .bag-tags-detail .bag-tag .gloss {
-            border-radius: 30px;
+        .card-tags-left .icon-tag .tag-label {
+            font-size: 0.4rem;
+            bottom: -14px;
         }
-        .bag-tags-detail .bag-tag::after {
-            border-radius: 32px !important;
+        .card-tags-left .icon-tag .gloss {
+            border-radius: 10px;
+        }
+        .card-tags-left .icon-tag::after {
+            border-radius: 14px !important;
+        }
+        .card-tags-left .icon-tag.cyan::after,
+        .card-tags-left .icon-tag.green::after,
+        .card-tags-left .icon-tag.yellow::after,
+        .card-tags-left .icon-tag.blue::after {
+            border-radius: 14px !important;
         }
     </style>
 </head>
@@ -1294,7 +1458,7 @@
             }
         });
 
-        // ===== APPS DATA with UNIQUE 3 BAG TAGS per app =====
+        // ===== APPS DATA with UNIQUE 3 TAGS per app =====
         const appsData = [{
             name: "INR Rummy",
             bonus: "₹45",
@@ -1302,9 +1466,9 @@
             downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106",
             img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Rummy Pro" },
-            bag2: { icon: "🎁", label: "₹56 Bonus" },
-            bag3: { icon: "⚡", label: "Instant UPI" },
+            tag1: "Rummy Pro",
+            tag2: "Cash Games",
+            tag3: "Fast Payout",
             tags: {
                 description: "INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals.",
                 about: "INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
@@ -1323,9 +1487,9 @@
             downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830",
             img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg",
             category: "Casino",
-            bag1: { icon: "♣️", label: "Casino Pro" },
-            bag2: { icon: "🎁", label: "₹39 Bonus" },
-            bag3: { icon: "🛡️", label: "Secure Pay" },
+            tag1: "Casino King",
+            tag2: "Live Games",
+            tag3: "Big Wins",
             tags: {
                 description: "MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games.",
                 about: "MBM Bet is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
@@ -1344,9 +1508,9 @@
             downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209",
             img: "https://i.ibb.co/LXqV77rd/yono-games.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Slots Master" },
-            bag2: { icon: "🎁", label: "₹45 Bonus" },
-            bag3: { icon: "⭐", label: "Daily Rewards" },
+            tag1: "Slots Master",
+            tag2: "Daily Bonus",
+            tag3: "Jackpot",
             tags: {
                 description: "Yono Games offers a premium slots and casino experience with high returns and fast payouts. Enjoy a wide variety of games with ₹45 welcome bonus.",
                 about: "Yono Games is a leading gaming platform in India offering real-money games with secure payments and 24/7 support.",
@@ -1365,9 +1529,9 @@
             downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
             img: "https://i.ibb.co/hFytMXY2/1000022725.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Slot King" },
-            bag2: { icon: "🎁", label: "₹45 Bonus" },
-            bag3: { icon: "💎", label: "Jackpot" },
+            tag1: "Slot Hero",
+            tag2: "Mega Spin",
+            tag3: "Fast Cash",
             tags: {
                 description: "567 Slots is a premium slot gaming app with exciting bonuses and fast payouts. Get ₹45 welcome bonus and start winning real cash.",
                 about: "567 Slots offers a wide range of slot games with high RTP and exciting features. The app is designed for Indian players with secure UPI withdrawals.",
@@ -1386,9 +1550,9 @@
             downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813",
             img: "https://i.ibb.co/20dzhBZf/1000022725.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Saga Slots" },
-            bag2: { icon: "🎁", label: "₹40 Bonus" },
-            bag3: { icon: "🔥", label: "Hot Wins" },
+            tag1: "Saga Win",
+            tag2: "Epic Spins",
+            tag3: "Big Bonus",
             tags: {
                 description: "Saga Slots brings you the best slot gaming experience with ₹40 welcome bonus. Play thrilling slots and win real cash instantly.",
                 about: "Saga Slots is a top-rated slot gaming app known for its stunning graphics and big win potential. Trusted by thousands of Indian players.",
@@ -1407,9 +1571,9 @@
             downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067",
             img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg",
             category: "Casino",
-            bag1: { icon: "♣️", label: "Live Casino" },
-            bag2: { icon: "🎁", label: "₹50 Bonus" },
-            bag3: { icon: "🎯", label: "Big Wins" },
+            tag1: "Jaiho Win",
+            tag2: "Live Casino",
+            tag3: "Big Reward",
             tags: {
                 description: "Jaiho 91 is a premium casino app with ₹50 welcome bonus. Enjoy live casino games, slots, and more with real cash winnings.",
                 about: "Jaiho 91 brings the authentic casino experience to your phone with live dealers and exciting games. Secure and trusted platform.",
@@ -1428,9 +1592,9 @@
             downloadUrl: "https://rummyludoapp37.com/",
             img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Rummy+Ludo" },
-            bag2: { icon: "🎁", label: "₹35 Bonus" },
-            bag3: { icon: "👥", label: "Multiplayer" },
+            tag1: "Ludo King",
+            tag2: "Rummy Fun",
+            tag3: "Double Win",
             tags: {
                 description: "Rummy Ludo combines classic rummy and ludo games in one app. Get ₹35 bonus and enjoy both games with real cash prizes.",
                 about: "Rummy Ludo is a unique gaming app that offers both rummy and ludo with real cash rewards. Perfect for players who love both games.",
@@ -1449,9 +1613,9 @@
             downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk",
             img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "ABC Rummy" },
-            bag2: { icon: "🎁", label: "₹42 Bonus" },
-            bag3: { icon: "🏆", label: "Tournaments" },
+            tag1: "ABC Win",
+            tag2: "Rummy Star",
+            tag3: "Quick Cash",
             tags: {
                 description: "ABC Rummy is a feature-rich rummy app with ₹42 signup bonus. Play with real players and win cash prizes daily.",
                 about: "ABC Rummy offers a seamless rummy experience with fast gameplay and secure transactions. Trusted by rummy enthusiasts across India.",
@@ -1470,9 +1634,9 @@
             downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk",
             img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Rummy 91" },
-            bag2: { icon: "🎁", label: "₹38 Bonus" },
-            bag3: { icon: "🔥", label: "Fast Games" },
+            tag1: "Rummy Ace",
+            tag2: "Tournament",
+            tag3: "Fast Win",
             tags: {
                 description: "Rummy 91 is a popular rummy app with ₹38 welcome bonus. Join tournaments, compete with real players, and win big.",
                 about: "Rummy 91 offers a classic rummy experience with modern features. Fast withdrawals and secure gameplay make it a top choice.",
@@ -1491,9 +1655,9 @@
             downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk",
             img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Love Rummy" },
-            bag2: { icon: "🎁", label: "₹36 Bonus" },
-            bag3: { icon: "💕", label: "Social Play" },
+            tag1: "Love Win",
+            tag2: "Social Play",
+            tag3: "Cash Love",
             tags: {
                 description: "Love Rummy is a fun and exciting rummy app with ₹36 bonus. Play with friends and family and win real cash rewards.",
                 about: "Love Rummy brings a social twist to rummy gaming. Connect with friends, play together, and earn real money.",
@@ -1512,9 +1676,9 @@
             downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk",
             img: "https://i.ibb.co/S4C26kVS/1000022725.jpg",
             category: "Spin",
-            bag1: { icon: "🌀", label: "Spin Zone" },
-            bag2: { icon: "🎁", label: "₹30 Bonus" },
-            bag3: { icon: "💫", label: "Daily Spin" },
+            tag1: "Spin King",
+            tag2: "Crush Win",
+            tag3: "Daily Spin",
             tags: {
                 description: "Spin Crush is a thrilling spin game app with ₹30 welcome bonus. Spin and win real cash with exciting rewards.",
                 about: "Spin Crush offers a unique spin-to-win experience with daily rewards and fast payouts. Simple, fun, and rewarding.",
@@ -1533,9 +1697,9 @@
             downloadUrl: "https://th7.my/BY1JWS/3gvute0",
             img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Top Rummy" },
-            bag2: { icon: "🎁", label: "₹48 Bonus" },
-            bag3: { icon: "👑", label: "High Stakes" },
+            tag1: "Top Player",
+            tag2: "High Stakes",
+            tag3: "Pro Win",
             tags: {
                 description: "Top Rummy is a premium rummy app with ₹48 bonus. Play high-stakes games and win big with your skills.",
                 about: "Top Rummy is designed for serious rummy players who want to win big. Competitive tournaments and high rewards.",
@@ -1554,9 +1718,9 @@
             downloadUrl: "https://t.me/yonogameswepsate",
             img: "https://i.ibb.co/p6BTzfRz/1000022725.jpg",
             category: "Casino",
-            bag1: { icon: "♣️", label: "New Casino" },
-            bag2: { icon: "🎁", label: "₹33 Bonus" },
-            bag3: { icon: "✨", label: "Fresh Games" },
+            tag1: "New King",
+            tag2: "Fresh Games",
+            tag3: "Big Bonus",
             tags: {
                 description: "New Yono Games brings fresh casino games with ₹33 welcome bonus. Explore new games and win real cash.",
                 about: "New Yono Games is the latest addition to the Yono family with exciting new games and big bonuses.",
@@ -1575,9 +1739,9 @@
             downloadUrl: "https://t.me/yonogameswepsate",
             img: "https://i.ibb.co/S7MsNPQ5/1000022725.jpg",
             category: "Casino",
-            bag1: { icon: "♣️", label: "All Yono" },
-            bag2: { icon: "🎁", label: "₹31 Bonus" },
-            bag3: { icon: "📱", label: "One Stop" },
+            tag1: "All Games",
+            tag2: "Yono Pro",
+            tag3: "Mega Win",
             tags: {
                 description: "All Yono Games s offers a complete gaming package with ₹31 bonus. Access all Yono games in one place.",
                 about: "All Yono Games s is your one-stop destination for all Yono gaming experiences. Enjoy variety and big wins.",
@@ -1596,9 +1760,9 @@
             downloadUrl: "https://t.me/allyonogamessite",
             img: "https://i.ibb.co/27DSP5zR/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Hello Rummy" },
-            bag2: { icon: "🎁", label: "₹34 Bonus" },
-            bag3: { icon: "👋", label: "Friendly" },
+            tag1: "Hello Win",
+            tag2: "Rummy Fun",
+            tag3: "Quick Cash",
             tags: {
                 description: "Hello Rummy is a friendly rummy app with ₹34 bonus. Meet new players, play rummy, and win cash prizes.",
                 about: "Hello Rummy creates a welcoming community for rummy players. Enjoy fair play and exciting tournaments.",
@@ -1617,9 +1781,9 @@
             downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
             img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Rummy 365" },
-            bag2: { icon: "🎁", label: "₹44 Bonus" },
-            bag3: { icon: "📅", label: "Daily Games" },
+            tag1: "365 Win",
+            tag2: "Daily Rummy",
+            tag3: "Yearly Cash",
             tags: {
                 description: "Rummy 365 is your daily rummy companion with ₹44 bonus. Play every day and win real cash rewards.",
                 about: "Rummy 365 offers a year-round rummy experience with daily tournaments and bonuses. Never miss a game.",
@@ -1638,9 +1802,9 @@
             downloadUrl: "https://th7.my/BY1JWS/3gvute0",
             img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg",
             category: "Earn",
-            bag1: { icon: "🐂", label: "Taurus Earn" },
-            bag2: { icon: "🎁", label: "₹30 Bonus" },
-            bag3: { icon: "💰", label: "Easy Cash" },
+            tag1: "Taurus Earn",
+            tag2: "Task Master",
+            tag3: "Cash Bull",
             tags: {
                 description: "Taurus App is a earning app with ₹30 signup bonus. Complete tasks, play games, and earn real cash.",
                 about: "Taurus App offers multiple earning opportunities through games and tasks. Simple and rewarding.",
@@ -1659,9 +1823,9 @@
             downloadUrl: "https://www.earntp.com/gold/jm9n7r",
             img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg",
             category: "Card",
-            bag1: { icon: "🃏", label: "TP Gold" },
-            bag2: { icon: "🎁", label: "₹37 Bonus" },
-            bag3: { icon: "🏅", label: "Pro Play" },
+            tag1: "Gold Card",
+            tag2: "Teen King",
+            tag3: "Cash Game",
             tags: {
                 description: "Teen Patti Gold is the ultimate card game app with ₹37 bonus. Play Teen Patti with real players and win cash.",
                 about: "Teen Patti Gold brings the classic Indian card game to your phone with real cash rewards. Trusted by millions.",
@@ -1680,9 +1844,9 @@
             downloadUrl: "https://www.earntp.com/m/jm9n7r",
             img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg",
             category: "Card",
-            bag1: { icon: "🃏", label: "TP Master" },
-            bag2: { icon: "🎁", label: "₹20 Bonus" },
-            bag3: { icon: "👑", label: "Pro Level" },
+            tag1: "Master Card",
+            tag2: "Pro Teen",
+            tag3: "Big Cash",
             tags: {
                 description: "Teen Patti Master is a pro-level card game app with ₹20 bonus. Master your skills and win big.",
                 about: "Teen Patti Master is designed for serious card players who want to compete at the highest level.",
@@ -1701,9 +1865,9 @@
             downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758",
             img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Yono Rummy" },
-            bag2: { icon: "🎁", label: "₹25 Bonus" },
-            bag3: { icon: "⭐", label: "Classic" },
+            tag1: "Yono Rummy",
+            tag2: "Classic Play",
+            tag3: "Cash Win",
             tags: {
                 description: "Yono games offers classic rummy with ₹25 welcome bonus. Play and win real cash with Yono.",
                 about: "Yono games is a trusted name in Indian gaming with a focus on rummy and card games.",
@@ -1722,9 +1886,9 @@
             downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393",
             img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Slots Win" },
-            bag2: { icon: "🎁", label: "₹40 Bonus" },
-            bag3: { icon: "🏆", label: "Jackpot" },
+            tag1: "Winner Slot",
+            tag2: "Jackpot King",
+            tag3: "Big Spin",
             tags: {
                 description: "Slots Winner is a top slot gaming app with ₹40 bonus. Spin the reels and become a winner.",
                 about: "Slots Winner offers a premium slot experience with high RTP and exciting jackpots.",
@@ -1743,9 +1907,9 @@
             downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1",
             img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Good Slots" },
-            bag2: { icon: "🎁", label: "₹15 Bonus" },
-            bag3: { icon: "😊", label: "Easy Play" },
+            tag1: "Good Spin",
+            tag2: "Easy Win",
+            tag3: "Daily Cash",
             tags: {
                 description: "Good Slots is a simple and fun slot app with ₹15 bonus. Enjoy casual slot gaming and win real cash.",
                 about: "Good Slots offers a relaxed slot gaming experience with daily rewards and easy gameplay.",
@@ -1764,9 +1928,9 @@
             downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app",
             img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Diwa Slot" },
-            bag2: { icon: "🎁", label: "₹50 Bonus" },
-            bag3: { icon: "💎", label: "Luxury" },
+            tag1: "Diwa King",
+            tag2: "Luxury Spin",
+            tag3: "Big Jackpot",
             tags: {
                 description: "Diwa Slot is a premium slot app with ₹50 bonus. Experience luxury slots and win big.",
                 about: "Diwa Slot brings high-end slot gaming with stunning visuals and big win potential.",
@@ -1785,9 +1949,9 @@
             downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694",
             img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "GoGo Rummy" },
-            bag2: { icon: "🎁", label: "₹28 Bonus" },
-            bag3: { icon: "⚡", label: "Fast Play" },
+            tag1: "GoGo Win",
+            tag2: "Fast Rummy",
+            tag3: "Quick Cash",
             tags: {
                 description: "GoGo Rummy is a fast-paced rummy app with ₹28 bonus. Play quick games and win cash instantly.",
                 about: "GoGo Rummy is designed for players who love fast rummy games with quick payouts.",
@@ -1806,9 +1970,9 @@
             downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100",
             img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Joy Rummy" },
-            bag2: { icon: "🎁", label: "₹35 Bonus" },
-            bag3: { icon: "😄", label: "Happy Play" },
+            tag1: "Joy Win",
+            tag2: "Happy Play",
+            tag3: "Cash Joy",
             tags: {
                 description: "Joy Rummy is a joyful rummy app with ₹35 bonus. Play with a smile and win real cash.",
                 about: "Joy Rummy creates a happy and engaging rummy environment with fair play and big rewards.",
@@ -1827,9 +1991,9 @@
             downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
             img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg",
             category: "Spin",
-            bag1: { icon: "🌀", label: "Spin Gold" },
-            bag2: { icon: "🎁", label: "₹22 Bonus" },
-            bag3: { icon: "🥇", label: "Win Gold" },
+            tag1: "Gold Spin",
+            tag2: "Golden Win",
+            tag3: "Cash Gold",
             tags: {
                 description: "Spin Gold is a spin-to-win app with ₹22 bonus. Spin the wheel and win gold.",
                 about: "Spin Gold offers an exciting spin experience with daily rewards and real cash prizes.",
@@ -1848,9 +2012,9 @@
             downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
             img: "https://i.ibb.co/My9tjNgL/bingo101.jpg",
             category: "Bingo",
-            bag1: { icon: "🎱", label: "Bingo 101" },
-            bag2: { icon: "🎁", label: "₹45 Bonus" },
-            bag3: { icon: "🎯", label: "Fun Bingo" },
+            tag1: "Bingo King",
+            tag2: "Number Win",
+            tag3: "Cash Bingo",
             tags: {
                 description: "Bingo 101 is a fun bingo app with ₹45 bonus. Play bingo and win real cash prizes.",
                 about: "Bingo 101 brings the classic bingo game to your phone with exciting rewards and social features.",
@@ -1869,9 +2033,9 @@
             downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907",
             img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg",
             category: "Spin",
-            bag1: { icon: "🌀", label: "Yes Spin" },
-            bag2: { icon: "🎁", label: "₹18 Bonus" },
-            bag3: { icon: "✅", label: "Easy Win" },
+            tag1: "Yes Win",
+            tag2: "Spin Master",
+            tag3: "Daily Cash",
             tags: {
                 description: "Yes Spin is a simple spin game with ₹18 bonus. Spin and win every day.",
                 about: "Yes Spin offers a no-fuss spin experience with daily rewards and instant payouts.",
@@ -1890,9 +2054,9 @@
             downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006",
             img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg",
             category: "Arcade",
-            bag1: { icon: "🕹️", label: "Arcade" },
-            bag2: { icon: "🎁", label: "₹32 Bonus" },
-            bag3: { icon: "🎮", label: "Fun Games" },
+            tag1: "Arcade King",
+            tag2: "Game Master",
+            tag3: "Cash Play",
             tags: {
                 description: "Yono Arcade is a fun arcade gaming app with ₹32 bonus. Play arcade games and win cash.",
                 about: "Yono Arcade brings classic arcade games with a modern twist and real cash rewards.",
@@ -1911,9 +2075,9 @@
             downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5",
             img: "https://i.ibb.co/vfWZMLm/svip777.jpg",
             category: "Casino",
-            bag1: { icon: "♣️", label: "SVIP 777" },
-            bag2: { icon: "🎁", label: "₹27 Bonus" },
-            bag3: { icon: "👑", label: "VIP" },
+            tag1: "SVIP King",
+            tag2: "VIP Casino",
+            tag3: "Big Cash",
             tags: {
                 description: "SVIP 777 is a VIP casino app with ₹27 bonus. Experience premium casino gaming.",
                 about: "SVIP 777 offers an exclusive VIP casino experience with high stakes and big rewards.",
@@ -1932,9 +2096,9 @@
             downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220",
             img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "OK Rummy" },
-            bag2: { icon: "🎁", label: "₹38 Bonus" },
-            bag3: { icon: "🛡️", label: "Trusted" },
+            tag1: "OK Win",
+            tag2: "Trusted Play",
+            tag3: "Cash Rummy",
             tags: {
                 description: "OK Rummy is a reliable rummy app with ₹38 bonus. Play confidently and win real cash.",
                 about: "OK Rummy is known for its fair play and secure gaming environment. Trusted by rummy lovers.",
@@ -1953,9 +2117,9 @@
             downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307",
             img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Hind 777" },
-            bag2: { icon: "🎁", label: "₹42 Bonus" },
-            bag3: { icon: "🇮🇳", label: "Indian" },
+            tag1: "Hind King",
+            tag2: "Desi Slots",
+            tag3: "Big Win",
             tags: {
                 description: "Hind 777 is a vibrant slot app with ₹42 bonus. Play Indian-themed slots and win big.",
                 about: "Hind 777 celebrates Indian culture with exciting slot games and big winning opportunities.",
@@ -1968,18 +2132,18 @@
                 faqBonus: "₹42"
             }
         }, {
-            name: "Rummy Most",
+            name: "Yono games",
             bonus: "₹33",
             withdrawal: "₹100",
             downloadUrl: "https://th1.my/BY1JWS/3gvute0",
             img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Rummy Most" },
-            bag2: { icon: "🎁", label: "₹33 Bonus" },
-            bag3: { icon: "🏆", label: "Top Rummy" },
+            tag1: "Yono Pro",
+            tag2: "Rummy Star",
+            tag3: "Cash King",
             tags: {
-                description: "Rummy Most brings you classic rummy with ₹33 bonus. Play and win real cash.",
-                about: "Rummy Most is a trusted platform for rummy and card games with secure transactions.",
+                description: "Yono games brings you classic rummy with ₹33 bonus. Play and win real cash.",
+                about: "Yono games is a trusted platform for rummy and card games with secure transactions.",
                 features: ["Welcome Bonus: ₹33", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
                     "Fair Play", "Classic Games"
                 ],
@@ -1989,15 +2153,36 @@
                 faqBonus: "₹33"
             }
         }, {
+            name: "Teen Patti Gold Old",
+            bonus: "₹24",
+            withdrawal: "₹100",
+            downloadUrl: "https://www.earntp.com/gold/jm9n7r",
+            img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg",
+            category: "Card",
+            tag1: "Old Gold",
+            tag2: "Classic Teen",
+            tag3: "Cash Card",
+            tags: {
+                description: "Teen Patti Gold Old version with ₹24 bonus. Classic Teen Patti experience.",
+                about: "Teen Patti Gold Old offers the classic Teen Patti experience with real cash rewards.",
+                features: ["Welcome Bonus: ₹24", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+                    "Classic Game", "Fair Play"
+                ],
+                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+                    "Register with Mobile", "Claim ₹24 Bonus"
+                ],
+                faqBonus: "₹24"
+            }
+        }, {
             name: "Bet 213",
             bonus: "₹36",
             withdrawal: "₹100",
             downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576",
             img: "https://i.ibb.co/YTqq2C4F/bet213.jpg",
             category: "Betting",
-            bag1: { icon: "📊", label: "Bet 213" },
-            bag2: { icon: "🎁", label: "₹36 Bonus" },
-            bag3: { icon: "⚽", label: "Sports" },
+            tag1: "Bet King",
+            tag2: "Sports Pro",
+            tag3: "Cash Bet",
             tags: {
                 description: "Bet 213 is a betting app with ₹36 bonus. Place bets and win real cash.",
                 about: "Bet 213 offers a comprehensive betting experience with multiple sports and games.",
@@ -2010,18 +2195,18 @@
                 faqBonus: "₹36"
             }
         }, {
-            name: "Teen Patti",
+            name: "Teen Patt games",
             bonus: "₹29",
             withdrawal: "₹100",
             downloadUrl: "https://www.earntp.com/m/jm9n7r",
             img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg",
             category: "Card",
-            bag1: { icon: "🃏", label: "Teen Patti" },
-            bag2: { icon: "🎁", label: "₹29 Bonus" },
-            bag3: { icon: "🎯", label: "Card Game" },
+            tag1: "Teen Pro",
+            tag2: "Card Master",
+            tag3: "Cash Game",
             tags: {
-                description: "Teen Patti offers a variety of card games with ₹29 bonus. Play and win.",
-                about: "Teen Patti is your destination for multiple card games with real cash rewards.",
+                description: "Teen Patt games offers a variety of card games with ₹29 bonus. Play and win.",
+                about: "Teen Patt games is your destination for multiple card games with real cash rewards.",
                 features: ["Welcome Bonus: ₹29", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
                     "Multiple Games", "Fair Play"
                 ],
@@ -2031,15 +2216,36 @@
                 faqBonus: "₹29"
             }
         }, {
+            name: "Teen Patti Master",
+            bonus: "₹31",
+            withdrawal: "₹100",
+            downloadUrl: "https://www.earntp.com/gold/jm9n7r",
+            img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg",
+            category: "Card",
+            tag1: "Master Pro",
+            tag2: "Teen King",
+            tag3: "Big Cash",
+            tags: {
+                description: "Teen Patti Master games with ₹31 bonus. Master your card skills and win big.",
+                about: "Teen Patti Master is the ultimate card gaming app for serious players.",
+                features: ["Welcome Bonus: ₹31", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+                    "Pro Gaming", "Big Wins"
+                ],
+                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+                    "Register with Mobile", "Claim ₹31 Bonus"
+                ],
+                faqBonus: "₹31"
+            }
+        }, {
             name: "Boss Rummy",
             bonus: "₹40",
             withdrawal: "₹100",
             downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504",
             img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg",
             category: "Rummy",
-            bag1: { icon: "♠️", label: "Boss Rummy" },
-            bag2: { icon: "🎁", label: "₹40 Bonus" },
-            bag3: { icon: "👔", label: "Boss Play" },
+            tag1: "Boss King",
+            tag2: "Rummy Pro",
+            tag3: "Cash Boss",
             tags: {
                 description: "Boss Rummy is a premium rummy app with ₹40 bonus. Play like a boss and win cash.",
                 about: "Boss Rummy offers a premium rummy experience with competitive tournaments and big rewards.",
@@ -2058,9 +2264,9 @@
             downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
             img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Yono 777" },
-            bag2: { icon: "🎁", label: "₹35 Bonus" },
-            bag3: { icon: "🍀", label: "Lucky" },
+            tag1: "Yono Lucky",
+            tag2: "777 Spin",
+            tag3: "Jackpot Win",
             tags: {
                 description: "Yono 777 is a lucky slot app with ₹35 bonus. Spin the reels and win big.",
                 about: "Yono 777 offers a premium slot experience with lucky themes and big jackpots.",
@@ -2079,9 +2285,9 @@
             downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
             img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg",
             category: "VIP",
-            bag1: { icon: "👑", label: "Diwa VIP" },
-            bag2: { icon: "🎁", label: "₹60 Bonus" },
-            bag3: { icon: "💎", label: "Premium" },
+            tag1: "Diwa Elite",
+            tag2: "VIP King",
+            tag3: "Mega Cash",
             tags: {
                 description: "Diwa VIP is a premium VIP gaming app with ₹60 bonus. Experience luxury gaming.",
                 about: "Diwa VIP offers an exclusive VIP gaming experience with the highest rewards and privileges.",
@@ -2100,9 +2306,9 @@
             downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app",
             img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg",
             category: "Slots",
-            bag1: { icon: "🎰", label: "Diwa 777" },
-            bag2: { icon: "🎁", label: "₹45 Bonus" },
-            bag3: { icon: "✨", label: "Luxury" },
+            tag1: "Diwa Lucky",
+            tag2: "777 Spin",
+            tag3: "Jackpot King",
             tags: {
                 description: "Diwa 777 is a premium slot app with ₹45 bonus. Experience luxury slots and win big.",
                 about: "Diwa 777 brings high-end slot gaming with stunning visuals and massive jackpots.",
@@ -2116,7 +2322,7 @@
             }
         }];
 
-        // Helper to get tags for an app
+        // Helper to get tags for an app (fallback to generic if missing)
         function getAppTags(app) {
             if (app.tags) return app.tags;
             const bonusNum = app.bonus.replace('₹', '');
@@ -2181,13 +2387,21 @@
             `;
         }
 
-        // ===== GENERATE 3 BAG TAGS =====
-        function generateBagTags(bag1, bag2, bag3) {
-            return `
-                <div class="bag-tag bag1"><span class="gloss"></span><span class="tag-icon">${bag1.icon}</span> ${bag1.label}</div>
-                <div class="bag-tag bag2"><span class="gloss"></span><span class="tag-icon">${bag2.icon}</span> ${bag2.label}</div>
-                <div class="bag-tag bag3"><span class="gloss"></span><span class="tag-icon">${bag3.icon}</span> ${bag3.label}</div>
-            `;
+        // ===== GENERATE 4 COLOR ICON TAGS =====
+        function generateIconTags(appName, bonusAmount) {
+            const colors = [
+                { cls: 'cyan', label: 'Bonus' },
+                { cls: 'green', label: 'Secure' },
+                { cls: 'yellow', label: 'Fast' },
+                { cls: 'blue', label: 'Trusted' }
+            ];
+            return colors.map(c => `
+                <div class="icon-tag ${c.cls}">
+                    <div class="gloss"></div>
+                    <span class="bonus-text">${bonusAmount}</span>
+                    <span class="tag-label">${c.label}</span>
+                </div>
+            `).join('');
         }
 
         function getInfoTags(appName, bonusAmount) {
@@ -2212,6 +2426,10 @@
             appsData.forEach((app, idx) => {
                 const stats = getCardStats(app.name, app.bonus);
                 const bonusNum = app.bonus.replace('₹', '');
+                // Use tag1, tag2, tag3 from app data or fallback
+                const t1 = app.tag1 || "Tag 1";
+                const t2 = app.tag2 || "Tag 2";
+                const t3 = app.tag3 || "Tag 3";
                 html += `
                 <div class="card" data-app-index="${idx}">
                     <div class="card-app-name">${app.name}</div>
@@ -2225,9 +2443,27 @@
                         <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
                     </div>
                     <div class="withdrawal-note">🏦 Min Withdrawal: ${app.withdrawal}</div>
-                    <!-- 3 BAG TAGS - Left aligned -->
-                    <div class="bag-tags-left">
-                        ${generateBagTags(app.bag1, app.bag2, app.bag3)}
+                    <!-- 3 TAG BAGS -->
+                    <div class="tag-bags">
+                        <div class="tag-bag bag-1">
+                            <div class="gloss"></div>
+                            <span class="bag-label">🏷️ Tag 1</span>
+                            <span class="bag-value">${t1}</span>
+                        </div>
+                        <div class="tag-bag bag-2">
+                            <div class="gloss"></div>
+                            <span class="bag-label">🏷️ Tag 2</span>
+                            <span class="bag-value">${t2}</span>
+                        </div>
+                        <div class="tag-bag bag-3">
+                            <div class="gloss"></div>
+                            <span class="bag-label">🏷️ Tag 3</span>
+                            <span class="bag-value">${t3}</span>
+                        </div>
+                    </div>
+                    <!-- 4 Color Icon Tags - Left aligned -->
+                    <div class="card-tags-left">
+                        ${generateIconTags(app.name, bonusNum)}
                     </div>
                     <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
                 </div>
@@ -2263,6 +2499,11 @@
             const downloadStepsHtml = tags.downloadSteps ? tags.downloadSteps.map((s, i) =>
                 `<li><strong>${i+1}.</strong> ${s}</li>`).join('') : '';
             const faqBonus = tags.faqBonus || bonusNumeric;
+
+            // 3 tags for detail page
+            const t1 = selectedApp.tag1 || "Tag 1";
+            const t2 = selectedApp.tag2 || "Tag 2";
+            const t3 = selectedApp.tag3 || "Tag 3";
 
             const gridDiv = document.getElementById('allAppsGrid');
             const downloadContainer = document.getElementById('downloadPageContainer');
@@ -2311,9 +2552,31 @@
                     </div>
                     ${getInfoTags(selectedApp.name, selectedApp.bonus)}
 
-                    <!-- 3 BAG TAGS - Detail view -->
-                    <div class="bag-tags-detail">
-                        ${generateBagTags(selectedApp.bag1, selectedApp.bag2, selectedApp.bag3)}
+                    <!-- 3 TAG BAGS in detail page -->
+                    <div style="background: #f0f9f0; border-radius: 32px; padding: 16px 20px; margin: 16px 0;">
+                        <h4 style="color: #1e562a; font-size: 1rem; margin-bottom: 12px;">🏷️ App Tags</h4>
+                        <div class="tag-bags" style="margin:0;">
+                            <div class="tag-bag bag-1" style="min-width:80px; flex:1;">
+                                <div class="gloss"></div>
+                                <span class="bag-label">🏷️ Tag 1</span>
+                                <span class="bag-value">${t1}</span>
+                            </div>
+                            <div class="tag-bag bag-2" style="min-width:80px; flex:1;">
+                                <div class="gloss"></div>
+                                <span class="bag-label">🏷️ Tag 2</span>
+                                <span class="bag-value">${t2}</span>
+                            </div>
+                            <div class="tag-bag bag-3" style="min-width:80px; flex:1;">
+                                <div class="gloss"></div>
+                                <span class="bag-label">🏷️ Tag 3</span>
+                                <span class="bag-value">${t3}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 Color Icon Tags in detail -->
+                    <div class="icon-tag-group" style="margin:16px 0;">
+                        ${generateIconTags(selectedApp.name, bonusNumeric)}
                     </div>
 
                     <div style="background: #fff7e8; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
