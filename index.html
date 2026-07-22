@@ -62,7 +62,6 @@
             border-color: #ffcf8a;
             transform: scale(1.03);
         }
-        /* LED round border for nav links */
         .nav-link::before {
             content: '';
             position: absolute;
@@ -108,6 +107,7 @@
             overflow: hidden;
             border: 2px solid transparent;
             background-clip: padding-box;
+            text-decoration: none;
         }
         .share-btn-nav::before {
             content: '';
@@ -424,7 +424,7 @@
             margin-bottom: 40px;
         }
 
-        /* ===== CARD WITH 4-CORNER LED ===== */
+        /* ===== CARD WITH 4-CORNER LED (removed from img, kept on card) ===== */
         .card {
             background: white;
             border-radius: 36px;
@@ -439,7 +439,7 @@
             position: relative;
             overflow: hidden;
         }
-        /* 4 corner LEDs */
+        /* 4 corner LEDs on card border */
         .card::before {
             content: '';
             position: absolute;
@@ -462,27 +462,6 @@
         @keyframes ledSpinCard {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        /* Small corner dots */
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #00ff00;
-            box-shadow: 0 0 12px #00ff00, 0 0 24px #00ff00;
-            animation: cornerDotMove 3s ease-in-out infinite;
-        }
-        @keyframes cornerDotMove {
-            0% { top: 6px; left: 6px; background: #00ff00; box-shadow: 0 0 12px #00ff00; }
-            25% { top: 6px; right: 6px; left: auto; background: #00ffff; box-shadow: 0 0 12px #00ffff; }
-            50% { bottom: 6px; right: 6px; top: auto; left: auto; background: #ffff00; box-shadow: 0 0 12px #ffff00; }
-            75% { bottom: 6px; left: 6px; top: auto; right: auto; background: #ff00ff; box-shadow: 0 0 12px #ff00ff; }
-            100% { top: 6px; left: 6px; background: #00ff00; box-shadow: 0 0 12px #00ff00; }
         }
 
         .card:hover {
@@ -1005,7 +984,7 @@
 </head>
 <body>
 
-<!-- ===== TOP NAV - 3 LINKS IN ROW ===== -->
+<!-- ===== TOP NAV ===== -->
 <nav class="top-nav">
     <div class="nav-left">
         <a class="nav-link" id="homeNavLink" href="#">🏠 Home</a>
@@ -1014,14 +993,14 @@
         <a class="nav-link" id="navDisclaimer">⚖️ Disclaimer</a>
     </div>
     <div class="nav-right">
-        <button class="share-btn-nav" id="shareBtnNav">
+        <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
             <svg viewBox="0 0 24 24">
                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
                 <polyline points="16 6 12 2 8 6"/>
                 <line x1="12" y1="2" x2="12" y2="15"/>
             </svg>
             Share
-        </button>
+        </a>
     </div>
 </nav>
 
@@ -1111,29 +1090,8 @@
         }
     });
 
-    // ===== SHARE FUNCTION =====
-    function sharePage() {
-        const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
-        if (navigator.share) {
-            navigator.share({
-                title: 'Yono Games Platform',
-                text: 'Download India\'s Top Rummy Games & Win Real Cash',
-                url: shareUrl
-            }).catch(() => {});
-        } else {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert('Link copied to clipboard! 📋 Share it with your friends.');
-                }).catch(() => {
-                    prompt('Copy this link to share:', shareUrl);
-                });
-            } else {
-                prompt('Copy this link to share:', shareUrl);
-            }
-        }
-    }
-
-    document.getElementById('shareBtnNav').addEventListener('click', sharePage);
+    // ===== SHARE FUNCTION (link opens directly) =====
+    // share button is now an <a> tag with href, so it opens directly
 
     // ===== APPS DATA =====
     const appsData = [
