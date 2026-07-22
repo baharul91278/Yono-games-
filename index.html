@@ -17,7 +17,6 @@
             padding-bottom: 30px;
         }
 
-        /* ----- TOP NAV ----- */
         .top-nav {
             background: #0a2e1d;
             padding: 8px 16px;
@@ -47,6 +46,7 @@
                 transform: translateX(-8px);
             }
         }
+
         .nav-link {
             color: white;
             text-decoration: none;
@@ -106,11 +106,13 @@
             font-size: 0.9rem;
             filter: drop-shadow(0 0 6px currentColor);
         }
+
         .nav-right {
             display: flex;
             align-items: center;
             gap: 6px;
         }
+
         .share-btn-nav {
             display: inline-flex;
             align-items: center;
@@ -168,7 +170,6 @@
             stroke: #ffcf8a;
         }
 
-        /* ----- HEADER / BANNER ----- */
         header {
             background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
             background-size: 300% 300%;
@@ -469,7 +470,7 @@
 
         /* ===== CARD ===== */
         .card {
-            background: #ffffff;
+            background: white;
             border-radius: 36px;
             padding: 20px 18px 24px;
             flex: 1;
@@ -493,172 +494,15 @@
             border: 2px solid #0a0a0a;
             pointer-events: none;
             z-index: 2;
-            opacity: 0.10;
+            opacity: 0.15;
         }
         .card:hover::before {
-            opacity: 0.25;
+            opacity: 0.35;
         }
         .card:hover {
             transform: translateY(-5px) scale(1.01);
             box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
             border-color: #ffcf8a;
-        }
-
-        /* ----- 3 ABSTRACT PREMIUM TAGS at top-left ----- */
-        .card-tags-abstract {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            display: flex;
-            gap: 6px;
-            z-index: 5;
-            flex-wrap: wrap;
-        }
-        .abstract-tag {
-            width: 34px;
-            height: 34px;
-            border-radius: 10px;
-            position: relative;
-            overflow: visible;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-        .abstract-tag:hover {
-            transform: scale(1.12) rotate(-2deg);
-        }
-        .abstract-tag .gloss-overlay {
-            position: absolute;
-            inset: 0;
-            border-radius: 10px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 2;
-        }
-        .abstract-tag .inner-glow {
-            position: absolute;
-            inset: 2px;
-            border-radius: 8px;
-            z-index: 1;
-        }
-
-        /* Tag 1: Black + Dark Gray LED */
-        .abstract-tag.tag1 {
-            background: linear-gradient(145deg, #1a1a1a, #3d3d3d);
-            box-shadow: 0 0 18px rgba(80, 80, 80, 0.5), inset 0 0 10px rgba(120, 120, 120, 0.15);
-            animation: ledPulse1 4s ease-in-out infinite;
-        }
-        .abstract-tag.tag1 .inner-glow {
-            background: radial-gradient(circle at 30% 30%, rgba(160, 160, 160, 0.25), transparent 70%);
-        }
-        .abstract-tag.tag1::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 12px;
-            background: conic-gradient(from 0deg, #2a2a2a, #555555, #2a2a2a, #444444, #2a2a2a);
-            animation: ledSpinTag1 6s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.7;
-        }
-        @keyframes ledPulse1 {
-            0%,
-            100% {
-                box-shadow: 0 0 18px rgba(80, 80, 80, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(120, 120, 120, 0.7);
-            }
-        }
-        @keyframes ledSpinTag1 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Tag 2: Blue + Black LED */
-        .abstract-tag.tag2 {
-            background: linear-gradient(145deg, #0d47a1, #0a0a0a);
-            box-shadow: 0 0 18px rgba(33, 150, 243, 0.5), inset 0 0 10px rgba(66, 165, 245, 0.15);
-            animation: ledPulse2 4.5s ease-in-out infinite;
-        }
-        .abstract-tag.tag2 .inner-glow {
-            background: radial-gradient(circle at 30% 30%, rgba(100, 181, 246, 0.25), transparent 70%);
-        }
-        .abstract-tag.tag2::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 12px;
-            background: conic-gradient(from 0deg, #1565c0, #42a5f5, #0d47a1, #64b5f6, #1565c0);
-            animation: ledSpinTag2 7s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.7;
-        }
-        @keyframes ledPulse2 {
-            0%,
-            100% {
-                box-shadow: 0 0 18px rgba(33, 150, 243, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 34px rgba(66, 165, 245, 0.75);
-            }
-        }
-        @keyframes ledSpinTag2 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Tag 3: Yellow + Cyan LED */
-        .abstract-tag.tag3 {
-            background: linear-gradient(145deg, #f9a825, #00acc1);
-            box-shadow: 0 0 18px rgba(255, 193, 7, 0.5), inset 0 0 10px rgba(0, 229, 255, 0.15);
-            animation: ledPulse3 5s ease-in-out infinite;
-        }
-        .abstract-tag.tag3 .inner-glow {
-            background: radial-gradient(circle at 30% 30%, rgba(255, 235, 59, 0.3), transparent 70%);
-        }
-        .abstract-tag.tag3::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 12px;
-            background: conic-gradient(from 0deg, #f9a825, #00e5ff, #f9a825, #00bcd4, #f9a825);
-            animation: ledSpinTag3 8s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.7;
-        }
-        @keyframes ledPulse3 {
-            0%,
-            100% {
-                box-shadow: 0 0 18px rgba(255, 193, 7, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 36px rgba(0, 229, 255, 0.7);
-            }
-        }
-        @keyframes ledSpinTag3 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .card-app-name {
@@ -670,8 +514,100 @@
             color: transparent;
             margin-bottom: 12px;
             letter-spacing: -0.2px;
-            margin-top: 8px;
+            padding-left: 48px;
+            text-align: left;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
+
+        /* ===== 3 PREMIUM COLOR TAGS (top-left corner) ===== */
+        .tag-stack {
+            position: absolute;
+            top: 16px;
+            left: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 5;
+        }
+        .tag-pill {
+            width: 10px;
+            height: 30px;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+        .tag-pill:hover {
+            transform: scale(1.15);
+        }
+        .tag-pill .gloss-layer {
+            position: absolute;
+            inset: 0;
+            border-radius: 6px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .tag-pill .glow-ring {
+            position: absolute;
+            inset: -2px;
+            border-radius: 8px;
+            z-index: 0;
+            animation: glowPulse 3.5s ease-in-out infinite alternate;
+        }
+        @keyframes glowPulse {
+            0% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+        }
+
+        /* Tag 1: Black + Dark Gray LED glow */
+        .tag-pill.tag1 {
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
+        }
+        .tag-pill.tag1 .glow-ring {
+            background: radial-gradient(circle at 30% 30%, rgba(60, 60, 80, 0.8), rgba(0, 0, 0, 0.3));
+            animation-delay: 0s;
+        }
+
+        /* Tag 2: Blue + Black LED glow */
+        .tag-pill.tag2 {
+            background: linear-gradient(145deg, #0d47a1, #1a1a2e);
+            box-shadow: 0 0 14px rgba(33, 150, 243, 0.5);
+        }
+        .tag-pill.tag2 .glow-ring {
+            background: radial-gradient(circle at 30% 30%, rgba(66, 165, 245, 0.8), rgba(13, 71, 161, 0.3));
+            animation-delay: 0.3s;
+        }
+
+        /* Tag 3: Green + Cyan LED glow */
+        .tag-pill.tag3 {
+            background: linear-gradient(145deg, #1b5e20, #00695c);
+            box-shadow: 0 0 14px rgba(76, 175, 80, 0.5);
+        }
+        .tag-pill.tag3 .glow-ring {
+            background: radial-gradient(circle at 30% 30%, rgba(102, 187, 106, 0.8), rgba(0, 105, 92, 0.3));
+            animation-delay: 0.6s;
+        }
+
+        .tag-pill .inner-shine {
+            position: absolute;
+            inset: 1px;
+            border-radius: 5px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
         .card-img {
             width: 80px;
             height: 80px;
@@ -763,33 +699,7 @@
             margin-bottom: 30px;
             border: 1px solid #ffe1b3;
             animation: fadeSlideUp 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
-        /* Abstract tags on download page - top-left */
-        .download-abstract-tags {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-        .download-abstract-tags .abstract-tag {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-        }
-        .download-abstract-tags .abstract-tag .gloss-overlay {
-            border-radius: 12px;
-        }
-        .download-abstract-tags .abstract-tag .inner-glow {
-            border-radius: 10px;
-        }
-        .download-abstract-tags .abstract-tag::after {
-            border-radius: 14px !important;
-        }
-
         @keyframes fadeSlideUp {
             from {
                 opacity: 0;
@@ -805,7 +715,6 @@
             border-bottom: 2px dashed #ffcf8a;
             padding-bottom: 18px;
             margin-bottom: 24px;
-            padding-left: 50px;
         }
         .download-header h2 {
             font-size: 1.7rem;
@@ -822,7 +731,6 @@
             border-radius: 40px;
             margin: 16px 0;
             text-align: center;
-            position: relative;
         }
         .stats-row {
             display: flex;
@@ -1011,7 +919,7 @@
             font-size: 0.7rem;
         }
 
-        /* ----- INFO MODAL ----- */
+        /* ===== MODAL ===== */
         .info-modal {
             display: none;
             position: fixed;
@@ -1188,7 +1096,6 @@
             border: 1px solid #ffcf8a;
         }
 
-        /* ----- MARQUEE ----- */
         .marquee-container {
             width: 100%;
             overflow: hidden;
@@ -1224,48 +1131,44 @@
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* responsive tweaks */
-        @media (max-width: 640px) {
-            .abstract-tag {
-                width: 28px;
-                height: 28px;
-                border-radius: 8px;
+        /* responsive tag stack */
+        @media (max-width: 480px) {
+            .tag-pill {
+                width: 8px;
+                height: 24px;
+                border-radius: 4px;
             }
-            .abstract-tag .gloss-overlay {
-                border-radius: 8px;
-            }
-            .abstract-tag .inner-glow {
-                border-radius: 6px;
-            }
-            .abstract-tag::after {
-                border-radius: 10px !important;
-            }
-            .card-tags-abstract {
-                top: 8px;
-                left: 8px;
+            .tag-stack {
+                top: 12px;
+                left: 10px;
                 gap: 4px;
             }
-            .download-abstract-tags {
+            .card-app-name {
+                font-size: 1.1rem;
+                padding-left: 36px;
+                min-height: 34px;
+            }
+            .card {
+                padding: 16px 14px 18px;
+                min-width: 200px;
+                max-width: 260px;
+            }
+        }
+        @media (max-width: 380px) {
+            .tag-pill {
+                width: 6px;
+                height: 20px;
+                border-radius: 3px;
+            }
+            .tag-stack {
                 top: 10px;
-                left: 10px;
-                gap: 5px;
+                left: 8px;
+                gap: 3px;
             }
-            .download-abstract-tags .abstract-tag {
-                width: 32px;
-                height: 32px;
-                border-radius: 9px;
-            }
-            .download-abstract-tags .abstract-tag .gloss-overlay {
-                border-radius: 9px;
-            }
-            .download-abstract-tags .abstract-tag .inner-glow {
-                border-radius: 7px;
-            }
-            .download-abstract-tags .abstract-tag::after {
-                border-radius: 11px !important;
-            }
-            .download-header {
-                padding-left: 30px;
+            .card-app-name {
+                font-size: 0.95rem;
+                padding-left: 28px;
+                min-height: 28px;
             }
         }
     </style>
@@ -1325,9 +1228,9 @@
                     <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
                 </div>
                 <div class="banner-tags">
-                    <span class="banner-tag">REAL CASH GAMES</span>
-                    <span class="banner-tag">FAST PAYOUTS</span>
-                    <span class="banner-tag">DAILY BONUSES</span>
+                    <span class="banner-tag"> REAL CASH GAMES</span>
+                    <span class="banner-tag"> FAST PAYOUTS</span>
+                    <span class="banner-tag"> DAILY BONUSES</span>
                     <span class="banner-tag" style="background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff;">⌛ 24X7 SUPPORT</span>
                 </div>
                 <div class="app-tags-wrapper">
@@ -1379,7 +1282,7 @@
             }
         });
 
-        // ===== APPS DATA =====
+        // ===== APPS DATA with UNIQUE tags per app =====
         const appsData = [{
             name: "INR Rummy",
             bonus: "₹45",
@@ -1396,7 +1299,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹56 Bonus"
                 ],
-                faqBonus: "₹56"
+                faqBonus: "₹56",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "MBM BET",
@@ -1414,7 +1323,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹39 Bonus"
                 ],
-                faqBonus: "₹39"
+                faqBonus: "₹39",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yono Games",
@@ -1432,7 +1347,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹45 Bonus"
                 ],
-                faqBonus: "₹45"
+                faqBonus: "₹45",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "567 Slots",
@@ -1450,7 +1371,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹45 Bonus"
                 ],
-                faqBonus: "₹45"
+                faqBonus: "₹45",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Saga Slots",
@@ -1468,7 +1395,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹40 Bonus"
                 ],
-                faqBonus: "₹40"
+                faqBonus: "₹40",
+                infoBonus: "₹40",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Jaiho 91",
@@ -1486,7 +1419,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹50 Bonus"
                 ],
-                faqBonus: "₹50"
+                faqBonus: "₹50",
+                infoBonus: "₹50",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Rummy Ludo",
@@ -1504,7 +1443,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹35 Bonus"
                 ],
-                faqBonus: "₹35"
+                faqBonus: "₹35",
+                infoBonus: "₹35",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "ABC Rummy",
@@ -1522,7 +1467,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹42 Bonus"
                 ],
-                faqBonus: "₹42"
+                faqBonus: "₹42",
+                infoBonus: "₹42",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Rummy 91",
@@ -1540,7 +1491,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹38 Bonus"
                 ],
-                faqBonus: "₹38"
+                faqBonus: "₹38",
+                infoBonus: "₹38",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Love Rummy",
@@ -1558,7 +1515,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹36 Bonus"
                 ],
-                faqBonus: "₹36"
+                faqBonus: "₹36",
+                infoBonus: "₹36",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Spin Crush",
@@ -1576,7 +1539,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹30 Bonus"
                 ],
-                faqBonus: "₹30"
+                faqBonus: "₹30",
+                infoBonus: "₹30",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Top Rummy",
@@ -1594,7 +1563,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹48 Bonus"
                 ],
-                faqBonus: "₹48"
+                faqBonus: "₹48",
+                infoBonus: "₹48",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "New Yono Games",
@@ -1612,7 +1587,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹33 Bonus"
                 ],
-                faqBonus: "₹33"
+                faqBonus: "₹33",
+                infoBonus: "₹33",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "All Yono games s",
@@ -1630,7 +1611,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹31 Bonus"
                 ],
-                faqBonus: "₹31"
+                faqBonus: "₹31",
+                infoBonus: "₹31",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Hello Rummy",
@@ -1648,7 +1635,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹34 Bonus"
                 ],
-                faqBonus: "₹34"
+                faqBonus: "₹34",
+                infoBonus: "₹34",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Rummy 365",
@@ -1666,7 +1659,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹44 Bonus"
                 ],
-                faqBonus: "₹44"
+                faqBonus: "₹44",
+                infoBonus: "₹44",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Taurus App",
@@ -1684,7 +1683,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹30 Bonus"
                 ],
-                faqBonus: "₹30"
+                faqBonus: "₹30",
+                infoBonus: "₹30",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Teen Patti Gold",
@@ -1702,7 +1707,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹37 Bonus"
                 ],
-                faqBonus: "₹37"
+                faqBonus: "₹37",
+                infoBonus: "₹37",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Teen Patti Master",
@@ -1720,7 +1731,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹20 Bonus"
                 ],
-                faqBonus: "₹20"
+                faqBonus: "₹20",
+                infoBonus: "₹20",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yono games",
@@ -1738,7 +1755,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹25 Bonus"
                 ],
-                faqBonus: "₹25"
+                faqBonus: "₹25",
+                infoBonus: "₹25",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Slots Winner",
@@ -1756,7 +1779,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹40 Bonus"
                 ],
-                faqBonus: "₹40"
+                faqBonus: "₹40",
+                infoBonus: "₹40",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Good Slots",
@@ -1774,7 +1803,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹15 Bonus"
                 ],
-                faqBonus: "₹15"
+                faqBonus: "₹15",
+                infoBonus: "₹15",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Diwa Slot",
@@ -1792,7 +1827,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹50 Bonus"
                 ],
-                faqBonus: "₹50"
+                faqBonus: "₹50",
+                infoBonus: "₹50",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "GoGo Rummy",
@@ -1810,7 +1851,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹28 Bonus"
                 ],
-                faqBonus: "₹28"
+                faqBonus: "₹28",
+                infoBonus: "₹28",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Joy Rummy",
@@ -1828,7 +1875,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹35 Bonus"
                 ],
-                faqBonus: "₹35"
+                faqBonus: "₹35",
+                infoBonus: "₹35",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Spin Gold",
@@ -1846,7 +1899,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹22 Bonus"
                 ],
-                faqBonus: "₹22"
+                faqBonus: "₹22",
+                infoBonus: "₹22",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Bingo 101",
@@ -1864,7 +1923,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹45 Bonus"
                 ],
-                faqBonus: "₹45"
+                faqBonus: "₹45",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yes Spin",
@@ -1882,7 +1947,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹18 Bonus"
                 ],
-                faqBonus: "₹18"
+                faqBonus: "₹18",
+                infoBonus: "₹18",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yono Arcade",
@@ -1900,7 +1971,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹32 Bonus"
                 ],
-                faqBonus: "₹32"
+                faqBonus: "₹32",
+                infoBonus: "₹32",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "SVIP 777",
@@ -1918,7 +1995,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹27 Bonus"
                 ],
-                faqBonus: "₹27"
+                faqBonus: "₹27",
+                infoBonus: "₹27",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "OK Rummy",
@@ -1936,7 +2019,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹38 Bonus"
                 ],
-                faqBonus: "₹38"
+                faqBonus: "₹38",
+                infoBonus: "₹38",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Hind 777",
@@ -1954,7 +2043,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹42 Bonus"
                 ],
-                faqBonus: "₹42"
+                faqBonus: "₹42",
+                infoBonus: "₹42",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yono games",
@@ -1972,7 +2067,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹33 Bonus"
                 ],
-                faqBonus: "₹33"
+                faqBonus: "₹33",
+                infoBonus: "₹33",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Teen Patti Gold Old",
@@ -1990,7 +2091,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹24 Bonus"
                 ],
-                faqBonus: "₹24"
+                faqBonus: "₹24",
+                infoBonus: "₹24",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Bet 213",
@@ -2008,7 +2115,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹36 Bonus"
                 ],
-                faqBonus: "₹36"
+                faqBonus: "₹36",
+                infoBonus: "₹36",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Teen Patt games",
@@ -2026,7 +2139,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹29 Bonus"
                 ],
-                faqBonus: "₹29"
+                faqBonus: "₹29",
+                infoBonus: "₹29",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Teen Patti Master",
@@ -2044,7 +2163,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹31 Bonus"
                 ],
-                faqBonus: "₹31"
+                faqBonus: "₹31",
+                infoBonus: "₹31",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Boss Rummy",
@@ -2062,7 +2187,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹40 Bonus"
                 ],
-                faqBonus: "₹40"
+                faqBonus: "₹40",
+                infoBonus: "₹40",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Yono 777",
@@ -2080,7 +2211,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹35 Bonus"
                 ],
-                faqBonus: "₹35"
+                faqBonus: "₹35",
+                infoBonus: "₹35",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Diwa VIP",
@@ -2098,7 +2235,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹60 Bonus"
                 ],
-                faqBonus: "₹60"
+                faqBonus: "₹60",
+                infoBonus: "₹60",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }, {
             name: "Diwa 777",
@@ -2116,11 +2259,17 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", "Claim ₹45 Bonus"
                 ],
-                faqBonus: "₹45"
+                faqBonus: "₹45",
+                infoBonus: "₹45",
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             }
         }];
 
-        // Helper to get tags for an app
+        // Helper to get tags for an app (fallback to generic if missing)
         function getAppTags(app) {
             if (app.tags) return app.tags;
             const bonusNum = app.bonus.replace('₹', '');
@@ -2133,7 +2282,13 @@
                 downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
                     "Register with Mobile", `Claim ${app.bonus} Bonus`
                 ],
-                faqBonus: app.bonus
+                faqBonus: app.bonus,
+                infoBonus: app.bonus,
+                infoSize: "~10-15 MB",
+                infoSecure: "OTP Verified",
+                infoWithdraw: "Instant-24h",
+                infoDaily: "Up to ₹50",
+                infoMinWithdraw: "₹100 (UPI)"
             };
         }
 
@@ -2185,33 +2340,33 @@
             `;
         }
 
-        // ===== GENERATE 3 ABSTRACT TAGS =====
-        function generateAbstractTags() {
+        // ===== 3 PREMIUM COLOR TAGS (pure color, no text/icons) =====
+        function renderTagStack() {
             return `
-                <div class="abstract-tag tag1">
-                    <div class="gloss-overlay"></div>
-                    <div class="inner-glow"></div>
-                </div>
-                <div class="abstract-tag tag2">
-                    <div class="gloss-overlay"></div>
-                    <div class="inner-glow"></div>
-                </div>
-                <div class="abstract-tag tag3">
-                    <div class="gloss-overlay"></div>
-                    <div class="inner-glow"></div>
-                </div>
+            <div class="tag-stack">
+                <div class="tag-pill tag1"><div class="gloss-layer"></div><div class="glow-ring"></div><div class="inner-shine"></div></div>
+                <div class="tag-pill tag2"><div class="gloss-layer"></div><div class="glow-ring"></div><div class="inner-shine"></div></div>
+                <div class="tag-pill tag3"><div class="gloss-layer"></div><div class="glow-ring"></div><div class="inner-shine"></div></div>
+            </div>
             `;
         }
 
-        function getInfoTags(appName, bonusAmount) {
+        function getInfoTags(app) {
+            const tags = getAppTags(app);
+            const bonus = tags.infoBonus || app.bonus;
+            const size = tags.infoSize || "~10-15 MB";
+            const secure = tags.infoSecure || "OTP Verified";
+            const withdraw = tags.infoWithdraw || "Instant-24h";
+            const daily = tags.infoDaily || "Up to ₹50";
+            const minWithdraw = tags.infoMinWithdraw || "₹100 (UPI)";
             return `
             <div class="info-grid">
-                <div class="info-card-box"><div class="info-title">🎁 Welcome Bonus</div><div class="info-value">${bonusAmount}</div></div>
-                <div class="info-card-box"><div class="info-title">📦 APK Size</div><div class="info-value">~10-15 MB</div></div>
-                <div class="info-card-box"><div class="info-title">🔒 Secure</div><div class="info-value">OTP Verified</div></div>
-                <div class="info-card-box"><div class="info-title">⏱️ Withdrawal</div><div class="info-value">Instant-24h</div></div>
-                <div class="info-card-box"><div class="info-title">🎯 Daily Reward</div><div class="info-value">Up to ₹50</div></div>
-                <div class="info-card-box"><div class="info-title">🏦 Min Withdraw</div><div class="info-value">₹100 (UPI)</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#ff6f00;">🎁 Welcome Bonus</div><div class="info-value">${bonus}</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#1565c0;">📦 APK Size</div><div class="info-value">${size}</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#2e7d32;">🔒 Secure</div><div class="info-value">${secure}</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#e65100;">⏱️ Withdrawal</div><div class="info-value">${withdraw}</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#ad1457;">🎯 Daily Reward</div><div class="info-value">${daily}</div></div>
+                <div class="info-card-box"><div class="info-title" style="color:#1a237e;">🏦 Min Withdraw</div><div class="info-value">${minWithdraw}</div></div>
             </div>
             `;
         }
@@ -2227,10 +2382,7 @@
                 const bonusNum = app.bonus.replace('₹', '');
                 html += `
                 <div class="card" data-app-index="${idx}">
-                    <!-- 3 Abstract Premium Tags at top-left -->
-                    <div class="card-tags-abstract">
-                        ${generateAbstractTags()}
-                    </div>
+                    ${renderTagStack()}
                     <div class="card-app-name">${app.name}</div>
                     <div class="card-img">
                         <img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="80" height="80" onerror="this.src='https://via.placeholder.com/80?text=App'">
@@ -2302,10 +2454,6 @@
 
             const downloadPageHtml = `
             <div class="download-page" id="activeDownloadPage">
-                <!-- 3 Abstract Tags at top-left on download page -->
-                <div class="download-abstract-tags">
-                    ${generateAbstractTags()}
-                </div>
                 <div class="download-header">
                     <h2>📥 ${selectedApp.name} APK</h2>
                     <p>🎁 Signup Bonus: ${selectedApp.bonus} |  🏦 Min Withdrawal: ${selectedApp.withdrawal}</p>
@@ -2326,7 +2474,14 @@
                         ${description}<br><br>
                         <strong>🎯 Extra Benefits:</strong> Daily login rewards, referral cashback, and fast UPI withdrawals. 24/7 customer support.
                     </div>
-                    ${getInfoTags(selectedApp.name, selectedApp.bonus)}
+                    ${getInfoTags(selectedApp)}
+
+                    <!-- 3 Premium Color Tags (pure color, no text/icons) -->
+                    <div style="display:flex; justify-content:center; gap:10px; margin:16px 0; padding:12px; background:rgba(0,0,0,0.03); border-radius:60px;">
+                        <div class="tag-pill tag1" style="width:14px;height:40px;border-radius:8px;"></div>
+                        <div class="tag-pill tag2" style="width:14px;height:40px;border-radius:8px;"></div>
+                        <div class="tag-pill tag3" style="width:14px;height:40px;border-radius:8px;"></div>
+                    </div>
 
                     <div style="background: #fff7e8; border-radius: 32px; padding: 18px 22px; margin: 20px 0; text-align: left;">
                         <h4 style="color: #1e562a; font-size: 1.1rem; margin-bottom: 12px;">ℹ️ About ${selectedApp.name}</h4>
