@@ -2120,6 +2120,136 @@
 
         }
 
+
+
+        /* ===== CUSTOM TAGS SECTION ===== */
+
+        .tags-toggle-btn {
+
+            background: linear-gradient(135deg, #1e562a, #2c4c3b);
+
+            color: #fff;
+
+            border: none;
+
+            padding: 12px 24px;
+
+            border-radius: 60px;
+
+            font-weight: 700;
+
+            font-size: 1rem;
+
+            cursor: pointer;
+
+            margin: 12px 0 16px;
+
+            transition: 0.3s;
+
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+        .tags-toggle-btn:hover {
+
+            transform: scale(1.03);
+
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+        }
+
+        .tags-toggle-btn .arrow {
+
+            transition: transform 0.3s ease;
+
+            display: inline-block;
+
+        }
+
+        .tags-toggle-btn .arrow.open {
+
+            transform: rotate(180deg);
+
+        }
+
+        .tags-panel {
+
+            background: #f8fdf9;
+
+            border-radius: 28px;
+
+            padding: 0 20px;
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition: max-height 0.6s ease, padding 0.4s ease;
+
+            margin: 8px 0 16px;
+
+            border: 1px solid transparent;
+
+        }
+
+        .tags-panel.open {
+
+            max-height: 600px;
+
+            padding: 20px 20px 24px;
+
+            border-color: #a8d5ba;
+
+        }
+
+        .tags-panel-content {
+
+            font-size: 0.9rem;
+
+            line-height: 1.6;
+
+            color: #1e2b1e;
+
+        }
+
+        .tags-panel-content strong {
+
+            color: #0a2e1d;
+
+        }
+
+        .tags-panel-content .tag-block {
+
+            background: white;
+
+            padding: 14px 18px;
+
+            border-radius: 20px;
+
+            margin: 12px 0;
+
+            border-left: 6px solid #ffcf8a;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+
+        }
+
+        .tags-panel-content .tag-block h5 {
+
+            color: #1e562a;
+
+            font-size: 1rem;
+
+            margin-bottom: 6px;
+
+        }
+
     </style>
 
 </head>
@@ -2512,14 +2642,16 @@
 
     function getDescription(appName, category, bonusAmount) {
 
-        // Unique tags per app name (model)
         if (appName === "INR Rummy") {
-            return `INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals. INR Rummy (Yono) Game App – Real Cash Rummy for Indian Players - Download APK. INR Rummy App is a real cash online rummy gaming platform designed for Indian players who want to earn money by using their skills. This app provides a smooth and secure gaming experience with multiple rummy tables to play and win real cash rewards. Players can join different tables, compete with others, and earn real money through gameplay. The interface is simple and user-friendly, making it suitable for both beginners and experienced players. INR Rummy App is known for its fast withdrawal system, where users can withdraw their winnings quickly via UPI. It also offers signup bonuses and daily rewards to help users start earning easily. If you are looking for a reliable rummy app to earn real cash online, INR Rummy App is a great option. Download the APK now and start playing. About INR Rummy: INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players. Key Features & Benefits: Welcome Bonus: Get ₹56 as a sign-up bonus when you register. Low Withdrawal: Minimum withdrawal amount is just ₹100. Secure Payments: Fast and secure payment processing. 24/7 Support: Round-the-clock customer support. Fair Play: Certified random number generator for fair gameplay. Multiple Games: Wide variety of skill-based games.`;
+
+            return `Join the best rummy experience on INR Rummy. Compete with real players, win cash prizes, and enjoy daily tournaments. ₹56 welcome bonus + ₹100 min withdrawal. INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals.`;
+
         } else if (appName === "MBM BET") {
-            return `MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, MBM Bet stands out as one of the strongest earning apps in the Yono series. About MBM Bet apk: MBM Bet is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players. Key Features & Benefits: Welcome Bonus: Get ₹39 as a sign-up bonus when you register. Low Withdrawal: Minimum withdrawal amount is just ₹100. Secure Payments: Fast and secure payment processing. 24/7 Support: Round-the-clock customer support. Fair Play: Certified random number generator for fair gameplay. Multiple Games: Wide variety of skill-based games.`;
+
+            return `MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games. With daily bonuses, stable servers, and trusted payouts, MBM Bet stands out as one of the strongest earning apps in the Yono series.`;
+
         }
 
-        // Fallback for other apps (original logic)
         if (category === "Rummy") return `Join the best rummy experience on ${appName}. Compete with real players, win cash prizes, and enjoy daily tournaments. ${bonusAmount} welcome bonus + ₹100 min withdrawal.`;
 
         if (category === "Slots") return `Spin & win with ${appName}! Huge jackpots, free spins, and ${bonusAmount} joining bonus. Play premium slot machines and withdraw your winnings instantly.`;
@@ -2535,22 +2667,35 @@
     function getFAQ(appName, bonusAmount) {
 
         if (appName === "INR Rummy") {
+
             return `
+
             <div class="faq-item"><div class="faq-question">Q.1 What is INR Rummy?</div><div class="faq-answer">INR Rummy is a real cash online rummy gaming platform designed for Indian players. It offers multiple rummy tables, fast withdrawals via UPI, and a signup bonus of ₹56.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.2 How to download INR Rummy APK?</div><div class="faq-answer">Click on the DOWNLOAD button, allow unknown sources, install the APK, register with mobile number, and claim your ₹56 bonus.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.3 What games are available in INR Rummy?</div><div class="faq-answer">INR Rummy offers Rummy, Teen Patti, Poker, and other skill-based games.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.4 What is the minimum withdrawal in INR Rummy?</div><div class="faq-answer">The minimum withdrawal amount is ₹100, processed via UPI.</div></div>
+
             `;
+
         } else if (appName === "MBM BET") {
+
             return `
+
             <div class="faq-item"><div class="faq-question">Q.1 What is MBM Bet?</div><div class="faq-answer">MBM Bet is a real-money gaming app with fast gameplay, secure payments, and verified ₹100 withdrawals. It offers daily bonuses and high-return games.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.2 How to download MBM Bet APK?</div><div class="faq-answer">Click the DOWNLOAD button, enable unknown sources, install the APK, register, and claim your ₹39 bonus.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.3 What games are available in MBM Bet?</div><div class="faq-answer">MBM Bet offers Rummy, Teen Patti, Poker, and various casino games.</div></div>
+
             <div class="faq-item"><div class="faq-question">Q.4 What is the minimum withdrawal in MBM Bet?</div><div class="faq-answer">The minimum withdrawal is ₹100, processed via UPI.</div></div>
+
             `;
+
         }
 
-        // Fallback for other apps
         return `
 
         <div class="faq-item">
@@ -2618,6 +2763,8 @@
 
 
     let currentSelectedIndex = null;
+
+    let tagsPanelOpen = false;
 
 
 
@@ -2763,6 +2910,188 @@
 
 
 
+        // Build the unique tag panel for INR Rummy
+
+        let tagPanelHtml = '';
+
+        if (selectedApp.name === "INR Rummy") {
+
+            tagPanelHtml = `
+
+            <button class="tags-toggle-btn" id="tagsToggleBtn">
+
+                <span>📋 INR Rummy APK Download Tags</span>
+
+                <span class="arrow" id="tagsArrow">▼</span>
+
+            </button>
+
+            <div class="tags-panel" id="tagsPanel">
+
+                <div class="tags-panel-content">
+
+                    <div class="tag-block">
+
+                        <h5>📌 INR Rummy (Yono) Game App – Real Cash Rummy for Indian Players</h5>
+
+                        <p>INR Rummy App is a real cash online rummy gaming platform designed for Indian players who want to earn money by using their skills. This app provides a smooth and secure gaming experience with multiple rummy tables to play and win real cash rewards. Players can join different tables, compete with others, and earn real money through gameplay. The interface is simple and user-friendly, making it suitable for both beginners and experienced players. INR Rummy App is known for its fast withdrawal system, where users can withdraw their winnings quickly via UPI. It also offers signup bonuses and daily rewards to help users start earning easily. If you are looking for a reliable rummy app to earn real cash online, INR Rummy App is a great option. Download the APK now and start playing.</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 About INR Rummy</h5>
+
+                        <p>INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 Key Features & Benefits</h5>
+
+                        <p><strong>Welcome Bonus:</strong> Get ₹56 as a sign-up bonus when you register<br>
+
+                        <strong>Low Withdrawal:</strong> Minimum withdrawal amount is just ₹100<br>
+
+                        <strong>Secure Payments:</strong> Fast and secure payment processing<br>
+
+                        <strong>24/7 Support:</strong> Round-the-clock customer support<br>
+
+                        <strong>Fair Play:</strong> Certified random number generator for fair gameplay<br>
+
+                        <strong>Multiple Games:</strong> Wide variety of skill-based games</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 INR Rummy Download & Signup Claim Bonus ₹56</h5>
+
+                        <p><strong>ऐप डाउनलोड:</strong><br>
+
+                        INR Rummy APK फाइल डाउनलोड करें: होमपेज पर "Download APK" बटन क्लिक करें।<br>
+
+                        इंस्टॉलेशन इनेबल करें: फोन की सेटिंग्स > सिक्योरिटी > अननोन सोर्सेज को ऑन करें।<br>
+
+                        इंस्टॉल करें: डाउनलोडेड फाइल ओपन करें और इंस्टॉल करें।</p>
+
+                        <p><strong>INR Rummy रजिस्टर करें:</strong><br>
+
+                        ऐप ओपन करें, मोबाइल नंबर वेरिफाई करें, और हिंदी लैंग्वेज सिलेक्ट करें।<br>
+
+                        साइन-अप पर ₹56 बोनस क्रेडिट हो जाएगा।</p>
+
+                        <p><strong>INR Rummy Bonus Claim:</strong><br>
+
+                        साइन-अप बोनस: ₹56 फ्री कैश (नए यूजर्स के लिए)।<br>
+
+                        रेफर & अर्न: दोस्तों को रेफर करने पर ₹10-50 प्रति रेफरल।<br>
+
+                        मिनिमम विदड्रॉल: ₹100 (बैंक या UPI से)।<br>
+
+                        गेम्स: रमी, टीन पत्ती, लूडो आदि.</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 How to Download & Install</h5>
+
+                        <p>Downloading INR Rummy is simple and straightforward. Follow these easy steps:</p>
+
+                        <ol style="padding-left:20px;">
+
+                            <li>Click on the download button above</li>
+
+                            <li>Allow installation from unknown sources in your device settings</li>
+
+                            <li>Install the APK file once downloaded</li>
+
+                            <li>Register with your mobile number</li>
+
+                            <li>Verify your account and start playing</li>
+
+                            <li>Claim your welcome bonus of ₹56</li>
+
+                        </ol>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 Safety & Security</h5>
+
+                        <p>Your safety and security are our top priorities. INR Rummy uses advanced encryption technology to protect your personal and financial information. All transactions are processed through secure payment gateways, ensuring your money is always safe. The app is regularly updated with the latest security patches and features to provide you with the best gaming experience while maintaining the highest standards of security.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        } else {
+
+            // For other apps, show a generic tag panel (or keep it empty)
+
+            tagPanelHtml = `
+
+            <button class="tags-toggle-btn" id="tagsToggleBtn" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8);">
+
+                <span>📋 ${selectedApp.name} APK Tags</span>
+
+                <span class="arrow" id="tagsArrow">▼</span>
+
+            </button>
+
+            <div class="tags-panel" id="tagsPanel">
+
+                <div class="tags-panel-content">
+
+                    <div class="tag-block">
+
+                        <h5>📌 ${selectedApp.name} – Key Information</h5>
+
+                        <p><strong>App Name:</strong> ${selectedApp.name}<br>
+
+                        <strong>Category:</strong> ${selectedApp.category}<br>
+
+                        <strong>Welcome Bonus:</strong> ${selectedApp.bonus}<br>
+
+                        <strong>Min Withdrawal:</strong> ${selectedApp.withdrawal}<br>
+
+                        <strong>Secure & Trusted:</strong> Yes</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 About ${selectedApp.name}</h5>
+
+                        <p>${selectedApp.name} is a popular gaming application offering exciting opportunities to earn real money. With a user-friendly interface and secure payment system, it has gained the trust of thousands of players. The app features a variety of games including Rummy, Teen Patti, Slots, and more.</p>
+
+                    </div>
+
+                    <div class="tag-block">
+
+                        <h5>📌 How to Download & Install</h5>
+
+                        <p>Click the DOWNLOAD button, allow unknown sources, install the APK, register, and claim your bonus. Start playing and winning today!</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+
+
+
         const downloadPageHtml = `
 
         <div class="download-page" id="activeDownloadPage">
@@ -2835,6 +3164,10 @@
 
                 </div>
 
+                <!-- ===== TAGS SECTION ===== -->
+
+                ${tagPanelHtml}
+
             </div>
 
             <div class="other-apps-title">Other Yono Apps</div>
@@ -2858,6 +3191,40 @@
 
 
         downloadContainer.innerHTML = downloadPageHtml;
+
+
+
+        // Attach tag toggle event after rendering
+
+        const toggleBtn = document.getElementById('tagsToggleBtn');
+
+        const tagsPanel = document.getElementById('tagsPanel');
+
+        const tagsArrow = document.getElementById('tagsArrow');
+
+        if (toggleBtn && tagsPanel) {
+
+            toggleBtn.addEventListener('click', function() {
+
+                const isOpen = tagsPanel.classList.contains('open');
+
+                if (isOpen) {
+
+                    tagsPanel.classList.remove('open');
+
+                    tagsArrow.classList.remove('open');
+
+                } else {
+
+                    tagsPanel.classList.add('open');
+
+                    tagsArrow.classList.add('open');
+
+                }
+
+            });
+
+        }
 
 
 
