@@ -1,2373 +1,2503 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>INR Rummy & Yono Games - Best Rummy Apps Platform</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        body {
-            background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
-            min-height: 100vh;
-            padding-bottom: 30px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>INR Rummy & Yono Games - Best Rummy Apps Platform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-        .top-nav {
-            background: #0a2e1d;
-            padding: 8px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-bottom: 2px solid #ffcf8a;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            gap: 6px;
-            overflow: hidden;
-        }
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            animation: slowLeftMove 8s ease-in-out infinite alternate;
-        }
-        @keyframes slowLeftMove {
-            0% {
-                transform: translateX(0px);
-            }
-            100% {
-                transform: translateX(-8px);
-            }
-        }
+    body {
+      background: linear-gradient(145deg, #f0f4fa 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      padding-bottom: 30px;
+    }
 
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.7rem;
-            padding: 5px 14px;
-            border-radius: 30px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: 0.3s;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            border: 2px solid transparent;
-            background: rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        .nav-link.home {
-            background: linear-gradient(135deg, #1a237e, #283593);
-            border-color: #5c6bc0;
-            box-shadow: 0 0 20px rgba(92, 107, 192, 0.3);
-        }
-        .nav-link.home:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(92, 107, 192, 0.6);
-        }
-        .nav-link.about {
-            background: linear-gradient(135deg, #004d40, #00695c);
-            border-color: #26a69a;
-            box-shadow: 0 0 20px rgba(38, 166, 154, 0.3);
-        }
-        .nav-link.about:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(38, 166, 154, 0.6);
-        }
-        .nav-link.contact {
-            background: linear-gradient(135deg, #4a148c, #6a1b9a);
-            border-color: #ab47bc;
-            box-shadow: 0 0 20px rgba(171, 71, 188, 0.3);
-        }
-        .nav-link.contact:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(171, 71, 188, 0.6);
-        }
-        .nav-link.disclaimer {
-            background: linear-gradient(135deg, #1b5e20, #2e7d32);
-            border-color: #66bb6a;
-            box-shadow: 0 0 20px rgba(102, 187, 106, 0.3);
-        }
-        .nav-link.disclaimer:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px rgba(102, 187, 106, 0.6);
-        }
-        .nav-link .nav-icon {
-            font-size: 0.9rem;
-            filter: drop-shadow(0 0 6px currentColor);
-        }
+    .top-nav {
+      background: #0a2e1d;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #ffcf8a;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 6px;
+      overflow: hidden;
+    }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      animation: slowLeftMove 8s ease-in-out infinite alternate;
+    }
 
-        .share-btn-nav {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: #000;
-            border: none;
-            padding: 4px 14px 4px 10px;
-            border-radius: 40px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            text-decoration: none;
-        }
-        .share-btn-nav::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 40px;
-            background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
-            animation: ledSpinShare 3s linear infinite;
-            z-index: -1;
-            padding: 3px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
-        }
-        @keyframes ledSpinShare {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        .share-btn-nav:hover {
-            transform: scale(1.05);
-            color: #ffcf8a;
-        }
-        .share-btn-nav svg {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: #fff;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: 0.3s;
-        }
-        .share-btn-nav:hover svg {
-            stroke: #ffcf8a;
-        }
+    @keyframes slowLeftMove {
+      0% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(-8px);
+      }
+    }
 
-        header {
-            background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
-            background-size: 300% 300%;
-            color: white;
-            padding: 20px 20px;
-            text-align: center;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .custom-banner {
-            background: linear-gradient(145deg, #0a2e1d 0%, #124d2b 50%, #0a2e1d 100%);
-            border-radius: 24px;
-            padding: 28px 20px 22px;
-            color: white;
-            text-align: center;
-            border: 2px solid #ffcf8a;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(255, 207, 138, 0.08);
-            position: relative;
-            overflow: hidden;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .custom-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.06) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(255, 64, 129, 0.04) 0%, transparent 50%);
-            animation: pulseGlow 6s ease-in-out infinite alternate;
-            z-index: 0;
-        }
-        @keyframes pulseGlow {
-            0% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(1.08) rotate(3deg);
-                opacity: 1;
-            }
-        }
-        .banner-inner {
-            position: relative;
-            z-index: 2;
-        }
-        .banner-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 4px;
-        }
-        .banner-top-text {
-            font-size: 0.8rem;
-            color: #ffcf8a;
-            letter-spacing: 2.5px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .banner-age-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 8px 0 10px;
-        }
-        .banner-age-badge {
-            display: inline-block;
-            background: #d50000;
-            padding: 3px 18px;
-            border-radius: 40px;
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(213, 0, 0, 0.4);
-            border: 1px solid #ff6666;
-        }
-        .banner-age-badge.second {
-            background: transparent;
-            border: 2px solid #ffcf8a;
-            color: #ffcf8a;
-            box-shadow: none;
-            font-size: 1rem;
-            padding: 3px 14px;
-        }
-        .banner-main-heading {
-            font-size: clamp(1.6rem, 5.5vw, 3rem);
-            font-weight: 900;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            margin: 12px 0 8px;
-            line-height: 1.2;
-        }
-        .banner-main-heading .gold {
-            color: #ffcf8a;
-            background: linear-gradient(135deg, #ffcf8a, #ff8c00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .banner-features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px 22px;
-            margin: 14px 0 14px;
-        }
-        .banner-feature {
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(4px);
-            padding: 6px 18px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            color: #e8f5e9;
-        }
-        .banner-feature .icon {
-            font-size: 1.1rem;
-            filter: drop-shadow(0 0 8px currentColor);
-        }
-        .banner-cta {
-            font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-            font-weight: 700;
-            margin: 12px 0 10px;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            line-height: 1.4;
-        }
-        .banner-cta strong {
-            color: #ffcf8a;
-            font-weight: 900;
-        }
-        .banner-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 14px;
-        }
-        .banner-tag {
-            background: linear-gradient(135deg, #ffcf8a, #f5a623);
-            color: #0a2e1d;
-            padding: 5px 16px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.7rem;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(255, 207, 138, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 5px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .app-tags-wrapper {
-            margin-top: 16px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(255, 207, 138, 0.2);
-            overflow: hidden;
-            position: relative;
-        }
-        .app-tags-label {
-            font-size: 1.1rem;
-            color: #ffcf8a;
-            opacity: 0.9;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: block;
-            text-align: center;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-        .app-tags-scroll {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 6px 4px 10px 4px;
-            scrollbar-width: thin;
-            scrollbar-color: #ffcf8a transparent;
-            -webkit-overflow-scrolling: touch;
-            flex-wrap: nowrap;
-            scroll-behavior: smooth;
-        }
-        .app-tags-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        .app-tags-scroll::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-        }
-        .app-tags-scroll::-webkit-scrollbar-thumb {
-            background: #ffcf8a;
-            border-radius: 4px;
-        }
-        .app-tag-item {
-            flex: 0 0 auto;
-            background: rgba(255, 207, 138, 0.12);
-            border: 1px solid rgba(255, 207, 138, 0.2);
-            color: #e8f5e9;
-            padding: 4px 14px;
-            border-radius: 40px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            white-space: nowrap;
-            letter-spacing: 0.3px;
-            transition: 0.3s;
-            backdrop-filter: blur(2px);
-        }
-        .app-tag-item:hover {
-            background: rgba(255, 207, 138, 0.25);
-            border-color: #ffcf8a;
-            transform: scale(1.05);
-        }
+    .nav-link.home {
+      background: linear-gradient(135deg, #1a237e, #283593);
+      border-color: #5c6bc0;
+      box-shadow: 0 0 20px rgba(92, 107, 192, 0.3);
+    }
 
-        @media (max-width: 640px) {
-            .top-nav {
-                padding: 6px 10px;
-                gap: 4px;
-            }
-            .nav-link {
-                font-size: 0.5rem;
-                padding: 3px 10px;
-            }
-            .nav-link .nav-icon {
-                font-size: 0.7rem;
-            }
-            .share-btn-nav {
-                font-size: 0.5rem;
-                padding: 3px 10px 3px 6px;
-            }
-            .share-btn-nav svg {
-                width: 12px;
-                height: 12px;
-            }
-            .custom-banner {
-                padding: 18px 12px 16px;
-                border-radius: 16px;
-            }
-            .banner-features {
-                gap: 8px 14px;
-            }
-            .banner-feature {
-                padding: 4px 12px;
-                font-size: 0.75rem;
-            }
-            .banner-tag {
-                font-size: 0.6rem;
-                padding: 3px 10px;
-            }
-            .banner-age-badge {
-                font-size: 0.95rem;
-                padding: 2px 12px;
-            }
-            .banner-age-badge.second {
-                font-size: 0.85rem;
-                padding: 2px 10px;
-            }
-            .banner-top-text {
-                font-size: 0.65rem;
-                letter-spacing: 1.5px;
-            }
-            .app-tag-item {
-                font-size: 0.55rem;
-                padding: 3px 10px;
-            }
-            .app-tags-label {
-                font-size: 0.9rem;
-            }
-            @keyframes slowLeftMove {
-                0% {
-                    transform: translateX(0px);
-                }
-                100% {
-                    transform: translateX(-5px);
-                }
-            }
-        }
+    .nav-link.home:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(92, 107, 192, 0.6);
+    }
 
-        .container {
-            max-width: 1450px;
-            margin: 30px auto;
-            padding: 0 16px;
-        }
-        .cards-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
+    .nav-link.about {
+      background: linear-gradient(135deg, #004d40, #00695c);
+      border-color: #26a69a;
+      box-shadow: 0 0 20px rgba(38, 166, 154, 0.3);
+    }
 
-        .card {
-            background: white;
-            border-radius: 36px;
-            padding: 20px 18px 24px;
-            flex: 1;
-            min-width: 270px;
-            max-width: 310px;
-            transition: all 0.3s ease;
-            box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
-            border: 1px solid #eef2f8;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            right: 4px;
-            bottom: 4px;
-            border-radius: 32px;
-            border: 2px solid #0a0a0a;
-            pointer-events: none;
-            z-index: 2;
-            opacity: 0.15;
-        }
-        .card:hover::before {
-            opacity: 0.35;
-        }
-        .card:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
-            border-color: #ffcf8a;
-        }
-        .card-app-name {
-            font-size: 1.35rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 12px;
-            letter-spacing: -0.2px;
-        }
-        .card-img {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 12px;
-            background: #0a0a0a;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            border: 3px solid #0a0a0a;
-            position: relative;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .card:hover .card-img img {
-            transform: scale(1.05);
-        }
-        .card-stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            background: #fef4e6;
-            padding: 10px 10px;
-            border-radius: 48px;
-            margin: 12px 0 8px;
-        }
-        .card-stat {
-            text-align: center;
-            min-width: 55px;
-        }
-        .card-stat-value {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-        .card-stat-label {
-            font-size: 0.55rem;
-            font-weight: 700;
-            color: #6c7a5a;
-            letter-spacing: 0.3px;
-        }
-        .withdrawal-note {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #146b3a;
-            background: #e0f2e9;
-            display: inline-block;
-            padding: 4px 14px;
-            border-radius: 40px;
-            margin-top: 6px;
-        }
-        .download-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            margin-top: 16px;
-            padding: 12px 0;
-            background: linear-gradient(135deg, #00b894, #00cec9);
-            color: white;
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            transition: 0.25s ease;
-            box-shadow: 0 6px 18px rgba(0, 206, 201, 0.35);
-            cursor: pointer;
-            border: none;
-            letter-spacing: 0.3px;
-        }
-        .download-btn:hover {
-            background: linear-gradient(135deg, #00a381, #00b8b4);
-            transform: scale(0.97);
-            box-shadow: 0 8px 24px rgba(0, 206, 201, 0.45);
-        }
+    .nav-link.about:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(38, 166, 154, 0.6);
+    }
 
-        /* ===== 3 TAG BAGS ===== */
-        .tag-bags {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 12px 0 6px;
-        }
-        .tag-bag {
-            flex: 1;
-            min-width: 60px;
-            max-width: 90px;
-            padding: 6px 4px 8px;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 0.6rem;
-            letter-spacing: 0.3px;
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .tag-bag:hover {
-            transform: translateY(-3px) scale(1.04);
-        }
-        .tag-bag .bag-label {
-            display: block;
-            font-size: 0.45rem;
-            font-weight: 600;
-            opacity: 0.8;
-            margin-bottom: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .tag-bag .bag-value {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 800;
-            line-height: 1.2;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-        }
+    .nav-link.contact {
+      background: linear-gradient(135deg, #4a148c, #6a1b9a);
+      border-color: #ab47bc;
+      box-shadow: 0 0 20px rgba(171, 71, 188, 0.3);
+    }
 
-        /* Bag 1 - Cyan Premium */
-        .tag-bag.bag-1 {
-            background: linear-gradient(145deg, #00bcd4, #006064);
-            color: #fff;
-            border-color: #80deea;
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.30);
-        }
-        .tag-bag.bag-1::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 18px;
-            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
-            animation: bagSpin1 3s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.6;
-        }
-        @keyframes bagSpin1 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    .nav-link.contact:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(171, 71, 188, 0.6);
+    }
 
-        /* Bag 2 - Green Premium */
-        .tag-bag.bag-2 {
-            background: linear-gradient(145deg, #4caf50, #1b5e20);
-            color: #fff;
-            border-color: #a5d6a7;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.30);
-        }
-        .tag-bag.bag-2::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 18px;
-            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
-            animation: bagSpin2 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.6;
-        }
-        @keyframes bagSpin2 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    .nav-link.disclaimer {
+      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      border-color: #66bb6a;
+      box-shadow: 0 0 20px rgba(102, 187, 106, 0.3);
+    }
 
-        /* Bag 3 - Yellow Premium */
-        .tag-bag.bag-3 {
-            background: linear-gradient(145deg, #ffc107, #f57f17);
-            color: #fff;
-            border-color: #ffeb3b;
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.30);
-        }
-        .tag-bag.bag-3::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 18px;
-            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
-            animation: bagSpin3 3.5s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.6;
-        }
-        @keyframes bagSpin3 {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    .nav-link.disclaimer:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(102, 187, 106, 0.6);
+    }
 
-        /* Gloss overlay for all bags */
-        .tag-bag .gloss {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
-            border-radius: 14px 14px 0 0;
-            pointer-events: none;
-        }
+    .nav-link .nav-icon {
+      font-size: 0.9rem;
+      filter: drop-shadow(0 0 6px currentColor);
+    }
 
-        .download-page {
-            background: white;
-            border-radius: 44px;
-            padding: 28px 24px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
-            margin-bottom: 30px;
-            border: 1px solid #ffe1b3;
-            animation: fadeSlideUp 0.4s ease;
-        }
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .download-header {
-            text-align: center;
-            border-bottom: 2px dashed #ffcf8a;
-            padding-bottom: 18px;
-            margin-bottom: 24px;
-        }
-        .download-header h2 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            background: linear-gradient(125deg, #1e562a, #2c4c3b);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 6px;
-        }
-        .app-highlight {
-            background: #fff7e8;
-            padding: 24px 20px;
-            border-radius: 40px;
-            margin: 16px 0;
-            text-align: center;
-        }
-        .stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            background: #fef4e6;
-            padding: 14px 16px;
-            border-radius: 60px;
-            margin: 20px auto;
-            max-width: 750px;
-        }
-        .stat-item {
-            text-align: center;
-            min-width: 70px;
-        }
-        .stat-value {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-        .stat-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #6c7a5a;
-            letter-spacing: 0.5px;
-        }
-        .app-description {
-            background: white;
-            padding: 18px 20px;
-            border-radius: 32px;
-            text-align: left;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            line-height: 1.45;
-            color: #2d3e2b;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-        .howto-steps {
-            background: #f0f9f0;
-            border-radius: 32px;
-            padding: 18px 22px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .howto-steps h4 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            color: #1e562a;
-        }
-        .howto-steps ol {
-            padding-left: 20px;
-            margin-top: 8px;
-        }
-        .howto-steps li {
-            margin: 10px 0;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-        .faq-section {
-            background: #fef4e6;
-            border-radius: 32px;
-            padding: 20px 22px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        .faq-item {
-            margin-bottom: 20px;
-        }
-        .faq-question {
-            font-weight: 800;
-            color: #b45900;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-        .faq-answer {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #2d3e2b;
-            padding-left: 12px;
-        }
-        .other-apps-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin: 35px 0 18px;
-            color: #1e293b;
-            border-left: 6px solid #2ecc71;
-            padding-left: 16px;
-        }
-        .other-apps-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            justify-content: center;
-            margin-top: 12px;
-            background: #ecf9f0;
-            padding: 16px 12px;
-            border-radius: 40px;
-        }
-        .other-card {
-            background: #fefcf5;
-            border-radius: 32px;
-            padding: 16px 12px;
-            width: 240px;
-            transition: 0.2s;
-            border: 1px solid #a8d5ba;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .other-card .app-name {
-            font-size: 1rem;
-            margin: 8px 0 6px;
-            font-weight: 800;
-        }
-        .other-card .bonus {
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            background: #fef1cf;
-            border-radius: 60px;
-            display: inline-block;
-        }
-        .small-download {
-            background: linear-gradient(135deg, #6c5ce7, #fd79a8);
-            font-size: 0.8rem;
-            padding: 8px 0;
-            margin-top: 12px;
-            text-decoration: none;
-            color: white;
-            display: block;
-            width: 100%;
-            text-align: center;
-            border-radius: 60px;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            transition: 0.25s ease;
-            box-shadow: 0 4px 14px rgba(108, 92, 231, 0.30);
-        }
-        .small-download:hover {
-            background: linear-gradient(135deg, #5a4bd1, #e85d8e);
-            transform: scale(0.97);
-            box-shadow: 0 6px 18px rgba(108, 92, 231, 0.40);
-        }
-        .final-download-btn {
-            background: linear-gradient(135deg, #00b894, #00cec9);
-            padding: 14px 20px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 60px;
-            display: block;
-            width: 100%;
-            margin: 20px 0 16px 0;
-            box-shadow: 0 8px 22px rgba(0, 206, 201, 0.35);
-            text-decoration: none;
-            color: white;
-            transition: 0.25s ease;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            text-align: center;
-            border: none;
-        }
-        .final-download-btn:hover {
-            transform: scale(0.97);
-            background: linear-gradient(135deg, #00a381, #00b8b4);
-            box-shadow: 0 8px 26px rgba(0, 206, 201, 0.45);
-        }
-        .footer-note {
-            text-align: center;
-            background: #ecf9f0;
-            border-radius: 60px;
-            padding: 12px;
-            font-weight: 500;
-            font-size: 0.75rem;
-            margin-top: 20px;
-        }
-        .hidden {
-            display: none !important;
-        }
-        footer {
-            background: #0a2e1d;
-            color: #b9ddcb;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            font-size: 0.7rem;
-        }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        .info-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 300;
-            justify-content: center;
-            align-items: center;
-        }
-        .info-modal-content {
-            background: white;
-            max-width: 500px;
-            width: 90%;
-            border-radius: 36px;
-            padding: 24px 20px;
-            text-align: left;
-            animation: fadeInUp 0.3s ease;
-            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid #ffcf8a;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .modal-close {
-            position: sticky;
-            top: 0;
-            float: right;
-            background: #0a0a0a;
-            color: #fff;
-            border: 2px solid #333;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-            margin-bottom: 10px;
-        }
-        .modal-close:hover {
-            transform: scale(1.1) rotate(90deg);
-            border-color: #ffcf8a;
-            box-shadow: 0 0 30px rgba(255, 207, 138, 0.3);
-        }
-        .info-modal-content h4 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: #1e562a;
-            border-left: 5px solid #ff8c00;
-            padding-left: 16px;
-            clear: both;
-        }
-        .info-modal-content p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 12px 0;
-            color: #2d3e2b;
-        }
-        .info-close {
-            background: linear-gradient(135deg, #2ecc71, #e91e63);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 60px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-            margin-top: 16px;
-            width: 100%;
-            transition: 0.25s ease;
-            box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
-        }
-        .info-close:hover {
-            transform: scale(0.97);
-            background: linear-gradient(135deg, #27ae60, #c2185b);
-            box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30);
-        }
-        .info-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin: 16px 0;
-        }
-        .info-card-box {
-            background: #fefcf5;
-            border-radius: 20px;
-            padding: 12px 14px;
-            min-width: 130px;
-            flex: 1;
-            border: 1px solid #ffe1b3;
-            text-align: center;
-        }
-        .info-card-box .info-title {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #6c7a5a;
-            letter-spacing: 0.3px;
-            margin-bottom: 4px;
-        }
-        .info-card-box .info-value {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #1e562a;
-        }
-        .contact-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: linear-gradient(145deg, #fff9f0, #ffe6cc);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .contact-table th,
-        .contact-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #ffcf8a;
-            font-size: 0.9rem;
-        }
-        .contact-table th {
-            background: #0a2e1d;
-            color: white;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .contact-table td {
-            background: white;
-        }
-        .contact-table tr:last-child td {
-            border-bottom: none;
-        }
-        .contact-email {
-            color: #d50000;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-email:hover {
-            text-decoration: underline;
-        }
-        .contact-telegram {
-            color: #0088cc;
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .contact-telegram:hover {
-            text-decoration: underline;
-        }
-        .disclaimer-section {
-            margin: 16px 0;
-            padding: 12px 14px;
-            border-radius: 16px;
-            background: #f8f9fa;
-            border-left: 6px solid #ff8c00;
-        }
-        .disclaimer-section h4 {
-            color: #b45900;
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-        .disclaimer-box {
-            background: #fff7e8;
-            padding: 10px 16px;
-            border-radius: 12px;
-            margin: 10px 0;
-            border: 1px solid #ffcf8a;
-        }
+    .share-btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #000;
+      border: none;
+      padding: 4px 14px 4px 10px;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      text-decoration: none;
+    }
 
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-            background: #111;
-            border-radius: 12px;
-            padding: 14px 0;
-            border: 2px solid #FFD700;
-        }
-        .marquee-container marquee {
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        .marquee-container marquee span {
-            display: inline-block;
-            background: #FFD700;
-            color: #000;
-            font-weight: bold;
-            padding: 6px 16px;
-            margin: 0 10px;
-            border-radius: 30px;
-            box-shadow: 0 0 12px rgba(255, 215, 0, .6);
-        }
+    .share-btn-nav::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 40px;
+      background: conic-gradient(from 0deg, #00ff00, #00ffff, #ffff00, #ff00ff, #00ff00);
+      animation: ledSpinShare 3s linear infinite;
+      z-index: -1;
+      padding: 3px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px));
+    }
 
-        img,
-        .card,
-        .download-btn,
-        .nav-link,
-        .share-btn-nav {
-            will-change: transform, opacity;
-        }
-        .card-img img {
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+    @keyframes ledSpinShare {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
-        /* 4 LED icon tags (from before) */
-        .icon-tag-group {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 10px 0 6px;
-        }
-        .icon-tag-group-left {
-            display: flex;
-            gap: 5px;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            margin: 10px 0 6px;
-        }
-        .icon-tag {
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-            transition: 0.3s;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            flex-shrink: 0;
-        }
-        .icon-tag:hover {
-            transform: scale(1.10) rotate(3deg);
-        }
-        .icon-tag .bonus-text {
-            color: #fff;
-            font-weight: 900;
-            font-size: 0.6rem;
-            z-index: 2;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-            letter-spacing: 0.3px;
-        }
-        .icon-tag .tag-label {
-            position: absolute;
-            bottom: -16px;
-            font-size: 0.45rem;
-            font-weight: 700;
-            color: #333;
-            white-space: nowrap;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1px 6px;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-        }
-        .icon-tag .gloss {
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, transparent 60%);
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-        .icon-tag.cyan {
-            background: linear-gradient(145deg, #00bcd4, #006064);
-            box-shadow: 0 0 20px rgba(0, 188, 212, 0.5), inset 0 0 12px rgba(0, 229, 255, 0.2);
-        }
-        .icon-tag.cyan::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 16px;
-            background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
-            animation: ledSpinTag 3s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.8;
-        }
-        .icon-tag.green {
-            background: linear-gradient(145deg, #4caf50, #1b5e20);
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5), inset 0 0 12px rgba(139, 195, 74, 0.2);
-        }
-        .icon-tag.green::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 16px;
-            background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
-            animation: ledSpinTag 4s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.8;
-        }
-        .icon-tag.yellow {
-            background: linear-gradient(145deg, #ffc107, #f57f17);
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.5), inset 0 0 12px rgba(255, 235, 59, 0.2);
-        }
-        .icon-tag.yellow::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 16px;
-            background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
-            animation: ledSpinTag 3.5s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.8;
-        }
-        .icon-tag.blue {
-            background: linear-gradient(145deg, #2196f3, #0d47a1);
-            box-shadow: 0 0 20px rgba(33, 150, 243, 0.5), inset 0 0 12px rgba(100, 181, 246, 0.2);
-        }
-        .icon-tag.blue::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 16px;
-            background: conic-gradient(from 0deg, #2196f3, #64b5f6, #2196f3);
-            animation: ledSpinTag 4.5s linear infinite;
-            z-index: -1;
-            padding: 2px;
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
-            opacity: 0.8;
-        }
-        @keyframes ledSpinTag {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+    .share-btn-nav:hover {
+      transform: scale(1.05);
+      color: #ffcf8a;
+    }
 
-        .card-tags-left {
-            display: flex;
-            gap: 5px;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            margin: 8px 0 4px;
-            padding-left: 4px;
+    .share-btn-nav svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: 0.3s;
+    }
+
+    .share-btn-nav:hover svg {
+      stroke: #ffcf8a;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0a2e1d, #0d5c2e, #1a6e3a, #0a4a2a);
+      background-size: 300% 300%;
+      color: white;
+      padding: 20px 20px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-banner {
+      background: linear-gradient(145deg, #0a2e1d 0%, #124d2b 50%, #0a2e1d 100%);
+      border-radius: 24px;
+      padding: 28px 20px 22px;
+      color: white;
+      text-align: center;
+      border: 2px solid #ffcf8a;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(255, 207, 138, 0.08);
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .custom-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.06) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(255, 64, 129, 0.04) 0%, transparent 50%);
+      animation: pulseGlow 6s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1.08) rotate(3deg);
+        opacity: 1;
+      }
+    }
+
+    .banner-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .banner-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .banner-top-text {
+      font-size: 0.8rem;
+      color: #ffcf8a;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .banner-age-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 8px 0 10px;
+    }
+
+    .banner-age-badge {
+      display: inline-block;
+      background: #d50000;
+      padding: 3px 18px;
+      border-radius: 40px;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(213, 0, 0, 0.4);
+      border: 1px solid #ff6666;
+    }
+
+    .banner-age-badge.second {
+      background: transparent;
+      border: 2px solid #ffcf8a;
+      color: #ffcf8a;
+      box-shadow: none;
+      font-size: 1rem;
+      padding: 3px 14px;
+    }
+
+    .banner-main-heading {
+      font-size: clamp(1.6rem, 5.5vw, 3rem);
+      font-weight: 900;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      margin: 12px 0 8px;
+      line-height: 1.2;
+    }
+
+    .banner-main-heading .gold {
+      color: #ffcf8a;
+      background: linear-gradient(135deg, #ffcf8a, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .banner-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 22px;
+      margin: 14px 0 14px;
+    }
+
+    .banner-feature {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #e8f5e9;
+    }
+
+    .banner-feature .icon {
+      font-size: 1.1rem;
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+
+    .banner-cta {
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+      font-weight: 700;
+      margin: 12px 0 10px;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.4;
+    }
+
+    .banner-cta strong {
+      color: #ffcf8a;
+      font-weight: 900;
+    }
+
+    .banner-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .banner-tag {
+      background: linear-gradient(135deg, #ffcf8a, #f5a623);
+      color: #0a2e1d;
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(255, 207, 138, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .app-tags-wrapper {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 207, 138, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .app-tags-label {
+      font-size: 1.1rem;
+      color: #ffcf8a;
+      opacity: 0.9;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .app-tags-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 6px 4px 10px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: #ffcf8a transparent;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+    }
+
+    .app-tags-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .app-tags-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+    }
+
+    .app-tags-scroll::-webkit-scrollbar-thumb {
+      background: #ffcf8a;
+      border-radius: 4px;
+    }
+
+    .app-tag-item {
+      flex: 0 0 auto;
+      background: rgba(255, 207, 138, 0.12);
+      border: 1px solid rgba(255, 207, 138, 0.2);
+      color: #e8f5e9;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      transition: 0.3s;
+      backdrop-filter: blur(2px);
+    }
+
+    .app-tag-item:hover {
+      background: rgba(255, 207, 138, 0.25);
+      border-color: #ffcf8a;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        padding: 6px 10px;
+        gap: 4px;
+      }
+      .nav-link {
+        font-size: 0.5rem;
+        padding: 3px 10px;
+      }
+      .nav-link .nav-icon {
+        font-size: 0.7rem;
+      }
+      .share-btn-nav {
+        font-size: 0.5rem;
+        padding: 3px 10px 3px 6px;
+      }
+      .share-btn-nav svg {
+        width: 12px;
+        height: 12px;
+      }
+      .custom-banner {
+        padding: 18px 12px 16px;
+        border-radius: 16px;
+      }
+      .banner-features {
+        gap: 8px 14px;
+      }
+      .banner-feature {
+        padding: 4px 12px;
+        font-size: 0.75rem;
+      }
+      .banner-tag {
+        font-size: 0.6rem;
+        padding: 3px 10px;
+      }
+      .banner-age-badge {
+        font-size: 0.95rem;
+        padding: 2px 12px;
+      }
+      .banner-age-badge.second {
+        font-size: 0.85rem;
+        padding: 2px 10px;
+      }
+      .banner-top-text {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+      }
+      .app-tag-item {
+        font-size: 0.55rem;
+        padding: 3px 10px;
+      }
+      .app-tags-label {
+        font-size: 0.9rem;
+      }
+      @keyframes slowLeftMove {
+        0% {
+          transform: translateX(0px);
         }
-        .card-tags-left .icon-tag {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
+        100% {
+          transform: translateX(-5px);
         }
-        .card-tags-left .icon-tag .bonus-text {
-            font-size: 0.55rem;
-        }
-        .card-tags-left .icon-tag .tag-label {
-            font-size: 0.4rem;
-            bottom: -14px;
-        }
-        .card-tags-left .icon-tag .gloss {
-            border-radius: 10px;
-        }
-        .card-tags-left .icon-tag::after {
-            border-radius: 14px !important;
-        }
-        .card-tags-left .icon-tag.cyan::after,
-        .card-tags-left .icon-tag.green::after,
-        .card-tags-left .icon-tag.yellow::after,
-        .card-tags-left .icon-tag.blue::after {
-            border-radius: 14px !important;
-        }
-    </style>
+      }
+    }
+
+    .container {
+      max-width: 1450px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 36px;
+      padding: 20px 18px 24px;
+      flex: 1;
+      min-width: 270px;
+      max-width: 310px;
+      transition: all 0.3s ease;
+      box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #eef2f8;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border-radius: 32px;
+      border: 2px solid #0a0a0a;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.15;
+    }
+
+    .card:hover::before {
+      opacity: 0.35;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 30px 44px -16px rgba(0, 0, 0, 0.25);
+      border-color: #ffcf8a;
+    }
+
+    .card-app-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #1e562a, #2c4c3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .card-img {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 12px;
+      background: #0a0a0a;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      border: 3px solid #0a0a0a;
+      position: relative;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .card-img img {
+      transform: scale(1.05);
+    }
+
+    .card-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      background: #fef4e6;
+      padding: 10px 10px;
+      border-radius: 48px;
+      margin: 12px 0 8px;
+    }
+
+    .card-stat {
+      text-align: center;
+      min-width: 55px;
+    }
+
+    .card-stat-value {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #1e562a;
+    }
+
+    .card-stat-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: #6c7a5a;
+      letter-spacing: 0.3px;
+    }
+
+    .withdrawal-note {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #146b3a;
+      background: #e0f2e9;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 40px;
+      margin-top: 6px;
+    }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 16px;
+      padding: 12px 0;
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      color: white;
+      text-decoration: none;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0, 206, 201, 0.35);
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.3px;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(135deg, #00a381, #00b8b4);
+      transform: scale(0.97);
+      box-shadow: 0 8px 24px rgba(0, 206, 201, 0.45);
+    }
+
+    .tag-bags {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 12px 0 6px;
+    }
+
+    .tag-bag {
+      flex: 1;
+      min-width: 60px;
+      max-width: 90px;
+      padding: 6px 4px 8px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 0.3px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tag-bag:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .tag-bag .bag-label {
+      display: block;
+      font-size: 0.45rem;
+      font-weight: 600;
+      opacity: 0.8;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-bag .bag-value {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .tag-bag.bag-1 {
+      background: linear-gradient(145deg, #00bcd4, #006064);
+      color: #fff;
+      border-color: #80deea;
+      box-shadow: 0 0 20px rgba(0, 188, 212, 0.30);
+    }
+
+    .tag-bag.bag-1::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
+      animation: bagSpin1 3s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.6;
+    }
+
+    @keyframes bagSpin1 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .tag-bag.bag-2 {
+      background: linear-gradient(145deg, #4caf50, #1b5e20);
+      color: #fff;
+      border-color: #a5d6a7;
+      box-shadow: 0 0 20px rgba(76, 175, 80, 0.30);
+    }
+
+    .tag-bag.bag-2::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
+      animation: bagSpin2 4s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.6;
+    }
+
+    @keyframes bagSpin2 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .tag-bag.bag-3 {
+      background: linear-gradient(145deg, #ffc107, #f57f17);
+      color: #fff;
+      border-color: #ffeb3b;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.30);
+    }
+
+    .tag-bag.bag-3::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 18px;
+      background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
+      animation: bagSpin3 3.5s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.6;
+    }
+
+    @keyframes bagSpin3 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .tag-bag .gloss {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
+      border-radius: 14px 14px 0 0;
+      pointer-events: none;
+    }
+
+    .download-page {
+      background: white;
+      border-radius: 44px;
+      padding: 28px 24px;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+      margin-bottom: 30px;
+      border: 1px solid #ffe1b3;
+      animation: fadeSlideUp 0.4s ease;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .download-header {
+      text-align: center;
+      border-bottom: 2px dashed #ffcf8a;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .download-header h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(125deg, #1e562a, #2c4c3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .app-highlight {
+      background: #fff7e8;
+      padding: 24px 20px;
+      border-radius: 40px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      background: #fef4e6;
+      padding: 14px 16px;
+      border-radius: 60px;
+      margin: 20px auto;
+      max-width: 750px;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #1e562a;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #6c7a5a;
+      letter-spacing: 0.5px;
+    }
+
+    .app-description {
+      background: white;
+      padding: 18px 20px;
+      border-radius: 32px;
+      text-align: left;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #2d3e2b;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .howto-steps {
+      background: #f0f9f0;
+      border-radius: 32px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .howto-steps h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #1e562a;
+    }
+
+    .howto-steps ol {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .howto-steps li {
+      margin: 10px 0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .faq-section {
+      background: #fef4e6;
+      border-radius: 32px;
+      padding: 20px 22px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-question {
+      font-weight: 800;
+      color: #b45900;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .faq-answer {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #2d3e2b;
+      padding-left: 12px;
+    }
+
+    .other-apps-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 35px 0 18px;
+      color: #1e293b;
+      border-left: 6px solid #2ecc71;
+      padding-left: 16px;
+    }
+
+    .other-apps-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 12px;
+      background: #ecf9f0;
+      padding: 16px 12px;
+      border-radius: 40px;
+    }
+
+    .other-card {
+      background: #fefcf5;
+      border-radius: 32px;
+      padding: 16px 12px;
+      width: 240px;
+      transition: 0.2s;
+      border: 1px solid #a8d5ba;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .other-card .app-name {
+      font-size: 1rem;
+      margin: 8px 0 6px;
+      font-weight: 800;
+    }
+
+    .other-card .bonus {
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      background: #fef1cf;
+      border-radius: 60px;
+      display: inline-block;
+    }
+
+    .small-download {
+      background: linear-gradient(135deg, #6c5ce7, #fd79a8);
+      font-size: 0.8rem;
+      padding: 8px 0;
+      margin-top: 12px;
+      text-decoration: none;
+      color: white;
+      display: block;
+      width: 100%;
+      text-align: center;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.30);
+    }
+
+    .small-download:hover {
+      background: linear-gradient(135deg, #5a4bd1, #e85d8e);
+      transform: scale(0.97);
+      box-shadow: 0 6px 18px rgba(108, 92, 231, 0.40);
+    }
+
+    .final-download-btn {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+      padding: 14px 20px;
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 60px;
+      display: block;
+      width: 100%;
+      margin: 20px 0 16px 0;
+      box-shadow: 0 8px 22px rgba(0, 206, 201, 0.35);
+      text-decoration: none;
+      color: white;
+      transition: 0.25s ease;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+    }
+
+    .final-download-btn:hover {
+      transform: scale(0.97);
+      background: linear-gradient(135deg, #00a381, #00b8b4);
+      box-shadow: 0 8px 26px rgba(0, 206, 201, 0.45);
+    }
+
+    .footer-note {
+      text-align: center;
+      background: #ecf9f0;
+      border-radius: 60px;
+      padding: 12px;
+      font-weight: 500;
+      font-size: 0.75rem;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      background: #0a2e1d;
+      color: #b9ddcb;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 0.7rem;
+    }
+
+    .info-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 300;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-modal-content {
+      background: white;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 36px;
+      padding: 24px 20px;
+      text-align: left;
+      animation: fadeInUp 0.3s ease;
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid #ffcf8a;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      background: #0a0a0a;
+      color: #fff;
+      border: 2px solid #333;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      margin-bottom: 10px;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.1) rotate(90deg);
+      border-color: #ffcf8a;
+      box-shadow: 0 0 30px rgba(255, 207, 138, 0.3);
+    }
+
+    .info-modal-content h4 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #1e562a;
+      border-left: 5px solid #ff8c00;
+      padding-left: 16px;
+      clear: both;
+    }
+
+    .info-modal-content p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 12px 0;
+      color: #2d3e2b;
+    }
+
+    .info-close {
+      background: linear-gradient(135deg, #2ecc71, #e91e63);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      margin-top: 16px;
+      width: 100%;
+      transition: 0.25s ease;
+      box-shadow: 0 4px 14px rgba(46, 204, 113, 0.25);
+    }
+
+    .info-close:hover {
+      transform: scale(0.97);
+      background: linear-gradient(135deg, #27ae60, #c2185b);
+      box-shadow: 0 6px 18px rgba(233, 30, 99, 0.30);
+    }
+
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 16px 0;
+    }
+
+    .info-card-box {
+      background: #fefcf5;
+      border-radius: 20px;
+      padding: 12px 14px;
+      min-width: 130px;
+      flex: 1;
+      border: 1px solid #ffe1b3;
+      text-align: center;
+    }
+
+    .info-card-box .info-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #6c7a5a;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+
+    .info-card-box .info-value {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #1e562a;
+    }
+
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: linear-gradient(145deg, #fff9f0, #ffe6cc);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-table th,
+    .contact-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #ffcf8a;
+      font-size: 0.9rem;
+    }
+
+    .contact-table th {
+      background: #0a2e1d;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-table td {
+      background: white;
+    }
+
+    .contact-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .contact-email {
+      color: #d50000;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+
+    .contact-telegram {
+      color: #0088cc;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-telegram:hover {
+      text-decoration: underline;
+    }
+
+    .disclaimer-section {
+      margin: 16px 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8f9fa;
+      border-left: 6px solid #ff8c00;
+    }
+
+    .disclaimer-section h4 {
+      color: #b45900;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .disclaimer-box {
+      background: #fff7e8;
+      padding: 10px 16px;
+      border-radius: 12px;
+      margin: 10px 0;
+      border: 1px solid #ffcf8a;
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background: #111;
+      border-radius: 12px;
+      padding: 14px 0;
+      border: 2px solid #FFD700;
+    }
+
+    .marquee-container marquee {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .marquee-container marquee span {
+      display: inline-block;
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      padding: 6px 16px;
+      margin: 0 10px;
+      border-radius: 30px;
+      box-shadow: 0 0 12px rgba(255, 215, 0, .6);
+    }
+
+    img,
+    .card,
+    .download-btn,
+    .nav-link,
+    .share-btn-nav {
+      will-change: transform, opacity;
+    }
+
+    .card-img img {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .icon-tag-group {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0 6px;
+    }
+
+    .icon-tag-group-left {
+      display: flex;
+      gap: 5px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 10px 0 6px;
+    }
+
+    .icon-tag {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      transition: 0.3s;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .icon-tag:hover {
+      transform: scale(1.10) rotate(3deg);
+    }
+
+    .icon-tag .bonus-text {
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.6rem;
+      z-index: 2;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.3px;
+    }
+
+    .icon-tag .tag-label {
+      position: absolute;
+      bottom: -16px;
+      font-size: 0.45rem;
+      font-weight: 700;
+      color: #333;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1px 6px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon-tag .gloss {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.30) 0%, transparent 60%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .icon-tag.cyan {
+      background: linear-gradient(145deg, #00bcd4, #006064);
+      box-shadow: 0 0 20px rgba(0, 188, 212, 0.5), inset 0 0 12px rgba(0, 229, 255, 0.2);
+    }
+
+    .icon-tag.cyan::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      background: conic-gradient(from 0deg, #00bcd4, #00e5ff, #00bcd4);
+      animation: ledSpinTag 3s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.8;
+    }
+
+    .icon-tag.green {
+      background: linear-gradient(145deg, #4caf50, #1b5e20);
+      box-shadow: 0 0 20px rgba(76, 175, 80, 0.5), inset 0 0 12px rgba(139, 195, 74, 0.2);
+    }
+
+    .icon-tag.green::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      background: conic-gradient(from 0deg, #4caf50, #8bc34a, #4caf50);
+      animation: ledSpinTag 4s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.8;
+    }
+
+    .icon-tag.yellow {
+      background: linear-gradient(145deg, #ffc107, #f57f17);
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.5), inset 0 0 12px rgba(255, 235, 59, 0.2);
+    }
+
+    .icon-tag.yellow::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      background: conic-gradient(from 0deg, #ffc107, #ffeb3b, #ffc107);
+      animation: ledSpinTag 3.5s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.8;
+    }
+
+    .icon-tag.blue {
+      background: linear-gradient(145deg, #2196f3, #0d47a1);
+      box-shadow: 0 0 20px rgba(33, 150, 243, 0.5), inset 0 0 12px rgba(100, 181, 246, 0.2);
+    }
+
+    .icon-tag.blue::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      background: conic-gradient(from 0deg, #2196f3, #64b5f6, #2196f3);
+      animation: ledSpinTag 4.5s linear infinite;
+      z-index: -1;
+      padding: 2px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: 0.8;
+    }
+
+    @keyframes ledSpinTag {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .card-tags-left {
+      display: flex;
+      gap: 5px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 8px 0 4px;
+      padding-left: 4px;
+    }
+
+    .card-tags-left .icon-tag {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+    }
+
+    .card-tags-left .icon-tag .bonus-text {
+      font-size: 0.55rem;
+    }
+
+    .card-tags-left .icon-tag .tag-label {
+      font-size: 0.4rem;
+      bottom: -14px;
+    }
+
+    .card-tags-left .icon-tag .gloss {
+      border-radius: 10px;
+    }
+
+    .card-tags-left .icon-tag::after {
+      border-radius: 14px !important;
+    }
+
+    .card-tags-left .icon-tag.cyan::after,
+    .card-tags-left .icon-tag.green::after,
+    .card-tags-left .icon-tag.yellow::after,
+    .card-tags-left .icon-tag.blue::after {
+      border-radius: 14px !important;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ===== TOP NAV ===== -->
-    <nav class="top-nav">
-        <div class="nav-left">
-            <a class="nav-link home" id="homeNavLink" href="#"><span class="nav-icon">🏠</span> Home</a>
-            <a class="nav-link about" id="navAbout"><span class="nav-icon">ℹ️</span> About</a>
-            <a class="nav-link contact" id="navContact"><span class="nav-icon">📞</span> Contact</a>
-            <a class="nav-link disclaimer" id="navDisclaimer"><span class="nav-icon">⚖️</span> Disclaimer</a>
-        </div>
-        <div class="nav-right">
-            <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                    <polyline points="16 6 12 2 8 6"/>
-                    <line x1="12" y1="2" x2="12" y2="15"/>
-                </svg>
-                Share
-            </a>
-        </div>
-    </nav>
-
-    <!-- ===== INFO MODAL ===== -->
-    <div id="customInfoModal" class="info-modal">
-        <div class="info-modal-content">
-            <button class="modal-close" id="closeInfoModal">✕</button>
-            <h4 id="modalTitle">Information</h4>
-            <div id="modalBody"></div>
-            <button class="info-close" id="infoCloseBtn">OK</button>
-        </div>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <a class="nav-link home" id="homeNavLink" href="#"><span class="nav-icon">🏠</span> Home</a>
+      <a class="nav-link about" id="navAbout"><span class="nav-icon">ℹ️</span> About</a>
+      <a class="nav-link contact" id="navContact"><span class="nav-icon">📞</span> Contact</a>
+      <a class="nav-link disclaimer" id="navDisclaimer"><span class="nav-icon">⚖️</span> Disclaimer</a>
     </div>
-
-    <!-- ===== HEADER ===== -->
-    <header>
-        <div class="custom-banner">
-            <div class="banner-inner">
-                <div class="banner-top-row">
-                    <span class="banner-top-text">INR RUMMY & YONO GAMES</span>
-                </div>
-                <div class="banner-age-group">
-                    <span class="banner-age-badge">18+</span>
-                    <span class="banner-age-badge second">ADULTS ONLY</span>
-                </div>
-                <div class="banner-main-heading">
-                    India's Top <span class="gold">Rummy & Casino</span> Apps Platform
-                </div>
-                <div class="banner-features">
-                    <span class="banner-feature"><span class="icon" style="color:#66bb6a;">✔️</span> 100% Safe & Secure</span>
-                    <span class="banner-feature"><span class="icon" style="color:#42a5f5;">⚡</span> Fast & Easy Downloads</span>
-                    <span class="banner-feature"><span class="icon" style="color:#ffa726;">🎁</span> Top Bonuses & Rewards</span>
-                </div>
-                <div class="banner-cta">
-                    <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
-                </div>
-                <div class="banner-tags">
-                    <span class="banner-tag"> REAL CASH GAMES</span>
-                    <span class="banner-tag"> FAST PAYOUTS</span>
-                    <span class="banner-tag"> DAILY BONUSES</span>
-                    <span class="banner-tag" style="background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff;">⌛ 24X7 SUPPORT</span>
-                </div>
-                <div class="app-tags-wrapper">
-                    <span class="app-tags-label" style="color:#ffd54f;">🎮 ALL APPS</span>
-                    <div class="app-tags-scroll" id="appTagsScroll"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container" id="mainContainer">
-        <div id="allAppsGrid" class="cards-grid"></div>
-        <div id="downloadPageContainer" class="hidden"></div>
+    <div class="nav-right">
+      <a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="share-btn-nav" id="shareBtnNav">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        Share
+      </a>
     </div>
+  </nav>
 
-    <!-- ===== MARQUEE ===== -->
-    <div class="marquee-container">
-        <marquee behavior="scroll" direction="left" scrollamount="6">
-            567 Slots | Jaiho 91 | Rummy Ludo | ABC Rummy | Rummy 91 | Love Rummy | Bingo 101 | Yono 777 | Saga Slots | Spin Crush | Top Rummy | New Yono Games | Hello Rummy | All Yono Apps | Rummy 365 | Taurus App | Teen Patti Gold | Teen Patti Master | Yono Rummy | Slots Winner | Good Slots | Diwa Slot | GoGo Rummy | Joy Rummy | Spin Gold | Yes Spin | Yono Arcade | SVIP 777 | OK Rummy | Hind 777 | Rummy Most | Bet 213 | Teen Patti | Boss Rummy | Diwa VIP | Diwa 777
-        </marquee>
+  <div id="customInfoModal" class="info-modal">
+    <div class="info-modal-content">
+      <button class="modal-close" id="closeInfoModal">✕</button>
+      <h4 id="modalTitle">Information</h4>
+      <div id="modalBody"></div>
+      <button class="info-close" id="infoCloseBtn">OK</button>
     </div>
+  </div>
 
-    <footer>
-        <div style="max-width:1200px;margin:0 auto;padding:20px;">
-            <p style="color:#b9ddcb;font-size:0.8rem;">INR Rummy & Yono Games Platform — Play responsibly. 18+ only. | Official APK Downloads</p>
-            <p style="color:#b9ddcb;font-size:0.7rem;margin-top:10px;">&copy; 2026 INR Rummy Platform. All rights reserved.</p>
+  <header>
+    <div class="custom-banner">
+      <div class="banner-inner">
+        <div class="banner-top-row">
+          <span class="banner-top-text">INR RUMMY & YONO GAMES</span>
         </div>
-    </footer>
+        <div class="banner-age-group">
+          <span class="banner-age-badge">18+</span>
+          <span class="banner-age-badge second">ADULTS ONLY</span>
+        </div>
+        <div class="banner-main-heading">
+          India's Top <span class="gold">Rummy & Casino</span> Apps Platform
+        </div>
+        <div class="banner-features">
+          <span class="banner-feature"><span class="icon" style="color:#66bb6a;">✔️</span> 100% Safe & Secure</span>
+          <span class="banner-feature"><span class="icon" style="color:#42a5f5;">⚡</span> Fast & Easy Downloads</span>
+          <span class="banner-feature"><span class="icon" style="color:#ffa726;">🎁</span> Top Bonuses & Rewards</span>
+        </div>
+        <div class="banner-cta">
+          <strong>Download India's Most Trusted Rummy Apps</strong> & Win Real Cash Prizes. <br>Play More, Win More!
+        </div>
+        <div class="banner-tags">
+          <span class="banner-tag"> REAL CASH GAMES</span>
+          <span class="banner-tag"> FAST PAYOUTS</span>
+          <span class="banner-tag"> DAILY BONUSES</span>
+          <span class="banner-tag" style="background:linear-gradient(135deg,#ff8a65,#e64a19);color:#fff;">⌛ 24X7 SUPPORT</span>
+        </div>
+        <div class="app-tags-wrapper">
+          <span class="app-tags-label" style="color:#ffd54f;">🎮 ALL APPS</span>
+          <div class="app-tags-scroll" id="appTagsScroll"></div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        // ===== ALL APP NAMES =====
-        const allAppNames = [
-            "567 Slots", "Jaiho 91", "Rummy Ludo", "ABC Rummy", "Rummy 91", "Love Rummy", "Bingo 101", "Yono 777",
-            "Saga Slots", "Spin Crush", "Top Rummy", "New Yono Games", "Hello Rummy", "All Yono Apps", "Rummy 365",
-            "Taurus App", "Teen Patti Gold", "Teen Patti Master", "Yono Rummy", "Slots Winner", "Good Slots", "Diwa Slot",
-            "GoGo Rummy", "Joy Rummy", "Spin Gold", "Yes Spin", "Yono Arcade", "SVIP 777", "OK Rummy", "Hind 777",
-            "Rummy Most", "Bet 213", "Teen Patti", "Boss Rummy", "Diwa VIP", "Diwa 777"
-        ];
+  <div class="container" id="mainContainer">
+    <div id="allAppsGrid" class="cards-grid"></div>
+    <div id="downloadPageContainer" class="hidden"></div>
+  </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('appTagsScroll');
-            if (container) {
-                allAppNames.forEach(name => {
-                    const span = document.createElement('span');
-                    span.className = 'app-tag-item';
-                    span.textContent = name;
-                    container.appendChild(span);
-                });
-            }
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      567 Slots | Jaiho 91 | Rummy Ludo | ABC Rummy | Rummy 91 | Love Rummy | Bingo 101 | Yono 777 | Saga Slots | Spin Crush | Top Rummy | New Yono Games | Hello Rummy | All Yono Apps | Rummy 365 | Taurus App | Teen Patti Gold | Teen Patti Master | Yono Rummy | Slots Winner | Good Slots | Diwa Slot | GoGo Rummy | Joy Rummy | Spin Gold | Yes Spin | Yono Arcade | SVIP 777 | OK Rummy | Hind 777 | Rummy Most | Bet 213 | Teen Patti | Boss Rummy | Diwa VIP | Diwa 777
+    </marquee>
+  </div>
+
+  <footer>
+    <div style="max-width:1200px;margin:0 auto;padding:20px;">
+      <p style="color:#b9ddcb;font-size:0.8rem;">INR Rummy & Yono Games Platform — Play responsibly. 18+ only. | Official APK Downloads</p>
+      <p style="color:#b9ddcb;font-size:0.7rem;margin-top:10px;">&copy; 2026 INR Rummy Platform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const allAppNames = [
+      "567 Slots", "Jaiho 91", "Rummy Ludo", "ABC Rummy", "Rummy 91", "Love Rummy", "Bingo 101", "Yono 777",
+      "Saga Slots", "Spin Crush", "Top Rummy", "New Yono Games", "Hello Rummy", "All Yono Apps", "Rummy 365",
+      "Taurus App", "Teen Patti Gold", "Teen Patti Master", "Yono Rummy", "Slots Winner", "Good Slots", "Diwa Slot",
+      "GoGo Rummy", "Joy Rummy", "Spin Gold", "Yes Spin", "Yono Arcade", "SVIP 777", "OK Rummy", "Hind 777",
+      "Rummy Most", "Bet 213", "Teen Patti", "Boss Rummy", "Diwa VIP", "Diwa 777"
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('appTagsScroll');
+      if (container) {
+        allAppNames.forEach(name => {
+          const span = document.createElement('span');
+          span.className = 'app-tag-item';
+          span.textContent = name;
+          container.appendChild(span);
         });
+      }
+    });
 
-        // ===== APPS DATA with UNIQUE 3 TAGS per app =====
-        const appsData = [{
-            name: "INR Rummy",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106",
-            img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg",
-            category: "Rummy",
-            tag1: "Rummy Pro",
-            tag2: "Cash Games",
-            tag3: "Fast Payout",
-            tags: {
-                description: "INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals.",
-                about: "INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
-                features: ["Welcome Bonus: ₹56", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play",
-                    "Multiple Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹56 Bonus"
-                ],
-                faqBonus: "₹56"
-            }
-        }, {
-            name: "MBM BET",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830",
-            img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg",
-            category: "Casino",
-            tag1: "Casino King",
-            tag2: "Live Games",
-            tag3: "Big Wins",
-            tags: {
-                description: "MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games.",
-                about: "MBM Bet is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
-                features: ["Welcome Bonus: ₹39", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play",
-                    "Multiple Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹39 Bonus"
-                ],
-                faqBonus: "₹39"
-            }
-        }, {
-            name: "Yono Games",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209",
-            img: "https://i.ibb.co/LXqV77rd/yono-games.jpg",
-            category: "Slots",
-            tag1: "Slots Master",
-            tag2: "Daily Bonus",
-            tag3: "Jackpot",
-            tags: {
-                description: "Yono Games offers a premium slots and casino experience with high returns and fast payouts. Enjoy a wide variety of games with ₹45 welcome bonus.",
-                about: "Yono Games is a leading gaming platform in India offering real-money games with secure payments and 24/7 support.",
-                features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Multiple Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹45 Bonus"
-                ],
-                faqBonus: "₹45"
-            }
-        }, {
-            name: "567 Slots",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
-            img: "https://i.ibb.co/hFytMXY2/1000022725.jpg",
-            category: "Slots",
-            tag1: "Slot Hero",
-            tag2: "Mega Spin",
-            tag3: "Fast Cash",
-            tags: {
-                description: "567 Slots is a premium slot gaming app with exciting bonuses and fast payouts. Get ₹45 welcome bonus and start winning real cash.",
-                about: "567 Slots offers a wide range of slot games with high RTP and exciting features. The app is designed for Indian players with secure UPI withdrawals.",
-                features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Multiple Slots"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹45 Bonus"
-                ],
-                faqBonus: "₹45"
-            }
-        }, {
-            name: "Saga Slots",
-            bonus: "₹40",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813",
-            img: "https://i.ibb.co/20dzhBZf/1000022725.jpg",
-            category: "Slots",
-            tag1: "Saga Win",
-            tag2: "Epic Spins",
-            tag3: "Big Bonus",
-            tags: {
-                description: "Saga Slots brings you the best slot gaming experience with ₹40 welcome bonus. Play thrilling slots and win real cash instantly.",
-                about: "Saga Slots is a top-rated slot gaming app known for its stunning graphics and big win potential. Trusted by thousands of Indian players.",
-                features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Premium Slots"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹40 Bonus"
-                ],
-                faqBonus: "₹40"
-            }
-        }, {
-            name: "Jaiho 91",
-            bonus: "₹50",
-            withdrawal: "₹100",
-            downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067",
-            img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg",
-            category: "Casino",
-            tag1: "Jaiho Win",
-            tag2: "Live Casino",
-            tag3: "Big Reward",
-            tags: {
-                description: "Jaiho 91 is a premium casino app with ₹50 welcome bonus. Enjoy live casino games, slots, and more with real cash winnings.",
-                about: "Jaiho 91 brings the authentic casino experience to your phone with live dealers and exciting games. Secure and trusted platform.",
-                features: ["Welcome Bonus: ₹50", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Live Casino", "Multiple Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹50 Bonus"
-                ],
-                faqBonus: "₹50"
-            }
-        }, {
-            name: "Rummy Ludo",
-            bonus: "₹35",
-            withdrawal: "₹100",
-            downloadUrl: "https://rummyludoapp37.com/",
-            img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Ludo King",
-            tag2: "Rummy Fun",
-            tag3: "Double Win",
-            tags: {
-                description: "Rummy Ludo combines classic rummy and ludo games in one app. Get ₹35 bonus and enjoy both games with real cash prizes.",
-                about: "Rummy Ludo is a unique gaming app that offers both rummy and ludo with real cash rewards. Perfect for players who love both games.",
-                features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Rummy + Ludo"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹35 Bonus"
-                ],
-                faqBonus: "₹35"
-            }
-        }, {
-            name: "ABC Rummy",
-            bonus: "₹42",
-            withdrawal: "₹100",
-            downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk",
-            img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg",
-            category: "Rummy",
-            tag1: "ABC Win",
-            tag2: "Rummy Star",
-            tag3: "Quick Cash",
-            tags: {
-                description: "ABC Rummy is a feature-rich rummy app with ₹42 signup bonus. Play with real players and win cash prizes daily.",
-                about: "ABC Rummy offers a seamless rummy experience with fast gameplay and secure transactions. Trusted by rummy enthusiasts across India.",
-                features: ["Welcome Bonus: ₹42", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Tournaments"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹42 Bonus"
-                ],
-                faqBonus: "₹42"
-            }
-        }, {
-            name: "Rummy 91",
-            bonus: "₹38",
-            withdrawal: "₹100",
-            downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk",
-            img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Rummy Ace",
-            tag2: "Tournament",
-            tag3: "Fast Win",
-            tags: {
-                description: "Rummy 91 is a popular rummy app with ₹38 welcome bonus. Join tournaments, compete with real players, and win big.",
-                about: "Rummy 91 offers a classic rummy experience with modern features. Fast withdrawals and secure gameplay make it a top choice.",
-                features: ["Welcome Bonus: ₹38", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Multiplayer"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹38 Bonus"
-                ],
-                faqBonus: "₹38"
-            }
-        }, {
-            name: "Love Rummy",
-            bonus: "₹36",
-            withdrawal: "₹100",
-            downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk",
-            img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Love Win",
-            tag2: "Social Play",
-            tag3: "Cash Love",
-            tags: {
-                description: "Love Rummy is a fun and exciting rummy app with ₹36 bonus. Play with friends and family and win real cash rewards.",
-                about: "Love Rummy brings a social twist to rummy gaming. Connect with friends, play together, and earn real money.",
-                features: ["Welcome Bonus: ₹36", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Social Gaming"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹36 Bonus"
-                ],
-                faqBonus: "₹36"
-            }
-        }, {
-            name: "Spin Crush",
-            bonus: "₹30",
-            withdrawal: "₹100",
-            downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk",
-            img: "https://i.ibb.co/S4C26kVS/1000022725.jpg",
-            category: "Spin",
-            tag1: "Spin King",
-            tag2: "Crush Win",
-            tag3: "Daily Spin",
-            tags: {
-                description: "Spin Crush is a thrilling spin game app with ₹30 welcome bonus. Spin and win real cash with exciting rewards.",
-                about: "Spin Crush offers a unique spin-to-win experience with daily rewards and fast payouts. Simple, fun, and rewarding.",
-                features: ["Welcome Bonus: ₹30", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Daily Rewards", "Easy Play"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹30 Bonus"
-                ],
-                faqBonus: "₹30"
-            }
-        }, {
-            name: "Top Rummy",
-            bonus: "₹48",
-            withdrawal: "₹100",
-            downloadUrl: "https://th7.my/BY1JWS/3gvute0",
-            img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Top Player",
-            tag2: "High Stakes",
-            tag3: "Pro Win",
-            tags: {
-                description: "Top Rummy is a premium rummy app with ₹48 bonus. Play high-stakes games and win big with your skills.",
-                about: "Top Rummy is designed for serious rummy players who want to win big. Competitive tournaments and high rewards.",
-                features: ["Welcome Bonus: ₹48", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "High Stakes"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹48 Bonus"
-                ],
-                faqBonus: "₹48"
-            }
-        }, {
-            name: "New Yono Games",
-            bonus: "₹33",
-            withdrawal: "₹100",
-            downloadUrl: "https://t.me/yonogameswepsate",
-            img: "https://i.ibb.co/p6BTzfRz/1000022725.jpg",
-            category: "Casino",
-            tag1: "New King",
-            tag2: "Fresh Games",
-            tag3: "Big Bonus",
-            tags: {
-                description: "New Yono Games brings fresh casino games with ₹33 welcome bonus. Explore new games and win real cash.",
-                about: "New Yono Games is the latest addition to the Yono family with exciting new games and big bonuses.",
-                features: ["Welcome Bonus: ₹33", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "New Games", "Fast Payouts"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹33 Bonus"
-                ],
-                faqBonus: "₹33"
-            }
-        }, {
-            name: "All Yono games s",
-            bonus: "₹31",
-            withdrawal: "₹100",
-            downloadUrl: "https://t.me/yonogameswepsate",
-            img: "https://i.ibb.co/S7MsNPQ5/1000022725.jpg",
-            category: "Casino",
-            tag1: "All Games",
-            tag2: "Yono Pro",
-            tag3: "Mega Win",
-            tags: {
-                description: "All Yono Games s offers a complete gaming package with ₹31 bonus. Access all Yono games in one place.",
-                about: "All Yono Games s is your one-stop destination for all Yono gaming experiences. Enjoy variety and big wins.",
-                features: ["Welcome Bonus: ₹31", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "All Games", "Easy Access"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹31 Bonus"
-                ],
-                faqBonus: "₹31"
-            }
-        }, {
-            name: "Hello Rummy",
-            bonus: "₹34",
-            withdrawal: "₹100",
-            downloadUrl: "https://t.me/allyonogamessite",
-            img: "https://i.ibb.co/27DSP5zR/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Hello Win",
-            tag2: "Rummy Fun",
-            tag3: "Quick Cash",
-            tags: {
-                description: "Hello Rummy is a friendly rummy app with ₹34 bonus. Meet new players, play rummy, and win cash prizes.",
-                about: "Hello Rummy creates a welcoming community for rummy players. Enjoy fair play and exciting tournaments.",
-                features: ["Welcome Bonus: ₹34", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Community"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹34 Bonus"
-                ],
-                faqBonus: "₹34"
-            }
-        }, {
-            name: "Rummy 365",
-            bonus: "₹44",
-            withdrawal: "₹100",
-            downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
-            img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg",
-            category: "Rummy",
-            tag1: "365 Win",
-            tag2: "Daily Rummy",
-            tag3: "Yearly Cash",
-            tags: {
-                description: "Rummy 365 is your daily rummy companion with ₹44 bonus. Play every day and win real cash rewards.",
-                about: "Rummy 365 offers a year-round rummy experience with daily tournaments and bonuses. Never miss a game.",
-                features: ["Welcome Bonus: ₹44", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Daily Tournaments", "Fair Play"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹44 Bonus"
-                ],
-                faqBonus: "₹44"
-            }
-        }, {
-            name: "Taurus App",
-            bonus: "₹30",
-            withdrawal: "₹100",
-            downloadUrl: "https://th7.my/BY1JWS/3gvute0",
-            img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg",
-            category: "Earn",
-            tag1: "Taurus Earn",
-            tag2: "Task Master",
-            tag3: "Cash Bull",
-            tags: {
-                description: "Taurus App is a earning app with ₹30 signup bonus. Complete tasks, play games, and earn real cash.",
-                about: "Taurus App offers multiple earning opportunities through games and tasks. Simple and rewarding.",
-                features: ["Welcome Bonus: ₹30", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Multiple Tasks", "Easy Earn"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹30 Bonus"
-                ],
-                faqBonus: "₹30"
-            }
-        }, {
-            name: "Teen Patti Gold",
-            bonus: "₹37",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.earntp.com/gold/jm9n7r",
-            img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg",
-            category: "Card",
-            tag1: "Gold Card",
-            tag2: "Teen King",
-            tag3: "Cash Game",
-            tags: {
-                description: "Teen Patti Gold is the ultimate card game app with ₹37 bonus. Play Teen Patti with real players and win cash.",
-                about: "Teen Patti Gold brings the classic Indian card game to your phone with real cash rewards. Trusted by millions.",
-                features: ["Welcome Bonus: ₹37", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Multiplayer"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹37 Bonus"
-                ],
-                faqBonus: "₹37"
-            }
-        }, {
-            name: "Teen Patti Master",
-            bonus: "₹20",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.earntp.com/m/jm9n7r",
-            img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg",
-            category: "Card",
-            tag1: "Master Card",
-            tag2: "Pro Teen",
-            tag3: "Big Cash",
-            tags: {
-                description: "Teen Patti Master is a pro-level card game app with ₹20 bonus. Master your skills and win big.",
-                about: "Teen Patti Master is designed for serious card players who want to compete at the highest level.",
-                features: ["Welcome Bonus: ₹20", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Pro Tournaments"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹20 Bonus"
-                ],
-                faqBonus: "₹20"
-            }
-        }, {
-            name: "Yono games",
-            bonus: "₹25",
-            withdrawal: "₹100",
-            downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758",
-            img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg",
-            category: "Rummy",
-            tag1: "Yono Rummy",
-            tag2: "Classic Play",
-            tag3: "Cash Win",
-            tags: {
-                description: "Yono games offers classic rummy with ₹25 welcome bonus. Play and win real cash with Yono.",
-                about: "Yono games is a trusted name in Indian gaming with a focus on rummy and card games.",
-                features: ["Welcome Bonus: ₹25", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Classic Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹25 Bonus"
-                ],
-                faqBonus: "₹25"
-            }
-        }, {
-            name: "Slots Winner",
-            bonus: "₹40",
-            withdrawal: "₹100",
-            downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393",
-            img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg",
-            category: "Slots",
-            tag1: "Winner Slot",
-            tag2: "Jackpot King",
-            tag3: "Big Spin",
-            tags: {
-                description: "Slots Winner is a top slot gaming app with ₹40 bonus. Spin the reels and become a winner.",
-                about: "Slots Winner offers a premium slot experience with high RTP and exciting jackpots.",
-                features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "High RTP", "Jackpots"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹40 Bonus"
-                ],
-                faqBonus: "₹40"
-            }
-        }, {
-            name: "Good Slots",
-            bonus: "₹15",
-            withdrawal: "₹100",
-            downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1",
-            img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg",
-            category: "Slots",
-            tag1: "Good Spin",
-            tag2: "Easy Win",
-            tag3: "Daily Cash",
-            tags: {
-                description: "Good Slots is a simple and fun slot app with ₹15 bonus. Enjoy casual slot gaming and win real cash.",
-                about: "Good Slots offers a relaxed slot gaming experience with daily rewards and easy gameplay.",
-                features: ["Welcome Bonus: ₹15", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Daily Rewards", "Easy Play"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹15 Bonus"
-                ],
-                faqBonus: "₹15"
-            }
-        }, {
-            name: "Diwa Slot",
-            bonus: "₹50",
-            withdrawal: "₹100",
-            downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app",
-            img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg",
-            category: "Slots",
-            tag1: "Diwa King",
-            tag2: "Luxury Spin",
-            tag3: "Big Jackpot",
-            tags: {
-                description: "Diwa Slot is a premium slot app with ₹50 bonus. Experience luxury slots and win big.",
-                about: "Diwa Slot brings high-end slot gaming with stunning visuals and big win potential.",
-                features: ["Welcome Bonus: ₹50", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Luxury Slots", "Big Wins"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹50 Bonus"
-                ],
-                faqBonus: "₹50"
-            }
-        }, {
-            name: "GoGo Rummy",
-            bonus: "₹28",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694",
-            img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg",
-            category: "Rummy",
-            tag1: "GoGo Win",
-            tag2: "Fast Rummy",
-            tag3: "Quick Cash",
-            tags: {
-                description: "GoGo Rummy is a fast-paced rummy app with ₹28 bonus. Play quick games and win cash instantly.",
-                about: "GoGo Rummy is designed for players who love fast rummy games with quick payouts.",
-                features: ["Welcome Bonus: ₹28", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fast Games", "Quick Payouts"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹28 Bonus"
-                ],
-                faqBonus: "₹28"
-            }
-        }, {
-            name: "Joy Rummy",
-            bonus: "₹35",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100",
-            img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg",
-            category: "Rummy",
-            tag1: "Joy Win",
-            tag2: "Happy Play",
-            tag3: "Cash Joy",
-            tags: {
-                description: "Joy Rummy is a joyful rummy app with ₹35 bonus. Play with a smile and win real cash.",
-                about: "Joy Rummy creates a happy and engaging rummy environment with fair play and big rewards.",
-                features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Happy Gaming"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹35 Bonus"
-                ],
-                faqBonus: "₹35"
-            }
-        }, {
-            name: "Spin Gold",
-            bonus: "₹22",
-            withdrawal: "₹100",
-            downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
-            img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg",
-            category: "Spin",
-            tag1: "Gold Spin",
-            tag2: "Golden Win",
-            tag3: "Cash Gold",
-            tags: {
-                description: "Spin Gold is a spin-to-win app with ₹22 bonus. Spin the wheel and win gold.",
-                about: "Spin Gold offers an exciting spin experience with daily rewards and real cash prizes.",
-                features: ["Welcome Bonus: ₹22", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Daily Spins", "Real Cash"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹22 Bonus"
-                ],
-                faqBonus: "₹22"
-            }
-        }, {
-            name: "Bingo 101",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
-            img: "https://i.ibb.co/My9tjNgL/bingo101.jpg",
-            category: "Bingo",
-            tag1: "Bingo King",
-            tag2: "Number Win",
-            tag3: "Cash Bingo",
-            tags: {
-                description: "Bingo 101 is a fun bingo app with ₹45 bonus. Play bingo and win real cash prizes.",
-                about: "Bingo 101 brings the classic bingo game to your phone with exciting rewards and social features.",
-                features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Social Bingo", "Real Cash"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹45 Bonus"
-                ],
-                faqBonus: "₹45"
-            }
-        }, {
-            name: "Yes Spin",
-            bonus: "₹18",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907",
-            img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg",
-            category: "Spin",
-            tag1: "Yes Win",
-            tag2: "Spin Master",
-            tag3: "Daily Cash",
-            tags: {
-                description: "Yes Spin is a simple spin game with ₹18 bonus. Spin and win every day.",
-                about: "Yes Spin offers a no-fuss spin experience with daily rewards and instant payouts.",
-                features: ["Welcome Bonus: ₹18", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Daily Rewards", "Easy Win"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹18 Bonus"
-                ],
-                faqBonus: "₹18"
-            }
-        }, {
-            name: "Yono Arcade",
-            bonus: "₹32",
-            withdrawal: "₹100",
-            downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006",
-            img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg",
-            category: "Arcade",
-            tag1: "Arcade King",
-            tag2: "Game Master",
-            tag3: "Cash Play",
-            tags: {
-                description: "Yono Arcade is a fun arcade gaming app with ₹32 bonus. Play arcade games and win cash.",
-                about: "Yono Arcade brings classic arcade games with a modern twist and real cash rewards.",
-                features: ["Welcome Bonus: ₹32", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Arcade Games", "Fun Rewards"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹32 Bonus"
-                ],
-                faqBonus: "₹32"
-            }
-        }, {
-            name: "SVIP 777",
-            bonus: "₹27",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5",
-            img: "https://i.ibb.co/vfWZMLm/svip777.jpg",
-            category: "Casino",
-            tag1: "SVIP King",
-            tag2: "VIP Casino",
-            tag3: "Big Cash",
-            tags: {
-                description: "SVIP 777 is a VIP casino app with ₹27 bonus. Experience premium casino gaming.",
-                about: "SVIP 777 offers an exclusive VIP casino experience with high stakes and big rewards.",
-                features: ["Welcome Bonus: ₹27", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "VIP Experience", "High Stakes"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹27 Bonus"
-                ],
-                faqBonus: "₹27"
-            }
-        }, {
-            name: "OK Rummy",
-            bonus: "₹38",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220",
-            img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg",
-            category: "Rummy",
-            tag1: "OK Win",
-            tag2: "Trusted Play",
-            tag3: "Cash Rummy",
-            tags: {
-                description: "OK Rummy is a reliable rummy app with ₹38 bonus. Play confidently and win real cash.",
-                about: "OK Rummy is known for its fair play and secure gaming environment. Trusted by rummy lovers.",
-                features: ["Welcome Bonus: ₹38", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Trusted"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹38 Bonus"
-                ],
-                faqBonus: "₹38"
-            }
-        }, {
-            name: "Hind 777",
-            bonus: "₹42",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307",
-            img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg",
-            category: "Slots",
-            tag1: "Hind King",
-            tag2: "Desi Slots",
-            tag3: "Big Win",
-            tags: {
-                description: "Hind 777 is a vibrant slot app with ₹42 bonus. Play Indian-themed slots and win big.",
-                about: "Hind 777 celebrates Indian culture with exciting slot games and big winning opportunities.",
-                features: ["Welcome Bonus: ₹42", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Indian Slots", "Big Wins"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹42 Bonus"
-                ],
-                faqBonus: "₹42"
-            }
-        }, {
-            name: "Yono games",
-            bonus: "₹33",
-            withdrawal: "₹100",
-            downloadUrl: "https://th1.my/BY1JWS/3gvute0",
-            img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg",
-            category: "Rummy",
-            tag1: "Yono Pro",
-            tag2: "Rummy Star",
-            tag3: "Cash King",
-            tags: {
-                description: "Yono games brings you classic rummy with ₹33 bonus. Play and win real cash.",
-                about: "Yono games is a trusted platform for rummy and card games with secure transactions.",
-                features: ["Welcome Bonus: ₹33", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Classic Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹33 Bonus"
-                ],
-                faqBonus: "₹33"
-            }
-        }, {
-            name: "Teen Patti Gold Old",
-            bonus: "₹24",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.earntp.com/gold/jm9n7r",
-            img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg",
-            category: "Card",
-            tag1: "Old Gold",
-            tag2: "Classic Teen",
-            tag3: "Cash Card",
-            tags: {
-                description: "Teen Patti Gold Old version with ₹24 bonus. Classic Teen Patti experience.",
-                about: "Teen Patti Gold Old offers the classic Teen Patti experience with real cash rewards.",
-                features: ["Welcome Bonus: ₹24", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Classic Game", "Fair Play"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹24 Bonus"
-                ],
-                faqBonus: "₹24"
-            }
-        }, {
-            name: "Bet 213",
-            bonus: "₹36",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576",
-            img: "https://i.ibb.co/YTqq2C4F/bet213.jpg",
-            category: "Betting",
-            tag1: "Bet King",
-            tag2: "Sports Pro",
-            tag3: "Cash Bet",
-            tags: {
-                description: "Bet 213 is a betting app with ₹36 bonus. Place bets and win real cash.",
-                about: "Bet 213 offers a comprehensive betting experience with multiple sports and games.",
-                features: ["Welcome Bonus: ₹36", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Sports Betting", "Live Odds"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹36 Bonus"
-                ],
-                faqBonus: "₹36"
-            }
-        }, {
-            name: "Teen Patt games",
-            bonus: "₹29",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.earntp.com/m/jm9n7r",
-            img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg",
-            category: "Card",
-            tag1: "Teen Pro",
-            tag2: "Card Master",
-            tag3: "Cash Game",
-            tags: {
-                description: "Teen Patt games offers a variety of card games with ₹29 bonus. Play and win.",
-                about: "Teen Patt games is your destination for multiple card games with real cash rewards.",
-                features: ["Welcome Bonus: ₹29", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Multiple Games", "Fair Play"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹29 Bonus"
-                ],
-                faqBonus: "₹29"
-            }
-        }, {
-            name: "Teen Patti Master",
-            bonus: "₹31",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.earntp.com/gold/jm9n7r",
-            img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg",
-            category: "Card",
-            tag1: "Master Pro",
-            tag2: "Teen King",
-            tag3: "Big Cash",
-            tags: {
-                description: "Teen Patti Master games with ₹31 bonus. Master your card skills and win big.",
-                about: "Teen Patti Master is the ultimate card gaming app for serious players.",
-                features: ["Welcome Bonus: ₹31", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Pro Gaming", "Big Wins"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹31 Bonus"
-                ],
-                faqBonus: "₹31"
-            }
-        }, {
-            name: "Boss Rummy",
-            bonus: "₹40",
-            withdrawal: "₹100",
-            downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504",
-            img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg",
-            category: "Rummy",
-            tag1: "Boss King",
-            tag2: "Rummy Pro",
-            tag3: "Cash Boss",
-            tags: {
-                description: "Boss Rummy is a premium rummy app with ₹40 bonus. Play like a boss and win cash.",
-                about: "Boss Rummy offers a premium rummy experience with competitive tournaments and big rewards.",
-                features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Premium Gaming", "Big Rewards"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹40 Bonus"
-                ],
-                faqBonus: "₹40"
-            }
-        }, {
-            name: "Yono 777",
-            bonus: "₹35",
-            withdrawal: "₹100",
-            downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
-            img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg",
-            category: "Slots",
-            tag1: "Yono Lucky",
-            tag2: "777 Spin",
-            tag3: "Jackpot Win",
-            tags: {
-                description: "Yono 777 is a lucky slot app with ₹35 bonus. Spin the reels and win big.",
-                about: "Yono 777 offers a premium slot experience with lucky themes and big jackpots.",
-                features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Lucky Slots", "Jackpots"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹35 Bonus"
-                ],
-                faqBonus: "₹35"
-            }
-        }, {
-            name: "Diwa VIP",
-            bonus: "₹60",
-            withdrawal: "₹100",
-            downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
-            img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg",
-            category: "VIP",
-            tag1: "Diwa Elite",
-            tag2: "VIP King",
-            tag3: "Mega Cash",
-            tags: {
-                description: "Diwa VIP is a premium VIP gaming app with ₹60 bonus. Experience luxury gaming.",
-                about: "Diwa VIP offers an exclusive VIP gaming experience with the highest rewards and privileges.",
-                features: ["Welcome Bonus: ₹60", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "VIP Experience", "Exclusive Rewards"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹60 Bonus"
-                ],
-                faqBonus: "₹60"
-            }
-        }, {
-            name: "Diwa 777",
-            bonus: "₹45",
-            withdrawal: "₹100",
-            downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app",
-            img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg",
-            category: "Slots",
-            tag1: "Diwa Lucky",
-            tag2: "777 Spin",
-            tag3: "Jackpot King",
-            tags: {
-                description: "Diwa 777 is a premium slot app with ₹45 bonus. Experience luxury slots and win big.",
-                about: "Diwa 777 brings high-end slot gaming with stunning visuals and massive jackpots.",
-                features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Luxury Slots", "Big Jackpots"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", "Claim ₹45 Bonus"
-                ],
-                faqBonus: "₹45"
-            }
-        }];
+    const appsData = [{
+      name: "INR Rummy",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106",
+      img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg",
+      category: "Rummy",
+      tag1: "Rummy Pro",
+      tag2: "Cash Games",
+      tag3: "Fast Payout",
+      tags: {
+        description: "INR Rummy App offers online rummy games with real cash winnings. Get the latest APK version, claim bonuses, and enjoy smooth gameplay with fast withdrawals.",
+        about: "INR Rummy is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
+        features: ["Welcome Bonus: ₹56", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play",
+          "Multiple Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹56 Bonus"
+        ],
+        faqBonus: "₹56"
+      }
+    }, {
+      name: "MBM BET",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830",
+      img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg",
+      category: "Casino",
+      tag1: "Casino King",
+      tag2: "Live Games",
+      tag3: "Big Wins",
+      tags: {
+        description: "MBM Bet (Yono) provides a superior real-money gaming experience with fast gameplay, secure payments, and verified ₹100 withdrawals. The new version features smooth performance, instant registration, and high-return games.",
+        about: "MBM Bet is one of the most popular gaming applications in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players across the country. The app features a wide variety of games including Rummy, Teen Patti, Poker, and many other skill-based games that not only provide entertainment but also offer substantial earning opportunities for skilled players.",
+        features: ["Welcome Bonus: ₹39", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support", "Fair Play",
+          "Multiple Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹39 Bonus"
+        ],
+        faqBonus: "₹39"
+      }
+    }, {
+      name: "Yono Games",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209",
+      img: "https://i.ibb.co/LXqV77rd/yono-games.jpg",
+      category: "Slots",
+      tag1: "Slots Master",
+      tag2: "Daily Bonus",
+      tag3: "Jackpot",
+      tags: {
+        description: "Yono Games offers a premium slots and casino experience with high returns and fast payouts. Enjoy a wide variety of games with ₹45 welcome bonus.",
+        about: "Yono Games is a leading gaming platform in India offering real-money games with secure payments and 24/7 support.",
+        features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Multiple Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹45 Bonus"
+        ],
+        faqBonus: "₹45"
+      }
+    }, {
+      name: "567 Slots",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
+      img: "https://i.ibb.co/hFytMXY2/1000022725.jpg",
+      category: "Slots",
+      tag1: "Slot Hero",
+      tag2: "Mega Spin",
+      tag3: "Fast Cash",
+      tags: {
+        description: "567 Slots is a premium slot gaming app with exciting bonuses and fast payouts. Get ₹45 welcome bonus and start winning real cash.",
+        about: "567 Slots offers a wide range of slot games with high RTP and exciting features. The app is designed for Indian players with secure UPI withdrawals.",
+        features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Multiple Slots"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹45 Bonus"
+        ],
+        faqBonus: "₹45"
+      }
+    }, {
+      name: "Saga Slots",
+      bonus: "₹40",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813",
+      img: "https://i.ibb.co/20dzhBZf/1000022725.jpg",
+      category: "Slots",
+      tag1: "Saga Win",
+      tag2: "Epic Spins",
+      tag3: "Big Bonus",
+      tags: {
+        description: "Saga Slots brings you the best slot gaming experience with ₹40 welcome bonus. Play thrilling slots and win real cash instantly.",
+        about: "Saga Slots is a top-rated slot gaming app known for its stunning graphics and big win potential. Trusted by thousands of Indian players.",
+        features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Premium Slots"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹40 Bonus"
+        ],
+        faqBonus: "₹40"
+      }
+    }, {
+      name: "Jaiho 91",
+      bonus: "₹50",
+      withdrawal: "₹100",
+      downloadUrl: "https://jaiho91bonus.vip/?code=C42T99ZQHAT&t=1781506067",
+      img: "https://i.ibb.co/zV0C6Xkk/1000022725.jpg",
+      category: "Casino",
+      tag1: "Jaiho Win",
+      tag2: "Live Casino",
+      tag3: "Big Reward",
+      tags: {
+        description: "Jaiho 91 is a premium casino app with ₹50 welcome bonus. Enjoy live casino games, slots, and more with real cash winnings.",
+        about: "Jaiho 91 brings the authentic casino experience to your phone with live dealers and exciting games. Secure and trusted platform.",
+        features: ["Welcome Bonus: ₹50", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Live Casino", "Multiple Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹50 Bonus"
+        ],
+        faqBonus: "₹50"
+      }
+    }, {
+      name: "Rummy Ludo",
+      bonus: "₹35",
+      withdrawal: "₹100",
+      downloadUrl: "https://rummyludoapp37.com/",
+      img: "https://i.ibb.co/Z6Xy7y2x/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Ludo King",
+      tag2: "Rummy Fun",
+      tag3: "Double Win",
+      tags: {
+        description: "Rummy Ludo combines classic rummy and ludo games in one app. Get ₹35 bonus and enjoy both games with real cash prizes.",
+        about: "Rummy Ludo is a unique gaming app that offers both rummy and ludo with real cash rewards. Perfect for players who love both games.",
+        features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Rummy + Ludo"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹35 Bonus"
+        ],
+        faqBonus: "₹35"
+      }
+    }, {
+      name: "ABC Rummy",
+      bonus: "₹42",
+      withdrawal: "₹100",
+      downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk",
+      img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg",
+      category: "Rummy",
+      tag1: "ABC Win",
+      tag2: "Rummy Star",
+      tag3: "Quick Cash",
+      tags: {
+        description: "ABC Rummy is a feature-rich rummy app with ₹42 signup bonus. Play with real players and win cash prizes daily.",
+        about: "ABC Rummy offers a seamless rummy experience with fast gameplay and secure transactions. Trusted by rummy enthusiasts across India.",
+        features: ["Welcome Bonus: ₹42", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Tournaments"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹42 Bonus"
+        ],
+        faqBonus: "₹42"
+      }
+    }, {
+      name: "Rummy 91",
+      bonus: "₹38",
+      withdrawal: "₹100",
+      downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk",
+      img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Rummy Ace",
+      tag2: "Tournament",
+      tag3: "Fast Win",
+      tags: {
+        description: "Rummy 91 is a popular rummy app with ₹38 welcome bonus. Join tournaments, compete with real players, and win big.",
+        about: "Rummy 91 offers a classic rummy experience with modern features. Fast withdrawals and secure gameplay make it a top choice.",
+        features: ["Welcome Bonus: ₹38", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Multiplayer"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹38 Bonus"
+        ],
+        faqBonus: "₹38"
+      }
+    }, {
+      name: "Love Rummy",
+      bonus: "₹36",
+      withdrawal: "₹100",
+      downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk",
+      img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Love Win",
+      tag2: "Social Play",
+      tag3: "Cash Love",
+      tags: {
+        description: "Love Rummy is a fun and exciting rummy app with ₹36 bonus. Play with friends and family and win real cash rewards.",
+        about: "Love Rummy brings a social twist to rummy gaming. Connect with friends, play together, and earn real money.",
+        features: ["Welcome Bonus: ₹36", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Social Gaming"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹36 Bonus"
+        ],
+        faqBonus: "₹36"
+      }
+    }, {
+      name: "Spin Crush",
+      bonus: "₹30",
+      withdrawal: "₹100",
+      downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk",
+      img: "https://i.ibb.co/S4C26kVS/1000022725.jpg",
+      category: "Spin",
+      tag1: "Spin King",
+      tag2: "Crush Win",
+      tag3: "Daily Spin",
+      tags: {
+        description: "Spin Crush is a thrilling spin game app with ₹30 welcome bonus. Spin and win real cash with exciting rewards.",
+        about: "Spin Crush offers a unique spin-to-win experience with daily rewards and fast payouts. Simple, fun, and rewarding.",
+        features: ["Welcome Bonus: ₹30", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Daily Rewards", "Easy Play"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹30 Bonus"
+        ],
+        faqBonus: "₹30"
+      }
+    }, {
+      name: "Top Rummy",
+      bonus: "₹48",
+      withdrawal: "₹100",
+      downloadUrl: "https://th7.my/BY1JWS/3gvute0",
+      img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Top Player",
+      tag2: "High Stakes",
+      tag3: "Pro Win",
+      tags: {
+        description: "Top Rummy is a premium rummy app with ₹48 bonus. Play high-stakes games and win big with your skills.",
+        about: "Top Rummy is designed for serious rummy players who want to win big. Competitive tournaments and high rewards.",
+        features: ["Welcome Bonus: ₹48", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "High Stakes"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹48 Bonus"
+        ],
+        faqBonus: "₹48"
+      }
+    }, {
+      name: "New Yono Games",
+      bonus: "₹33",
+      withdrawal: "₹100",
+      downloadUrl: "https://t.me/yonogameswepsate",
+      img: "https://i.ibb.co/p6BTzfRz/1000022725.jpg",
+      category: "Casino",
+      tag1: "New King",
+      tag2: "Fresh Games",
+      tag3: "Big Bonus",
+      tags: {
+        description: "New Yono Games brings fresh casino games with ₹33 welcome bonus. Explore new games and win real cash.",
+        about: "New Yono Games is the latest addition to the Yono family with exciting new games and big bonuses.",
+        features: ["Welcome Bonus: ₹33", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "New Games", "Fast Payouts"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹33 Bonus"
+        ],
+        faqBonus: "₹33"
+      }
+    }, {
+      name: "All Yono games s",
+      bonus: "₹31",
+      withdrawal: "₹100",
+      downloadUrl: "https://t.me/yonogameswepsate",
+      img: "https://i.ibb.co/S7MsNPQ5/1000022725.jpg",
+      category: "Casino",
+      tag1: "All Games",
+      tag2: "Yono Pro",
+      tag3: "Mega Win",
+      tags: {
+        description: "All Yono games s offers a complete gaming package with ₹31 bonus. Access all Yono games in one place.",
+        about: "All Yono games s is your one-stop destination for all Yono gaming experiences. Enjoy variety and big wins.",
+        features: ["Welcome Bonus: ₹31", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "All Games", "Easy Access"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹31 Bonus"
+        ],
+        faqBonus: "₹31"
+      }
+    }, {
+      name: "Hello Rummy",
+      bonus: "₹34",
+      withdrawal: "₹100",
+      downloadUrl: "https://t.me/allyonogamessite",
+      img: "https://i.ibb.co/27DSP5zR/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Hello Win",
+      tag2: "Rummy Fun",
+      tag3: "Quick Cash",
+      tags: {
+        description: "Hello Rummy is a friendly rummy app with ₹34 bonus. Meet new players, play rummy, and win cash prizes.",
+        about: "Hello Rummy creates a welcoming community for rummy players. Enjoy fair play and exciting tournaments.",
+        features: ["Welcome Bonus: ₹34", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Community"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹34 Bonus"
+        ],
+        faqBonus: "₹34"
+      }
+    }, {
+      name: "Rummy 365",
+      bonus: "₹44",
+      withdrawal: "₹100",
+      downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684",
+      img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg",
+      category: "Rummy",
+      tag1: "365 Win",
+      tag2: "Daily Rummy",
+      tag3: "Yearly Cash",
+      tags: {
+        description: "Rummy 365 is your daily rummy companion with ₹44 bonus. Play every day and win real cash rewards.",
+        about: "Rummy 365 offers a year-round rummy experience with daily tournaments and bonuses. Never miss a game.",
+        features: ["Welcome Bonus: ₹44", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Daily Tournaments", "Fair Play"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹44 Bonus"
+        ],
+        faqBonus: "₹44"
+      }
+    }, {
+      name: "Taurus App",
+      bonus: "₹30",
+      withdrawal: "₹100",
+      downloadUrl: "https://th7.my/BY1JWS/3gvute0",
+      img: "https://i.ibb.co/twzhYzz7/taurus-app.jpg",
+      category: "Earn",
+      tag1: "Taurus Earn",
+      tag2: "Task Master",
+      tag3: "Cash Bull",
+      tags: {
+        description: "Taurus App is a earning app with ₹30 signup bonus. Complete tasks, play games, and earn real cash.",
+        about: "Taurus App offers multiple earning opportunities through games and tasks. Simple and rewarding.",
+        features: ["Welcome Bonus: ₹30", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Multiple Tasks", "Easy Earn"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹30 Bonus"
+        ],
+        faqBonus: "₹30"
+      }
+    }, {
+      name: "Teen Patti Gold",
+      bonus: "₹37",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.earntp.com/gold/jm9n7r",
+      img: "https://i.ibb.co/C5XcGXsJ/teen-patti-gold.jpg",
+      category: "Card",
+      tag1: "Gold Card",
+      tag2: "Teen King",
+      tag3: "Cash Game",
+      tags: {
+        description: "Teen Patti Gold is the ultimate card game app with ₹37 bonus. Play Teen Patti with real players and win cash.",
+        about: "Teen Patti Gold brings the classic Indian card game to your phone with real cash rewards. Trusted by millions.",
+        features: ["Welcome Bonus: ₹37", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Multiplayer"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹37 Bonus"
+        ],
+        faqBonus: "₹37"
+      }
+    }, {
+      name: "Teen Patti Master",
+      bonus: "₹20",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.earntp.com/m/jm9n7r",
+      img: "https://i.ibb.co/JjrZjn2n/teen-patti-master.jpg",
+      category: "Card",
+      tag1: "Master Card",
+      tag2: "Pro Teen",
+      tag3: "Big Cash",
+      tags: {
+        description: "Teen Patti Master is a pro-level card game app with ₹20 bonus. Master your skills and win big.",
+        about: "Teen Patti Master is designed for serious card players who want to compete at the highest level.",
+        features: ["Welcome Bonus: ₹20", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Pro Tournaments"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹20 Bonus"
+        ],
+        faqBonus: "₹20"
+      }
+    }, {
+      name: "Yono games",
+      bonus: "₹25",
+      withdrawal: "₹100",
+      downloadUrl: "https://yonorummy043.com/?code=VIPYQC5EE9X&t=1781107758",
+      img: "https://i.ibb.co/zTFDGPpX/yono-rummy.jpg",
+      category: "Rummy",
+      tag1: "Yono Rummy",
+      tag2: "Classic Play",
+      tag3: "Cash Win",
+      tags: {
+        description: "Yono games offers classic rummy with ₹25 welcome bonus. Play and win real cash with Yono.",
+        about: "Yono games is a trusted name in Indian gaming with a focus on rummy and card games.",
+        features: ["Welcome Bonus: ₹25", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Classic Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹25 Bonus"
+        ],
+        faqBonus: "₹25"
+      }
+    }, {
+      name: "Slots Winner",
+      bonus: "₹40",
+      withdrawal: "₹100",
+      downloadUrl: "https://slotswinneri.com/?code=PGVC6CBNF53&t=1781107393",
+      img: "https://i.ibb.co/NdbNBtx7/slots-winner.jpg",
+      category: "Slots",
+      tag1: "Winner Slot",
+      tag2: "Jackpot King",
+      tag3: "Big Spin",
+      tags: {
+        description: "Slots Winner is a top slot gaming app with ₹40 bonus. Spin the reels and become a winner.",
+        about: "Slots Winner offers a premium slot experience with high RTP and exciting jackpots.",
+        features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "High RTP", "Jackpots"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹40 Bonus"
+        ],
+        faqBonus: "₹40"
+      }
+    }, {
+      name: "Good Slots",
+      bonus: "₹15",
+      withdrawal: "₹100",
+      downloadUrl: "https://7sharegoodslots.vip?pid=320806209&channel=2010001&t=pdd2&pkg=com.1",
+      img: "https://i.ibb.co/nq9kMKHZ/good-slots.jpg",
+      category: "Slots",
+      tag1: "Good Spin",
+      tag2: "Easy Win",
+      tag3: "Daily Cash",
+      tags: {
+        description: "Good Slots is a simple and fun slot app with ₹15 bonus. Enjoy casual slot gaming and win real cash.",
+        about: "Good Slots offers a relaxed slot gaming experience with daily rewards and easy gameplay.",
+        features: ["Welcome Bonus: ₹15", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Daily Rewards", "Easy Play"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹15 Bonus"
+        ],
+        faqBonus: "₹15"
+      }
+    }, {
+      name: "Diwa Slot",
+      bonus: "₹50",
+      withdrawal: "₹100",
+      downloadUrl: "https://sharediwaslot1.vip?pid=483455673&channel=2010002&t=pdd2&pkg=com.diwaslotwhl.app",
+      img: "https://i.ibb.co/BKB6QMbD/diwa-slot.jpg",
+      category: "Slots",
+      tag1: "Diwa King",
+      tag2: "Luxury Spin",
+      tag3: "Big Jackpot",
+      tags: {
+        description: "Diwa Slot is a premium slot app with ₹50 bonus. Experience luxury slots and win big.",
+        about: "Diwa Slot brings high-end slot gaming with stunning visuals and big win potential.",
+        features: ["Welcome Bonus: ₹50", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Luxury Slots", "Big Wins"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹50 Bonus"
+        ],
+        faqBonus: "₹50"
+      }
+    }, {
+      name: "GoGo Rummy",
+      bonus: "₹28",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.gogorummyagent.com/?code=V4UTQA2VYMQ&t=1781196694",
+      img: "https://i.ibb.co/Y7dzDP7z/gogo-rummy.jpg",
+      category: "Rummy",
+      tag1: "GoGo Win",
+      tag2: "Fast Rummy",
+      tag3: "Quick Cash",
+      tags: {
+        description: "GoGo Rummy is a fast-paced rummy app with ₹28 bonus. Play quick games and win cash instantly.",
+        about: "GoGo Rummy is designed for players who love fast rummy games with quick payouts.",
+        features: ["Welcome Bonus: ₹28", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fast Games", "Quick Payouts"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹28 Bonus"
+        ],
+        faqBonus: "₹28"
+      }
+    }, {
+      name: "Joy Rummy",
+      bonus: "₹35",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.joyrummymax.com/?code=J5KFTAWJ9X5&t=1781198100",
+      img: "https://i.ibb.co/nqD8CD8W/joy-rummy.jpg",
+      category: "Rummy",
+      tag1: "Joy Win",
+      tag2: "Happy Play",
+      tag3: "Cash Joy",
+      tags: {
+        description: "Joy Rummy is a joyful rummy app with ₹35 bonus. Play with a smile and win real cash.",
+        about: "Joy Rummy creates a happy and engaging rummy environment with fair play and big rewards.",
+        features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Happy Gaming"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹35 Bonus"
+        ],
+        faqBonus: "₹35"
+      }
+    }, {
+      name: "Spin Gold",
+      bonus: "₹22",
+      withdrawal: "₹100",
+      downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
+      img: "https://i.ibb.co/G3QnY0vY/spin-gold.jpg",
+      category: "Spin",
+      tag1: "Gold Spin",
+      tag2: "Golden Win",
+      tag3: "Cash Gold",
+      tags: {
+        description: "Spin Gold is a spin-to-win app with ₹22 bonus. Spin the wheel and win gold.",
+        about: "Spin Gold offers an exciting spin experience with daily rewards and real cash prizes.",
+        features: ["Welcome Bonus: ₹22", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Daily Spins", "Real Cash"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹22 Bonus"
+        ],
+        faqBonus: "₹22"
+      }
+    }, {
+      name: "Bingo 101",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://uono-bingo101.com/?code=3WFQ231H9Y2&t=1781197828",
+      img: "https://i.ibb.co/My9tjNgL/bingo101.jpg",
+      category: "Bingo",
+      tag1: "Bingo King",
+      tag2: "Number Win",
+      tag3: "Cash Bingo",
+      tags: {
+        description: "Bingo 101 is a fun bingo app with ₹45 bonus. Play bingo and win real cash prizes.",
+        about: "Bingo 101 brings the classic bingo game to your phone with exciting rewards and social features.",
+        features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Social Bingo", "Real Cash"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹45 Bonus"
+        ],
+        faqBonus: "₹45"
+      }
+    }, {
+      name: "Yes Spin",
+      bonus: "₹18",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907",
+      img: "https://i.ibb.co/m5qzq7W4/yes-spin.jpg",
+      category: "Spin",
+      tag1: "Yes Win",
+      tag2: "Spin Master",
+      tag3: "Daily Cash",
+      tags: {
+        description: "Yes Spin is a simple spin game with ₹18 bonus. Spin and win every day.",
+        about: "Yes Spin offers a no-fuss spin experience with daily rewards and instant payouts.",
+        features: ["Welcome Bonus: ₹18", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Daily Rewards", "Easy Win"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹18 Bonus"
+        ],
+        faqBonus: "₹18"
+      }
+    }, {
+      name: "Yono Arcade",
+      bonus: "₹32",
+      withdrawal: "₹100",
+      downloadUrl: "https://yonoarcadeapk9.com/?code=96LNEL9FQXZ&t=1781199006",
+      img: "https://i.ibb.co/mCzSG1L7/yono-arcade.jpg",
+      category: "Arcade",
+      tag1: "Arcade King",
+      tag2: "Game Master",
+      tag3: "Cash Play",
+      tags: {
+        description: "Yono Arcade is a fun arcade gaming app with ₹32 bonus. Play arcade games and win cash.",
+        about: "Yono Arcade brings classic arcade games with a modern twist and real cash rewards.",
+        features: ["Welcome Bonus: ₹32", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Arcade Games", "Fun Rewards"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹32 Bonus"
+        ],
+        faqBonus: "₹32"
+      }
+    }, {
+      name: "SVIP 777",
+      bonus: "₹27",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.svip777.life?pid=297924008&channel=2050001&t=pdd2&pkg=com.svip777.h5",
+      img: "https://i.ibb.co/vfWZMLm/svip777.jpg",
+      category: "Casino",
+      tag1: "SVIP King",
+      tag2: "VIP Casino",
+      tag3: "Big Cash",
+      tags: {
+        description: "SVIP 777 is a VIP casino app with ₹27 bonus. Experience premium casino gaming.",
+        about: "SVIP 777 offers an exclusive VIP casino experience with high stakes and big rewards.",
+        features: ["Welcome Bonus: ₹27", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "VIP Experience", "High Stakes"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹27 Bonus"
+        ],
+        faqBonus: "₹27"
+      }
+    }, {
+      name: "OK Rummy",
+      bonus: "₹38",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.okrummy22.com/?code=H2GU92WUXXA&t=1781199220",
+      img: "https://i.ibb.co/99fCMbNC/ok-rummy.jpg",
+      category: "Rummy",
+      tag1: "OK Win",
+      tag2: "Trusted Play",
+      tag3: "Cash Rummy",
+      tags: {
+        description: "OK Rummy is a reliable rummy app with ₹38 bonus. Play confidently and win real cash.",
+        about: "OK Rummy is known for its fair play and secure gaming environment. Trusted by rummy lovers.",
+        features: ["Welcome Bonus: ₹38", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Trusted"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹38 Bonus"
+        ],
+        faqBonus: "₹38"
+      }
+    }, {
+      name: "Hind 777",
+      bonus: "₹42",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.hindi777agent5.com/?code=7LFFR8WPHEG&t=1781199307",
+      img: "https://i.ibb.co/5gf3q0Sh/hind777.jpg",
+      category: "Slots",
+      tag1: "Hind King",
+      tag2: "Desi Slots",
+      tag3: "Big Win",
+      tags: {
+        description: "Hind 777 is a vibrant slot app with ₹42 bonus. Play Indian-themed slots and win big.",
+        about: "Hind 777 celebrates Indian culture with exciting slot games and big winning opportunities.",
+        features: ["Welcome Bonus: ₹42", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Indian Slots", "Big Wins"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹42 Bonus"
+        ],
+        faqBonus: "₹42"
+      }
+    }, {
+      name: "Yono games",
+      bonus: "₹33",
+      withdrawal: "₹100",
+      downloadUrl: "https://th1.my/BY1JWS/3gvute0",
+      img: "https://i.ibb.co/hRrzszPJ/rummy-most.jpg",
+      category: "Rummy",
+      tag1: "Yono Pro",
+      tag2: "Rummy Star",
+      tag3: "Cash King",
+      tags: {
+        description: "Yono games brings you classic rummy with ₹33 bonus. Play and win real cash.",
+        about: "Yono games is a trusted platform for rummy and card games with secure transactions.",
+        features: ["Welcome Bonus: ₹33", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Classic Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹33 Bonus"
+        ],
+        faqBonus: "₹33"
+      }
+    }, {
+      name: "Teen Patti Gold Old",
+      bonus: "₹24",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.earntp.com/gold/jm9n7r",
+      img: "https://i.ibb.co/TBJrKvzv/teen-patti-gold-old.jpg",
+      category: "Card",
+      tag1: "Old Gold",
+      tag2: "Classic Teen",
+      tag3: "Cash Card",
+      tags: {
+        description: "Teen Patti Gold Old version with ₹24 bonus. Classic Teen Patti experience.",
+        about: "Teen Patti Gold Old offers the classic Teen Patti experience with real cash rewards.",
+        features: ["Welcome Bonus: ₹24", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Classic Game", "Fair Play"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹24 Bonus"
+        ],
+        faqBonus: "₹24"
+      }
+    }, {
+      name: "Bet 213",
+      bonus: "₹36",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.bet213.rocks/?code=2QTKPV4BYDH&t=1781199576",
+      img: "https://i.ibb.co/YTqq2C4F/bet213.jpg",
+      category: "Betting",
+      tag1: "Bet King",
+      tag2: "Sports Pro",
+      tag3: "Cash Bet",
+      tags: {
+        description: "Bet 213 is a betting app with ₹36 bonus. Place bets and win real cash.",
+        about: "Bet 213 offers a comprehensive betting experience with multiple sports and games.",
+        features: ["Welcome Bonus: ₹36", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Sports Betting", "Live Odds"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹36 Bonus"
+        ],
+        faqBonus: "₹36"
+      }
+    }, {
+      name: "Teen Patt games",
+      bonus: "₹29",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.earntp.com/m/jm9n7r",
+      img: "https://i.ibb.co/7t3jmgqn/teen-patti.jpg",
+      category: "Card",
+      tag1: "Teen Pro",
+      tag2: "Card Master",
+      tag3: "Cash Game",
+      tags: {
+        description: "Teen Patt games offers a variety of card games with ₹29 bonus. Play and win.",
+        about: "Teen Patt games is your destination for multiple card games with real cash rewards.",
+        features: ["Welcome Bonus: ₹29", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Multiple Games", "Fair Play"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹29 Bonus"
+        ],
+        faqBonus: "₹29"
+      }
+    }, {
+      name: "Teen Patti Master",
+      bonus: "₹31",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.earntp.com/gold/jm9n7r",
+      img: "https://i.ibb.co/LdzWXZYM/all-teen-patti-master.jpg",
+      category: "Card",
+      tag1: "Master Pro",
+      tag2: "Teen King",
+      tag3: "Big Cash",
+      tags: {
+        description: "Teen Patti Master games with ₹31 bonus. Master your card skills and win big.",
+        about: "Teen Patti Master is the ultimate card gaming app for serious players.",
+        features: ["Welcome Bonus: ₹31", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Pro Gaming", "Big Wins"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹31 Bonus"
+        ],
+        faqBonus: "₹31"
+      }
+    }, {
+      name: "Boss Rummy",
+      bonus: "₹40",
+      withdrawal: "₹100",
+      downloadUrl: "https://www.bossrummyy.com/?code=LSHTVUZE1NR&t=1781429504",
+      img: "https://i.ibb.co/fdWgRgxk/1000022725.jpg",
+      category: "Rummy",
+      tag1: "Boss King",
+      tag2: "Rummy Pro",
+      tag3: "Cash Boss",
+      tags: {
+        description: "Boss Rummy is a premium rummy app with ₹40 bonus. Play like a boss and win cash.",
+        about: "Boss Rummy offers a premium rummy experience with competitive tournaments and big rewards.",
+        features: ["Welcome Bonus: ₹40", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Premium Gaming", "Big Rewards"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹40 Bonus"
+        ],
+        faqBonus: "₹40"
+      }
+    }, {
+      name: "Yono 777",
+      bonus: "₹35",
+      withdrawal: "₹100",
+      downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
+      img: "https://i.ibb.co/VWz6S3JB/1000022725.jpg",
+      category: "Slots",
+      tag1: "Yono Lucky",
+      tag2: "777 Spin",
+      tag3: "Jackpot Win",
+      tags: {
+        description: "Yono 777 is a lucky slot app with ₹35 bonus. Spin the reels and win big.",
+        about: "Yono 777 offers a premium slot experience with lucky themes and big jackpots.",
+        features: ["Welcome Bonus: ₹35", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Lucky Slots", "Jackpots"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹35 Bonus"
+        ],
+        faqBonus: "₹35"
+      }
+    }, {
+      name: "Diwa VIP",
+      bonus: "₹60",
+      withdrawal: "₹100",
+      downloadUrl: "https://uono777refer.vip/?code=F9MPSLKZCV9&t=1781429388",
+      img: "https://i.ibb.co/ynsBHKtg/1000022725.jpg",
+      category: "VIP",
+      tag1: "Diwa Elite",
+      tag2: "VIP King",
+      tag3: "Mega Cash",
+      tags: {
+        description: "Diwa VIP is a premium VIP gaming app with ₹60 bonus. Experience luxury gaming.",
+        about: "Diwa VIP offers an exclusive VIP gaming experience with the highest rewards and privileges.",
+        features: ["Welcome Bonus: ₹60", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "VIP Experience", "Exclusive Rewards"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹60 Bonus"
+        ],
+        faqBonus: "₹60"
+      }
+    }, {
+      name: "Diwa 777",
+      bonus: "₹45",
+      withdrawal: "₹100",
+      downloadUrl: "https://sharediwa7771.top?pid=287747863&channel=2010001&t=pdd2&pkg=com.diwa777.app",
+      img: "https://i.ibb.co/Kx2RKNvN/1000022725.jpg",
+      category: "Slots",
+      tag1: "Diwa Lucky",
+      tag2: "777 Spin",
+      tag3: "Jackpot King",
+      tags: {
+        description: "Diwa 777 is a premium slot app with ₹45 bonus. Experience luxury slots and win big.",
+        about: "Diwa 777 brings high-end slot gaming with stunning visuals and massive jackpots.",
+        features: ["Welcome Bonus: ₹45", "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Luxury Slots", "Big Jackpots"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", "Claim ₹45 Bonus"
+        ],
+        faqBonus: "₹45"
+      }
+    }];
 
-        // Helper to get tags for an app (fallback to generic if missing)
-        function getAppTags(app) {
-            if (app.tags) return app.tags;
-            const bonusNum = app.bonus.replace('₹', '');
-            return {
-                description: `Download ${app.name} APK and get ${app.bonus} signup bonus instantly. Play exciting games, win real money, earn daily rewards, and withdraw cash directly via UPI.`,
-                about: `${app.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players.`,
-                features: [`Welcome Bonus: ${app.bonus}`, "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
-                    "Fair Play", "Multiple Games"
-                ],
-                downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
-                    "Register with Mobile", `Claim ${app.bonus} Bonus`
-                ],
-                faqBonus: app.bonus
-            };
-        }
+    function getAppTags(app) {
+      if (app.tags) return app.tags;
+      const bonusNum = app.bonus.replace('₹', '');
+      return {
+        description: `Download ${app.name} APK and get ${app.bonus} signup bonus instantly. Play exciting games, win real money, earn daily rewards, and withdraw cash directly via UPI.`,
+        about: `${app.name} is a popular gaming application in India, offering users an exciting opportunity to earn real money while playing their favorite games. With a user-friendly interface and secure payment system, this app has gained the trust of thousands of players.`,
+        features: [`Welcome Bonus: ${app.bonus}`, "Low Withdrawal: ₹100", "Secure Payments", "24/7 Support",
+          "Fair Play", "Multiple Games"
+        ],
+        downloadSteps: ["Click Download APK", "Enable Unknown Sources", "Install APK",
+          "Register with Mobile", `Claim ${app.bonus} Bonus`
+        ],
+        faqBonus: app.bonus
+      };
+    }
 
-        function getCardStats(appName, bonusAmount) {
-            let hash = 0;
-            for (let i = 0; i < appName.length; i++) {
-                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
-                hash |= 0;
-            }
-            const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
-            const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
-            const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
-            const idx = Math.abs(hash) % ratings.length;
-            const bonusNumeric = bonusAmount.replace('₹', '');
-            return { rating: ratings[idx], size: sizes[idx], votes: votes[idx], bonus: bonusNumeric };
-        }
+    function getCardStats(appName, bonusAmount) {
+      let hash = 0;
+      for (let i = 0; i < appName.length; i++) {
+        hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+        hash |= 0;
+      }
+      const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
+      const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
+      const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+      const idx = Math.abs(hash) % ratings.length;
+      const bonusNumeric = bonusAmount.replace('₹', '');
+      return { rating: ratings[idx], size: sizes[idx], votes: votes[idx], bonus: bonusNumeric };
+    }
 
-        function getAppStats(appName) {
-            let hash = 0;
-            for (let i = 0; i < appName.length; i++) {
-                hash = ((hash << 5) - hash) + appName.charCodeAt(i);
-                hash |= 0;
-            }
-            const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
-            const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
-            const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
-            const idx = Math.abs(hash) % ratings.length;
-            return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
-        }
+    function getAppStats(appName) {
+      let hash = 0;
+      for (let i = 0; i < appName.length; i++) {
+        hash = ((hash << 5) - hash) + appName.charCodeAt(i);
+        hash |= 0;
+      }
+      const ratings = ["4.2", "4.5", "4.7", "4.3", "4.8", "4.6", "4.4", "4.9"];
+      const sizes = ["48 MB", "59 MB", "42 MB", "67 MB", "38 MB", "55 MB", "72 MB", "33 MB"];
+      const votes = ["122K", "222K", "95K", "310K", "178K", "89K", "405K", "150K"];
+      const idx = Math.abs(hash) % ratings.length;
+      return { rating: ratings[idx], size: sizes[idx], votes: votes[idx] };
+    }
 
-        function getFAQ(appName, bonusAmount) {
-            return `
+    function getFAQ(appName, bonusAmount) {
+      return `
             <div class="faq-item">
                 <div class="faq-question">Q.1 What is the ${appName} APK?</div>
                 <div class="faq-answer">The ${appName} APK is an excellent application that offers users a sign-up bonus of ${bonusAmount} when they join. This game includes a fantastic bonus program. Additionally, ${appName} is a popular real-money gaming app with a minimum withdrawal amount of ₹100 and instant UPI payouts.</div>
@@ -2385,27 +2515,26 @@
                 <div class="faq-answer">Features include: ${bonusAmount} free signup bonus, 20+ gaming options, earn up to ₹150 for inviting friends, instant UPI withdrawals, 24/7 customer support, and daily login rewards.</div>
             </div>
             `;
-        }
+    }
 
-        // ===== GENERATE 4 COLOR ICON TAGS =====
-        function generateIconTags(appName, bonusAmount) {
-            const colors = [
-                { cls: 'cyan', label: 'Bonus' },
-                { cls: 'green', label: 'Secure' },
-                { cls: 'yellow', label: 'Fast' },
-                { cls: 'blue', label: 'Trusted' }
-            ];
-            return colors.map(c => `
+    function generateIconTags(appName, bonusAmount) {
+      const colors = [
+        { cls: 'cyan', label: 'Bonus' },
+        { cls: 'green', label: 'Secure' },
+        { cls: 'yellow', label: 'Fast' },
+        { cls: 'blue', label: 'Trusted' }
+      ];
+      return colors.map(c => `
                 <div class="icon-tag ${c.cls}">
                     <div class="gloss"></div>
                     <span class="bonus-text">${bonusAmount}</span>
                     <span class="tag-label">${c.label}</span>
                 </div>
             `).join('');
-        }
+    }
 
-        function getInfoTags(appName, bonusAmount) {
-            return `
+    function getInfoTags(appName, bonusAmount) {
+      return `
             <div class="info-grid">
                 <div class="info-card-box"><div class="info-title" style="color:#ff6f00;">🎁 Welcome Bonus</div><div class="info-value">${bonusAmount}</div></div>
                 <div class="info-card-box"><div class="info-title" style="color:#1565c0;">📦 APK Size</div><div class="info-value">~10-15 MB</div></div>
@@ -2415,22 +2544,21 @@
                 <div class="info-card-box"><div class="info-title" style="color:#1a237e;">🏦 Min Withdraw</div><div class="info-value">₹100 (UPI)</div></div>
             </div>
             `;
-        }
+    }
 
-        let currentSelectedIndex = null;
+    let currentSelectedIndex = null;
 
-        function renderMainGrid() {
-            const gridContainer = document.getElementById('allAppsGrid');
-            if (!gridContainer) return;
-            let html = '';
-            appsData.forEach((app, idx) => {
-                const stats = getCardStats(app.name, app.bonus);
-                const bonusNum = app.bonus.replace('₹', '');
-                // Use tag1, tag2, tag3 from app data or fallback
-                const t1 = app.tag1 || "Tag 1";
-                const t2 = app.tag2 || "Tag 2";
-                const t3 = app.tag3 || "Tag 3";
-                html += `
+    function renderMainGrid() {
+      const gridContainer = document.getElementById('allAppsGrid');
+      if (!gridContainer) return;
+      let html = '';
+      appsData.forEach((app, idx) => {
+        const stats = getCardStats(app.name, app.bonus);
+        const bonusNum = app.bonus.replace('₹', '');
+        const t1 = app.tag1 || "Tag 1";
+        const t2 = app.tag2 || "Tag 2";
+        const t3 = app.tag3 || "Tag 3";
+        html += `
                 <div class="card" data-app-index="${idx}">
                     <div class="card-app-name">${app.name}</div>
                     <div class="card-img">
@@ -2443,7 +2571,6 @@
                         <div class="card-stat"><div class="card-stat-value">${stats.bonus}</div><div class="card-stat-label">Bonus</div></div>
                     </div>
                     <div class="withdrawal-note">🏦 Min Withdrawal: ${app.withdrawal}</div>
-                    <!-- 3 TAG BAGS -->
                     <div class="tag-bags">
                         <div class="tag-bag bag-1">
                             <div class="gloss"></div>
@@ -2461,61 +2588,59 @@
                             <span class="bag-value">${t3}</span>
                         </div>
                     </div>
-                    <!-- 4 Color Icon Tags - Left aligned -->
                     <div class="card-tags-left">
                         ${generateIconTags(app.name, bonusNum)}
                     </div>
                     <button class="download-btn" data-download-index="${idx}">📲 DOWNLOAD</button>
                 </div>
                 `;
-            });
-            gridContainer.innerHTML = html;
+      });
+      gridContainer.innerHTML = html;
 
-            document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const idx = btn.getAttribute('data-download-index');
-                    if (idx !== null) navigateToDownloadPage(parseInt(idx));
-                    e.stopPropagation();
-                });
-            });
-        }
+      document.querySelectorAll('#allAppsGrid .download-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = btn.getAttribute('data-download-index');
+          if (idx !== null) navigateToDownloadPage(parseInt(idx));
+          e.stopPropagation();
+        });
+      });
+    }
 
-        function navigateToDownloadPage(selectedIndex) {
-            currentSelectedIndex = selectedIndex;
-            history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
-            showDownloadPage(selectedIndex);
-        }
+    function navigateToDownloadPage(selectedIndex) {
+      currentSelectedIndex = selectedIndex;
+      history.pushState({ page: 'download', index: selectedIndex }, '', '#download');
+      showDownloadPage(selectedIndex);
+    }
 
-        function showDownloadPage(selectedIndex) {
-            const selectedApp = appsData[selectedIndex];
-            if (!selectedApp) return;
-            const stats = getAppStats(selectedApp.name);
-            const tags = getAppTags(selectedApp);
-            const bonusNumeric = selectedApp.bonus.replace('₹', '');
+    function showDownloadPage(selectedIndex) {
+      const selectedApp = appsData[selectedIndex];
+      if (!selectedApp) return;
+      const stats = getAppStats(selectedApp.name);
+      const tags = getAppTags(selectedApp);
+      const bonusNumeric = selectedApp.bonus.replace('₹', '');
 
-            const description = tags.description || `Download ${selectedApp.name} APK and get ${selectedApp.bonus} signup bonus instantly.`;
-            const aboutHtml = tags.about ? `<p>${tags.about}</p>` : '';
-            const featuresHtml = tags.features ? tags.features.map(f => `<li><strong>${f}</strong></li>`).join('') : '';
-            const downloadStepsHtml = tags.downloadSteps ? tags.downloadSteps.map((s, i) =>
-                `<li><strong>${i+1}.</strong> ${s}</li>`).join('') : '';
-            const faqBonus = tags.faqBonus || bonusNumeric;
+      const description = tags.description || `Download ${selectedApp.name} APK and get ${selectedApp.bonus} signup bonus instantly.`;
+      const aboutHtml = tags.about ? `<p>${tags.about}</p>` : '';
+      const featuresHtml = tags.features ? tags.features.map(f => `<li><strong>${f}</strong></li>`).join('') : '';
+      const downloadStepsHtml = tags.downloadSteps ? tags.downloadSteps.map((s, i) =>
+        `<li><strong>${i+1}.</strong> ${s}</li>`).join('') : '';
+      const faqBonus = tags.faqBonus || bonusNumeric;
 
-            // 3 tags for detail page
-            const t1 = selectedApp.tag1 || "Tag 1";
-            const t2 = selectedApp.tag2 || "Tag 2";
-            const t3 = selectedApp.tag3 || "Tag 3";
+      const t1 = selectedApp.tag1 || "Tag 1";
+      const t2 = selectedApp.tag2 || "Tag 2";
+      const t3 = selectedApp.tag3 || "Tag 3";
 
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
+      const gridDiv = document.getElementById('allAppsGrid');
+      const downloadContainer = document.getElementById('downloadPageContainer');
 
-            gridDiv.classList.add('hidden');
-            downloadContainer.classList.remove('hidden');
+      gridDiv.classList.add('hidden');
+      downloadContainer.classList.remove('hidden');
 
-            const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
-            let otherAppsHtml = '';
-            otherApps.forEach((app) => {
-                const originalIndex = appsData.findIndex(a => a.name === app.name);
-                otherAppsHtml += `
+      const otherApps = appsData.filter((_, idx) => idx !== selectedIndex);
+      let otherAppsHtml = '';
+      otherApps.forEach((app) => {
+        const originalIndex = appsData.findIndex(a => a.name === app.name);
+        otherAppsHtml += `
                 <div class="other-card">
                     <div class="card-img" style="width: 60px; height: 60px; margin-bottom: 8px;">
                         <img src="${app.img}" alt="${app.name}" loading="lazy" decoding="async" width="60" height="60" onerror="this.src='https://via.placeholder.com/60?text=App'">
@@ -2526,9 +2651,9 @@
                     <button class="small-download" data-other-index="${originalIndex}">📲 DOWNLOAD</button>
                 </div>
                 `;
-            });
+      });
 
-            const downloadPageHtml = `
+      const downloadPageHtml = `
             <div class="download-page" id="activeDownloadPage">
                 <div class="download-header">
                     <h2>📥 ${selectedApp.name} APK</h2>
@@ -2552,7 +2677,6 @@
                     </div>
                     ${getInfoTags(selectedApp.name, selectedApp.bonus)}
 
-                    <!-- 3 TAG BAGS in detail page -->
                     <div style="background: #f0f9f0; border-radius: 32px; padding: 16px 20px; margin: 16px 0;">
                         <h4 style="color: #1e562a; font-size: 1rem; margin-bottom: 12px;">🏷️ App Tags</h4>
                         <div class="tag-bags" style="margin:0;">
@@ -2574,7 +2698,6 @@
                         </div>
                     </div>
 
-                    <!-- 4 Color Icon Tags in detail -->
                     <div class="icon-tag-group" style="margin:16px 0;">
                         ${generateIconTags(selectedApp.name, bonusNumeric)}
                     </div>
@@ -2647,93 +2770,93 @@
             </div>
             `;
 
-            downloadContainer.innerHTML = downloadPageHtml;
+      downloadContainer.innerHTML = downloadPageHtml;
 
-            document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const otherIdx = btn.getAttribute('data-other-index');
-                    if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
-                    e.stopPropagation();
-                });
-            });
-
-            setTimeout(() => {
-                const topSection = document.getElementById('topDownloadSection');
-                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
-
-        function goToMainGrid() {
-            const gridDiv = document.getElementById('allAppsGrid');
-            const downloadContainer = document.getElementById('downloadPageContainer');
-            if (gridDiv && downloadContainer) {
-                gridDiv.classList.remove('hidden');
-                downloadContainer.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            currentSelectedIndex = null;
-        }
-
-        window.addEventListener('popstate', (event) => {
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-                return;
-            }
-            if (event.state && event.state.page === 'download') {
-                showDownloadPage(event.state.index);
-            } else {
-                goToMainGrid();
-            }
+      document.querySelectorAll('#otherAppsGrid .small-download').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const otherIdx = btn.getAttribute('data-other-index');
+          if (otherIdx !== null) navigateToDownloadPage(parseInt(otherIdx));
+          e.stopPropagation();
         });
+      });
 
-        history.replaceState({ page: 'main' }, '', window.location.pathname);
+      setTimeout(() => {
+        const topSection = document.getElementById('topDownloadSection');
+        if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
 
-        function resetToMainGrid() {
-            if (customModal.style.display === 'flex') {
-                closeModalAndResetHistory();
-            }
-            history.replaceState({ page: 'main' }, '', window.location.pathname);
-            goToMainGrid();
-        }
+    function goToMainGrid() {
+      const gridDiv = document.getElementById('allAppsGrid');
+      const downloadContainer = document.getElementById('downloadPageContainer');
+      if (gridDiv && downloadContainer) {
+        gridDiv.classList.remove('hidden');
+        downloadContainer.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      currentSelectedIndex = null;
+    }
 
-        const customModal = document.getElementById('customInfoModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
-        const closeModalBtn = document.getElementById('closeInfoModal');
-        const infoCloseBtn = document.getElementById('infoCloseBtn');
+    window.addEventListener('popstate', (event) => {
+      if (customModal.style.display === 'flex') {
+        closeModalAndResetHistory();
+        return;
+      }
+      if (event.state && event.state.page === 'download') {
+        showDownloadPage(event.state.index);
+      } else {
+        goToMainGrid();
+      }
+    });
 
-        function showInfoModal(title, contentHtml) {
-            modalTitle.innerText = title;
-            modalBody.innerHTML = contentHtml;
-            customModal.style.display = 'flex';
-            history.pushState({ modal: true }, '');
-        }
+    history.replaceState({ page: 'main' }, '', window.location.pathname);
 
-        function closeModalAndResetHistory() {
-            customModal.style.display = 'none';
-            history.replaceState({ page: 'main' }, '', window.location.pathname);
-        }
+    function resetToMainGrid() {
+      if (customModal.style.display === 'flex') {
+        closeModalAndResetHistory();
+      }
+      history.replaceState({ page: 'main' }, '', window.location.pathname);
+      goToMainGrid();
+    }
 
-        closeModalBtn.addEventListener('click', () => {
-            closeModalAndResetHistory();
-        });
-        infoCloseBtn.addEventListener('click', () => {
-            closeModalAndResetHistory();
-        });
+    const customModal = document.getElementById('customInfoModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModalBtn = document.getElementById('closeInfoModal');
+    const infoCloseBtn = document.getElementById('infoCloseBtn');
 
-        window.addEventListener('click', (e) => {
-            if (e.target === customModal) {
-                closeModalAndResetHistory();
-            }
-        });
+    function showInfoModal(title, contentHtml) {
+      modalTitle.innerText = title;
+      modalBody.innerHTML = contentHtml;
+      customModal.style.display = 'flex';
+      history.pushState({ modal: true }, '');
+    }
 
-        document.getElementById('homeNavLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            resetToMainGrid();
-        });
+    function closeModalAndResetHistory() {
+      customModal.style.display = 'none';
+      history.replaceState({ page: 'main' }, '', window.location.pathname);
+    }
 
-        document.getElementById('navAbout').addEventListener('click', () => {
-            showInfoModal(' About - INR Rummy Platform', `
+    closeModalBtn.addEventListener('click', () => {
+      closeModalAndResetHistory();
+    });
+    infoCloseBtn.addEventListener('click', () => {
+      closeModalAndResetHistory();
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === customModal) {
+        closeModalAndResetHistory();
+      }
+    });
+
+    document.getElementById('homeNavLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      resetToMainGrid();
+    });
+
+    document.getElementById('navAbout').addEventListener('click', () => {
+      showInfoModal(' About - INR Rummy Platform', `
             <p><strong>Welcome to INR Rummy Platform</strong> – a comprehensive hub created dedicated to enhancing digital experiences for everyone. At the heart of our mission lies the commitment to empower users with access to a wide range of applications, mirroring the global accessibility of platforms like the renowned app marketplaces, but with a unique focus on Indian users.</p>
             <p>Our journey began with a simple yet powerful vision: to revolutionize the way people discover and download apps. We recognize the evolving needs of the digital age and strive to meet them by offering an extensive selection of applications. From utility and productivity apps to entertainment and lifestyle options, our platform is a one-stop destination for all your app needs.</p>
             <p>We are not just about providing access to apps; we are about fostering a community where knowledge about the latest digital tools is shared and celebrated. Our platform is designed to be user-friendly, ensuring a seamless experience for everyone, from tech-savvy individuals to those just starting their digital journey.</p>
@@ -2743,10 +2866,10 @@
             <p><strong>🎯 Our Mission</strong><br> To provide the best gaming and app experience for Indian users with secure downloads and reliable service.</p>
             <p><strong>🔒 Secure Downloads</strong><br> All apps are verified and safe only.</p>
             `);
-        });
+    });
 
-        document.getElementById('navContact').addEventListener('click', () => {
-            showInfoModal('📞 Contact Us - INR Rummy Platform', `
+    document.getElementById('navContact').addEventListener('click', () => {
+      showInfoModal('📞 Contact Us - INR Rummy Platform', `
             <p><strong>INR Rummy Platform</strong> - We do not provide Customer Support for Listed Apps/Games. If you encounter any problems, please contact the support option within those games. Because the Listed Games/Apps are not ours. We do not own those games.</p>
             <p style="margin-top: 20px;"><strong style="color: #d50000;">📢 Advertisement/Business Queries</strong><br> If you are a game maker company, operator, or administrator, and you want to promote your application through our website, you can contact us through the contact details given below and discuss promotion and cooperation.</p>
             <table class="contact-table">
@@ -2756,10 +2879,10 @@
             </table>
             <p style="margin-top: 16px; background: linear-gradient(135deg, #ff4081, #ff8c00); padding: 10px; border-radius: 12px; color: white; font-weight: 600; text-align: center;"> ⚡ You can directly contact us through Email as given in the Table above, and can deal with us. </p>
             `);
-        });
+    });
 
-        document.getElementById('navDisclaimer').addEventListener('click', () => {
-            showInfoModal(' Disclaimer - INR Rummy Platform', `
+    document.getElementById('navDisclaimer').addEventListener('click', () => {
+      showInfoModal(' Disclaimer - INR Rummy Platform', `
             <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 12px; border-radius: 16px; margin-bottom: 16px; text-align: center;">
                 <h3 style="color: #b45900; font-weight: 800; font-size: 1.4rem;">Welcome to INR Rummy Platform</h3>
             </div>
@@ -2828,12 +2951,13 @@
             </div>
             <div style="margin-top: 20px; text-align: center; background: linear-gradient(90deg, #ff4081, #ff8c00); padding: 8px; border-radius: 30px; color: white; font-weight: 700;"> ⚡ INR Rummy Platform – Your Trusted App Discovery Platform ⚡ </div>
             `);
-        });
+    });
 
-        function init() {
-            renderMainGrid();
-        }
-        init();
-    </script>
+    function init() {
+      renderMainGrid();
+    }
+    init();
+  </script>
+
 </body>
 </html>
